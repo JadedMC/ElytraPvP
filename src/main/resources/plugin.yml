@@ -1,0 +1,6 @@
+name: ElytraPvP
+version: '${project.version}'
+main: net.jadedmc.elytrapvp.ElytraPvP
+api-version: 1.19
+authors: [ JadedMC ]
+website: http://www.jadedmc.net
