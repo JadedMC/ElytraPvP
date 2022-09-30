@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp;
 
+import net.jadedmc.elytrapvp.listeners.PlayerJoinListener;
 import net.jadedmc.elytrapvp.utils.gui.GUIListeners;
 import net.jadedmc.elytrapvp.utils.scoreboard.ScoreboardListeners;
 import net.jadedmc.elytrapvp.utils.scoreboard.ScoreboardUpdate;
@@ -12,6 +13,9 @@ public final class ElytraPvP extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
+
+        // Game Listeners
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
 
         // Utility Listeners
         Bukkit.getPluginManager().registerEvents(new GUIListeners(), this);
