@@ -15,11 +15,13 @@ public class ArenaManager {
         FileConfiguration arenasConfig = plugin.settingsManager().getArenas();
         ConfigurationSection section = arenasConfig.getConfigurationSection("Arenas");
 
-        for(String arena : section.getKeys(false)) {
-            arenas.add(new Arena(plugin, arena));
+        if(section != null) {
+            for(String arena : section.getKeys(false)) {
+                arenas.add(new Arena(plugin, arena));
+            }
         }
 
-        selectedArena = getArena(plugin.settingsManager().getConfig().getString("Arena"));
+        selectedArena = getArena(plugin.settingsManager().getConfig().getString("SelectedArena"));
     }
 
     /**

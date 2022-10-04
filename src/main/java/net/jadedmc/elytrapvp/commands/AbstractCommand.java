@@ -30,6 +30,8 @@ public abstract class AbstractCommand implements CommandExecutor {
      */
     public static void registerCommands(ElytraPvP pl) {
         plugin = pl;
+
+        new ArenaCMD(pl);
     }
 
     /**

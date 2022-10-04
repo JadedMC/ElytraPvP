@@ -4,3 +4,9 @@ main: net.jadedmc.elytrapvp.ElytraPvP
 api-version: 1.19
 authors: [ JadedMC ]
 website: http://www.jadedmc.net
+
+commands:
+  arena:
+    description: Manages arenas
+    usage: /arena
+    aliases: [arenas]
