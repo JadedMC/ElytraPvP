@@ -19,11 +19,13 @@ public final class ElytraPvP extends JavaPlugin {
     private CustomPlayerManager customPlayerManager;
     private KitManager kitManager;
     private SettingsManager settingsManager;
+    private MySQL mySQL;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
         settingsManager = new SettingsManager(this);
+        mySQL = new MySQL(this);
         arenaManager = new ArenaManager(this);
         kitManager = new KitManager(this);
         customPlayerManager = new CustomPlayerManager(this);
@@ -54,6 +56,10 @@ public final class ElytraPvP extends JavaPlugin {
 
     public KitManager kitManager() {
         return kitManager;
+    }
+
+    public MySQL mySQL() {
+        return mySQL;
     }
 
     public SettingsManager settingsManager() {
