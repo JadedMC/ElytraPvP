@@ -1,1 +1,28 @@
-Arenas: []
+Arenas:
+  1:
+    Name: "TBD"
+    Spawn:
+      World: world
+      X: -12.5
+      Y: 103.5
+      Z: 0.5
+      Yaw: 90
+      Pitch: 0
+    Bounds:
+      Pos1:
+        World: world
+        X: 100
+        Y: 100
+        Z: -100
+      Pos2:
+        World: world
+        X: -100
+        Y: 0
+        Z: 100
+      DeathBlocks:
+        - SAND
+        - MOSS_BLOCK
+        - STONE
+        - COBBLESTONE
+        - ANDESITE
+        - JUNGLE_LEAVES
