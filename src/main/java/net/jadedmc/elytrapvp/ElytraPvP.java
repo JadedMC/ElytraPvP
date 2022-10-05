@@ -4,6 +4,8 @@ import net.jadedmc.elytrapvp.commands.AbstractCommand;
 import net.jadedmc.elytrapvp.game.arena.ArenaManager;
 import net.jadedmc.elytrapvp.listeners.FoodLevelChangeListener;
 import net.jadedmc.elytrapvp.listeners.PlayerJoinListener;
+import net.jadedmc.elytrapvp.listeners.PlayerQuitListener;
+import net.jadedmc.elytrapvp.player.CustomPlayerManager;
 import net.jadedmc.elytrapvp.settings.SettingsManager;
 import net.jadedmc.elytrapvp.utils.gui.GUIListeners;
 import net.jadedmc.elytrapvp.utils.scoreboard.ScoreboardListeners;
@@ -13,6 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ElytraPvP extends JavaPlugin {
     private ArenaManager arenaManager;
+    private CustomPlayerManager customPlayerManager;
     private SettingsManager settingsManager;
 
     @Override
@@ -20,13 +23,15 @@ public final class ElytraPvP extends JavaPlugin {
         // Plugin startup logic
         settingsManager = new SettingsManager(this);
         arenaManager = new ArenaManager(this);
+        customPlayerManager = new CustomPlayerManager(this);
 
         // Commands
         AbstractCommand.registerCommands(this);
 
         // Game Listeners
         Bukkit.getPluginManager().registerEvents(new FoodLevelChangeListener(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(this), this);
 
         // Utility Listeners
         Bukkit.getPluginManager().registerEvents(new GUIListeners(), this);
@@ -38,6 +43,10 @@ public final class ElytraPvP extends JavaPlugin {
 
     public ArenaManager arenaManager() {
         return arenaManager;
+    }
+
+    public CustomPlayerManager customPlayerManager() {
+        return customPlayerManager;
     }
 
     public SettingsManager settingsManager() {
