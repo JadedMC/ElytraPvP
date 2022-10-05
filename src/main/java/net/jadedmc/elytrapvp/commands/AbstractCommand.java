@@ -32,6 +32,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         plugin = pl;
 
         new ArenaCMD(pl);
+        new KitsCMD(pl);
     }
 
     /**

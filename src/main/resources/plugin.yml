@@ -10,3 +10,6 @@ commands:
     description: Manages arenas
     usage: /arena
     aliases: [arenas]
+  kits:
+    description: Opens the kit selector menu.
+    usage: /kits
