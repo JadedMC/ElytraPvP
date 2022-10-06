@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 public class SniperKit extends Kit {
 
     public SniperKit() {
-        super("Sniper", 1);
+        super("Sniper", "sniper");
 
         setPrice(0);
         setHealth(12);

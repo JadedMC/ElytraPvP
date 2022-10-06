@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 public class TeleporterKit extends Kit {
 
     public TeleporterKit() {
-        super("Teleporter", 9);
+        super("Teleporter", "teleporter");
 
         setIcon(Material.ENDER_PEARL);
         setDescription("Confuse your enemies with ender pearls.");

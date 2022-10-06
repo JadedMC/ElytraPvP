@@ -8,7 +8,7 @@ import org.bukkit.enchantments.Enchantment;
 public class LauncherKit extends Kit {
 
     public LauncherKit() {
-        super("Launcher", 6);
+        super("Launcher", "launcher");
 
         setIcon(Material.SLIME_BALL);
         setDescription("Dominate the planes with a knockback stick.");

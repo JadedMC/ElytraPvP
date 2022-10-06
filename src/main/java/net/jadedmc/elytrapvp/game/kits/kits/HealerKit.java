@@ -11,7 +11,7 @@ import org.bukkit.potion.PotionEffectType;
 public class HealerKit extends Kit {
 
     public HealerKit() {
-        super("Healer", 8);
+        super("Healer", "healer");
 
         setIcon(Material.GOLDEN_APPLE);
         setDescription("Regenerate health faster to outlive your opponents.");

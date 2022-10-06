@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 public class SpectralKit extends Kit {
 
     public SpectralKit() {
-        super("Spectral", 10);
+        super("Spectral", "spectral");
 
         setIcon(Material.SPECTRAL_ARROW);
         setDescription("Keep track of your enemies with spectral arrows.");

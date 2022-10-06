@@ -11,7 +11,7 @@ import org.bukkit.potion.PotionEffectType;
 public class PyroKit extends Kit {
 
     public PyroKit() {
-        super("Pyro", 3);
+        super("Pyro", "pyro");
 
         setPrice(0);
         setIcon(Material.FLINT_AND_STEEL);

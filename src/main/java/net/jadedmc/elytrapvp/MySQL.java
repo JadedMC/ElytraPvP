@@ -51,7 +51,7 @@ public class MySQL {
             try {
                 PreparedStatement elytrapvp_players = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_players (" +
                         "uuid VARCHAR(36)," +
-                        "kit VARCHAR(24)," +
+                        "kit VARCHAR(24) DEFAULT 'none'," +
                         "coins INT DEFAULT 0," +
                         "bounty INT DEFAULT 0," +
                         "PRIMARY KEY (uuid)" +
@@ -72,6 +72,18 @@ public class MySQL {
                         "PRIMARY KEY (uuid)" +
                         ");");
                 elytrapvp_kit_editor.execute();
+
+                PreparedStatement elytrapvp_kit_statistics = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_kit_statistics (" +
+                        "uuid VARCHAR(36)," +
+                        "kit VARCHAR(24)," +
+                        "kills INT DEFAULT 0," +
+                        "deaths INT DEFAULT 0," +
+                        "killStreak INT DEFAULT 0," +
+                        "bestKillStreak INT DEFAULT 0," +
+                        "fireworksUsed INT DEFAULT 0," +
+                        "drops INT DEFAULT 0" +
+                        ");");
+                elytrapvp_kit_statistics.execute();
             }
             catch (SQLException exception) {
                 exception.printStackTrace();

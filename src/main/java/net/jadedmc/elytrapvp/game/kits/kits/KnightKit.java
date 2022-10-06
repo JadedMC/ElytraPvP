@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 public class KnightKit extends Kit {
 
     public KnightKit() {
-        super("Knight", 2);
+        super("Knight", "knight");
 
         setPrice(0);
         setIcon(Material.STONE_SWORD);

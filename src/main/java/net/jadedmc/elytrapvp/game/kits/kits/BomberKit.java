@@ -14,7 +14,7 @@ import org.bukkit.potion.PotionEffectType;
 public class BomberKit extends Kit {
 
     public BomberKit() {
-        super("Bomber", 7);
+        super("Bomber", "bomber");
 
         setIcon(Material.TNT);
         setDescription("Blow your competition away with explosive fireworks.");

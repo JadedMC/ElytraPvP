@@ -12,7 +12,7 @@ import org.bukkit.potion.PotionEffectType;
 public class ChemistKit extends Kit {
 
     public ChemistKit() {
-        super("Chemist", 5);
+        super("Chemist", "chemist");
 
         setIcon(Material.NETHER_WART);
         setDescription("Force your opponents into submission with a splash potion.");

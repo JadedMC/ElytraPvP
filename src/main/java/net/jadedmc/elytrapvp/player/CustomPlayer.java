@@ -1,201 +1,390 @@
 package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import net.jadedmc.elytrapvp.game.kits.Kit;
 
-/**
- * A wrapper for the player object, including
- * custom data.
- */
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+
 public class CustomPlayer {
     private final ElytraPvP plugin;
-    public final UUID uuid;
+    private final UUID uuid;
+    private String kit;
 
-    private int kit, hat, killMessage, tag, arrowTrail = 0;
-    private final Set<Integer> kits = new HashSet<>();
-    private int kills, deaths, killStreak, bestKillStreak, coins, bounty = 0;
+    // Achievements
+    private final List<String> challengeAchievements = new ArrayList<>();
+    private final Map<String, Integer> tieredAchievements = new HashMap<>();
 
-    /**
-     * Load the player's data.
-     * @param plugin Instance of the plugin.
-     * @param uuid UUID of the player.
-     */
+    // Kits
+    private final List<String> unlockedKits = new ArrayList<>();
+
+    // Statistics
+    private int coins;
+    private int bounty;
+    private int lifetimeCoins;
+    private int lifetimeBountyHad;
+    private int lifetimeBountyClaimed;
+    private final Map<String, Integer> kills = new HashMap<>();
+    private final Map<String, Integer> deaths = new HashMap<>();
+    private final Map<String, Integer> killStreak = new HashMap<>();
+    private final Map<String, Integer> bestKillStreak = new HashMap<>();
+    private final Map<String, Integer> fireworksUsed = new HashMap<>();
+    private final Map<String, Integer> drops = new HashMap<>();
+
+    // Kit Editor
+    private final Map<String, Map<Integer, Integer>> kitEditor = new HashMap<>();
+
+    // Settings
+    private boolean showAllDeaths = true;
+    private boolean showParticles = true;
+    private boolean showScoreboard = true;
+
     public CustomPlayer(ElytraPvP plugin, UUID uuid) {
         this.plugin = plugin;
         this.uuid = uuid;
+
+        // Run database operations async.
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+
+                // elytrapvp_players
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * from elytrapvp_players WHERE uuid = ? LIMIT 1");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    if(resultSet.next()) {
+                        kit = resultSet.getString(2);
+                        coins = resultSet.getInt(3);
+                        bounty = resultSet.getInt(4);
+                    }
+                    else {
+                        PreparedStatement insert = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_players (uuid) VALUES (?)");
+                        insert.setString(1, uuid.toString());
+                        insert.executeUpdate();
+                    }
+                }
+
+                // elytrapvp_kits
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * from elytrapvp_kits WHERE uuid = ?");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    while(resultSet.next()) {
+                        unlockedKits.add(resultSet.getString(2));
+                    }
+                }
+
+                // elytrapvp_kit_statistics
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_kit_statistics WHERE uuid = ?");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    while(resultSet.next()) {
+                        String kit = resultSet.getString(2);
+                        kills.put(kit, resultSet.getInt(3));
+                        deaths.put(kit, resultSet.getInt(4));
+                        killStreak.put(kit, resultSet.getInt(5));
+                        bestKillStreak.put(kit, resultSet.getInt(6));
+                        fireworksUsed.put(kit, resultSet.getInt(7));
+                        drops.put(kit, resultSet.getInt(8));
+                    }
+                }
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
-    /**
-     * Add bounty to the player.
-     * @param bounty Bounty to add.
-     */
-    public void addBounty(int bounty) {
-        setBounty(getBounty() + bounty);
-    }
-
-    /**
-     * Add coins to the player.
-     * @param coins Coins to add.
-     */
     public void addCoins(int coins) {
         setCoins(getCoins() + coins);
     }
 
-    /**
-     * Add a death to the player.
-     */
-    public void addDeath() {
-        setDeaths(getDeaths() + 1);
-        setKillStreak(0);
+    public void addDeath(Kit kit) {
+        setDeaths("global", getDeaths("global") + 1);
+        setDeaths(kit.getId(), getDeaths(kit.getId()) + 1);
+
+        setKillStreak("global", 0);
+        setKillStreak(kit.getId(), 0);
     }
 
-    /**
-     * Add a kill to the player.
-     */
-    public void addKill() {
-        setKills(getKills() + 1);
-        setKillStreak(getKillStreak() + 1);
+    public void addKill(Kit kit) {
+        // Increments kill counter.
+        setKills("global", getKills("global") + 1);
+        setKills(kit.getId(), getKills(kit.getId()) + 1);
+
+        // Increments kill streak.
+        setKillStreak("global", getKillStreak("global") + 1);
+        setKillStreak(kit.getId(), getKillStreak(kit.getId()) + 1);
+
+        // Updates best kill streak.
+        if(getKillStreak("global") > getBestKillStreak("global")) {
+            setBestKillStreak("global", getKillStreak("global"));
+        }
+
+        if(getKillStreak(kit.getId()) > getBestKillStreak(kit.getId())) {
+            setBestKillStreak(kit.getId(), getKillStreak(kit.getId()));
+        }
     }
 
-    /**
-     * Get the best kill streak.
-     * @return Best kill streak.
-     */
-    public int getBestKillStreak() {
-        return bestKillStreak;
+    public int getBestKillStreak(String kit) {
+        if(bestKillStreak.containsKey(kit)) {
+            return bestKillStreak.get(kit);
+        }
+
+        return 0;
     }
 
-    /**
-     * Get the current bounty.
-     * @return Bounty.
-     */
     public int getBounty() {
         return bounty;
     }
 
-    /**
-     * Get the current coins.
-     * @return Coins.
-     */
     public int getCoins() {
         return coins;
     }
 
-    /**
-     * Get the current deaths.
-     * @return Current deaths.
-     */
-    public int getDeaths() {
-        return deaths;
-    }
-
-    /**
-     * Get the current kills of the player.
-     * @return Kills.
-     */
-    public int getKills() {
-        return kills;
-    }
-
-    /**
-     * Get the current kill streak.
-     * @return Current kill streak.
-     */
-    public int getKillStreak() {
-        return killStreak;
-    }
-
-    /**
-     * Get the kit the player is using.
-     * @return Kit player is using.
-     */
-    public int getKit() {
-        return kit;
-    }
-
-    /**
-     * Get unlocked kits.
-     * @return All unlocked kits.
-     */
-    public Set<Integer> getKits() {
-        return kits;
-    }
-
-    /**
-     * Set the bounty of the player.
-     * @param bounty New bounty.
-     */
-    public void setBounty(int bounty) {
-        this.bounty = bounty;
-    }
-
-    /**
-     * Set the coins of the player.
-     * @param coins New coins.
-     */
-    public void setCoins(int coins) {
-        this.coins = coins;
-    }
-
-    /**
-     * Set the best kill streak of the player.
-     * @param bestKillStreak New best kill streak.
-     */
-    public void setBestKillStreak(int bestKillStreak) {
-        this.bestKillStreak = bestKillStreak;
-    }
-
-    /**
-     * Set the deaths of the player.
-     * @param deaths New deaths.
-     */
-    public void setDeaths(int deaths) {
-        this.deaths = deaths;
-    }
-
-    /**
-     * Set the kills of the player.
-     * @param kills New kills.
-     */
-    public void setKills(int kills) {
-        this.kills = kills;
-    }
-
-    /**
-     * Set the kill streak of the player.
-     * @param killStreak New kill streak.
-     */
-    public void setKillStreak(int killStreak) {
-        this.killStreak = killStreak;
-
-        if(killStreak > bestKillStreak) {
-            setBestKillStreak(killStreak);
+    public int getDeaths(String kit) {
+        if(deaths.containsKey(kit)) {
+            return deaths.get(kit);
         }
+
+        return 0;
     }
 
-    /**
-     * Set the kit the player is using.
-     * @param kit New kit.
-     */
-    public void setKit(int kit) {
-        this.kit = kit;
+    public int getDrops(String kit) {
+        if(drops.containsKey(kit)) {
+            return drops.get(kit);
+        }
+
+        return 0;
     }
 
-    /**
-     * Remove coins from the player.
-     * @param coins Coins to be removed.
-     */
+    public int getFireworksUsed(String kit) {
+        if(fireworksUsed.containsKey(kit)) {
+            return fireworksUsed.get(kit);
+        }
+
+        return 0;
+    }
+
+    public int getKills(String kit) {
+        if(kills.containsKey(kit)) {
+            return kills.get(kit);
+        }
+
+        return 0;
+    }
+
+    public int getKillStreak(String kit) {
+        if(killStreak.containsKey(kit)) {
+            return killStreak.get(kit);
+        }
+
+        return 0;
+    }
+
+    public int getLifetimeBountyClaimed() {
+        return lifetimeBountyClaimed;
+    }
+
+    public int getLifetimeBountyHad() {
+        return lifetimeBountyHad;
+    }
+
+    public int getLifetimeCoins() {
+        return lifetimeCoins;
+    }
+
+    public List<String> getUnlockedKits() {
+        return unlockedKits;
+    }
+
     public void removeCoins(int coins) {
         setCoins(getCoins() - coins);
     }
 
-    /**
-     * Unlock a kit.
-     * @param kit Kit to unlock.
-     */
-    public void unlockKit(int kit) {
-        kits.add(kit);
+    public void setBestKillStreak(String kit, int bestKillStreak) {
+        this.bestKillStreak.put(kit, bestKillStreak);
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET bestKillStreak = ? WHERE uuid = ? AND kit = ?");
+                statement.setInt(1, bestKillStreak);
+                statement.setString(2, uuid.toString());
+                statement.setString(3, kit);
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setCoins(int coins) {
+        this.coins = coins;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_players SET coins = ? WHERE uuid = ?");
+                statement.setInt(1, coins);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setDeaths(String kit, int deaths) {
+        this.deaths.put(kit, deaths);
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET deaths = ? WHERE uuid = ? AND kit = ?");
+                statement.setInt(1, deaths);
+                statement.setString(2, uuid.toString());
+                statement.setString(3, kit);
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setDrops(String kit, int drops) {
+        this.drops.put(kit, drops);
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET drops = ? WHERE uuid = ? AND kit = ?");
+                statement.setInt(1, drops);
+                statement.setString(2, uuid.toString());
+                statement.setString(3, kit);
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setFireworksUsed(String kit, int fireworksUsed) {
+        this.fireworksUsed.put(kit, fireworksUsed);
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET fireworksUsed = ? WHERE uuid = ? AND kit = ?");
+                statement.setInt(1, fireworksUsed);
+                statement.setString(2, uuid.toString());
+                statement.setString(3, kit);
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setKills(String kit, int kills) {
+        this.kills.put(kit, kills);
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET kills = ? WHERE uuid = ? AND kit = ?");
+                statement.setInt(1, kills);
+                statement.setString(2, uuid.toString());
+                statement.setString(3, kit);
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setKillStreak(String kit, int killStreak) {
+        this.killStreak.put(kit, killStreak);
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET killStreak = ? WHERE uuid = ? AND kit = ?");
+                statement.setInt(1, killStreak);
+                statement.setString(2, uuid.toString());
+                statement.setString(3, kit);
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setKit(Kit kit) {
+        this.kit = kit.getId();
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_players SET kit = ? WHERE uuid = ?");
+                statement.setString(1, kit.getId());
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void setShowAllDeaths(boolean showAllDeaths) {
+        this.showAllDeaths = showAllDeaths;
+
+        // TODO: MySQL
+    }
+
+    public void setShowParticles(boolean showParticles) {
+        this.showParticles = showParticles;
+
+        // TODO: MySQL
+    }
+
+    public void setShowScoreboard(boolean showScoreboard) {
+        this.showScoreboard = showScoreboard;
+
+        // TODO: MySQL
+    }
+
+    public boolean showAllDeaths() {
+        return showAllDeaths;
+    }
+
+    public boolean showParticles() {
+        return showParticles;
+    }
+
+    public boolean showScoreboard() {
+        return showScoreboard;
+    }
+
+    public void unlockKit(Kit kit) {
+        unlockedKits.add(kit.getId());
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_kits (uuid,kit) VALUES (?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit.getId());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 }

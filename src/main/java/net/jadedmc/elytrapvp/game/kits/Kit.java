@@ -17,7 +17,7 @@ import java.util.Map;
 public abstract class Kit {
     private final String name;
     private String description;
-    private final int id;
+    private final String id;
     private int price;
     private int health;
     private final Map<Integer, ItemStack> items = new HashMap<>();
@@ -29,7 +29,7 @@ public abstract class Kit {
      * @param name Name of the kit.
      * @param id Numerical id of the kit.
      */
-    public Kit(String name, int id) {
+    public Kit(String name, String id) {
         this.name = name;
         this.id = id;
 
@@ -112,7 +112,7 @@ public abstract class Kit {
      * Get the id of the kit.
      * @return Id of the kit.
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 

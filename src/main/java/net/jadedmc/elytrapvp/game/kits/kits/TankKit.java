@@ -11,7 +11,7 @@ import org.bukkit.potion.PotionEffectType;
 public class TankKit extends Kit {
 
     public TankKit() {
-        super("Tank", 4);
+        super("Tank", "tank");
 
         setPrice(0);
         setIcon(Material.IRON_CHESTPLATE);
