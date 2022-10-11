@@ -21,6 +21,6 @@ public class PlayerJoinListener implements Listener {
         plugin.customPlayerManager().addPlayer(player);
 
         // Apply the Custom Scoreboard
-        new GameScoreboard(player);
+        new GameScoreboard(plugin, player);
     }
 }
