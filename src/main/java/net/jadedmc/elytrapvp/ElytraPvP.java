@@ -32,6 +32,7 @@ public final class ElytraPvP extends JavaPlugin {
         AbstractCommand.registerCommands(this);
 
         // Game Listeners
+        Bukkit.getPluginManager().registerEvents(new EntityDamageListener(this), this);
         Bukkit.getPluginManager().registerEvents(new FoodLevelChangeListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerInteractListener(this), this);
