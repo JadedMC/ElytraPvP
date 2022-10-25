@@ -3,9 +3,7 @@ package net.jadedmc.elytrapvp;
 import net.jadedmc.elytrapvp.commands.AbstractCommand;
 import net.jadedmc.elytrapvp.game.arena.ArenaManager;
 import net.jadedmc.elytrapvp.game.kits.KitManager;
-import net.jadedmc.elytrapvp.listeners.FoodLevelChangeListener;
-import net.jadedmc.elytrapvp.listeners.PlayerJoinListener;
-import net.jadedmc.elytrapvp.listeners.PlayerQuitListener;
+import net.jadedmc.elytrapvp.listeners.*;
 import net.jadedmc.elytrapvp.player.CustomPlayerManager;
 import net.jadedmc.elytrapvp.settings.SettingsManager;
 import net.jadedmc.elytrapvp.utils.gui.GUIListeners;
@@ -35,7 +33,10 @@ public final class ElytraPvP extends JavaPlugin {
 
         // Game Listeners
         Bukkit.getPluginManager().registerEvents(new FoodLevelChangeListener(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClickListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerMoveListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(this), this);
 
         // Utility Listeners

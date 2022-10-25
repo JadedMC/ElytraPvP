@@ -33,6 +33,7 @@ public abstract class AbstractCommand implements CommandExecutor {
 
         new ArenaCMD(pl);
         new KitsCMD(pl);
+        new SpawnCMD(pl);
     }
 
     /**

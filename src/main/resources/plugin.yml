@@ -13,3 +13,6 @@ commands:
   kits:
     description: Opens the kit selector menu.
     usage: /kits
+  spawn:
+    description: Teleports back to the arena spawn.
+    usage: /spawn

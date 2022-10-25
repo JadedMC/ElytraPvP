@@ -12,6 +12,7 @@ public class CustomPlayer {
     private final ElytraPvP plugin;
     private final UUID uuid;
     private String kit;
+    private Status status = Status.LOBBY;
 
     // Achievements
     private final List<String> challengeAchievements = new ArrayList<>();
@@ -188,6 +189,10 @@ public class CustomPlayer {
         return 0;
     }
 
+    public String getKit() {
+        return kit;
+    }
+
     public int getLifetimeBountyClaimed() {
         return lifetimeBountyClaimed;
     }
@@ -198,6 +203,10 @@ public class CustomPlayer {
 
     public int getLifetimeCoins() {
         return lifetimeCoins;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 
     public List<String> getUnlockedKits() {
@@ -213,7 +222,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET bestKillStreak = ? WHERE uuid = ? AND kit = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET bestKillStreak = ? WHERE uuid = ? AND kit = ?");
                 statement.setInt(1, bestKillStreak);
                 statement.setString(2, uuid.toString());
                 statement.setString(3, kit);
@@ -230,7 +239,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_players SET coins = ? WHERE uuid = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET coins = ? WHERE uuid = ?");
                 statement.setInt(1, coins);
                 statement.setString(2, uuid.toString());
                 statement.executeUpdate();
@@ -246,7 +255,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET deaths = ? WHERE uuid = ? AND kit = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET deaths = ? WHERE uuid = ? AND kit = ?");
                 statement.setInt(1, deaths);
                 statement.setString(2, uuid.toString());
                 statement.setString(3, kit);
@@ -263,7 +272,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET drops = ? WHERE uuid = ? AND kit = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET drops = ? WHERE uuid = ? AND kit = ?");
                 statement.setInt(1, drops);
                 statement.setString(2, uuid.toString());
                 statement.setString(3, kit);
@@ -280,7 +289,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET fireworksUsed = ? WHERE uuid = ? AND kit = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET fireworksUsed = ? WHERE uuid = ? AND kit = ?");
                 statement.setInt(1, fireworksUsed);
                 statement.setString(2, uuid.toString());
                 statement.setString(3, kit);
@@ -297,7 +306,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET kills = ? WHERE uuid = ? AND kit = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET kills = ? WHERE uuid = ? AND kit = ?");
                 statement.setInt(1, kills);
                 statement.setString(2, uuid.toString());
                 statement.setString(3, kit);
@@ -314,7 +323,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE INTO elytrapvp_kit_statistics SET killStreak = ? WHERE uuid = ? AND kit = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET killStreak = ? WHERE uuid = ? AND kit = ?");
                 statement.setInt(1, killStreak);
                 statement.setString(2, uuid.toString());
                 statement.setString(3, kit);
@@ -331,7 +340,7 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_players SET kit = ? WHERE uuid = ?");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET kit = ? WHERE uuid = ?");
                 statement.setString(1, kit.getId());
                 statement.setString(2, uuid.toString());
                 statement.executeUpdate();
@@ -358,6 +367,10 @@ public class CustomPlayer {
         this.showScoreboard = showScoreboard;
 
         // TODO: MySQL
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public boolean showAllDeaths() {

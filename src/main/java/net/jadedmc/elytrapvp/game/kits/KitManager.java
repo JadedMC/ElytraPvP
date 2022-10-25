@@ -42,6 +42,16 @@ public class KitManager {
         }
     }
 
+    public Kit getKit(String id) {
+        for(Kit kit : kits.values()) {
+            if(kit.getId().equalsIgnoreCase(id)) {
+                return kit;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Get a map of all kits.
      * @return All kits.
