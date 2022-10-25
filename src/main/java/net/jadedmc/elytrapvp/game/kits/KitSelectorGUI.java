@@ -8,6 +8,7 @@ import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.ChatPaginator;
 
@@ -40,6 +41,9 @@ public class KitSelectorGUI extends CustomGUI {
                         .addLore("&7Left Click to Purchase")
                         .addLore("&7Right Click to Preview");
             }
+
+            builder.addFlag(ItemFlag.HIDE_UNBREAKABLE)
+                            .addFlag(ItemFlag.HIDE_ATTRIBUTES);
 
             setItem(slots[i], builder.build(), (p,action) -> {
                 if(action == ClickType.RIGHT) {
