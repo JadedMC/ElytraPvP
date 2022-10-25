@@ -38,17 +38,21 @@ public class PreviewKitGUI extends CustomGUI {
                 .build();
         setItem(0, back, (player, action) -> new KitSelectorGUI(plugin, player).open(player));
 
-        setItem(8, getPotionEffects());
-        setItem(7, new ItemBuilder(Material.APPLE).setDisplayName("&cHealth: " + kit.getHealth()).build());
+        setItem(24, getHealth());
+        setItem(25, getPotionEffects());
     }
 
     /**
      * Fills the gui with empty items. Used for details.
      */
     private void fillers() {
-        List<Integer> slots = Arrays.asList(1,2,3,4,5,6,9,10,11,12,13,14,15,16,17,18,20,22,23,24,26,27,29,30,31,32,33,34,35,36,38,44,45,46,47,48,49,50,51,52,53);
+        List<Integer> slots = Arrays.asList(1,2,3,4,5,6,7,8,45,46,47,48,49,50,51,52,53);
         ItemStack filler = new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE).setDisplayName(" ").build();
         slots.forEach(i -> setItem(i, filler));
+
+        List<Integer> emptySlots = Arrays.asList(28,29,30,31,32,33,34,23,19,20,21);
+        ItemStack emptyItem = new ItemBuilder(Material.RED_STAINED_GLASS_PANE).setDisplayName(" ").build();
+        emptySlots.forEach(i -> setItem(i, emptyItem));
     }
 
     /**
@@ -63,16 +67,23 @@ public class PreviewKitGUI extends CustomGUI {
             case 2:
             case 3:
             case 4:
-                return slot + 39;
+            case 5:
+                return slot + 28;
 
             case 17:
-                return 25;
+                return 23;
 
             case 38:
                 return 19;
 
-            case 40:
+            case 37:
+                return 20;
+
+            case 36:
                 return 21;
+
+            case 40:
+                return 34;
 
             default:
                 return slot;
@@ -90,6 +101,21 @@ public class PreviewKitGUI extends CustomGUI {
             String name = effect.getType().getName().replace("_", "").toLowerCase(Locale.ROOT);
             builder.addLore("&7" + name);
         }
+
+        return builder.build();
+    }
+
+    private ItemStack getHealth() {
+        int hearts = kit.getHealth()/2;
+
+        String health = "&c";
+        for(int i = 0; i < hearts; i++) {
+            health+= "❤";
+        }
+
+        ItemBuilder builder = new ItemBuilder(Material.APPLE)
+                .setDisplayName("&cHealth")
+                .addLore(health);
 
         return builder.build();
     }

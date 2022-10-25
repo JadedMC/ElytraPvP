@@ -19,7 +19,8 @@ public class KitSelectorGUI extends CustomGUI {
     public KitSelectorGUI(ElytraPvP plugin, Player player) {
         super(54, "Kits");
 
-        int[] slots = new int[]{11,12,13,14,15,19,20,21,22,23,24,25,29,30,31,32,33};
+        fillers();
+        int[] slots = new int[]{20,21,22,23,24,28,29,30,31,32,33,34};
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
         int i = 0;
