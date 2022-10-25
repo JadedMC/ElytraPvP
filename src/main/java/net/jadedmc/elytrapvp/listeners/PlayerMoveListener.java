@@ -47,7 +47,7 @@ public class PlayerMoveListener implements Listener {
                     customPlayer.setStatus(Status.ARENA);
                     player.getInventory().clear();
                     kit.apply(player);
-                    customPlayer.setDrops(kit.getId(), customPlayer.getDrops(kit.getId()) + 1);
+                    customPlayer.addDrop(kit);
                     Bukkit.getScheduler().runTaskLater(plugin, () -> player.setGliding(true), 20);
                 }
             }

@@ -114,6 +114,11 @@ public class CustomPlayer {
         setKillStreak(kit.getId(), 0);
     }
 
+    public void addDrop(Kit kit) {
+        setDrops("global", getDrops("global") + 1);
+        setDrops(kit.getId(), getDrops(kit.getId()) + 1);
+    }
+
     public void addKill(Kit kit) {
         // Increments kill counter.
         setKills("global", getKills("global") + 1);
@@ -222,10 +227,10 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET bestKillStreak = ? WHERE uuid = ? AND kit = ?");
-                statement.setInt(1, bestKillStreak);
-                statement.setString(2, uuid.toString());
-                statement.setString(3, kit);
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,bestKillStreak) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit);
+                statement.setInt(3, bestKillStreak);
                 statement.executeUpdate();
             }
             catch (SQLException exception) {
@@ -255,10 +260,10 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET deaths = ? WHERE uuid = ? AND kit = ?");
-                statement.setInt(1, deaths);
-                statement.setString(2, uuid.toString());
-                statement.setString(3, kit);
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,deaths) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit);
+                statement.setInt(3, deaths);
                 statement.executeUpdate();
             }
             catch (SQLException exception) {
@@ -272,10 +277,10 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET drops = ? WHERE uuid = ? AND kit = ?");
-                statement.setInt(1, drops);
-                statement.setString(2, uuid.toString());
-                statement.setString(3, kit);
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,drops) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit);
+                statement.setInt(3, drops);
                 statement.executeUpdate();
             }
             catch (SQLException exception) {
@@ -289,10 +294,10 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET fireworksUsed = ? WHERE uuid = ? AND kit = ?");
-                statement.setInt(1, fireworksUsed);
-                statement.setString(2, uuid.toString());
-                statement.setString(3, kit);
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,fireworksUsed) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit);
+                statement.setInt(3, fireworksUsed);
                 statement.executeUpdate();
             }
             catch (SQLException exception) {
@@ -306,10 +311,10 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET kills = ? WHERE uuid = ? AND kit = ?");
-                statement.setInt(1, kills);
-                statement.setString(2, uuid.toString());
-                statement.setString(3, kit);
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,kills) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit);
+                statement.setInt(3, kills);
                 statement.executeUpdate();
             }
             catch (SQLException exception) {
@@ -323,10 +328,10 @@ public class CustomPlayer {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_kit_statistics SET killStreak = ? WHERE uuid = ? AND kit = ?");
-                statement.setInt(1, killStreak);
-                statement.setString(2, uuid.toString());
-                statement.setString(3, kit);
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,killStreak) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit);
+                statement.setInt(3, killStreak);
                 statement.executeUpdate();
             }
             catch (SQLException exception) {
