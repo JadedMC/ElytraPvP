@@ -61,15 +61,16 @@ public class MySQL {
                 PreparedStatement elytrapvp_kits = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_kits (" +
                         "uuid VARCHAR(36)," +
                         "kit VARCHAR(24)," +
-                        "PRIMARY KEY (uuid)" +
+                        "PRIMARY KEY (uuid, kit)" +
                         ");");
                 elytrapvp_kits.execute();
 
                 PreparedStatement elytrapvp_kit_editor = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_kit_editor (" +
                         "uuid VARCHAR(36)," +
+                        "kit VARCHAR(24)," +
                         "item INT," +
                         "slot INT," +
-                        "PRIMARY KEY (uuid)" +
+                        "PRIMARY KEY (uuid, kit)" +
                         ");");
                 elytrapvp_kit_editor.execute();
 
@@ -81,7 +82,8 @@ public class MySQL {
                         "killStreak INT DEFAULT 0," +
                         "bestKillStreak INT DEFAULT 0," +
                         "fireworksUsed INT DEFAULT 0," +
-                        "drops INT DEFAULT 0" +
+                        "drops INT DEFAULT 0," +
+                        "PRIMARY KEY (uuid, kit)" +
                         ");");
                 elytrapvp_kit_statistics.execute();
             }
