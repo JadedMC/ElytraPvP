@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -8,8 +9,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class SniperKit extends Kit {
 
-    public SniperKit() {
-        super("Sniper", "sniper");
+    public SniperKit(ElytraPvP plugin) {
+        super(plugin, "Sniper", "sniper");
 
         setPrice(0);
         setHealth(12);

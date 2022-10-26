@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -10,8 +11,8 @@ import org.bukkit.potion.PotionEffectType;
 
 public class PyroKit extends Kit {
 
-    public PyroKit() {
-        super("Pyro", "pyro");
+    public PyroKit(ElytraPvP plugin) {
+        super(plugin, "Pyro", "pyro");
 
         setPrice(0);
         setIcon(Material.FLINT_AND_STEEL);

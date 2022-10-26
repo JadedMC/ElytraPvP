@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -8,8 +9,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class KnightKit extends Kit {
 
-    public KnightKit() {
-        super("Knight", "knight");
+    public KnightKit(ElytraPvP plugin) {
+        super(plugin, "Knight", "knight");
 
         setPrice(0);
         setIcon(Material.STONE_SWORD);

@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import net.jadedmc.elytrapvp.utils.item.PotionBuilder;
@@ -11,8 +12,8 @@ import org.bukkit.potion.PotionEffectType;
 
 public class ChemistKit extends Kit {
 
-    public ChemistKit() {
-        super("Chemist", "chemist");
+    public ChemistKit(ElytraPvP plugin) {
+        super(plugin, "Chemist", "chemist");
 
         setIcon(Material.NETHER_WART);
         setDescription("Force your opponents into submission with a splash potion.");

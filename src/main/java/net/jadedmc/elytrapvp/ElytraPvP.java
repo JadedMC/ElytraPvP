@@ -45,7 +45,7 @@ public final class ElytraPvP extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new ScoreboardListeners(), this);
 
         // Utility Tasks
-        new ScoreboardUpdate().runTaskTimer(this, 20L, 20L);
+        new ScoreboardUpdate(this).runTaskTimer(this, 20L, 20L);
     }
 
     public ArenaManager arenaManager() {

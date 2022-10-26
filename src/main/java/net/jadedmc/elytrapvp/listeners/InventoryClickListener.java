@@ -1,7 +1,6 @@
 package net.jadedmc.elytrapvp.listeners;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
-import net.jadedmc.elytrapvp.game.kits.KitSelectorGUI;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
 import org.bukkit.GameMode;
@@ -35,26 +34,6 @@ public class InventoryClickListener implements Listener {
                     return;
                 }
             }
-        }
-
-        if(event.getCurrentItem() == null) {
-            return;
-        }
-
-        switch (event.getCurrentItem().getType()) {
-            case PLAYER_HEAD:
-            case EMERALD:
-            case BOOK:
-            case NETHER_STAR:
-                new KitSelectorGUI(plugin, player).open(player);
-                break;
-
-            default:
-                return;
-        }
-
-        if(customPlayer.getStatus() == Status.LOBBY) {
-            event.setCancelled(true);
         }
     }
 }

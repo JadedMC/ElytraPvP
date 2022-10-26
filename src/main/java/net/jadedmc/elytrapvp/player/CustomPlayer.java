@@ -38,6 +38,7 @@ public class CustomPlayer {
     private final Map<String, Map<Integer, Integer>> kitEditor = new HashMap<>();
 
     // Settings
+    private boolean autoDeploy = true;
     private boolean showAllDeaths = true;
     private boolean showParticles = true;
     private boolean showScoreboard = true;
@@ -79,6 +80,22 @@ public class CustomPlayer {
                     }
                 }
 
+                // elytrapvp_kit_editor
+                {
+                    for(Kit kit : plugin.kitManager().getKits().values()) {
+                        kitEditor.put(kit.getId(), new HashMap<>());
+
+                        PreparedStatement statement3 = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_kit_editor WHERE uuid = ? AND kit = ?");
+                        statement3.setString(1, uuid.toString());
+                        statement3.setString(2, kit.getId());
+                        ResultSet results3 = statement3.executeQuery();
+
+                        while(results3.next()) {
+                            kitEditor.get(kit.getId()).put(results3.getInt("item"), results3.getInt("slot"));
+                        }
+                    }
+                }
+
                 // elytrapvp_kit_statistics
                 {
                     PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_kit_statistics WHERE uuid = ?");
@@ -93,6 +110,25 @@ public class CustomPlayer {
                         bestKillStreak.put(kit, resultSet.getInt(6));
                         fireworksUsed.put(kit, resultSet.getInt(7));
                         drops.put(kit, resultSet.getInt(8));
+                    }
+                }
+
+                // elytrapvp_settings
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_settings WHERE uuid = ? LIMIT 1");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    if(resultSet.next()) {
+                        autoDeploy = resultSet.getBoolean("autoDeploy");
+                        showAllDeaths = resultSet.getBoolean("showAllDeaths");
+                        showParticles = resultSet.getBoolean("showParticles");
+                        showScoreboard = resultSet.getBoolean("showScoreboard");
+                    }
+                    else {
+                        PreparedStatement insert = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_settings (uuid) VALUES (?)");
+                        insert.setString(1, uuid.toString());
+                        insert.executeUpdate();
                     }
                 }
             }
@@ -135,6 +171,26 @@ public class CustomPlayer {
 
         if(getKillStreak(kit.getId()) > getBestKillStreak(kit.getId())) {
             setBestKillStreak(kit.getId(), getKillStreak(kit.getId()));
+        }
+    }
+
+    public boolean autoDeploy() {
+        return autoDeploy;
+    }
+
+    /**
+     * Clear the kit editor of a kit.
+     * @param kit Kit to clear.
+     */
+    private void cleanKitEditor(String kit) {
+        try {
+            PreparedStatement statement3 = plugin.mySQL().getConnection().prepareStatement("DELETE FROM elytrapvp_kit_editor WHERE uuid = ? AND kit = ?");
+            statement3.setString(1, uuid.toString());
+            statement3.setString(2, kit);
+            statement3.executeUpdate();
+        }
+        catch (SQLException exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -198,6 +254,10 @@ public class CustomPlayer {
         return kit;
     }
 
+    public Map<Integer, Integer> getKitEditor(String kit) {
+        return kitEditor.get(kit);
+    }
+
     public int getLifetimeBountyClaimed() {
         return lifetimeBountyClaimed;
     }
@@ -220,6 +280,21 @@ public class CustomPlayer {
 
     public void removeCoins(int coins) {
         setCoins(getCoins() - coins);
+    }
+
+    public void setAutoDeploy(boolean autoDeploy) {
+        this.autoDeploy = autoDeploy;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_settings SET autoDeploy = ? WHERE uuid = ?");
+                statement.setBoolean(1, autoDeploy);
+                statement.setString(2, uuid.toString());
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     public void setBestKillStreak(String kit, int bestKillStreak) {
@@ -359,19 +434,46 @@ public class CustomPlayer {
     public void setShowAllDeaths(boolean showAllDeaths) {
         this.showAllDeaths = showAllDeaths;
 
-        // TODO: MySQL
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_settings SET showAllDeaths = ? WHERE uuid = ?");
+                statement.setBoolean(1, showAllDeaths);
+                statement.setString(2, uuid.toString());
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     public void setShowParticles(boolean showParticles) {
         this.showParticles = showParticles;
 
-        // TODO: MySQL
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_settings SET showParticles = ? WHERE uuid = ?");
+                statement.setBoolean(1, showParticles);
+                statement.setString(2, uuid.toString());
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     public void setShowScoreboard(boolean showScoreboard) {
         this.showScoreboard = showScoreboard;
 
-        // TODO: MySQL
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_settings SET showScoreboard = ? WHERE uuid = ?");
+                statement.setBoolean(1, showScoreboard);
+                statement.setString(2, uuid.toString());
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     public void setStatus(Status status) {
@@ -399,6 +501,34 @@ public class CustomPlayer {
                 statement.setString(1, uuid.toString());
                 statement.setString(2, kit.getId());
                 statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Update the kit editor.
+     * @param kit Kit to update.
+     */
+    public void updateKitEditor(String kit) {
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            cleanKitEditor(kit);
+
+            try {
+                Map<Integer, Integer> map = getKitEditor(kit);
+
+                for(int item : map.keySet()) {
+                    int slot = map.get(item);
+
+                    PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_kit_editor (uuid,kit,item,slot) VALUES (?,?,?,?)");
+                    statement.setString(1, uuid.toString());
+                    statement.setString(2, kit);
+                    statement.setInt(3, item);
+                    statement.setInt(4, slot);
+                    statement.executeUpdate();
+                }
             }
             catch (SQLException exception) {
                 exception.printStackTrace();

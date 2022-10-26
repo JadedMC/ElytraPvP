@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -8,8 +9,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class TeleporterKit extends Kit {
 
-    public TeleporterKit() {
-        super("Teleporter", "teleporter");
+    public TeleporterKit(ElytraPvP plugin) {
+        super(plugin, "Teleporter", "teleporter");
 
         setIcon(Material.ENDER_PEARL);
         setDescription("Confuse your enemies with ender pearls.");

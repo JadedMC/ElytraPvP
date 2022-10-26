@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -10,8 +11,8 @@ import org.bukkit.potion.PotionEffectType;
 
 public class TankKit extends Kit {
 
-    public TankKit() {
-        super("Tank", "tank");
+    public TankKit(ElytraPvP plugin) {
+        super(plugin, "Tank", "tank");
 
         setPrice(0);
         setIcon(Material.IRON_CHESTPLATE);

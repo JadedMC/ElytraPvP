@@ -69,8 +69,7 @@ public class MySQL {
                         "uuid VARCHAR(36)," +
                         "kit VARCHAR(24)," +
                         "item INT," +
-                        "slot INT," +
-                        "PRIMARY KEY (uuid, kit)" +
+                        "slot INT" +
                         ");");
                 elytrapvp_kit_editor.execute();
 
@@ -86,6 +85,17 @@ public class MySQL {
                         "PRIMARY KEY (uuid, kit)" +
                         ");");
                 elytrapvp_kit_statistics.execute();
+
+                PreparedStatement elytrapvp_settings = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_settings (" +
+                        "uuid VARCHAR(36)," +
+                        "autoDeploy BOOLEAN DEFAULT TRUE," +
+                        "showScoreboard BOOLEAN DEFAULT TRUE," +
+                        "showAllDeaths BOOLEAN DEFAULT TRUE," +
+                        "showParticles BOOLEAN DEFAULT TRUE," +
+                        "PRIMARY KEY (uuid)" +
+                        ");");
+                elytrapvp_settings.execute();
+
             }
             catch (SQLException exception) {
                 exception.printStackTrace();

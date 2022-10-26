@@ -48,7 +48,11 @@ public class PlayerMoveListener implements Listener {
                     player.getInventory().clear();
                     kit.apply(player);
                     customPlayer.addDrop(kit);
-                    Bukkit.getScheduler().runTaskLater(plugin, () -> player.setGliding(true), 20);
+                    Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                        if(customPlayer.autoDeploy()) {
+                            player.setGliding(true);
+                        }
+                    }, 20);
                 }
             }
 

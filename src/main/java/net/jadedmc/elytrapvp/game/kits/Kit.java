@@ -1,20 +1,20 @@
 package net.jadedmc.elytrapvp.game.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.player.CustomPlayer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Represents a collection of items and stats
  * used in the game.
  */
 public abstract class Kit {
+    private final ElytraPvP plugin;
     private final String name;
     private String description;
     private final String id;
@@ -29,7 +29,8 @@ public abstract class Kit {
      * @param name Name of the kit.
      * @param id Numerical id of the kit.
      */
-    public Kit(String name, String id) {
+    public Kit(ElytraPvP plugin, String name, String id) {
+        this.plugin = plugin;
         this.name = name;
         this.id = id;
 
@@ -53,9 +54,41 @@ public abstract class Kit {
         effects.forEach(player::addPotionEffect);
 
         // Add the items.
+        /*
         for(int slot : items.keySet()) {
             ItemStack item = items.get(slot);
             player.getInventory().setItem(slot, item);
+        }
+
+         */
+
+        CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+
+        Map<Integer, ItemStack> updatedKit = new HashMap<>();
+        Set<Integer> slotsUsed = new HashSet<>();
+
+        for(int slot : customPlayer.getKitEditor(id).keySet()) {
+            slotsUsed.add(slot);
+            updatedKit.put(slot, items.get(customPlayer.getKitEditor(id).get(slot)));
+        }
+
+        for(int slot : items.keySet()) {
+            if(slotsUsed.contains(slot)) {
+                continue;
+            }
+
+            ItemStack item =  items.get(slot);
+
+            if(updatedKit.containsValue(item)) {
+                continue;
+            }
+
+            updatedKit.put(slot, item);
+        }
+
+        // Give items
+        for(int i : updatedKit.keySet()) {
+            player.getInventory().setItem(i, updatedKit.get(i));
         }
     }
 

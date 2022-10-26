@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -10,8 +11,8 @@ import org.bukkit.potion.PotionEffectType;
 
 public class HealerKit extends Kit {
 
-    public HealerKit() {
-        super("Healer", "healer");
+    public HealerKit(ElytraPvP plugin) {
+        super(plugin, "Healer", "healer");
 
         setIcon(Material.GOLDEN_APPLE);
         setDescription("Regenerate health faster to outlive your opponents.");

@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.FireworkBuilder;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
@@ -13,8 +14,8 @@ import org.bukkit.potion.PotionEffectType;
 
 public class BomberKit extends Kit {
 
-    public BomberKit() {
-        super("Bomber", "bomber");
+    public BomberKit(ElytraPvP plugin) {
+        super(plugin, "Bomber", "bomber");
 
         setIcon(Material.TNT);
         setDescription("Blow your competition away with explosive fireworks.");

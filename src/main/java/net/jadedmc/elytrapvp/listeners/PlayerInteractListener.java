@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.listeners;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.KitSelectorGUI;
+import net.jadedmc.elytrapvp.inventories.SettingsGUI;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
 import org.bukkit.ChatColor;
@@ -59,6 +60,7 @@ public class PlayerInteractListener implements Listener {
                 new KitSelectorGUI(plugin, player).open(player);
                 event.setCancelled(true);
             }
+            case "Settings" -> new SettingsGUI(plugin, player).open(player);
             case "Stats" -> {
                 event.setCancelled(true);
             }

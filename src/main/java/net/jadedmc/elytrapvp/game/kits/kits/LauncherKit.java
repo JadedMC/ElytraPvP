@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -7,8 +8,8 @@ import org.bukkit.enchantments.Enchantment;
 
 public class LauncherKit extends Kit {
 
-    public LauncherKit() {
-        super("Launcher", "launcher");
+    public LauncherKit(ElytraPvP plugin) {
+        super(plugin, "Launcher", "launcher");
 
         setIcon(Material.SLIME_BALL);
         setDescription("Dominate the planes with a knockback stick.");

@@ -4,6 +4,8 @@ import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -81,4 +83,14 @@ public abstract class CustomGUI {
     public interface ClickAction {
         void click(Player player, ClickType type);
     }
+
+    public void onClick(InventoryClickEvent event) {
+        event.setCancelled(true);
+    }
+
+    public void onDrag(InventoryDragEvent event) {
+        event.setCancelled(true);
+    }
+
+    public void onClose(Player p) {}
 }

@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.kits.kits;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
@@ -8,8 +9,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class SpectralKit extends Kit {
 
-    public SpectralKit() {
-        super("Spectral", "spectral");
+    public SpectralKit(ElytraPvP plugin) {
+        super(plugin, "Spectral", "spectral");
 
         setIcon(Material.SPECTRAL_ARROW);
         setDescription("Keep track of your enemies with spectral arrows.");
