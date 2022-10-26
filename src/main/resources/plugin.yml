@@ -13,6 +13,9 @@ commands:
   kits:
     description: Opens the kit selector menu.
     usage: /kits
+  settings:
+    description: Opens the setting menu.
+    usage: /settings
   spawn:
     description: Teleports back to the arena spawn.
     usage: /spawn

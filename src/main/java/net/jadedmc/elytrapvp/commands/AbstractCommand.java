@@ -1,6 +1,7 @@
 package net.jadedmc.elytrapvp.commands;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.inventories.SettingsGUI;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -33,6 +34,7 @@ public abstract class AbstractCommand implements CommandExecutor {
 
         new ArenaCMD(pl);
         new KitsCMD(pl);
+        new SettingsCMD(pl);
         new SpawnCMD(pl);
     }
 
