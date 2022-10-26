@@ -4,9 +4,7 @@ import net.jadedmc.elytrapvp.ElytraPvP;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Manages the creation and access of
@@ -57,6 +55,14 @@ public class CustomPlayerManager {
         }
 
         return new CustomPlayer(plugin, player.getUniqueId());
+    }
+
+    /**
+     * Get a list of all custom player objects,
+     * @return Collection of all custom player objects.
+     */
+    public Collection<CustomPlayer> getCustomPlayers() {
+        return new HashSet<>(players.values());
     }
 
     /**

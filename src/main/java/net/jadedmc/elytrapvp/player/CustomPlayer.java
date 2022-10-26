@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
+import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ public class CustomPlayer {
     private final UUID uuid;
     private String kit;
     private Status status = Status.LOBBY;
+    private DeathType deathType = DeathType.NONE;
 
     // Achievements
     private final List<String> challengeAchievements = new ArrayList<>();
@@ -138,6 +140,10 @@ public class CustomPlayer {
         });
     }
 
+    public void addBounty(int bounty) {
+        setBounty(getBounty() + bounty);
+    }
+
     public void addCoins(int coins) {
         setCoins(getCoins() + coins);
     }
@@ -218,6 +224,10 @@ public class CustomPlayer {
         return 0;
     }
 
+    public DeathType getDeathType() {
+        return deathType;
+    }
+
     public int getDrops(String kit) {
         if(drops.containsKey(kit)) {
             return drops.get(kit);
@@ -270,6 +280,10 @@ public class CustomPlayer {
         return lifetimeCoins;
     }
 
+    public Player getPlayer() {
+        return plugin.getServer().getPlayer(uuid);
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -314,6 +328,22 @@ public class CustomPlayer {
         });
     }
 
+    public void setBounty(int bounty) {
+        this.bounty = bounty;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET bounty = ? WHERE uuid = ?");
+                statement.setInt(1, bounty);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
     public void setCoins(int coins) {
         this.coins = coins;
 
@@ -345,6 +375,10 @@ public class CustomPlayer {
                 exception.printStackTrace();
             }
         });
+    }
+
+    public void setDeathType(DeathType deathType) {
+        this.deathType = deathType;
     }
 
     public void setDrops(String kit, int drops) {
