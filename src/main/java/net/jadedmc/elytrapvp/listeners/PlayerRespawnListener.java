@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.listeners;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
+import net.jadedmc.elytrapvp.player.DeathType;
 import net.jadedmc.elytrapvp.player.Status;
 import net.jadedmc.elytrapvp.utils.item.ItemUtils;
 import org.bukkit.entity.Player;
@@ -22,6 +23,7 @@ public class PlayerRespawnListener implements Listener {
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
         customPlayer.setStatus(Status.LOBBY);
+        customPlayer.setDeathType(DeathType.NONE);
         event.setRespawnLocation(plugin.arenaManager().getSelectedArena().getSpawn());
 
         ItemUtils.giveLobbyItems(player);
