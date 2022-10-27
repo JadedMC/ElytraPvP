@@ -19,10 +19,10 @@ Arenas:
         X: -100
         Y: 0
         Z: 100
-      DeathBlocks:
-        - SAND
-        - MOSS_BLOCK
-        - STONE
-        - COBBLESTONE
-        - ANDESITE
-        - JUNGLE_LEAVES
+    DeathBlocks:
+      - SAND
+      - MOSS_BLOCK
+      - STONE
+      - COBBLESTONE
+      - ANDESITE
+      - JUNGLE_LEAVES
