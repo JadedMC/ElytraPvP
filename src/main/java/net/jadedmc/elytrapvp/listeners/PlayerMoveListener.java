@@ -52,7 +52,7 @@ public class PlayerMoveListener implements Listener {
                 Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
                 Block block2 = player.getLocation().getBlock();
                 // Calls PlayerDrownEvent if player is touching the water.
-                if(block.getType() == Material.WATER || block2.getType() == Material.WATER) {
+                if(block2.getType() == Material.WATER) {
                     if(block.getBlockData() instanceof Levelled data) {
                         if(data.getLevel() > 8) {
                             return;
