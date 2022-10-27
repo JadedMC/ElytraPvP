@@ -296,6 +296,10 @@ public class CustomPlayer {
         setCoins(getCoins() - coins);
     }
 
+    public void resetBounty() {
+        setBounty(0);
+    }
+
     public void setAutoDeploy(boolean autoDeploy) {
         this.autoDeploy = autoDeploy;
 
@@ -311,24 +315,12 @@ public class CustomPlayer {
         });
     }
 
-    public void setBestKillStreak(String kit, int bestKillStreak) {
+    private void setBestKillStreak(String kit, int bestKillStreak) {
         this.bestKillStreak.put(kit, bestKillStreak);
-
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
-            try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,bestKillStreak) VALUES (?,?,?)");
-                statement.setString(1, uuid.toString());
-                statement.setString(2, kit);
-                statement.setInt(3, bestKillStreak);
-                statement.executeUpdate();
-            }
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-        });
+        updateKitStatistics(kit);
     }
 
-    public void setBounty(int bounty) {
+    private void setBounty(int bounty) {
         this.bounty = bounty;
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -344,7 +336,7 @@ public class CustomPlayer {
         });
     }
 
-    public void setCoins(int coins) {
+    private void setCoins(int coins) {
         this.coins = coins;
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -360,93 +352,33 @@ public class CustomPlayer {
         });
     }
 
-    public void setDeaths(String kit, int deaths) {
+    private void setDeaths(String kit, int deaths) {
         this.deaths.put(kit, deaths);
-
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
-            try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,deaths) VALUES (?,?,?)");
-                statement.setString(1, uuid.toString());
-                statement.setString(2, kit);
-                statement.setInt(3, deaths);
-                statement.executeUpdate();
-            }
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-        });
+        updateKitStatistics(kit);
     }
 
     public void setDeathType(DeathType deathType) {
         this.deathType = deathType;
     }
 
-    public void setDrops(String kit, int drops) {
+    private void setDrops(String kit, int drops) {
         this.drops.put(kit, drops);
-
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
-            try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,drops) VALUES (?,?,?)");
-                statement.setString(1, uuid.toString());
-                statement.setString(2, kit);
-                statement.setInt(3, drops);
-                statement.executeUpdate();
-            }
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-        });
+        updateKitStatistics(kit);
     }
 
-    public void setFireworksUsed(String kit, int fireworksUsed) {
+    private void setFireworksUsed(String kit, int fireworksUsed) {
         this.fireworksUsed.put(kit, fireworksUsed);
-
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
-            try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,fireworksUsed) VALUES (?,?,?)");
-                statement.setString(1, uuid.toString());
-                statement.setString(2, kit);
-                statement.setInt(3, fireworksUsed);
-                statement.executeUpdate();
-            }
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-        });
+        updateKitStatistics(kit);
     }
 
-    public void setKills(String kit, int kills) {
+    private void setKills(String kit, int kills) {
         this.kills.put(kit, kills);
-
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
-            try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,kills) VALUES (?,?,?)");
-                statement.setString(1, uuid.toString());
-                statement.setString(2, kit);
-                statement.setInt(3, kills);
-                statement.executeUpdate();
-            }
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-        });
+        updateKitStatistics(kit);
     }
 
-    public void setKillStreak(String kit, int killStreak) {
+    private void setKillStreak(String kit, int killStreak) {
         this.killStreak.put(kit, killStreak);
-
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
-            try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,killStreak) VALUES (?,?,?)");
-                statement.setString(1, uuid.toString());
-                statement.setString(2, kit);
-                statement.setInt(3, killStreak);
-                statement.executeUpdate();
-            }
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-        });
+        updateKitStatistics(kit);
     }
 
     public void setKit(Kit kit) {
@@ -563,6 +495,26 @@ public class CustomPlayer {
                     statement.setInt(4, slot);
                     statement.executeUpdate();
                 }
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    public void updateKitStatistics(String kit) {
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, ()-> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,kills,deaths,killStreak,bestKillStreak,fireworksUsed,drops) VALUES (?,?,?,?,?,?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, kit);
+                statement.setInt(3, getKills(kit));
+                statement.setInt(4, getDeaths(kit));
+                statement.setInt(5, getKillStreak(kit));
+                statement.setInt(6, getBestKillStreak(kit));
+                statement.setInt(7, getFireworksUsed(kit));
+                statement.setInt(8, getDrops(kit));
+                statement.executeUpdate();
             }
             catch (SQLException exception) {
                 exception.printStackTrace();
