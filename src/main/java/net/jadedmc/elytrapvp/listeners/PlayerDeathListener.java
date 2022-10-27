@@ -1,5 +1,8 @@
 package net.jadedmc.elytrapvp.listeners;
 
+import github.scarsz.discordsrv.DiscordSRV;
+import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
+import github.scarsz.discordsrv.util.DiscordUtil;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.DeathType;
@@ -7,10 +10,13 @@ import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+
+import java.awt.*;
 
 import static net.jadedmc.elytrapvp.player.DeathType.*;
 
@@ -26,8 +32,6 @@ public class PlayerDeathListener implements Listener {
         Player player = event.getEntity();
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
         String deathMessage = "&a&lDeath &8» &f" + player.getName() + " &adied.";
-
-        player.setBedSpawnLocation(plugin.arenaManager().getSelectedArena().getSpawn());
 
         customPlayer.addDeath(plugin.kitManager().getKit(customPlayer.getKit()));
 
@@ -58,6 +62,15 @@ public class PlayerDeathListener implements Listener {
 
                     if(killStreak % 3 == 0 && killStreak != 0) {
                         Bukkit.broadcastMessage(ChatUtils.translate("&a&lKill Streak &8» &f" + killer.getName() + " &ais on a kill streak of &f" + killStreak + "&a!"));
+
+                        if(plugin.getServer().getPluginManager().getPlugin("DiscordSRV") != null) {
+                            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+                                EmbedBuilder message = new EmbedBuilder()
+                                        .setAuthor(ChatColor.stripColor("Kill Streak » " + killer.getName() + " is on a kill streak of " + killStreak + "!"), null, "https://crafatar.com/avatars/" + player.getUniqueId())
+                                        .setColor(Color.getColor("#ffd700"));
+                                DiscordSRV.getPlugin().getMainTextChannel().sendMessageEmbeds(message.build()).queue();
+                            });
+                        }
                     }
 
                     if(killStreak % 5 == 0) {
@@ -93,5 +106,14 @@ public class PlayerDeathListener implements Listener {
         }
 
         event.setDeathMessage(null);
+
+        if(plugin.getServer().getPluginManager().getPlugin("DiscordSRV") != null) {
+            String finalDeathMessage = deathMessage;
+            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+                EmbedBuilder message = new EmbedBuilder()
+                        .setAuthor(ChatColor.stripColor(ChatUtils.translate(finalDeathMessage)), null, "https://crafatar.com/avatars/" + player.getUniqueId());
+                DiscordSRV.getPlugin().getMainTextChannel().sendMessageEmbeds(message.build()).queue();
+            });
+        }
     }
 }

@@ -5,6 +5,9 @@ api-version: 1.19
 authors: [ JadedMC ]
 website: http://www.jadedmc.net
 
+softdepend:
+  - DiscordSRV
+
 commands:
   arena:
     description: Manages arenas
