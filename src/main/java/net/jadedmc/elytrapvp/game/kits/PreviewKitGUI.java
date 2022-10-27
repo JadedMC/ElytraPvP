@@ -51,7 +51,7 @@ public class PreviewKitGUI extends CustomGUI {
         slots.forEach(i -> setItem(i, filler));
 
         List<Integer> emptySlots = Arrays.asList(28,29,30,31,32,33,34,23,19,20,21);
-        ItemStack emptyItem = new ItemBuilder(Material.RED_STAINED_GLASS_PANE).setDisplayName(" ").build();
+        ItemStack emptyItem = new ItemBuilder(Material.RED_STAINED_GLASS_PANE).setDisplayName("&cEmpty Slot").build();
         emptySlots.forEach(i -> setItem(i, emptyItem));
     }
 
@@ -90,6 +90,10 @@ public class PreviewKitGUI extends CustomGUI {
         }
     }
 
+    /**
+     * Gets the item that displays the potion effects the kit has.
+     * @return ItemStack showing potion effects.
+     */
     private ItemStack getPotionEffects() {
         ItemBuilder builder = new ItemBuilder(Material.POTION)
                 .setDisplayName("&aPotion Effects")
@@ -105,6 +109,10 @@ public class PreviewKitGUI extends CustomGUI {
         return builder.build();
     }
 
+    /**
+     * Gets the item that shows how much health (in hearts) the kit has.
+     * @return ItemStack showing the kit's health.
+     */
     private ItemStack getHealth() {
         int hearts = kit.getHealth()/2;
 
