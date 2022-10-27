@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.listeners;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.KitSelectorGUI;
+import net.jadedmc.elytrapvp.inventories.CosmeticsGUI;
 import net.jadedmc.elytrapvp.inventories.SettingsGUI;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
@@ -65,6 +66,7 @@ public class PlayerInteractListener implements Listener {
                 event.setCancelled(true);
             }
             case "Cosmetics" -> {
+                new CosmeticsGUI().open(player);
                 event.setCancelled(true);
             }
         }
