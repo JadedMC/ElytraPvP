@@ -24,7 +24,7 @@ public class KnightKit extends Kit {
         addItem(0, sword);
 
         ItemStack bow = new ItemBuilder(Material.BOW)
-                .setDisplayName("&aSniper Bow")
+                .setDisplayName("&aKnight Bow")
                 .setUnbreakable(true)
                 .addEnchantment(Enchantment.ARROW_DAMAGE, 3)
                 .addEnchantment(Enchantment.ARROW_INFINITE, 1)
