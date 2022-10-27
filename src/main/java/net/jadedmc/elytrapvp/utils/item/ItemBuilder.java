@@ -78,6 +78,21 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder addLore(String[] arr, String starter) {
+        List<String> lore = meta.getLore();
+
+        if(lore == null) {
+            lore = new ArrayList<>();
+        }
+
+        for(String str : arr) {
+            lore.add(ChatUtils.translate(starter + str));
+        }
+
+        meta.setLore(lore);
+        return this;
+    }
+
     /**
      * Add multiple lines of lore at once.
      * @param arr String array of lore.

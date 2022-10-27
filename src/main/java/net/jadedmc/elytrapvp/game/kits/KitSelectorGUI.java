@@ -28,7 +28,7 @@ public class KitSelectorGUI extends CustomGUI {
         for(Kit kit : plugin.kitManager().getKits().values()) {
             ItemBuilder builder = new ItemBuilder(kit.getIcon())
                     .setDisplayName("&a" + kit.getName())
-                    .addLore(ChatPaginator.wordWrap("&7" + kit.getDescription(), 35))
+                    .addLore(ChatPaginator.wordWrap(kit.getDescription(), 35), "&7")
                     .addLore("");
 
             if(customPlayer.getUnlockedKits().contains(kit.getId()) || kit.getPrice() == 0) {
