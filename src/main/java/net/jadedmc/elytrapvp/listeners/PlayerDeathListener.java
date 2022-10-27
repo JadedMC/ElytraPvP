@@ -57,7 +57,7 @@ public class PlayerDeathListener implements Listener {
                 Bukkit.getScheduler().runTaskLater(plugin,  () -> {
                     if(customPlayer.getBounty() > 0) {
                         ChatUtils.chat(killer, "&a&lBounty &8» &aYou have killed a wanted player and collected &f" + customPlayer.getBounty() + "&acoins.");
-                        customPlayer.setBounty(0);
+                        customPlayer.resetBounty();
                     }
 
                     if(killStreak % 3 == 0 && killStreak != 0) {
@@ -66,15 +66,15 @@ public class PlayerDeathListener implements Listener {
                         if(plugin.getServer().getPluginManager().getPlugin("DiscordSRV") != null) {
                             Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                                 EmbedBuilder message = new EmbedBuilder()
-                                        .setAuthor(ChatColor.stripColor("Kill Streak » " + killer.getName() + " is on a kill streak of " + killStreak + "!"), null, "https://crafatar.com/avatars/" + player.getUniqueId())
-                                        .setColor(Color.getColor("#ffd700"));
+                                        .setAuthor(ChatColor.stripColor("Kill Streak » " + killer.getName() + " is on a kill streak of " + killStreak + "!"), null, "https://crafatar.com/avatars/" + killer.getUniqueId())
+                                        .setColor(Color.YELLOW);
                                 DiscordSRV.getPlugin().getMainTextChannel().sendMessageEmbeds(message.build()).queue();
                             });
                         }
                     }
 
                     if(killStreak % 5 == 0) {
-                        Bukkit.broadcastMessage(ChatUtils.translate("&a&lBounty &8» &aA bounty of &f10 &acoin has been placed on &f" + killer.getName() + " &afor high kill streak."));
+                        Bukkit.broadcastMessage(ChatUtils.translate("&a&lBounty &8» &aA bounty of &f10 &acoins has been placed on &f" + killer.getName() + " &afor high kill streak."));
                         customKiller.addBounty(10);
                     }
                 }, 1);
