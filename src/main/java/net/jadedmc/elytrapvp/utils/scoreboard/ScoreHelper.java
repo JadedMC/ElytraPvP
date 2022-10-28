@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.utils.scoreboard;
 
+import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -19,7 +20,7 @@ import java.util.UUID;
  */
 public class ScoreHelper {
 
-    private static HashMap<UUID, ScoreHelper> players = new HashMap<>();
+    private static final HashMap<UUID, ScoreHelper> players = new HashMap<>();
 
     public static boolean hasScore(Player player) {
         return players.containsKey(player.getUniqueId());
@@ -37,8 +38,8 @@ public class ScoreHelper {
         return players.remove(player.getUniqueId());
     }
 
-    private Scoreboard scoreboard;
-    private Objective sidebar;
+    private final Scoreboard scoreboard;
+    private final Objective sidebar;
 
     private ScoreHelper(Player player) {
         scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
@@ -54,7 +55,7 @@ public class ScoreHelper {
     }
 
     public void setTitle(String title) {
-        title = ChatColor.translateAlternateColorCodes('&', title);
+        title = ChatUtils.translate(title);
         sidebar.setDisplayName(title.length()>32 ? title.substring(0, 32) : title);
     }
 
@@ -65,9 +66,15 @@ public class ScoreHelper {
             sidebar.getScore(entry).setScore(slot);
         }
 
-        text = ChatColor.translateAlternateColorCodes('&', text);
+        text = ChatUtils.translate(text);
         String pre = getFirstSplit(text);
         String suf = getFirstSplit(ChatColor.getLastColors(pre) + getSecondSplit(text));
+
+        if(pre.length() > 0 && pre.charAt(pre.length() - 1) == '§') {
+            pre = pre.substring(0, 15);
+            suf = ChatUtils.translate("&" + suf.substring(2));
+        }
+
         team.setPrefix(pre);
         team.setSuffix(suf);
     }

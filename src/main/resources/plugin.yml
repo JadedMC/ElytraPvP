@@ -16,6 +16,9 @@ commands:
   kits:
     description: Opens the kit selector menu.
     usage: /kits
+  parkour:
+    description: Runs the parkour system.
+    usage: /parkour
   settings:
     description: Opens the setting menu.
     usage: /settings

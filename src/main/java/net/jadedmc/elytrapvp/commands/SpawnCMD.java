@@ -1,6 +1,7 @@
 package net.jadedmc.elytrapvp.commands;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.game.GameScoreboard;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
@@ -10,9 +11,16 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitScheduler;
 
+/**
+ * Runs the /spawn command, which teleports the player to the selected arena's spawn.
+ */
 public class SpawnCMD extends AbstractCommand {
     private final ElytraPvP plugin;
 
+    /**
+     * Creates the command with no permissions.
+     * @param plugin Instance of the plugin.
+     */
     public SpawnCMD(ElytraPvP plugin) {
         super("spawn", "", false);
         this.plugin = plugin;
@@ -31,10 +39,19 @@ public class SpawnCMD extends AbstractCommand {
         // Run if player is not in arena.
         if(customPlayer.getStatus() != Status.ARENA) {
             player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
+
+            // Removes the player from parkour mode.
+            plugin.parkourManager().getTimer(player).stop();
+            new GameScoreboard(plugin, player);
+            plugin.parkourManager().removePlayer(player);
+
             return;
         }
 
+        // Sends a teleporting message to the player.
         ChatUtils.chat(player, "&a&lTeleport &8» &aTeleporting in &f5 &aseconds...");
+
+        // Creates a scheduler that runs 5 seconds after running the command.
         BukkitScheduler scheduler = Bukkit.getScheduler();
         scheduler.scheduleSyncDelayedTask(plugin, () -> {
             customPlayer.setStatus(Status.OTHER);

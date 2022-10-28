@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp;
 import net.jadedmc.elytrapvp.commands.AbstractCommand;
 import net.jadedmc.elytrapvp.game.arena.ArenaManager;
 import net.jadedmc.elytrapvp.game.kits.KitManager;
+import net.jadedmc.elytrapvp.game.parkour.ParkourManager;
 import net.jadedmc.elytrapvp.listeners.*;
 import net.jadedmc.elytrapvp.player.CustomPlayerManager;
 import net.jadedmc.elytrapvp.settings.SettingsManager;
@@ -16,9 +17,13 @@ public final class ElytraPvP extends JavaPlugin {
     private ArenaManager arenaManager;
     private CustomPlayerManager customPlayerManager;
     private KitManager kitManager;
+    private ParkourManager parkourManager;
     private SettingsManager settingsManager;
     private MySQL mySQL;
 
+    /**
+     * Runs when the server first runs the plugin.
+     */
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -27,6 +32,7 @@ public final class ElytraPvP extends JavaPlugin {
         arenaManager = new ArenaManager(this);
         kitManager = new KitManager(this);
         customPlayerManager = new CustomPlayerManager(this);
+        parkourManager = new ParkourManager(this);
 
         // Commands
         AbstractCommand.registerCommands(this);
@@ -51,22 +57,50 @@ public final class ElytraPvP extends JavaPlugin {
         new ScoreboardUpdate(this).runTaskTimer(this, 20L, 20L);
     }
 
+    /**
+     * Retrieves the object managing Arenas.
+     * @return Arena Manager.
+     */
     public ArenaManager arenaManager() {
         return arenaManager;
     }
 
+    /**
+     * Retrieves the object managing Custom Players.
+     * @return Custom Player manager.
+     */
     public CustomPlayerManager customPlayerManager() {
         return customPlayerManager;
     }
 
+    /**
+     * Retrieves the object managing kits.
+     * @return Kit manager.
+     */
     public KitManager kitManager() {
         return kitManager;
     }
 
+    /**
+     * Retrieves the object managing MySQL connections.
+     * @return MySQL manager.
+     */
     public MySQL mySQL() {
         return mySQL;
     }
 
+    /**
+     * Retrieves the object managing parkour courses.
+     * @return Parkour Manager.
+     */
+    public ParkourManager parkourManager() {
+        return parkourManager;
+    }
+
+    /**
+     * Retrieves the object managing plugin configuration files.
+     * @return Settings Manager.
+     */
     public SettingsManager settingsManager() {
         return settingsManager;
     }

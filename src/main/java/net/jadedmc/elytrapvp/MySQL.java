@@ -96,6 +96,14 @@ public class MySQL {
                         ");");
                 elytrapvp_settings.execute();
 
+                PreparedStatement elytrapvp_parkour = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_parkour (" +
+                        "uuid VARCHAR(36)," +
+                        "course VARCHAR(24)," +
+                        "bestTime BIGINT DEFAULT 0," +
+                        "completions INT DEFAULT 0," +
+                        "PRIMARY KEY (uuid, course)" +
+                        ");");
+                elytrapvp_parkour.execute();
             }
             catch (SQLException exception) {
                 exception.printStackTrace();

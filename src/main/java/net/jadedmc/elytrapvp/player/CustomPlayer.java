@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+/**
+ * Manages and caches plugin data about a player.
+ */
 public class CustomPlayer {
     private final ElytraPvP plugin;
     private final UUID uuid;
@@ -35,6 +38,8 @@ public class CustomPlayer {
     private final Map<String, Integer> bestKillStreak = new HashMap<>();
     private final Map<String, Integer> fireworksUsed = new HashMap<>();
     private final Map<String, Integer> drops = new HashMap<>();
+    private final Map<String, Long> parkourTimes = new HashMap<>();
+    private final Map<String, Integer> parkourCompletions = new HashMap<>();
 
     // Kit Editor
     private final Map<String, Map<Integer, Integer>> kitEditor = new HashMap<>();
@@ -45,6 +50,12 @@ public class CustomPlayer {
     private boolean showParticles = true;
     private boolean showScoreboard = true;
 
+    /**
+     * Creates the CactusPlayer object and loads data from MySQL if it exists.
+     * If not, creates new entries in MySQL.
+     * @param plugin Instance of the plugin.
+     * @param uuid UUID of the player representing the CactusPlayer.
+     */
     public CustomPlayer(ElytraPvP plugin, UUID uuid) {
         this.plugin = plugin;
         this.uuid = uuid;
@@ -115,6 +126,19 @@ public class CustomPlayer {
                     }
                 }
 
+                // elytrapvp_parkour
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_parkour WHERE uuid = ?");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    while(resultSet.next()) {
+                        String course = resultSet.getString("course");
+                        parkourCompletions.put(course, resultSet.getInt("completions"));
+                        parkourTimes.put(course, resultSet.getLong("bestTime"));
+                    }
+                }
+
                 // elytrapvp_settings
                 {
                     PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_settings WHERE uuid = ? LIMIT 1");
@@ -140,14 +164,26 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Adds a bounty to the player.
+     * @param bounty Bounty to add to the player.
+     */
     public void addBounty(int bounty) {
         setBounty(getBounty() + bounty);
     }
 
+    /**
+     * Adds coins to the player.
+     * @param coins Amount of coins to add to the player.
+     */
     public void addCoins(int coins) {
         setCoins(getCoins() + coins);
     }
 
+    /**
+     * Adds a death to the player.
+     * @param kit Kit the death was earned in.
+     */
     public void addDeath(Kit kit) {
         setDeaths("global", getDeaths("global") + 1);
         setDeaths(kit.getId(), getDeaths(kit.getId()) + 1);
@@ -156,11 +192,19 @@ public class CustomPlayer {
         setKillStreak(kit.getId(), 0);
     }
 
+    /**
+     * Adds a drop to the player.
+     * @param kit Kit the drop was earned in.
+     */
     public void addDrop(Kit kit) {
         setDrops("global", getDrops("global") + 1);
         setDrops(kit.getId(), getDrops(kit.getId()) + 1);
     }
 
+    /**
+     * Adds a kill to the player.
+     * @param kit Kit the killed was earned in.
+     */
     public void addKill(Kit kit) {
         // Increments kill counter.
         setKills("global", getKills("global") + 1);
@@ -175,11 +219,31 @@ public class CustomPlayer {
             setBestKillStreak("global", getKillStreak("global"));
         }
 
+        // Updates the best kill streak.
         if(getKillStreak(kit.getId()) > getBestKillStreak(kit.getId())) {
             setBestKillStreak(kit.getId(), getKillStreak(kit.getId()));
         }
     }
 
+    /**
+     * Increments the number of times a parkour course has been completed by the player.
+     * @param course Course that was completed.
+     */
+    public void addParkourCompletion(String course) {
+        if(parkourCompletions.containsKey(course.toUpperCase())) {
+            parkourCompletions.put(course.toUpperCase(), parkourCompletions.get(course.toUpperCase()) + 1);
+            return;
+        }
+
+        parkourCompletions.put(course.toUpperCase(), 1);
+
+        updateParkourStatistics(course);
+    }
+
+    /**
+     * Get if the player's elytra should automatically deploy.
+     * @return Whether the elytra should open on it's own.
+     */
     public boolean autoDeploy() {
         return autoDeploy;
     }
@@ -200,6 +264,11 @@ public class CustomPlayer {
         }
     }
 
+    /**
+     * Get the best kill streak earned with a kit.
+     * @param kit Kit the kill streak was earned in.
+     * @return Best kill streak achieved.
+     */
     public int getBestKillStreak(String kit) {
         if(bestKillStreak.containsKey(kit)) {
             return bestKillStreak.get(kit);
@@ -208,14 +277,42 @@ public class CustomPlayer {
         return 0;
     }
 
+    /**
+     * Gets the best time achieved on a parkour course.
+     * @param course Course to get best time of.
+     * @return Fastest the course has been completed.
+     */
+    public Long getBestParkourTime(String course) {
+        course = course.toUpperCase();
+
+        if(parkourTimes.containsKey(course)) {
+            return parkourTimes.get(course);
+        }
+
+        return (long) 0;
+    }
+
+    /**
+     * Gets the player's current bounty.
+     * @return Number of coins the bounty is worth.
+     */
     public int getBounty() {
         return bounty;
     }
 
+    /**
+     * Gets the player's current coin count.
+     * @return Number of coins the player currently has.
+     */
     public int getCoins() {
         return coins;
     }
 
+    /**
+     * Get the number of deaths the player has in a kit.
+     * @param kit Kit to get death count of.
+     * @return Number of times the player died with the kit.
+     */
     public int getDeaths(String kit) {
         if(deaths.containsKey(kit)) {
             return deaths.get(kit);
@@ -224,10 +321,20 @@ public class CustomPlayer {
         return 0;
     }
 
+    /**
+     * Gets the way the player died.
+     * Only useful while the player is dead.
+     * @return The way the player died. NONE if they are alive.
+     */
     public DeathType getDeathType() {
         return deathType;
     }
 
+    /**
+     * Get the number of times the player has entered the arena with a kit.
+     * @param kit Kit to get number of drops of.
+     * @return Number of drops with that kit.
+     */
     public int getDrops(String kit) {
         if(drops.containsKey(kit)) {
             return drops.get(kit);
@@ -236,6 +343,11 @@ public class CustomPlayer {
         return 0;
     }
 
+    /**\
+     * Get the amount of fireworks used with a kit.
+     * @param kit Kit to get firework use count of.
+     * @return Number of times fireworks have been used with that kit.
+     */
     public int getFireworksUsed(String kit) {
         if(fireworksUsed.containsKey(kit)) {
             return fireworksUsed.get(kit);
@@ -244,6 +356,11 @@ public class CustomPlayer {
         return 0;
     }
 
+    /**
+     * Get the number of kills the played has earned with a kit.
+     * @param kit Kit to get kill count of.
+     * @return Number of kills achieved with that kit.
+     */
     public int getKills(String kit) {
         if(kills.containsKey(kit)) {
             return kills.get(kit);
@@ -252,6 +369,11 @@ public class CustomPlayer {
         return 0;
     }
 
+    /**
+     * Get a player's current kill streak with a kit.
+     * @param kit Kit to get kill streak of.
+     * @return Current kill streak with that kit.
+     */
     public int getKillStreak(String kit) {
         if(killStreak.containsKey(kit)) {
             return killStreak.get(kit);
@@ -260,46 +382,105 @@ public class CustomPlayer {
         return 0;
     }
 
+    /**
+     * Get the id of the current kit the player is using.
+     * @return Kit id of the kit currently in use.
+     */
     public String getKit() {
         return kit;
     }
 
+    /**
+     * Get the kit editor cache of the player.
+     * @param kit Kit to get cache of.
+     * @return Remapped items for the kit.
+     */
     public Map<Integer, Integer> getKitEditor(String kit) {
         return kitEditor.get(kit);
     }
 
+    /**
+     * Get the total bounty amount the player has claimed.
+     * @return Amount of coins earned through bounties.
+     */
     public int getLifetimeBountyClaimed() {
         return lifetimeBountyClaimed;
     }
 
+    /**
+     * Get the total amount of bounty the player has had on them.
+     * @return Amount of coins worth of bounty the player has had on them.
+     */
     public int getLifetimeBountyHad() {
         return lifetimeBountyHad;
     }
 
+    /**
+     * Get the lifetime amount of coins earned.
+     * @return Total amount of coins earned.
+     */
     public int getLifetimeCoins() {
         return lifetimeCoins;
     }
 
+    /**
+     * Get the number of times the player has finished a specific parkour course.
+     * @param course Course to get the count of.
+     * @return Number of times the player has finished it.
+     */
+    public int getParkourCompletions(String course) {
+        course = course.toUpperCase();
+
+        if(parkourCompletions.containsKey(course)) {
+            return parkourCompletions.get(course);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Gets the Player object the CustomPlayer represents.
+     * @return Player object of the player.
+     */
     public Player getPlayer() {
         return plugin.getServer().getPlayer(uuid);
     }
 
+    /**
+     * Gets the current status of the player.
+     * @return Player's status.
+     */
     public Status getStatus() {
         return status;
     }
 
+    /**
+     * Gets a list of the kits the player has unlocked.
+     * @return List of the ids of kits unlocked.
+     */
     public List<String> getUnlockedKits() {
         return unlockedKits;
     }
 
+    /**
+     * Remove a number of coins from the player.
+     * @param coins Amount of coins to remove.
+     */
     public void removeCoins(int coins) {
         setCoins(getCoins() - coins);
     }
 
+    /**
+     * Reset's the player's bounty.
+     */
     public void resetBounty() {
         setBounty(0);
     }
 
+    /**
+     * Set if the player's elytra should automatically deploy.
+     * @param autoDeploy Whether the elytra should open on its own.
+     */
     public void setAutoDeploy(boolean autoDeploy) {
         this.autoDeploy = autoDeploy;
 
@@ -315,11 +496,30 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Set the best kill streak the player has earned with a kit.
+     * @param kit Kit to set best kill streak of.
+     * @param bestKillStreak New best kill streak.
+     */
     private void setBestKillStreak(String kit, int bestKillStreak) {
         this.bestKillStreak.put(kit, bestKillStreak);
         updateKitStatistics(kit);
     }
 
+    /**
+     * Set the best finish time of a parkour course.
+     * @param course Course to change best time of.
+     * @param time New best time.
+     */
+    public void setBestParkourTime(String course, long time) {
+        parkourTimes.put(course, time);
+        updateParkourStatistics(course);
+    }
+
+    /**
+     * Set the bounty of the player.
+     * @param bounty New bounty.
+     */
     private void setBounty(int bounty) {
         this.bounty = bounty;
 
@@ -336,6 +536,10 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Set the number of coins the player has.
+     * @param coins New amount of coins.
+     */
     private void setCoins(int coins) {
         this.coins = coins;
 
@@ -352,35 +556,68 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Set the number of deaths the player has.
+     * @param kit Kit to set death count of.
+     * @param deaths New amount of deaths in that kit.
+     */
     private void setDeaths(String kit, int deaths) {
         this.deaths.put(kit, deaths);
         updateKitStatistics(kit);
     }
 
+    /**
+     * Set the player's death type.
+     * @param deathType New death type.
+     */
     public void setDeathType(DeathType deathType) {
         this.deathType = deathType;
     }
 
+    /**
+     * Set the number of drops the player has in a kit.
+     * @param kit Kit to set drop count of.
+     * @param drops New number of drops.
+     */
     private void setDrops(String kit, int drops) {
         this.drops.put(kit, drops);
         updateKitStatistics(kit);
     }
 
+    /**
+     * Set the amount of fireworks used by the player.
+     * @param kit Kit to set firework count of.
+     * @param fireworksUsed New number of fireworks used.
+     */
     private void setFireworksUsed(String kit, int fireworksUsed) {
         this.fireworksUsed.put(kit, fireworksUsed);
         updateKitStatistics(kit);
     }
 
+    /**
+     * Set the number of kills the player has gained with a kit.
+     * @param kit Kit to set kill count of.
+     * @param kills New number of kills earned.
+     */
     private void setKills(String kit, int kills) {
         this.kills.put(kit, kills);
         updateKitStatistics(kit);
     }
 
+    /**
+     * Set the player's current kill streak with a kit.
+     * @param kit Kit to set the kill streak of.
+     * @param killStreak New kill streak.
+     */
     private void setKillStreak(String kit, int killStreak) {
         this.killStreak.put(kit, killStreak);
         updateKitStatistics(kit);
     }
 
+    /**
+     * Set the kit the player is currently using.
+     * @param kit New kit the player is using.
+     */
     public void setKit(Kit kit) {
         this.kit = kit.getId();
 
@@ -397,6 +634,10 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Set if the player should see all death messages in chat.
+     * @param showAllDeaths Whether they should be able to see other player's deaths.
+     */
     public void setShowAllDeaths(boolean showAllDeaths) {
         this.showAllDeaths = showAllDeaths;
 
@@ -412,6 +653,10 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Set if the player should be able to see particles in-game.
+     * @param showParticles Whether particles should be sent to the player.
+     */
     public void setShowParticles(boolean showParticles) {
         this.showParticles = showParticles;
 
@@ -427,6 +672,10 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Set if the player should be able to see the scoreboard.
+     * @param showScoreboard Whether they can see the scoreboard.
+     */
     public void setShowScoreboard(boolean showScoreboard) {
         this.showScoreboard = showScoreboard;
 
@@ -442,22 +691,42 @@ public class CustomPlayer {
         });
     }
 
+    /**
+     * Change the status of the player.
+     * @param status New status.
+     */
     public void setStatus(Status status) {
         this.status = status;
     }
 
+    /**
+     * Get if the player should be able to see all death messages.
+     * @return Whether they can see other player's deaths.
+     */
     public boolean showAllDeaths() {
         return showAllDeaths;
     }
 
+    /**
+     * Get if the player should be able to see particles from cosmetics.
+     * @return Whether they can see particles.
+     */
     public boolean showParticles() {
         return showParticles;
     }
 
+    /**
+     * Get if the player should be able to see the scoreboard.
+     * @return Whether they can see the scoreboard.
+     */
     public boolean showScoreboard() {
         return showScoreboard;
     }
 
+    /**
+     * Allows a player to use a kit.
+     * @param kit Kit to unlock.
+     */
     public void unlockKit(Kit kit) {
         unlockedKits.add(kit.getId());
 
@@ -502,7 +771,12 @@ public class CustomPlayer {
         });
     }
 
-    public void updateKitStatistics(String kit) {
+    /**
+     * Updates per-kit statistics.
+     * In a separate method to prevent statistics from resetting.
+     * @param kit Kit to update.
+     */
+    private void updateKitStatistics(String kit) {
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, ()-> {
             try {
                 PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,kills,deaths,killStreak,bestKillStreak,fireworksUsed,drops) VALUES (?,?,?,?,?,?,?,?)");
@@ -519,6 +793,27 @@ public class CustomPlayer {
             catch (SQLException exception) {
                 exception.printStackTrace();
             }
+        });
+    }
+
+    /**
+     * Updates parkour statistics.
+     * In another method to prevent statistics from resetting.
+     * @param course Course to update.
+     */
+    private void updateParkourStatistics(String course) {
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+           try {
+               PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_parkour (uuid,course,bestTime,completions) VALUES (?,?,?,?)");
+               statement.setString(1, uuid.toString());
+               statement.setString(2, course.toUpperCase());
+               statement.setLong(3, getBestParkourTime(course));
+               statement.setInt(4, getParkourCompletions(course));
+               statement.executeUpdate();
+           }
+           catch (SQLException exception) {
+               exception.printStackTrace();
+           }
         });
     }
 }

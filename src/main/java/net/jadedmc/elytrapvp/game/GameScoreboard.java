@@ -10,6 +10,7 @@ public class GameScoreboard extends CustomScoreboard {
     private final ElytraPvP plugin;
 
     public GameScoreboard(ElytraPvP plugin, Player player) {
+        super(player);
         this.plugin = plugin;
         CustomScoreboard.getPlayers().put(player.getUniqueId(), this);
         update(player);

@@ -10,3 +10,41 @@ MySQL:
   username: "username"
   password: "password"
   useSSL: true
+
+Parkour:
+  GREEN:
+    Name: "&aGreen"
+    Location:
+      World: world
+      X: 3.5
+      Y: 100
+      Z: 343.5
+      Yaw: 180
+      Pitch: 0
+  YELLOW:
+    Name: "&eYellow"
+    Location:
+      World: world
+      X: 32.5
+      Y: 100
+      Z: 333.5
+      Yaw: -90
+      Pitch: 0
+  RED:
+    Name: "&cRed"
+    Location:
+      World: world
+      X: 87.5
+      Y: 101
+      Z: 342.5
+      Yaw: -90
+      Pitch: 0
+  BLUE:
+    Name: "&9Blue"
+    Location:
+      World: world
+      X: 140.5
+      Y: 100
+      Z: 333.5
+      Yaw: -90
+      Pitch: 0
