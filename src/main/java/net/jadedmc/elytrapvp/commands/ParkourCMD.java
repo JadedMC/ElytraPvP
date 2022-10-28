@@ -86,7 +86,7 @@ public class ParkourCMD extends AbstractCommand {
 
                 plugin.parkourManager().getTimer(player).stop();
 
-                ChatUtils.chat(player, "&aYou have completed the &f" + plugin.parkourManager().getCourseName(player) + " &acourse in &f" + plugin.parkourManager().getTimer(player).toString() + "&a!");
+                ChatUtils.chat(player, "&aYou completed the &f" + plugin.parkourManager().getCourseName(player) + " &acourse in &f" + plugin.parkourManager().getTimer(player).toString() + "&a!");
                 new GameScoreboard(plugin, player);
 
                 String course = plugin.parkourManager().getCourse(player);
@@ -96,7 +96,7 @@ public class ParkourCMD extends AbstractCommand {
 
                 if(customPlayer.getBestParkourTime(course) > 0) {
                     if(customPlayer.getBestParkourTime(course) > plugin.parkourManager().getTimer(player).toMilliseconds()) {
-                        ChatUtils.chat(player, "&eYou have beat your previous best time of &f" + plugin.parkourManager().getTimerFromTime(customPlayer.getBestParkourTime(course)) + "&e!");
+                        ChatUtils.chat(player, "&eYou beat your previous best time of &f" + plugin.parkourManager().getTimerFromTime(customPlayer.getBestParkourTime(course)) + "&e!");
                         customPlayer.setBestParkourTime(course, plugin.parkourManager().getTimer(player).toMilliseconds());
                     }
                 }

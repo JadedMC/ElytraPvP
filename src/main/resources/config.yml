@@ -1,19 +1,15 @@
-SelectedArena: NONE
-
-# -----------------------------------------
-#               MySQL
-# -----------------------------------------
+SelectedArena: TBD
 MySQL:
-  host: "localhost"
+  host: 10.0.4.53
   port: 3306
-  database: "database"
-  username: "username"
-  password: "password"
+  database: jadedmc
+  username: server
+  password: wsxqaz
   useSSL: true
 
 Parkour:
   GREEN:
-    Name: "&aGreen"
+    Name: '&aGreen'
     Location:
       World: world
       X: 3.5
@@ -22,7 +18,7 @@ Parkour:
       Yaw: 180
       Pitch: 0
   YELLOW:
-    Name: "&eYellow"
+    Name: '&eYellow'
     Location:
       World: world
       X: 32.5
@@ -31,7 +27,7 @@ Parkour:
       Yaw: -90
       Pitch: 0
   RED:
-    Name: "&cRed"
+    Name: '&cRed'
     Location:
       World: world
       X: 87.5
@@ -40,11 +36,38 @@ Parkour:
       Yaw: -90
       Pitch: 0
   BLUE:
-    Name: "&9Blue"
+    Name: '&9Blue'
     Location:
       World: world
       X: 140.5
       Y: 100
       Z: 333.5
+      Yaw: -90
+      Pitch: 0
+  BEGINNER:
+    Name: '&cBeginner'
+    Location:
+      World: world
+      X: 27.5
+      Y: 114.05
+      Z: 427.5
+      Yaw: -90
+      Pitch: 0
+  ADVANCED:
+    Name: '&5Advanced'
+    Location:
+      World: world
+      X: 163.5
+      Y: 116
+      Z: 416.5
+      Yaw: -180
+      Pitch: 0
+  PEERLESS:
+    Name: '&9Peerless'
+    Location:
+      World: world
+      X: 81.5
+      Y: 103
+      Z: 397.5
       Yaw: -90
       Pitch: 0
