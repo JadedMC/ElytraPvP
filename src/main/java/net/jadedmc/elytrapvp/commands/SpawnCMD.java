@@ -41,9 +41,12 @@ public class SpawnCMD extends AbstractCommand {
             player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
 
             // Removes the player from parkour mode.
-            plugin.parkourManager().getTimer(player).stop();
-            new GameScoreboard(plugin, player);
-            plugin.parkourManager().removePlayer(player);
+
+            if(plugin.parkourManager().getTimer(player) != null) {
+                plugin.parkourManager().getTimer(player).stop();
+                new GameScoreboard(plugin, player);
+                plugin.parkourManager().removePlayer(player);
+            }
 
             return;
         }
