@@ -84,27 +84,29 @@ public class ParkourCMD extends AbstractCommand {
                     return;
                 }
 
-                plugin.parkourManager().getTimer(player).stop();
-
-                ChatUtils.chat(player, "&aYou completed the &f" + plugin.parkourManager().getCourseName(player) + " &acourse in &f" + plugin.parkourManager().getTimer(player).toString() + "&a!");
-                new GameScoreboard(plugin, player);
-
                 String course = plugin.parkourManager().getCourse(player);
+                if(course.equalsIgnoreCase(args[1])) {
+                    plugin.parkourManager().getTimer(player).stop();
 
-                CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
-                customPlayer.addParkourCompletion(course);
+                    ChatUtils.chat(player, "&aYou completed the &f" + plugin.parkourManager().getCourseName(player) + " &acourse in &f" + plugin.parkourManager().getTimer(player).toString() + "&a!");
 
-                if(customPlayer.getBestParkourTime(course) > 0) {
-                    if(customPlayer.getBestParkourTime(course) > plugin.parkourManager().getTimer(player).toMilliseconds()) {
-                        ChatUtils.chat(player, "&eYou beat your previous best time of &f" + plugin.parkourManager().getTimerFromTime(customPlayer.getBestParkourTime(course)) + "&e!");
+                    CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+                    customPlayer.addParkourCompletion(course);
+
+                    if(customPlayer.getBestParkourTime(course) > 0) {
+                        if(customPlayer.getBestParkourTime(course) > plugin.parkourManager().getTimer(player).toMilliseconds()) {
+                            ChatUtils.chat(player, "&eYou beat your previous best time of &f" + plugin.parkourManager().getTimerFromTime(customPlayer.getBestParkourTime(course)) + "&e!");
+                            customPlayer.setBestParkourTime(course, plugin.parkourManager().getTimer(player).toMilliseconds());
+                        }
+                    }
+                    else {
                         customPlayer.setBestParkourTime(course, plugin.parkourManager().getTimer(player).toMilliseconds());
                     }
-                }
-                else {
-                    customPlayer.setBestParkourTime(course, plugin.parkourManager().getTimer(player).toMilliseconds());
+
+                    plugin.parkourManager().removePlayer(player);
                 }
 
-                plugin.parkourManager().removePlayer(player);
+                new GameScoreboard(plugin, player);
             }
 
             // Processes the cancel sub command, which runs when a player leaves a course.
