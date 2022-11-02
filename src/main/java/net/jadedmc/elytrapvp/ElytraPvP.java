@@ -1,6 +1,7 @@
 package net.jadedmc.elytrapvp;
 
 import net.jadedmc.elytrapvp.commands.AbstractCommand;
+import net.jadedmc.elytrapvp.game.LeaderboardManager;
 import net.jadedmc.elytrapvp.game.arena.ArenaManager;
 import net.jadedmc.elytrapvp.game.kits.KitManager;
 import net.jadedmc.elytrapvp.game.parkour.ParkourManager;
@@ -17,6 +18,7 @@ public final class ElytraPvP extends JavaPlugin {
     private ArenaManager arenaManager;
     private CustomPlayerManager customPlayerManager;
     private KitManager kitManager;
+    private LeaderboardManager leaderboardManager;
     private ParkourManager parkourManager;
     private SettingsManager settingsManager;
     private MySQL mySQL;
@@ -33,6 +35,7 @@ public final class ElytraPvP extends JavaPlugin {
         kitManager = new KitManager(this);
         customPlayerManager = new CustomPlayerManager(this);
         parkourManager = new ParkourManager(this);
+        leaderboardManager = new LeaderboardManager(this);
 
         // Commands
         AbstractCommand.registerCommands(this);
@@ -55,6 +58,9 @@ public final class ElytraPvP extends JavaPlugin {
 
         // Utility Tasks
         new ScoreboardUpdate(this).runTaskTimer(this, 20L, 20L);
+
+        // Registers placeholders.
+        new Placeholders(this).register();
     }
 
     /**
@@ -79,6 +85,14 @@ public final class ElytraPvP extends JavaPlugin {
      */
     public KitManager kitManager() {
         return kitManager;
+    }
+
+    /**
+     * Retrieves the object managing leaderboards.
+     * @return Leaderboard Manager.
+     */
+    public LeaderboardManager leaderboardManager() {
+        return leaderboardManager;
     }
 
     /**

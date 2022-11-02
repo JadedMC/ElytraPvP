@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.kits.Kit;
+import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
 import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
@@ -40,6 +41,7 @@ public class CustomPlayer {
     private final Map<String, Integer> drops = new HashMap<>();
     private final Map<String, Long> parkourTimes = new HashMap<>();
     private final Map<String, Integer> parkourCompletions = new HashMap<>();
+    private final Map<String, Integer> parkourRank = new HashMap<>();
 
     // Kit Editor
     private final Map<String, Map<Integer, Integer>> kitEditor = new HashMap<>();
@@ -157,6 +159,9 @@ public class CustomPlayer {
                         insert.executeUpdate();
                     }
                 }
+
+                // Updates leaderboard ranks.
+                updateLeaderboardRanks();
             }
             catch (SQLException exception) {
                 exception.printStackTrace();
@@ -436,6 +441,23 @@ public class CustomPlayer {
         }
 
         return 0;
+    }
+
+    /**
+     * Get the rank of the player on the parkour leaderboard.
+     * @param course Course to get rank of.
+     * @return Rank of the player, or N/A if not completed.
+     */
+    public String getParkourRank(String course) {
+        course = course.toUpperCase();
+
+        if(parkourRank.get(course) == -1) {
+            return "&cN/A";
+        }
+
+        else {
+            return "#" + parkourRank.get(course);
+        }
     }
 
     /**
@@ -789,6 +811,36 @@ public class CustomPlayer {
                 statement.setInt(7, getFireworksUsed(kit));
                 statement.setInt(8, getDrops(kit));
                 statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Updates the player's leaderboard ranks.
+     */
+    private void updateLeaderboardRanks() {
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                // Parkour
+                for(ParkourCourse course : ParkourCourse.values()) {
+                    if(!parkourTimes.containsKey(course.toString())) {
+                        parkourRank.put(course.toString(), -1);
+                        continue;
+                    }
+
+                    //PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("WITH temp as (SELECT ROW_NUMBER() OVER(ORDER BY bestTime ASC) AS parkourRank FROM elytrapvp_parkour WHERE course = ?) SELECT * FROM temp WHERE uuid = ? LIMIT 1");
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY bestTime) AS parkourRank FROM elytrapvp_parkour WHERE course = ?) AS temp WHERE temp.uuid = ?");
+                    retrieve.setString(1, course.toString());
+                    retrieve.setString(2, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    if(resultSet.next()) {
+                        parkourRank.put(course.toString(), resultSet.getInt("parkourRank"));
+                    }
+                }
             }
             catch (SQLException exception) {
                 exception.printStackTrace();
