@@ -6,6 +6,7 @@ import net.jadedmc.elytrapvp.game.parkour.ParkourScoreboard;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.LocationUtils;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
+import net.jadedmc.elytrapvp.utils.item.ItemUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -67,6 +68,7 @@ public class ParkourCMD extends AbstractCommand {
                 new ParkourScoreboard(plugin, player);
 
                 player.teleport(LocationUtils.fromConfig(plugin.settingsManager().getConfig(), "Parkour." + course.toUpperCase() + ".Location"));
+                ItemUtils.giveParkourItems(player);
             }
 
             // Executes the checkpoint sub command, which runs when a player finishes a course.
@@ -122,6 +124,7 @@ public class ParkourCMD extends AbstractCommand {
                 new GameScoreboard(plugin, player);
                 plugin.parkourManager().removePlayer(player);
                 player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
+                ItemUtils.giveLobbyItems(player);
             }
 
             // Executes the teleport command, is used to teleport to a specific course.

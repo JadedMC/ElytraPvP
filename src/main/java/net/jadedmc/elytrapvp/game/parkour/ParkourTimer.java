@@ -73,6 +73,13 @@ public class ParkourTimer {
     }
 
     /**
+     * Resets the timer.
+     */
+    public void reset() {
+        startTime = System.currentTimeMillis();
+    }
+
+    /**
      * Converts the timer into a String
      * @return String version of timer.
      */

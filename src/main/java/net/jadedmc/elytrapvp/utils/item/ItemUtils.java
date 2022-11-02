@@ -5,7 +5,9 @@ import org.bukkit.entity.Player;
 
 public class ItemUtils {
     public static void giveLobbyItems(Player player) {
-        player.getInventory().clear();
+        for(int i = 0; i < 8; i++) {
+            player.getInventory().setItem(i, null);
+        }
 
         ItemBuilder cosmetics = new ItemBuilder(Material.EMERALD).setDisplayName("&a&lCosmetics");
         ItemBuilder kits = new ItemBuilder(Material.NETHER_STAR).setDisplayName("&a&lKits");
@@ -21,5 +23,15 @@ public class ItemUtils {
         player.setHealth(20);
         player.setFoodLevel(20);
         player.getActivePotionEffects().forEach(potionEffect -> player.removePotionEffect(potionEffect.getType()));
+    }
+
+    public static void giveParkourItems(Player player) {
+        player.getInventory().clear();
+
+        ItemBuilder leave = new ItemBuilder(Material.RED_BED).setDisplayName("&c&lLeave");
+        ItemBuilder reset = new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE).setDisplayName("&a&lReset");
+
+        player.getInventory().setItem(4, reset.build());
+        player.getInventory().setItem(8, leave.build());
     }
 }

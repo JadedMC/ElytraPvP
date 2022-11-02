@@ -1,11 +1,14 @@
 package net.jadedmc.elytrapvp.listeners;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.game.GameScoreboard;
 import net.jadedmc.elytrapvp.game.kits.KitSelectorGUI;
 import net.jadedmc.elytrapvp.inventories.CosmeticsGUI;
 import net.jadedmc.elytrapvp.inventories.SettingsGUI;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
+import net.jadedmc.elytrapvp.utils.LocationUtils;
+import net.jadedmc.elytrapvp.utils.item.ItemUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -68,6 +71,16 @@ public class PlayerInteractListener implements Listener {
             case "Cosmetics" -> {
                 new CosmeticsGUI().open(player);
                 event.setCancelled(true);
+            }
+            case "Reset" -> {
+                plugin.parkourManager().getTimer(player).reset();
+                player.teleport(LocationUtils.fromConfig(plugin.settingsManager().getConfig(), "Parkour." + plugin.parkourManager().getCourse(player).toUpperCase() + ".Location"));
+            }
+            case "Leave" -> {
+                new GameScoreboard(plugin, player);
+                plugin.parkourManager().removePlayer(player);
+                player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
+                ItemUtils.giveLobbyItems(player);
             }
         }
     }
