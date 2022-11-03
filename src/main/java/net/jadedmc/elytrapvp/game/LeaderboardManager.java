@@ -18,6 +18,8 @@ public class LeaderboardManager {
     private final ElytraPvP plugin;
 
     private final Map<ParkourCourse, Map<String, String>> parkourCourses = new HashMap<>();
+    private final Map<String, Integer> kills = new LinkedHashMap<>();
+    private final Map<String, Integer> killStreak = new LinkedHashMap<>();
 
     /**
      * Creates the manager.
@@ -27,7 +29,7 @@ public class LeaderboardManager {
         this.plugin = plugin;
 
         // Creates a task that updates the leaderboards every 20 minutes
-        plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::update, 20*3, 20*60*20);
+        plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::update, 20*4, 20*60*20);
     }
 
     /**
@@ -35,6 +37,60 @@ public class LeaderboardManager {
      */
     public void update() {
         updateParkour();
+        updateKills();
+        updateKillStreak();
+    }
+
+    /**
+     * Updates the kills leaderboard.
+     */
+    public void updateKills() {
+        try {
+            kills.clear();
+
+            PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_kit_statistics WHERE kit = ? ORDER BY kills DESC LIMIT 10");
+            statement.setString(1, "global");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PreparedStatement statement2 = plugin.mySQL().getConnection().prepareStatement("SELECT * from player_info WHERE uuid = ? LIMIT 1");
+                statement2.setString(1, resultSet.getString(1));
+                ResultSet results2 = statement2.executeQuery();
+
+                if(results2.next()) {
+                    kills.put(results2.getString(2), resultSet.getInt("kills"));
+                }
+            }
+        }
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * Updates the kill streak leaderboard.
+     */
+    public void updateKillStreak() {
+        try {
+            killStreak.clear();
+
+            PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_kit_statistics WHERE kit = ? ORDER BY bestKillStreak DESC LIMIT 10");
+            statement.setString(1, "global");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PreparedStatement statement2 = plugin.mySQL().getConnection().prepareStatement("SELECT * from player_info WHERE uuid = ? LIMIT 1");
+                statement2.setString(1, resultSet.getString(1));
+                ResultSet results2 = statement2.executeQuery();
+
+                if(results2.next()) {
+                    killStreak.put(results2.getString(2), resultSet.getInt("bestKillStreak"));
+                }
+            }
+        }
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     /**
@@ -42,6 +98,8 @@ public class LeaderboardManager {
      */
     private void updateParkour() {
         try {
+            parkourCourses.clear();
+
             for(ParkourCourse course : ParkourCourse.values()) {
                 Map<String, String> courseTimes = new LinkedHashMap<>();
 
@@ -68,6 +126,22 @@ public class LeaderboardManager {
         catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    /**
+     * Gets the kill leaderboard.
+     * @return Map with the kill leaderboard.
+     */
+    public Map<String, Integer> getKillsLeaderboard() {
+        return kills;
+    }
+
+    /**
+     * Gets the kill streak leaderboard.
+     * @return Map with the kill streak leaderboard.
+     */
+    public Map<String, Integer> getKillStreakLeaderboard() {
+        return killStreak;
     }
 
     /**

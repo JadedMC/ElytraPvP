@@ -19,6 +19,10 @@ commands:
   kits:
     description: Opens the kit selector menu.
     usage: /kits
+  leaderboard:
+    description: View the server leaderboards.
+    usage: /<command>
+    aliases: [lb,top,best]
   parkour:
     description: Runs the parkour system.
     usage: /parkour

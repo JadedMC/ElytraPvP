@@ -42,6 +42,8 @@ public class CustomPlayer {
     private final Map<String, Long> parkourTimes = new HashMap<>();
     private final Map<String, Integer> parkourCompletions = new HashMap<>();
     private final Map<String, Integer> parkourRank = new HashMap<>();
+    private final Map<String, Integer> killsRank = new HashMap<>();
+    private final Map<String, Integer> killStreakRank = new HashMap<>();
 
     // Kit Editor
     private final Map<String, Map<Integer, Integer>> kitEditor = new HashMap<>();
@@ -375,6 +377,22 @@ public class CustomPlayer {
     }
 
     /**
+     * Get the rank of the player on the kills leaderboard.
+     * @param kit Kit to get kills rank of.
+     * @return Rank of the player, or N/A if not completed.
+     */
+    public String getKillsRank(String kit) {
+
+        if(killsRank.get(kit) == -1) {
+            return "&cN/A";
+        }
+
+        else {
+            return "#" + killsRank.get(kit);
+        }
+    }
+
+    /**
      * Get a player's current kill streak with a kit.
      * @param kit Kit to get kill streak of.
      * @return Current kill streak with that kit.
@@ -385,6 +403,22 @@ public class CustomPlayer {
         }
 
         return 0;
+    }
+
+    /**
+     * Get the rank of the player on the kill streak leaderboard.
+     * @param kit Kit to get kill streak rank of.
+     * @return Rank of the player, or N/A if not completed.
+     */
+    public String getKillStreakRank(String kit) {
+
+        if(killStreakRank.get(kit) == -1) {
+            return "&cN/A";
+        }
+
+        else {
+            return "#" + killStreakRank.get(kit);
+        }
     }
 
     /**
@@ -825,20 +859,60 @@ public class CustomPlayer {
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
                 // Parkour
-                for(ParkourCourse course : ParkourCourse.values()) {
-                    if(!parkourTimes.containsKey(course.toString())) {
-                        parkourRank.put(course.toString(), -1);
-                        continue;
+                {
+                    for (ParkourCourse course : ParkourCourse.values()) {
+                        if (!parkourTimes.containsKey(course.toString())) {
+                            parkourRank.put(course.toString(), -1);
+                            continue;
+                        }
+
+                        PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY bestTime) AS parkourRank FROM elytrapvp_parkour WHERE course = ?) AS temp WHERE temp.uuid = ?");
+                        retrieve.setString(1, course.toString());
+                        retrieve.setString(2, uuid.toString());
+                        ResultSet resultSet = retrieve.executeQuery();
+
+                        if (resultSet.next()) {
+                            parkourRank.put(course.toString(), resultSet.getInt("parkourRank"));
+                        }
                     }
+                }
 
-                    //PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("WITH temp as (SELECT ROW_NUMBER() OVER(ORDER BY bestTime ASC) AS parkourRank FROM elytrapvp_parkour WHERE course = ?) SELECT * FROM temp WHERE uuid = ? LIMIT 1");
-                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY bestTime) AS parkourRank FROM elytrapvp_parkour WHERE course = ?) AS temp WHERE temp.uuid = ?");
-                    retrieve.setString(1, course.toString());
-                    retrieve.setString(2, uuid.toString());
-                    ResultSet resultSet = retrieve.executeQuery();
+                // Kits
+                {
+                    List<String> temp = new ArrayList<>();
+                    plugin.kitManager().getKits().values().forEach(kit -> temp.add(kit.getId()));
+                    temp.add("global");
 
-                    if(resultSet.next()) {
-                        parkourRank.put(course.toString(), resultSet.getInt("parkourRank"));
+                    for(String kit : temp) {
+                        if(!kills.containsKey(kit)) {
+                            killsRank.put(kit, -1);
+                            killStreakRank.put(kit, -1);
+                            continue;
+                        }
+
+                        // Kills
+                        {
+                            PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY kills DESC) AS killsRank FROM elytrapvp_kit_statistics WHERE kit = ?) AS temp WHERE temp.uuid = ?");
+                            retrieve.setString(1, kit);
+                            retrieve.setString(2, uuid.toString());
+                            ResultSet resultSet = retrieve.executeQuery();
+
+                            if (resultSet.next()) {
+                                killsRank.put(kit, resultSet.getInt("killsRank"));
+                            }
+                        }
+
+                        // Kill Streak
+                        {
+                            PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY bestKillStreak DESC) AS killStreakRank FROM elytrapvp_kit_statistics WHERE kit = ?) AS temp WHERE temp.uuid = ?");
+                            retrieve.setString(1, kit);
+                            retrieve.setString(2, uuid.toString());
+                            ResultSet resultSet = retrieve.executeQuery();
+
+                            if (resultSet.next()) {
+                                killStreakRank.put(kit, resultSet.getInt("killStreakRank"));
+                            }
+                        }
                     }
                 }
             }
