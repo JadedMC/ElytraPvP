@@ -14,6 +14,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -28,6 +29,13 @@ public class PlayerInteractListener implements Listener {
     public void onInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+
+        if(event.getAction() == Action.PHYSICAL && plugin.parkourManager().getData(player) != null) {
+            if(event.getClickedBlock().getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
+                plugin.parkourManager().getData(player).setCheckpoint(player.getLocation());
+                return;
+            }
+        }
 
         if(player.getOpenInventory().getType() != InventoryType.CRAFTING && player.getOpenInventory().getType() != InventoryType.CREATIVE) {
             if(player.getName().contains("*")) {
@@ -72,9 +80,14 @@ public class PlayerInteractListener implements Listener {
                 new CosmeticsGUI().open(player);
                 event.setCancelled(true);
             }
-            case "Reset" -> {
-                plugin.parkourManager().getTimer(player).reset();
-                player.teleport(LocationUtils.fromConfig(plugin.settingsManager().getConfig(), "Parkour." + plugin.parkourManager().getCourse(player).toUpperCase() + ".Location"));
+            case "Back to Checkpoint" -> {
+                if(plugin.parkourManager().getData(player).getCheckpoint() == null) {
+                    plugin.parkourManager().getTimer(player).reset();
+                    player.teleport(LocationUtils.fromConfig(plugin.settingsManager().getConfig(), "Parkour." + plugin.parkourManager().getCourse(player).toUpperCase() + ".Location"));
+                    return;
+                }
+
+                player.teleport(plugin.parkourManager().getData(player).getCheckpoint());
             }
             case "Leave" -> {
                 new GameScoreboard(plugin, player);

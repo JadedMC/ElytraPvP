@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.game.parkour;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -55,6 +56,19 @@ public class ParkourManager {
     }
 
     /**
+     * Get the ParkourData of the player
+     * @param player Player to get data of.
+     * @return Data of the player.
+     */
+    public ParkourData getData(Player player) {
+        if(players.containsKey(player)) {
+            return players.get(player);
+        }
+
+        return null;
+    }
+
+    /**
      * Get the player's current parkour timer.
      * @param player Player to get timer of.
      * @return The player's parkour timer.
@@ -89,9 +103,10 @@ public class ParkourManager {
     /**
      * Stores related player parkour data grouped together.
      */
-    private static class ParkourData {
+    public static class ParkourData {
         private final String course;
         private final ParkourTimer timer;
+        private Location checkpoint;
 
         /**
          * Creates the cache object.
@@ -101,6 +116,7 @@ public class ParkourManager {
         public ParkourData(ElytraPvP plugin, String course) {
             this.course = course;
             this.timer = new ParkourTimer(plugin);
+            checkpoint = null;
 
             // Starts the player's parkour timer.
             timer.start();
@@ -115,11 +131,27 @@ public class ParkourManager {
         }
 
         /**
+         * Get the player's most recent checkpoint.
+         * @return Location of the checkpoint.
+         */
+        public Location getCheckpoint() {
+            return checkpoint;
+        }
+
+        /**
          * Gets the player's current parkour timer.
          * @return Parkour timer of the player.
          */
         public ParkourTimer getTimer() {
             return timer;
+        }
+
+        /**
+         * Set the player's checkpoint.
+         * @param checkpoint New checkpoint.
+         */
+        public void setCheckpoint(Location checkpoint) {
+            this.checkpoint = checkpoint;
         }
     }
 }

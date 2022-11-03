@@ -29,7 +29,7 @@ public class ItemUtils {
         player.getInventory().clear();
 
         ItemBuilder leave = new ItemBuilder(Material.RED_BED).setDisplayName("&c&lLeave");
-        ItemBuilder reset = new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE).setDisplayName("&a&lReset");
+        ItemBuilder reset = new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE).setDisplayName("&a&lBack to Checkpoint");
 
         player.getInventory().setItem(4, reset.build());
         player.getInventory().setItem(8, leave.build());
