@@ -5,9 +5,7 @@ import org.bukkit.entity.Player;
 
 public class ItemUtils {
     public static void giveLobbyItems(Player player) {
-        for(int i = 0; i < 8; i++) {
-            player.getInventory().setItem(i, null);
-        }
+        player.getInventory().clear();
 
         ItemBuilder cosmetics = new ItemBuilder(Material.EMERALD).setDisplayName("&a&lCosmetics");
         ItemBuilder kits = new ItemBuilder(Material.NETHER_STAR).setDisplayName("&a&lKits");
@@ -26,7 +24,9 @@ public class ItemUtils {
     }
 
     public static void giveParkourItems(Player player) {
-        player.getInventory().clear();
+        for(int i = 0; i < 8; i++) {
+            player.getInventory().setItem(i, null);
+        }
 
         ItemBuilder leave = new ItemBuilder(Material.RED_BED).setDisplayName("&c&lLeave");
         ItemBuilder reset = new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE).setDisplayName("&a&lBack to Checkpoint");
