@@ -32,3 +32,6 @@ commands:
   spawn:
     description: Teleports back to the arena spawn.
     usage: /spawn
+  stats:
+    description: View the player's stats.
+    usage: /stats

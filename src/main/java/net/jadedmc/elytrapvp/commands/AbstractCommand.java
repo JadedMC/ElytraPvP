@@ -37,6 +37,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         new ParkourCMD(pl);
         new SettingsCMD(pl);
         new SpawnCMD(pl);
+        new StatsCMD(pl);
     }
 
     /**
