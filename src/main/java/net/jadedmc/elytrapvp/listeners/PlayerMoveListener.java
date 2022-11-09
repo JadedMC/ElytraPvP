@@ -9,6 +9,7 @@ import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -74,6 +75,11 @@ public class PlayerMoveListener implements Listener {
                     if(plugin.kitManager().getKit(customPlayer.getKit()) == null) {
                         player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
                         ChatUtils.chat(player, "&c&lError &8» &cYou have not selected a kit yet.");
+                        return;
+                    }
+
+                    // Prevent marking players as playing if they're in creative or spectator mode.
+                    if(player.getGameMode() == GameMode.CREATIVE || player.getGameMode() == GameMode.SPECTATOR) {
                         return;
                     }
 
