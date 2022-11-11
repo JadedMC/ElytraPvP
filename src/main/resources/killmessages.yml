@@ -1,0 +1,91 @@
+KillMessages:
+  1:
+    Message: "&f%player% &awas toasted by &f%killer%&a."
+    Price: 250
+  2:
+    Message: "&f%player%&a's life was drastically cut short by &f%killer%&a."
+    Price: 250
+  3:
+    Message: "&f%player% &awas put out of their misery by &f%killer%&a."
+    Price: 250
+  4:
+    Message: "&f%player% &awas obliterated by &f%killer%&a."
+    Price: 250
+  5:
+    Message: "&f%player% &awas chewed up by &f%killer%&a."
+    Price: 250
+  6:
+    Message: "&f%player% &awas munched on by &f%killer%&a."
+    Price: 250
+  7:
+    Message: "&f%player% &awas defeathered by &f%killer%&a."
+    Price: 250
+  8:
+    Message: "&f%player% &awas deleted by &f%killer%&a."
+    Price: 250
+  9:
+    Message: "&f%player% &awas bullied by &f%killer%&a."
+    Price: 250
+  10:
+    Message: "&f%player%&a's plane was shot down by &f%killer%&a."
+    Price: 250
+  11:
+    Message: "&f%player% &awas made quick work of by &f%killer%&a."
+    Price: 250
+  12:
+    Message: "&f%player% &acould not dodge &f%killer%"
+    Price: 250
+  13:
+    Message: "&f%player% &acould not out-manuever &f%killer%&a."
+    Price: 250
+  14:
+    Message: "&f%player% &aforgot to take out &f%killer%&a's trash."
+    Price: 250
+  15:
+    Message: "&f%player% &awas surprise attacked by &f%killer%&a."
+    Price: 250
+  16:
+    Message: "&f%player% &acould not escape &f%killer%&a's wrath."
+    Price: 250
+  17:
+    Message: "&f%player% &awas messed up by &f%killer%&a."
+    Price: 250
+  18:
+    Message: "&f%player% &awas dominated by &f%killer%&a."
+    Price: 250
+  19:
+    Message: "&f%player% &awas trashed on by &f%killer%&a."
+    Price: 250
+  20:
+    Message: "&f%player%&a's luck ran out against &f%killer%&a."
+    Price: 250
+  21:
+    Message: "&f%player% &adid not see &f%killer%&a coming."
+    Price: 250
+  22:
+    Message: "&f%player% &awas stalked by &f%killer%&a."
+    Price: 250
+  23:
+    Message: "&f%player% &acould not stand &f%killer%&a's smell."
+    Price: 250
+  24:
+    Message: "&f%player% &awas blinded by &f%killer%&a's fireworks."
+    Price: 250
+  25:
+    Message: "&f%player% &awas turned to stone by &f%killer%&a's stare."
+    Price: 250
+  26:
+    Message: "&f%player% &alacked knowledge against &f%killer%&a."
+    Price: 250
+  27:
+    Message: "&f%player% &awas finished by &f%killer%&a."
+    Price: 250
+  28:
+    Message: "&f%player% &acould not take &f%killer%&a's heat"
+    Price: 250
+  29:
+    Message: "&f%player% &awas in awe at &f%killer%&a's skills."
+    Price: 250
+  30:
+    Message: "&f%player% &acould not keep up with &f%killer%&a."
+    Price: 250

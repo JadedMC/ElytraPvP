@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
+import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
 import org.bukkit.entity.Player;
@@ -30,7 +31,9 @@ public class CustomPlayer {
 
     // Cosmetics
     private String hat = "none";
+    private String killMessage = "none";
     private final List<String> unlockedHats = new ArrayList<>();
+    private final List<String> unlockedKillMessages = new ArrayList<>();
 
     // Statistics
     private int coins = 0;
@@ -189,6 +192,7 @@ public class CustomPlayer {
                     while(resultSet.next()) {
                         switch (resultSet.getString("type")) {
                             case "HAT" -> unlockedHats.add(resultSet.getString("cosmeticID"));
+                            case "KILL_MESSAGE" -> unlockedKillMessages.add(resultSet.getString("cosmeticID"));
                         }
                     }
                 }
@@ -489,6 +493,18 @@ public class CustomPlayer {
     }
 
     /**
+     * Get the player's current kill message.
+     * @return Currently selected kill message.
+     */
+    public KillMessage getKillMessage() {
+        if(killMessage == null || killMessage.equalsIgnoreCase("none")) {
+            return null;
+        }
+
+        return plugin.cosmeticManager().getKillMessage(killMessage);
+    }
+
+    /**
      * Get the number of kills the played has earned with a kit.
      * @param kit Kit to get kill count of.
      * @return Number of kills achieved with that kit.
@@ -636,11 +652,19 @@ public class CustomPlayer {
     }
 
     /**
-     * Gets a list of the kits the player has unlocked.
+     * Gets a list of the hats the player has unlocked.
      * @return List of the ids of hats unlocked.
      */
     public List<String> getUnlockedHats() {
         return unlockedHats;
+    }
+
+    /**
+     * Gets a list of the kill messages the player has unlocked.
+     * @return List of the ids of kill messages unlocked.
+     */
+    public List<String> getUnlockedKillMessages() {
+        return unlockedKillMessages;
     }
 
     /**
@@ -826,6 +850,33 @@ public class CustomPlayer {
             try {
                 PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET hat = ? WHERE uuid = ?");
                 statement.setString(1, finalHatId);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Set the kill message the player is currently using.
+     * @param killMessage New kill message the player is using.
+     */
+    public void setKillMessage(KillMessage killMessage) {
+        String killMessageId = "none";
+
+        if(killMessage != null) {
+            killMessageId = killMessage.getId();
+        }
+
+        this.killMessage = killMessageId;
+
+        String finalKillMessageId = killMessageId;
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET killMessage = ? WHERE uuid = ?");
+                statement.setString(1, finalKillMessageId);
                 statement.setString(2, uuid.toString());
                 statement.executeUpdate();
             }
@@ -1057,6 +1108,27 @@ public class CustomPlayer {
                 statement.setString(1, uuid.toString());
                 statement.setString(2, "HAT");
                 statement.setString(3, hat.getId());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Allows a player to use a kill message.
+     * @param killMessage Kill Message to unlock.
+     */
+    public void unlockKillMessage(KillMessage killMessage) {
+        unlockedKillMessages.add(killMessage.getId());
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, "KILL_MESSAGE");
+                statement.setString(3, killMessage.getId());
                 statement.executeUpdate();
             }
             catch (SQLException exception) {

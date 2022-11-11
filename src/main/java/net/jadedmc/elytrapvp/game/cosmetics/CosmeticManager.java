@@ -3,7 +3,9 @@ package net.jadedmc.elytrapvp.game.cosmetics;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.HatCategory;
+import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import org.bukkit.configuration.ConfigurationSection;
+import org.checkerframework.checker.units.qual.K;
 
 import java.util.*;
 
@@ -13,6 +15,7 @@ import java.util.*;
 public class CosmeticManager {
     private final ElytraPvP plugin;
     private final Map<String, Hat> hats = new LinkedHashMap();
+    private final Map<String, KillMessage> killMessages = new LinkedHashMap<>();
 
     /**
      * Creates the manager.
@@ -23,6 +26,7 @@ public class CosmeticManager {
 
         // Load all cosmetics from the config.
         loadHats();
+        loadKillMessages();
     }
 
     /**
@@ -60,6 +64,34 @@ public class CosmeticManager {
     }
 
     /**
+     * Load all kill messages from the config.
+     */
+    private void loadKillMessages() {
+        ConfigurationSection section = plugin.settingsManager().getKillMessages().getConfigurationSection("KillMessages");
+
+        if(section != null) {
+            // Loop through each kill message.
+            for(String id : section.getKeys(false)) {
+                ConfigurationSection config = section.getConfigurationSection(id);
+                String message = config.getString("Message");
+
+                CosmeticType unlockType = CosmeticType.NORMAL;
+                if(config.isSet("unlockType")) {
+                    unlockType = CosmeticType.valueOf(config.getString("unlockType"));
+                }
+
+                KillMessage killMessage = new KillMessage(plugin, id, message, unlockType);
+
+                if(config.isSet("Price")) {
+                    killMessage.setPrice(config.getInt("Price"));
+                }
+
+                killMessages.put(id, killMessage);
+            }
+        }
+    }
+
+    /**
      * Get a hat based off its id.
      * @param id Id of the hat.
      * @return Corresponding hat.
@@ -91,5 +123,22 @@ public class CosmeticManager {
         }
 
         return hatList;
+    }
+
+    /**
+     * Get a kill message based off its id.
+     * @param id id of the kill message.
+     * @return Corresponding kill message.
+     */
+    public KillMessage getKillMessage(String id) {
+        return killMessages.get(id);
+    }
+
+    /**
+     * Get a collection of all kill messages.
+     * @return All kill messages.
+     */
+    public Collection<KillMessage> getKillMessages() {
+        return killMessages.values();
     }
 }

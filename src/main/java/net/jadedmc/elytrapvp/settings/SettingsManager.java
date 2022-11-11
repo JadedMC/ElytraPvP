@@ -17,7 +17,13 @@ public class SettingsManager {
     private File arenasFile;
     private FileConfiguration hats;
     private File hatsFile;
+    private FileConfiguration killMessages;
+    private File killMessagesFile;
 
+    /**
+     * Loads the configuration files.
+     * @param plugin Instance of the plugin.
+     */
     public SettingsManager(ElytraPvP plugin) {
         config = plugin.getConfig();
         config.options().copyDefaults(true);
@@ -36,6 +42,13 @@ public class SettingsManager {
 
         if(!hatsFile.exists()) {
             plugin.saveResource("hats.yml", false);
+        }
+
+        killMessagesFile = new File(plugin.getDataFolder(), "killmessages.yml");
+        killMessages = YamlConfiguration.loadConfiguration(killMessagesFile);
+
+        if(!killMessagesFile.exists()) {
+            plugin.saveResource("killmessages.yml", false);
         }
     }
 
@@ -61,6 +74,14 @@ public class SettingsManager {
      */
     public FileConfiguration getHats() {
         return hats;
+    }
+
+    /**
+     * Get the kill messages configuration file.
+     * @return Kill Messages configuration.
+     */
+    public FileConfiguration getKillMessages() {
+        return killMessages;
     }
 
     /**

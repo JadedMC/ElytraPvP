@@ -29,7 +29,7 @@ public class CosmeticsGUI extends CustomGUI {
         setItem(19, hats.build(), (p,a) -> new HatsGUI(plugin).open(p));
 
         ItemBuilder killMessages = new ItemBuilder(Material.OAK_SIGN).setDisplayName("&a&lKill Messages");
-        setItem(21, killMessages.build());
+        setItem(21, killMessages.build(), (p, a) -> new KillMessagesGUI(plugin, p, 1).open(p));
 
         ItemBuilder tags = new ItemBuilder(Material.NAME_TAG).setDisplayName("&a&lTags");
         setItem(23, tags.build());

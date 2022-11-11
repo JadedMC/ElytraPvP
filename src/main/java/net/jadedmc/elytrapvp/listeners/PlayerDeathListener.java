@@ -46,6 +46,10 @@ public class PlayerDeathListener implements Listener {
                 CustomPlayer customKiller = plugin.customPlayerManager().getPlayer(killer);
 
                 deathMessage = "&a&lDeath &8» &f" + player.getName() + " &awas rekt by &f" + killer.getName() + "&a.";
+                if(customKiller.getKillMessage() != null) {
+                    deathMessage = "&a&lDeath &8» " + customKiller.getKillMessage().getName().replace("%player%", player.getName()).replace("%killer%", killer.getName());
+                }
+
                 customKiller.addKill(plugin.kitManager().getKit(customKiller.getKit()));
 
                 int coins = 5 + (customKiller.getKillStreak("global") / 3) + customPlayer.getBounty();
