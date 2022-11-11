@@ -51,6 +51,7 @@ public class PlayerDeathListener implements Listener {
                 int coins = 5 + (customKiller.getKillStreak("global") / 3) + customPlayer.getBounty();
                 killer.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatUtils.translate("&6+ " + coins + " Coins")));
                 customKiller.addCoins(coins);
+                customKiller.claimBounty(customPlayer.getBounty());
 
                 int killStreak = customKiller.getKillStreak("global");
 

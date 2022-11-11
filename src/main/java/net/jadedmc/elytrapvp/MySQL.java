@@ -87,6 +87,8 @@ public class MySQL {
                         "bestKillStreak INT DEFAULT 0," +
                         "fireworksUsed INT DEFAULT 0," +
                         "drops INT DEFAULT 0," +
+                        "arrowsHit INT DEFAULT 0," +
+                        "arrowsShot INT DEFAULT 0," +
                         "PRIMARY KEY (uuid, kit)" +
                         ");");
                 elytrapvp_kit_statistics.execute();
@@ -117,6 +119,16 @@ public class MySQL {
                         "PRIMARY KEY (uuid, type, cosmeticID)" +
                         ");");
                 elytrapvp_cosmetics.execute();
+
+                PreparedStatement elytrapvp_statistics = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_statistics (" +
+                        "uuid VARCHAR(36)," +
+                        "lifetimeCoins INT DEFAULT 0," +
+                        "lifetimeBountyHad INT DEFAULT 0," +
+                        "lifetimeBountyClaimed INT DEFAULT 0," +
+                        "windowsBroken INT DEFAULT 0," +
+                        "PRIMARY KEY (uuid)" +
+                        ");");
+                elytrapvp_statistics.execute();
             }
             catch (SQLException exception) {
                 exception.printStackTrace();

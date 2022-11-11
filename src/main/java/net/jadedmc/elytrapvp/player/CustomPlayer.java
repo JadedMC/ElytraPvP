@@ -33,17 +33,20 @@ public class CustomPlayer {
     private final List<String> unlockedHats = new ArrayList<>();
 
     // Statistics
-    private int coins;
-    private int bounty;
-    private int lifetimeCoins;
-    private int lifetimeBountyHad;
-    private int lifetimeBountyClaimed;
+    private int coins = 0;
+    private int bounty = 0;
+    private int lifetimeCoins = 0;
+    private int lifetimeBountyHad = 0;
+    private int lifetimeBountyClaimed = 0;
+    private int windowsBroken = 0;
     private final Map<String, Integer> kills = new HashMap<>();
     private final Map<String, Integer> deaths = new HashMap<>();
     private final Map<String, Integer> killStreak = new HashMap<>();
     private final Map<String, Integer> bestKillStreak = new HashMap<>();
     private final Map<String, Integer> fireworksUsed = new HashMap<>();
     private final Map<String, Integer> drops = new HashMap<>();
+    private final Map<String, Integer> arrowsShot = new HashMap<>();
+    private final Map<String, Integer> arrowsHit = new HashMap<>();
     private final Map<String, Long> parkourTimes = new HashMap<>();
     private final Map<String, Integer> parkourCompletions = new HashMap<>();
     private final Map<String, Integer> parkourRank = new HashMap<>();
@@ -140,6 +143,8 @@ public class CustomPlayer {
                         bestKillStreak.put(kit, resultSet.getInt(6));
                         fireworksUsed.put(kit, resultSet.getInt(7));
                         drops.put(kit, resultSet.getInt(8));
+                        arrowsShot.put(kit, resultSet.getInt("arrowsShot"));
+                        arrowsHit.put(kit, resultSet.getInt("arrowsHit"));
                     }
                 }
 
@@ -188,6 +193,25 @@ public class CustomPlayer {
                     }
                 }
 
+                // elytrapvp_statistics
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_statistics WHERE uuid = ? LIMIT 1");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    if(resultSet.next()) {
+                        lifetimeCoins = resultSet.getInt("lifetimeCoins");
+                        lifetimeBountyHad = resultSet.getInt("lifetimeBountyHad");
+                        lifetimeBountyClaimed = resultSet.getInt("lifetimeBountyClaimed");
+                        windowsBroken = resultSet.getInt("windowsBroken");
+                    }
+                    else {
+                        PreparedStatement insert = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_statistics (uuid) VALUES (?)");
+                        insert.setString(1, uuid.toString());
+                        insert.executeUpdate();
+                    }
+                }
+
                 // Updates leaderboard ranks.
                 updateLeaderboardRanks();
             }
@@ -198,11 +222,30 @@ public class CustomPlayer {
     }
 
     /**
+     * Adds an arrow hit to the arrows hit counter.
+     * @param kit Kit to add hit arrow to.
+     */
+    public void addArrowHit(Kit kit) {
+        setArrowsHit("global", getArrowsHit("global") + 1);
+        setArrowsHit(kit.getId(), getArrowsHit(kit.getId()) + 1);
+    }
+
+    /**
+     * Adds an arrow shot to the arrows shot counter.
+     * @param kit Kit to add shot arrow to.
+     */
+    public void addArrowShot(Kit kit) {
+        setArrowsShot("global", getArrowsShot("global") + 1);
+        setArrowsHit(kit.getId(), getArrowsShot(kit.getId()) + 1);
+    }
+
+    /**
      * Adds a bounty to the player.
      * @param bounty Bounty to add to the player.
      */
     public void addBounty(int bounty) {
         setBounty(getBounty() + bounty);
+        setLifetimeBountyHad(getLifetimeBountyHad() + bounty);
     }
 
     /**
@@ -211,6 +254,7 @@ public class CustomPlayer {
      */
     public void addCoins(int coins) {
         setCoins(getCoins() + coins);
+        setLifetimeCoins(getLifetimeCoins() + coins);
     }
 
     /**
@@ -291,6 +335,14 @@ public class CustomPlayer {
     }
 
     /**
+     * Add a bounty to the player's lifetime bounty claims.
+     * @param bounty Bounty to add to total claims.
+     */
+    public void claimBounty(int bounty) {
+        setLifetimeBountyClaimed(getLifetimeBountyClaimed() + bounty);
+    }
+
+    /**
      * Clear the kit editor of a kit.
      * @param kit Kit to clear.
      */
@@ -304,6 +356,32 @@ public class CustomPlayer {
         catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    /**
+     * Get the number of times the player has shot someone with an arrow.
+     * @param kit Kit to get arrows hit count of.
+     * @return Number of times they hit someone with an arrow.
+     */
+    public int getArrowsHit(String kit) {
+        if(arrowsHit.containsKey(kit)) {
+            return arrowsHit.get(kit);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Get the number of arrows the player has shot using a kit.
+     * @param kit Kit to get arrows shot count of.
+     * @return Number of arrows shot using that kit.
+     */
+    public int getArrowsShot(String kit) {
+        if(arrowsShot.containsKey(kit)) {
+            return arrowsShot.get(kit);
+        }
+
+        return 0;
     }
 
     /**
@@ -574,6 +652,14 @@ public class CustomPlayer {
     }
 
     /**
+     * Get the number of windows the player has broken.
+     * @return Number of windows broken.
+     */
+    public int getWindowsBroken() {
+        return windowsBroken;
+    }
+
+    /**
      * Remove a number of coins from the player.
      * @param coins Amount of coins to remove.
      */
@@ -586,6 +672,24 @@ public class CustomPlayer {
      */
     public void resetBounty() {
         setBounty(0);
+    }
+
+    /**
+     * Set the amount of players the player has hit with arrows.
+     * @param kit Kit to set arrow hit count of.
+     * @param arrowsHit New number of players hit.
+     */
+    private void setArrowsHit(String kit, int arrowsHit) {
+        this.arrowsHit.put(kit, arrowsHit);
+    }
+
+    /**
+     * Set the amount of arrows the player has shot.
+     * @param kit Kit to set arrows shot count of.
+     * @param arrowsShot New number of arrows shot.
+     */
+    private void setArrowsShot(String kit, int arrowsShot) {
+        this.arrowsShot.put(kit, arrowsShot);
     }
 
     /**
@@ -772,6 +876,66 @@ public class CustomPlayer {
     }
 
     /**
+     * Set the total bounty the player has claimed.
+     * @param lifetimeBountyClaimed new total bounty claimed.
+     */
+    private void setLifetimeBountyClaimed(int lifetimeBountyClaimed) {
+        this.lifetimeBountyClaimed = lifetimeBountyClaimed;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_statistics SET lifetimeBountyClaimed = ? WHERE uuid = ?");
+                statement.setInt(1, lifetimeBountyClaimed);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Set the total bounty the player has had.
+     * @param lifetimeBountyHad new total bounty.
+     */
+    private void setLifetimeBountyHad(int lifetimeBountyHad) {
+        this.lifetimeBountyHad = lifetimeBountyHad;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_statistics SET lifetimeBountyHad = ? WHERE uuid = ?");
+                statement.setInt(1, lifetimeBountyHad);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Set the total number of coins the player has earned.
+     * @param lifetimeCoins new total coins earned.
+     */
+    private void setLifetimeCoins(int lifetimeCoins) {
+        this.lifetimeCoins = lifetimeCoins;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_statistics SET lifetimeCoins = ? WHERE uuid = ?");
+                statement.setInt(1, lifetimeCoins);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
      * Set if the player should see all death messages in chat.
      * @param showAllDeaths Whether they should be able to see other player's deaths.
      */
@@ -834,6 +998,26 @@ public class CustomPlayer {
      */
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    /**
+     * Set the number of windows the player has broken.
+     * @param windowsBroken New amount of windows broken.
+     */
+    private void setWindowsBroken(int windowsBroken) {
+        this.windowsBroken = windowsBroken;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_statistics SET windowsBroken = ? WHERE uuid = ?");
+                statement.setInt(1, windowsBroken);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     /**
@@ -937,7 +1121,7 @@ public class CustomPlayer {
     private void updateKitStatistics(String kit) {
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, ()-> {
             try {
-                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,kills,deaths,killStreak,bestKillStreak,fireworksUsed,drops) VALUES (?,?,?,?,?,?,?,?)");
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("REPLACE INTO elytrapvp_kit_statistics (uuid,kit,kills,deaths,killStreak,bestKillStreak,fireworksUsed,drops,arrowsHit,arrowsShot) VALUES (?,?,?,?,?,?,?,?,?,?)");
                 statement.setString(1, uuid.toString());
                 statement.setString(2, kit);
                 statement.setInt(3, getKills(kit));
@@ -946,6 +1130,8 @@ public class CustomPlayer {
                 statement.setInt(6, getBestKillStreak(kit));
                 statement.setInt(7, getFireworksUsed(kit));
                 statement.setInt(8, getDrops(kit));
+                statement.setInt(9, getArrowsHit(kit));
+                statement.setInt(10, getArrowsShot(kit));
                 statement.executeUpdate();
             }
             catch (SQLException exception) {
