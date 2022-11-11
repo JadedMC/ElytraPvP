@@ -235,6 +235,15 @@ public class CustomPlayer {
     }
 
     /**
+     * Adds a firework to the used fireworks counter.
+     * @param kit Kit to add used fireworks to.
+     */
+    public void addFireworkUsed(Kit kit) {
+        setFireworksUsed("global", getFireworksUsed("global") + 1);
+        setFireworksUsed(kit.getId(), getFireworksUsed(kit.getId()) + 1);
+    }
+
+    /**
      * Adds a kill to the player.
      * @param kit Kit the killed was earned in.
      */
@@ -693,7 +702,6 @@ public class CustomPlayer {
      */
     private void setFireworksUsed(String kit, int fireworksUsed) {
         this.fireworksUsed.put(kit, fireworksUsed);
-        updateKitStatistics(kit);
     }
 
     /**

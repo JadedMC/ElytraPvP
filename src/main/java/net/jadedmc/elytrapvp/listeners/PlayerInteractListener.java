@@ -75,6 +75,11 @@ public class PlayerInteractListener implements Listener {
         // Replace fireworks when used.
         if(event.getItem().getType() == Material.FIREWORK_ROCKET) {
             event.getItem().setAmount(64);
+
+            // Add to fireworks used counter if the player is in the arena.
+            if(customPlayer.getStatus() == Status.ARENA) {
+                customPlayer.addFireworkUsed(plugin.kitManager().getKit(customPlayer.getKit()));
+            }
         }
 
         // Exit if item meta is null.
