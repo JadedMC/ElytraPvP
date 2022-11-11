@@ -48,7 +48,7 @@ public class TagsGUI extends CustomGUI {
                 CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
                 // Sets the chat if the player has it already unlocked.
-                if(customPlayer.getUnlockedKillMessages().contains(tag.getId())) {
+                if(customPlayer.getUnlockedTags().contains(tag.getId())) {
                     customPlayer.setTag(tag);
                     player.closeInventory();
                     ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been equipped.");
