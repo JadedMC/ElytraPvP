@@ -17,6 +17,7 @@ public class PyroKit extends Kit {
         setPrice(0);
         setIcon(Material.FLINT_AND_STEEL);
         setDescription("Light up the night, or your enemies.");
+        setHealth(18);
 
         ItemStack bow = new ItemBuilder(Material.BOW)
                 .setDisplayName("&aPyro Bow")

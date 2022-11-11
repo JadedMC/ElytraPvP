@@ -53,15 +53,6 @@ public abstract class Kit {
         // Add the potion effects.
         effects.forEach(player::addPotionEffect);
 
-        // Add the items.
-        /*
-        for(int slot : items.keySet()) {
-            ItemStack item = items.get(slot);
-            player.getInventory().setItem(slot, item);
-        }
-
-         */
-
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
         Map<Integer, ItemStack> updatedKit = new HashMap<>();

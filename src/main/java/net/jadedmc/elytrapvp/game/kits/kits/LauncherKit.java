@@ -20,7 +20,7 @@ public class LauncherKit extends Kit {
         addItem(0, stick.build());
 
         ItemBuilder bow = new ItemBuilder(Material.BOW)
-                .setDisplayName("&aStickman Bow")
+                .setDisplayName("&aLauncher Bow")
                 .setUnbreakable(true)
                 .addEnchantment(Enchantment.ARROW_DAMAGE, 3)
                 .addEnchantment(Enchantment.ARROW_INFINITE, 1)

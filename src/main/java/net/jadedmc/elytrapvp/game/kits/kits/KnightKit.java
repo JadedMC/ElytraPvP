@@ -13,20 +13,20 @@ public class KnightKit extends Kit {
         super(plugin, "Knight", "knight");
 
         setPrice(0);
-        setIcon(Material.STONE_SWORD);
+        setIcon(Material.IRON_SWORD);
         setDescription("Slash your way into battle with a stone sword.");
+        setHealth(22);
 
-        ItemStack sword = new ItemBuilder(Material.STONE_SWORD)
+        ItemStack sword = new ItemBuilder(Material.IRON_SWORD)
                 .setDisplayName("&aKnight Sword")
                 .setUnbreakable(true)
-                .addEnchantment(Enchantment.DAMAGE_ALL, 1)
                 .build();
         addItem(0, sword);
 
         ItemStack bow = new ItemBuilder(Material.BOW)
                 .setDisplayName("&aKnight Bow")
                 .setUnbreakable(true)
-                .addEnchantment(Enchantment.ARROW_DAMAGE, 3)
+                .addEnchantment(Enchantment.ARROW_DAMAGE, 1)
                 .addEnchantment(Enchantment.ARROW_INFINITE, 1)
                 .build();
         addItem(1, bow);

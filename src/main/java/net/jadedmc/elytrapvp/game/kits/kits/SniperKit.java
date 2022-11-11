@@ -6,6 +6,8 @@ import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class SniperKit extends Kit {
 
@@ -28,5 +30,7 @@ public class SniperKit extends Kit {
         addItem(17, new ItemBuilder(Material.ARROW, 64).setDisplayName("&aArrow").build());
         addItem(38, new ItemBuilder(Material.ELYTRA).setDisplayName("&aElytra").setUnbreakable(true).build());
         addItem(40, new ItemBuilder(Material.FIREWORK_ROCKET, 64).setDisplayName("&aFirework").build());
+
+        addEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 0));
     }
 }
