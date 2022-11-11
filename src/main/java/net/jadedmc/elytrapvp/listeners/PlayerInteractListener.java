@@ -5,6 +5,7 @@ import net.jadedmc.elytrapvp.game.GameScoreboard;
 import net.jadedmc.elytrapvp.game.kits.KitSelectorGUI;
 import net.jadedmc.elytrapvp.inventories.CosmeticsGUI;
 import net.jadedmc.elytrapvp.inventories.SettingsGUI;
+import net.jadedmc.elytrapvp.inventories.StatsGUI;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
 import net.jadedmc.elytrapvp.utils.LocationUtils;
@@ -72,8 +73,12 @@ public class PlayerInteractListener implements Listener {
                 new KitSelectorGUI(plugin, player).open(player);
                 event.setCancelled(true);
             }
-            case "Settings" -> new SettingsGUI(plugin, player).open(player);
+            case "Settings" -> {
+                new SettingsGUI(plugin, player).open(player);
+                event.setCancelled(true);
+            }
             case "Stats" -> {
+                new StatsGUI(plugin, player).open(player);
                 event.setCancelled(true);
             }
             case "Cosmetics" -> {
