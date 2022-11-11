@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
+import net.jadedmc.elytrapvp.player.CustomPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -126,6 +127,16 @@ class Placeholders extends PlaceholderExpansion {
             }
 
             return temp.get(place);
+        }
+
+        if(identifier.contains("tag")) {
+            CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+
+            if(customPlayer.getTag() == null) {
+                return "";
+            }
+
+            return customPlayer.getTag().getName() + " ";
         }
 
         return null;

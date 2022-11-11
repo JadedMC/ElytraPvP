@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp.player;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
+import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
 import org.bukkit.entity.Player;
@@ -32,8 +33,10 @@ public class CustomPlayer {
     // Cosmetics
     private String hat = "none";
     private String killMessage = "none";
+    private String tag = "none";
     private final List<String> unlockedHats = new ArrayList<>();
     private final List<String> unlockedKillMessages = new ArrayList<>();
+    private final List<String> unlockedTags = new ArrayList<>();
 
     // Statistics
     private int coins = 0;
@@ -90,6 +93,8 @@ public class CustomPlayer {
                         coins = resultSet.getInt(3);
                         bounty = resultSet.getInt(4);
                         hat = resultSet.getString("hat");
+                        killMessage = resultSet.getString("killMessage");
+                        tag = resultSet.getString("tag");
 
                         // Give the player their selected hat once loaded.
                         plugin.getServer().getScheduler().runTask(plugin, () -> {
@@ -193,6 +198,7 @@ public class CustomPlayer {
                         switch (resultSet.getString("type")) {
                             case "HAT" -> unlockedHats.add(resultSet.getString("cosmeticID"));
                             case "KILL_MESSAGE" -> unlockedKillMessages.add(resultSet.getString("cosmeticID"));
+                            case "TAG" -> unlockedTags.add(resultSet.getString("cosmeticID"));
                         }
                     }
                 }
@@ -652,6 +658,18 @@ public class CustomPlayer {
     }
 
     /**
+     * Get the player's current tag.
+     * @return Currently selected tag.
+     */
+    public Tag getTag() {
+        if(tag == null || tag.equalsIgnoreCase("none")) {
+            return null;
+        }
+
+        return plugin.cosmeticManager().getTag(tag);
+    }
+
+    /**
      * Gets a list of the hats the player has unlocked.
      * @return List of the ids of hats unlocked.
      */
@@ -673,6 +691,14 @@ public class CustomPlayer {
      */
     public List<String> getUnlockedKits() {
         return unlockedKits;
+    }
+
+    /**
+     * Gets a list of the tags the player has unlocked.
+     * @return List of the ids of unlocked tags.
+     */
+    public List<String> getUnlockedTags() {
+        return unlockedTags;
     }
 
     /**
@@ -1052,6 +1078,33 @@ public class CustomPlayer {
     }
 
     /**
+     * Set the tag the player is currently using.
+     * @param tag New tag the player is using.
+     */
+    public void setTag(Tag tag) {
+        String tagId = "none";
+
+        if(tag != null) {
+            tagId = tag.getId();
+        }
+
+        this.tag = tagId;
+
+        String finalTagId = tagId;
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET tag = ? WHERE uuid = ?");
+                statement.setString(1, finalTagId);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
      * Set the number of windows the player has broken.
      * @param windowsBroken New amount of windows broken.
      */
@@ -1129,6 +1182,27 @@ public class CustomPlayer {
                 statement.setString(1, uuid.toString());
                 statement.setString(2, "KILL_MESSAGE");
                 statement.setString(3, killMessage.getId());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Allows a player to use a tag.
+     * @param tag Tag to unlock.
+     */
+    public void unlockTag(Tag tag) {
+        unlockedTags.add(tag.getId());
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, "TAG");
+                statement.setString(3, tag.getId());
                 statement.executeUpdate();
             }
             catch (SQLException exception) {

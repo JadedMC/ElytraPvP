@@ -32,7 +32,7 @@ public class CosmeticsGUI extends CustomGUI {
         setItem(21, killMessages.build(), (p, a) -> new KillMessagesGUI(plugin, p, 1).open(p));
 
         ItemBuilder tags = new ItemBuilder(Material.NAME_TAG).setDisplayName("&a&lTags");
-        setItem(23, tags.build());
+        setItem(23, tags.build(), (p,a) -> new TagsGUI(plugin, p, 1).open(p));
 
         ItemBuilder arrowTrails = new ItemBuilder(Material.ARROW).setDisplayName("&a&lArrow Trails");
         setItem(25, arrowTrails.build());

@@ -19,6 +19,8 @@ public class SettingsManager {
     private File hatsFile;
     private FileConfiguration killMessages;
     private File killMessagesFile;
+    private FileConfiguration tags;
+    private File tagsFile;
 
     /**
      * Loads the configuration files.
@@ -49,6 +51,13 @@ public class SettingsManager {
 
         if(!killMessagesFile.exists()) {
             plugin.saveResource("killmessages.yml", false);
+        }
+
+        tagsFile = new File(plugin.getDataFolder(), "tags.yml");
+        tags = YamlConfiguration.loadConfiguration(tagsFile);
+
+        if(!tagsFile.exists()) {
+            plugin.saveResource("tags.yml", false);
         }
     }
 
@@ -82,6 +91,14 @@ public class SettingsManager {
      */
     public FileConfiguration getKillMessages() {
         return killMessages;
+    }
+
+    /**
+     * Get the tags configuration file.
+     * @return Tags configuration.
+     */
+    public FileConfiguration getTags() {
+        return tags;
     }
 
     /**
