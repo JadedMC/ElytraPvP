@@ -1,6 +1,7 @@
 package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
 import org.bukkit.entity.Player;
@@ -26,6 +27,10 @@ public class CustomPlayer {
 
     // Kits
     private final List<String> unlockedKits = new ArrayList<>();
+
+    // Cosmetics
+    private String hat = "none";
+    private final List<String> unlockedHats = new ArrayList<>();
 
     // Statistics
     private int coins;
@@ -78,6 +83,14 @@ public class CustomPlayer {
                         kit = resultSet.getString(2);
                         coins = resultSet.getInt(3);
                         bounty = resultSet.getInt(4);
+                        hat = resultSet.getString("hat");
+
+                        // Give the player their selected hat once loaded.
+                        plugin.getServer().getScheduler().runTask(plugin, () -> {
+                            if(hat != null && !hat.equals("none")) {
+                                getPlayer().getInventory().setHelmet(plugin.cosmeticManager().getHat(hat).toItemStack());
+                            }
+                        });
                     }
                     else {
                         PreparedStatement insert = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_players (uuid) VALUES (?)");
@@ -159,6 +172,19 @@ public class CustomPlayer {
                         PreparedStatement insert = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_settings (uuid) VALUES (?)");
                         insert.setString(1, uuid.toString());
                         insert.executeUpdate();
+                    }
+                }
+
+                // elytrapvp_cosmetics
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_cosmetics WHERE uuid = ?");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    while(resultSet.next()) {
+                        switch (resultSet.getString("type")) {
+                            case "HAT" -> unlockedHats.add(resultSet.getString("cosmeticID"));
+                        }
                     }
                 }
 
@@ -350,7 +376,7 @@ public class CustomPlayer {
         return 0;
     }
 
-    /**\
+    /**
      * Get the amount of fireworks used with a kit.
      * @param kit Kit to get firework use count of.
      * @return Number of times fireworks have been used with that kit.
@@ -361,6 +387,18 @@ public class CustomPlayer {
         }
 
         return 0;
+    }
+
+    /**
+     * Get the player's current hat.
+     * @return Currently selected hat.
+     */
+    public Hat getHat() {
+        if(hat == null || hat.equalsIgnoreCase("none")) {
+            return null;
+        }
+
+        return plugin.cosmeticManager().getHat(hat);
     }
 
     /**
@@ -512,6 +550,14 @@ public class CustomPlayer {
 
     /**
      * Gets a list of the kits the player has unlocked.
+     * @return List of the ids of hats unlocked.
+     */
+    public List<String> getUnlockedHats() {
+        return unlockedHats;
+    }
+
+    /**
+     * Gets a list of the kits the player has unlocked.
      * @return List of the ids of kits unlocked.
      */
     public List<String> getUnlockedKits() {
@@ -651,6 +697,33 @@ public class CustomPlayer {
     }
 
     /**
+     * Set the hat the player is currently using.
+     * @param hat New hat the player is using.
+     */
+    public void setHat(Hat hat) {
+        String hatId = "none";
+
+        if(hat != null) {
+            hatId = hat.getId();
+        }
+
+        this.hat = hatId;
+
+        String finalHatId = hatId;
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET hat = ? WHERE uuid = ?");
+                statement.setString(1, finalHatId);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
      * Set the number of kills the player has gained with a kit.
      * @param kit Kit to set kill count of.
      * @param kills New number of kills earned.
@@ -777,6 +850,27 @@ public class CustomPlayer {
      */
     public boolean showScoreboard() {
         return showScoreboard;
+    }
+
+    /**
+     * Allows a player to use a hat.
+     * @param hat Hat to unlock.
+     */
+    public void unlockHat(Hat hat) {
+        unlockedHats.add(hat.getId());
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, "HAT");
+                statement.setString(3, hat.getId());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     /**

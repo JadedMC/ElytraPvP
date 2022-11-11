@@ -124,7 +124,7 @@ public class ParkourCMD extends AbstractCommand {
                 new GameScoreboard(plugin, player);
                 plugin.parkourManager().removePlayer(player);
                 player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
-                ItemUtils.giveLobbyItems(player);
+                ItemUtils.giveLobbyItems(plugin, player);
             }
 
             // Executes the teleport command, is used to teleport to a specific course.

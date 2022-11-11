@@ -40,7 +40,7 @@ public class PlayerJoinListener implements Listener {
         new GameScoreboard(plugin, player);
 
         player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
-        ItemUtils.giveLobbyItems(player);
+        ItemUtils.giveLobbyItems(plugin, player);
         player.setGameMode(GameMode.ADVENTURE);
 
         // If the player is on an older version, warn them that the mode wont work.

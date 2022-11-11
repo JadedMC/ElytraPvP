@@ -1,0 +1,1210 @@
+Hats:
+  # Food
+  bread:
+    name: "Bread"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjBhYzQwYzBkY2M2YWYzMDc2MjI2MGQwNjhkNzczYjc5YjFiY2NhN2IyMTAyMTZmNzg1M2U5Mzc0ODRhMmJkNCJ9fX0="
+  burger:
+    name: "Burger"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2E5Yzg3NTM3ODBlYmMzOWMzNTFkYThlZmQ5MWJjZTkwYmQ4Y2NhN2I1MTFmOTNlNzhkZjc1ZjY2MTVjNzlhNiJ9fX0="
+  cake:
+    name: "Cake"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjY4N2FkNGE5ZWE4ZjJmZDY2M2MwOTdmZDkyMDU3NDljYzE2ZjE0YWMxMjg1NWZhNmZiNjkyOGZiZTkyODRhMyJ9fX0="
+  cheese:
+    name: "Cheese"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTU1ZDYxMWE4NzhlODIxMjMxNzQ5YjI5NjU3MDhjYWQ5NDI2NTA2NzJkYjA5ZTI2ODQ3YTg4ZTJmYWMyOTQ2In19fQ=="
+  cookies:
+    name: "Cookies"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjc1NTY0NGVlNWE3NjA4ZTE3NjU5NjNhMzE5OWI2YjI3NzI0ZmQ0YjQwMzAxMTU2MDEwYTU4MWNkZDhmYWFmZSJ9fX0="
+  cupcake:
+    name: "Cupcake"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTJmNTYzOGMyMTNlYTJhNWE5NGU2NTk4MTY2YmM0N2VlZWI0MGY1ZGY4NGRhNzBjZDkyMzNjMTgxMmRmMTEwIn19fQ=="
+  donut:
+    name: "Donut"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDA4MjM2YjQ0ZjNmYzExYjAwMjgwNTQ4NDg3MmMyNTFlOTk0YWJjMzdhMWQ1ZjFkYmI3NmM4MTFlNzY3ZDFjNyJ9fX0="
+  hotdog:
+    name: "Hot Dog"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI1MDVjNTUwNTFjZWQzODI0ZTBlMzA3MDkyYTFkOGQ2ZTA4MzFhZGNmNWFlOGU5MWU2MDY3NGY2YjdhY2Q4OCJ9fX0="
+  muffin:
+    name: "Muffin"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDI4NGU3N2I4OTMwYjBmMjlhYTY2Mjc5YzQxZDVlMTQ5YmVlMjYzZjIxZmUzNzI2MzZjYmY3NjhkYjljZWU0YSJ9fX0="
+  pancakes:
+    name: "Pancakes"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjYwZmFhMDJhYWIyYzA2ZjhjMzYzODA4YzQ1ZGIzMWUzY2U2MjMwNGRiMjFmMGFiODU3M2QyOTk1MjY2OWQ0MyJ9fX0="
+  popcorn:
+    name: "Popcorn"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWE1MjYwMjEzMzFmOWE5N2MwMTEzZDRhNzlhMGVhMmM5ZGNkOTUxYzA3ZDQ5YTg2MTAyMTBlNmM3ZmQ3YjA3OCJ9fX0="
+  taco:
+    name: "Taco"
+    category: FOOD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q3MmFkNzQzMTU3NWEzYTgxNjA3YTQwOWM2MTBiNGVhZjI5ODMwODgwY2RiYTFlNTFkODFiYmJjOTdkZmRhNCJ9fX0="
+
+  # Flags
+  #Counties
+  afghanistan:
+    name: "Afghanistan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmEyMWZlMWJiMDg4NmZlMjQyMzI5MTNjMWY4Y2NmYzU4ZWI3ZTkyYWE4ZjBmODllZTVlNmJmZDhkYzg3NTdmZCJ9fX0"
+  albania:
+    name: "Albania"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTdjZWE3NzY3MzMwZGQ0OTQzZDQ3NDk2YjUxODZjMTdlNjE4ODhhMjlmYmE2NTFhMjNkYWU3NWY2NTBiNTMyYyJ9fX0"
+  algeria:
+    name: "Algeria"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTI3YWI2MmJhMjQ4MDBhYTlhZDViYWJiMzgyZjEyMmQwNzdiZDM5NTAxOTMyZWQ5NjhmMmI2NjU4YWYzZTU4NSJ9fX0"
+  andorra:
+    name: "Andorra"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWE1OTgyMmZlZjUyYzRhOWJhOTYwZWZlMWQyZjZmNWZiN2Q3MGU1ZTgyNzkyZmM2NjhhMTZlMjk2ZjJjM2FmNCJ9fX0"
+  angola:
+    name: "Angola"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDkzZGY5OWM0OTkwMzE1ZmJlNjBkYzczN2I1ZDQxZmZkNGM1ZTA4YTE5NjNhNjNhNjA1OWEwZWUwYzc2MjhlOCJ9fX0"
+  argentina:
+    name: "Argentina"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjZkMDMzZGM1ZjY3NWFkNTFiYzA2YzdhMTk0OWMzNWExZDM3ZTQ4YTJlMWMyNzg5YzJjZjdkMzBlYzU4ZjMyYyJ9fX0"
+  armenia:
+    name: "Armenia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2UyNzFjZGI1N2FlYzI0NDIwMGY4OTk5NWYyZTAzNjU3OWNlMzE5ZjZhNGM2NmYzYTEzYmZlZTUxMTY2ZGQ5NCJ9fX0"
+  australia:
+    name: "Australia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2JhNTg2YTZmMDdhMDk5YTU4ODM4YTlmYmVkODQ1ZWNmNzgwZmMyYTM5MGY3YTQ2MjBhN2RjZjBhODVlNzVhNCJ9fX0"
+  austria:
+    name: "Austria"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2Q1ZWU2NzEyN2ZlZWM0ODM0NmRhYmE4ODRhZGM5M2Q2ZmEzYThkM2QwZjBlODRmYWNhYWJiZGNhOTdhYTdmZiJ9fX0"
+  azerbaijan:
+    name: "Azerbaijan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzBlZjMyODJlODI5MzgyZDI2N2U0ZTZlY2M5YjJkMTBhNTY3YWJlN2NhY2VmMDVkNDY4YjY0MTZiNTczODNlMCJ9fX0"
+  bahamas:
+    name: "Bahamas"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWU2MzBlZjM0NTZlZDg1YmMxMzZmZGFkNjVhMTQ4NDIzNGJlYjQ1N2Q1ZTM1OWFlM2NiOGM3MjZiNzJiNWY2YSJ9fX0"
+  bahrain:
+    name: "Bahrain"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2MzU1YjMwOTg1ZDg1ZDM3ZWNhYTJhZmU3MGI5Y2RkODM5MDA0ZmE0MTE0N2FkNzQzYzdmYzkyYjliYTU0MCJ9fX0"
+  bangladesh:
+    name: "Bangladesh"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU5NTU4N2Q3NDVhMTc0Y2QyMGYxYWY1MjMzZTQ2YTQyNDk0MzdmMzlkMTZlNDY2ZmQzZTNmODIyODY3ZDE4OSJ9fX0"
+  barbados:
+    name: "Barbados"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQ2YjEwNzg3YTNlMWY2MzcxM2VjMDU1MWQyMzg5NjIxODBlZDAwZjcxZTY2YThmMTQ5Y2RiODNkY2MwZDEzMCJ9fX0"
+  belarus:
+    name: "Belarus"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGMxMmVhZjBkODNlOTdlMmJhY2U2NTJkMGQyM2U3NDkwOGVlNzY2ODk0MzYxMjcxZjAwYzIyZWE4MmQyNWIwMiJ9fX0"
+  belgium:
+    name: "Belgium"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzhlMGUwZGU3MDVkMzY2YmE1OTUwNmIzZmIxYTA0ZmQzZDUxYWZmOTBlNWNmYjRlYmJlYTY2ZWE1OTc2YzBmZiJ9fX0"
+  belize:
+    name: "Belize"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjI1Yjc0YzZjMDZhNDk2NTQ3MTMwYzJlZWJiNDEwMzhhOGE0MzA1MTJkODM0NjM2YmMzYjc3MzhlMTQ3MjgzIn19fQ"
+  benin:
+    name: "Benin"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTJkNjMwM2IyYzdmY2Y2YTcwNzdlYmFhYzk1ZmMyNzMxNTg2YTcyZjNiODMwMTVmNTZlMmYyZTNlM2E2ZDM1MiJ9fX0"
+  bhutan:
+    name: "Bhutan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjlhYzJhODdhM2FjNzlkZWY5YjhhNzg1ZWIyOThmZWNhZjUzZDFjNTM2MjI0OGU4OTAzZWM4MWVjNDNiNGJmMyJ9fX0"
+  bolivia:
+    name: "Bolivia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmQyYzlmOTg2MThjZDVmN2RiZjBjMWE1NGVlMDk0NzQ2NjJiNzEzYjVhYTI2NWM4NWVmYmZjNDY0MThlOTE1In19fQ"
+  bosnia:
+    name: "Bosnia and Herzegovina"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2NhOWViMjk3ZTQ3NmQwYzk2MjI4MmU5MjYzNzM0NGVhOGMxYmJmYTIwYmFmNjY1Y2VhNmQ2OGIzMDU5NWUyMCJ9fX0"
+  botswana:
+    name: "Botswana"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjMxYTliOTIxZWVlOWQwODhmY2VhMWQyMDJiMzk1NTRlNTAwZTcxM2MxOTU2MTFkMzQxNTNhZTU5YjJiZDAzIn19fQ"
+  brazil:
+    name: "Brazil"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWE0NjQ3NWQ1ZGNjODE1ZjZjNWYyODU5ZWRiYjEwNjExZjNlODYxYzBlYjE0ZjA4ODE2MWIzYzBjY2IyYjBkOSJ9fX0"
+  brunei:
+    name: "Brunei"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzRiMDcwYTZjZWVlZDkxMjA1ODQ0ZmJiNTk4NjMxYjI1ZTZjYzZmZjAyZGMwODJjZjA1MWE4NzNmMTJmMzE3MiJ9fX0"
+  bulgaria:
+    name: "Bulgaria"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTkwMzllMWZkODhjNzhkOWQ3YWRjNWFhZDVhYjE2ZTM1NmJlMTM0NjQ5MzRlZDllMmIwY2VmMjA1MWM1YjUzNCJ9fX0"
+  burundi:
+    name: "Burundi"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWZkNmE0YWMyYzA0ZmE0OWI0YmFhNDAxYTkyNTg0OGNlZmJkZWIxMjFjZTE0OTBkNjI1OWExZjM5YWQwMjFhZiJ9fX0"
+  cote_divoire:
+    name: "Côte d'Ivoire"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjY5NjZjOWJmNDJjNTFiZTA5YWZlMTVmY2M2YzNmZWFkYjAwY2FjNzJkOTYyZjZmZDBlYmZmYTczM2ViMjQwOCJ9fX0"
+  cabo_verde:
+    name: "Cabo Verde"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjgyYzRiZDUxNDM0NDZiMTUyNDE3NjhhODk4YmRiMjJkNzI4NGRmOTFiNThkOGU3Njk3NzkzZGE1MzBlOTMwOCJ9fX0"
+  cambodia:
+    name: "Cambodia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTZjNTI2ZjlhMzM1YjYyZmViZTRlZjM3MzRiZTA2MGU5YTQ5MDZhYjE3OTJlMjI3OGI4OThhZmNmZDUxNWVhOCJ9fX0"
+  cameroon:
+    name: "Cameroon"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGRlY2UzNTJiMTc0NWRmZTQ2OWNmNjVlMDYyYWViMDQ5M2MxZDQxNThiYWMwYzhhZDA2YTNkMmY1ZjI3MjkxNSJ9fX0"
+  canada:
+    name: "Canada"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjI0MWE2OTdmNmRmYjFjNTdjZGEzMjdiYWE2NzMyYTc4MjhjMzk4YmU0ZWJmZGJkMTY2YzIzMmJjYWUyYiJ9fX0"
+  c_a_r:
+    name: "Central African Republic"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTAzYzJkZTk2ZWMyYThhMjRmNGZkYmVkYzYxNzQ3ODI0MTk2NzgxYzdiNTFlMGY3MzE3YWFjOTUwNTE1Mjg4MyJ9fX0"
+  chad:
+    name: "Chad"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmI5MjViNzk5OWY1YTgzMWJmYWNmMDgzODg3OWU5ZTU3YWJkYzlmZWRmMjk1ZDY3NzU1NTA2Y2I3YmU1ZGYzIn19fQ"
+  chile:
+    name: "Chile"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjExMWU4MDI0MjJiNTM5MjkyZjFmOTJiMzgzM2VkZmQ2NTEzODYwODU5NGFhYWI0YWNiMzIyMDc3YzM2NTg3YiJ9fX0"
+  china:
+    name: "China"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y5YmMwMzVjZGM4MGYxYWI1ZTExOThmMjlmM2FkM2ZkZDJiNDJkOWE2OWFlYjY0ZGU5OTA2ODE4MDBiOThkYyJ9fX0"
+  columbia:
+    name: "Columbia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzcyMTIwYjlmZTc3ZDc3MGIyNTRiMzljN2JlOWIxY2VjY2VmNmFkZmU3YTVjYzY4OWFiMWZkMjNlM2MifX19"
+  comoros:
+    name: "Comoros"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmFhNDU0MjczNjI4YzZlMDBmOWI1NTMwYWM4ZGUyYzRmMGEzMTMxYjNiNmM4MWRiZGI0NTUyOGU3Nzk0OTY0YyJ9fX0"
+  congo:
+    name: "Congo"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGMxNmVjNDIzYjMzNGJhYTczMTdiOGQxYjI4ZWQ3YzFjOTBhNzUwNmU4NmM2OWU3ODU1MmQwZDc3NjY1M2ZmMSJ9fX0"
+  costa_rica:
+    name: "Costa Rica"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzkxNGVmNTI0MmRkMzRiZWJhZjlkZTVjZjE5OWViODg1NGZjZmY0ZjdjNTg2OWQyMzgyMzMxZDQwYjVlZWE3NCJ9fX0"
+  croatia:
+    name: "Croatia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjA1MGMwNGVjOGNhYmNlNzFkNzEwM2YzZTllZjRiYjg4MTlmOWYzNjVlYjMzNWE5MTM5OTEyYmMwN2VkNDQ1In19fQ"
+  cuba:
+    name: "Cuba"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDM5MzgyZGRkNDg0NWI0NjE5NmY1NDM0ZGU5ZTgyODdmOTI5NDcxZGFkNTczZGNiMDRmYjBmODU4NzIwMzA3YiJ9fX0"
+  cyprus:
+    name: "Cyprus"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGU4ZjczYzk1MWU5Y2U2ODQ1NmNhMmU0MTFiMTFhNTRmZGIyZTU1OTI5M2YzMzMwNWE0MmI0MzdmOTA2YmVjMCJ9fX0"
+  d_r_c:
+    name: "Democratic Republic of the Congo"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjgxMzg4MTIwYThjM2NhNDViNjgzZTA4MzM5YTFmODJiY2EyMzExYWU2NDdjOGY0ZTZhODI2N2E5MzdhNzBlYyJ9fX0"
+  denmark:
+    name: "Denmark"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTBjMjMwNTVjMzkyNjA2ZjdlNTMxZGFhMjY3NmViZTJlMzQ4OTg4ODEwYzE1ZjE1ZGM1YjM3MzM5OTgyMzIifX19"
+  djibouti:
+    name: "Djibouti"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzhmYTg2NDQ1YzE1Yzc2ZTU0MWY4YjEyYjU2YjNlZGQyMTkxYzBiZWU2MTliYzM4ZWViNDk1NTZlODE4Yzc0OSJ9fX0"
+  dominica:
+    name: "Dominica"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGVjNjcyN2Q4MTU2MDI1YzRiMGViMzgyZTE0Y2Y5NTg0MGVmZmUyNTRkOWQ4OGM3YjRlN2E4NjIyNDc1NjM0MSJ9fX0"
+  dominican_republic:
+    name: "Dominican Republic"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWExODYwZGZjM2Q4YjczMDcxOTg5ODkzZGE1ZjZjZWI2MWRiOGJkZjUxN2JiZjczZTlhYzM2ZTllMTgyMTM1YiJ9fX0"
+  ecuador:
+    name: "Ecuador"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzI4NjliNTVhNDAxYzg3ZmI5M2MzNmEyZDJlNzRlYTRkZDcyMjU0MmFiMGZjM2MwZGJmOTUxMTc3MzI1MTQ1NSJ9fX0"
+  egypt:
+    name: "Egypt"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODI2ZTc0MmIzMmYwZjhkYjU5YzA3YjFiY2RkZTZmOGE5M2Y4NWM5MjllNTk4YzdlOTI3M2I5MjExZjJjZTc4In19fQ"
+  el_salvador:
+    name: "El Salvador"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDk3ZmQ2MDgyMTAzNzA0ZGMzYzIwNWQyYmM1NTZlOTdhYmVhOGRlMWQ2MTk5NDRmMDhkMGJiY2FmYWVjZjEwYyJ9fX0"
+  eq_guinea:
+    name: "Equatorial Guinea"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjQxZDdlYmVkNjI4YTExMzU0MDZiNWNkODIyMDM4YjRlM2ZiYjAxZjRjNTI4NTJhMDRjMzliMTg0ODg3NmQyIn19fQ"
+  eritrea:
+    name: "Eritrea"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmYwM2ZmMDI0YjVhNGIyM2NlMjUyNDI3Y2RmMzUxYzg3ZGJiNzViZWEyNWVkZTE1MWE2ZWEyYjM0YjEwYjVjMSJ9fX0"
+  estonia:
+    name: "Estonia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDhjY2U2NjI3ZTRkYmE5NjY0MGRhN2JiY2E4Y2Q0M2E3ODM0OTUxNjdiYWYyODM0YWE5OTExNzAxOGFkZiJ9fX0"
+  eswatini:
+    name: "Eswatini"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDNiYzQxNjhkNTY3ZDJjNGIyMzRhNGI3OWEwM2ExNmRjY2Y0ODlhMDMwM2FjODdkNTc0ZGI2ZDZjYmFlMzFlMyJ9fX0"
+  ethiopia:
+    name: "Ethiopia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzViYjg2MmE3YmJhMDMzY2E4MDcyY2YwYmI5NmYzNjFkYmM0MWM2MjUyMTg2ZWY4MWIzMjBlMTU5ZTA2ZDgxMCJ9fX0"
+  fiji:
+    name: "Fiji"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzcyMDNmOTUyZDBlZTc4ZTljYjgxY2I1Njg4ODQxNTI1ODZlMmU5Yzk1Y2UxMWU5NmQ5ZTZkZjRiNzI0YmVmNCJ9fX0"
+  finland:
+    name: "Finland"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTlmMjM0OTcyOWE3ZWM4ZDRiMTQ3OGFkZmU1Y2E4YWY5NjQ3OWU5ODNmYmFkMjM4Y2NiZDgxNDA5YjRlZCJ9fX0"
+  france:
+    name: "France"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjkwMzM0OWZhNDViZGQ4NzEyNmQ5Y2QzYzZjMGFiYmE3ZGJkNmY1NmZiOGQ3ODcwMTg3M2ExZTdjOGVlMzNjZiJ9fX0"
+  gabon:
+    name: "Gabon"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTIyNmJmOTY0YjNhODYzNDBhZDAwYmQ1MzgwMDUxOWZkOWU1NDQwNDY5ZjJhOTUyMGZkYzNkNzBlMWY0ZGJiOCJ9fX0"
+  gambia:
+    name: "Gambia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzY1YTY5MGM1ZjA4NzYxODcwZWU0MmE0MTA1MjdmYzMzODczNGM0NTIwYTBhNjFmY2Q2MDRjYjk1ZjhkYjg3ZiJ9fX0"
+  georgia:
+    name: "Georgia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGYwNWY5OWUzNDMzMDNjMzVhOGIwYjY4ZTRiY2M2YzM4Yzk0ZTk5MzE5YjlhZGZiYWUyYTEzODU5MTU4NGM4MCJ9fX0"
+  germany:
+    name: "Germany"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWU3ODk5YjQ4MDY4NTg2OTdlMjgzZjA4NGQ5MTczZmU0ODc4ODY0NTM3NzQ2MjZiMjRiZDhjZmVjYzc3YjNmIn19fQ"
+  ghana:
+    name: "Ghana"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdhYjM2NmU5MDQ4ZGI1NjQ3MDAzYzNmOTc3Zjc1MzczZDc2NzViNzk3Nzk0Y2UyYzkxOTgwMGVjNDQ3YzY3NyJ9fX0"
+  greece:
+    name: "Greece"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTUxNGRlNmRkMmI3NjgyYjFkM2ViY2QxMDI5MWFlMWYwMjFlMzAxMmI1YzhiZWZmZWI3NWIxODE5ZWI0MjU5ZCJ9fX0"
+  grenada:
+    name: "Grenada"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTA1YTIxZmFmNzE0N2RlNzFjYTE4YjMzNDg5Y2RkYmMzNjNhNzdkZDc0Mzk3NjZlMzJlZTE3ZTg2ODZjNTg2ZCJ9fX0"
+  guatemala:
+    name: "Guatemala"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjA4YTY5MTc2N2NmZjY0NTM1OTg2MTM0MGNiODYwY2JhN2M0OTgwNDIyMDQ1NzlmOTZkMDY1YmNlYmRmY2U5NCJ9fX0"
+  guinea:
+    name: "Guinea"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGEzYTNhYjA5NWJiMGZjZTI3YjYzNzg0ZjY2MzhkNzVmODdhZDcwNjU1NzgyYjI4ZTIyZWI3Y2VlNzdiOWE5OSJ9fX0"
+  guyana:
+    name: "Guyana"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWMzNzVkYWJhMTdjMTVmMzc0ZmNhNTVhNWVjYjQ0ZDcwZWM3ZjQyMjNmMTA2Zjc5OWI0NjcwMzMzNDRiZmZhZSJ9fX0"
+  haiti:
+    name: "Haiti"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJjZjdhNTM3Y2JlMmZiNTgxNTM2ZjExMTNjMTJiNzMxOGYzZGExNDIzYjc0ZjRlNTFlM2FkOGViM2E5MTBjNyJ9fX0"
+  honduras:
+    name: "Honduras"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWFjYWUxMmViYmJhMTBmNzRjMzM0NGUwZWJkOWE2MTlhZThhNWVhYjdmZTMyOTFhNzAxYzMwNTU0MTczMTJmNyJ9fX0"
+  hungary:
+    name: "Hungary"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGE5YzNjNGI2YzUwMzEzMzJkZDJiZmVjZTVlMzFlOTk5ZjhkZWZmNTU0NzQwNjVjYzg2OTkzZDdiZGNkYmQwIn19fQ"
+  iceland:
+    name: "Iceland"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjIwNTc3MWJlZDI1ODZjNGYwNWZkYzU5MzgzMzlhNzExZjRlYjNmNzc3OGQ5Mzc3MTc5NGMxYWQ0YmYwMDkxZSJ9fX0"
+  india:
+    name: "India"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmY4OWU0NmYxZDU0NTRjOTY3Njc2ZWZiNDk3N2E4NGExOGQwMDg0MzI2Yzc2YzdiZmM0ZTc4NDNiYjFhOTAxIn19fQ"
+  indonesia:
+    name: "Indonesia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JlNjNmY2FhMDIwM2Y4MDQ2ZmI5NjM3NWQwNzlhNWMwOWI0MTYxZDAxMTlkNzE5NDU2NmU2ODljYWIxOGY2OCJ9fX0"
+  iran:
+    name: "Iran"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWNkOWJhZGYxOTcyNTgzYjY2M2I0NGIxZTAyNzI1NWRlOGYyNzVhYTFlODlkZWZjZjc3NzgyYmE2ZmNjNjUyIn19fQ"
+  iraq:
+    name: "Iraq"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODFjY2NmZDQxOTMzODM3N2IyZDkxMzc3MmFiMzVlZjY1MDFkMzZjYjFkNDFhZTU1OWJkZmQzNTIxN2QxNWI1YyJ9fX0"
+  ireland:
+    name: "Ireland"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTAzOTgwNTIxOTcwZDRmNjA5MjI2ZjhiOTA4NDRmYzI2NDhjNWUzYTRjNDYxNjA1ODVlZWU0MTQ3ZTA4OWMyZiJ9fX0"
+  israel:
+    name: "Israel"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWExYjRmYTA5YjNhNjMyNzNjYjJhN2NkZTJmNWNkNjJjMzIxOGZhY2E3NTI1ZDlkNGE0NGMyZWVlM2EyOTYzYyJ9fX0"
+  italy:
+    name: "Italy"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODVjZTg5MjIzZmE0MmZlMDZhZDY1ZDhkNDRjYTQxMmFlODk5YzgzMTMwOWQ2ODkyNGRmZTBkMTQyZmRiZWVhNCJ9fX0"
+  jamaica:
+    name: "Jamaica"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjNhMTdlYTNhZTIzNTY0NDE1YzdhNzBiNDQ3YzA1NGJkNzVkM2NjODY2MmFjM2ZlZTg2OThiNTQwYjJiNjU4NCJ9fX0"
+  japan:
+    name: "Japan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDZjMmNhNzIzODY2NmFlMWI5ZGQ5ZGFhM2Q0ZmM4MjlkYjIyNjA5ZmI1NjkzMTJkZWMxZmIwYzhkNmRkNmMxZCJ9fX0"
+  jordan:
+    name: "Jordan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWVjYjBhOTM1OGM0YzdkMTc0YjIwMGY3M2U3MWMxZTAzNzk0MWMyZjM3YTdjNjNiZTExNDI5NjFkM2U5ZGVlYyJ9fX0"
+  kazakhstan:
+    name: "Kazakhstan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWNmNWUyMGM0YjJmNDcxNTRhYTliNmZmZjQwMzgzMjlhOGExMWYyNTllMGRiNjcxODA3NGVkMzNmY2QwNjUwNyJ9fX0"
+  kenya:
+    name: "Kenya"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGY3MDgyOGI0NGJhODg5NmNhMTEzNDk0OTIyYTMzNGRkMzFkZjU1ZjQxYTM5MzY0MzU1MzA0ZDRkMjVjYjM2OCJ9fX0"
+  kuwait:
+    name: "Kuwait"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTM1OWI5MDUyZjJkOWM5ZDI4YTE1YjYxOWRhMWUyODhlNzNjZTRhZDczYWI5ZWE1YzczNzFlMmZlN2FiNTI1ZiJ9fX0"
+  kyrgyzstan:
+    name: "Kyrgyzstan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjRmOTU1ZjZkMmQzOTU1YjM5MjlkY2ZkZTRiYWFlODYyMDk5ZmMzZTgyZGU2NzQ3YTMyOTM3ZWQ4NzkzNjg2NiJ9fX0"
+  laos:
+    name: "Laos"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjFiODgxMjQzM2FhNDAxNzk5ZTRhYzQyNDU4NGE5YmM2ZTA0MTg2NTYzYzY1NThiYmVhNjgyNGY4ZjM3NCJ9fX0"
+  latvia:
+    name: "Latvia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjYyYTQ5MzhiNTk0NDdmOTk2YjVlZDk0MTAxZGYwNzQyOWQxYWQzNDc3NmQ1OTFmZmM2ZmQ3NWI3OTQ3M2MifX19"
+  lebanon:
+    name: "Lebanon"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzIwNDE5ZWYyYzY2ZTI5YTE0MmVmMzQxYzBlY2NmNjk3YWNhODZlYzA5YzZkMThmNjA0M2E1M2NhMzBjZjJkMSJ9fX0"
+  lesotho:
+    name: "Lesotho"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjRmMjA1MmE5ZDJkNzU3YmI3ZDkxYzQ0YTIzOGQ3ZGQ4ZWM1MmU3ZDU1YTAzMzNlZTllMDI2ZmUxMWUyMmNhMyJ9fX0"
+  liberia:
+    name: "Liberia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZkYmVhZDMxYTQ5OWY0MTU1N2ExZjNkZjMyOWY4YTUyMzBiMThiZjlmMjczN2Q2YmY2ZTc4MGU1YmY4NDAxYiJ9fX0"
+  libya:
+    name: "Libya"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGMxZjdhMTIwYmQ5MGY0ZGMyYTkxZWMyZTRmODVkMTE5NTU2YTk2NjUzMzNjY2NkMDFlYWVhYmQ1ZTUyZjVmYSJ9fX0"
+  liechtenstein:
+    name: "Liechtenstein"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQ2YTYzMWRkOGU3MzYwMTY4ODFjODkyMDc2N2Q1N2I2NDIwOTNmMTM1ODFmODhhYjQ5YmExZWViYmE5NWQzYyJ9fX0"
+  lithuania:
+    name: "Lithuania"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGUzZDgyOTc0MTk3NmQ4MzMwZDY5NDdkNmVlYTY0ZWU1N2FlZDJmMjYyODZmZjYzODQ0ZTkwODkzNjdjMTEifX19"
+  luxembourg:
+    name: "Luxembourg"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2Q1ZWZmZDNmOWMxNTA1ODM4MmQzYjJkMjkzNmQ1MGI4OTRiZmNiMTFlNmIyZjEzNjQ1MzVjZTUyYWE1In19fQ"
+  madagascar:
+    name: "Madagascar"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODMxZDM5NGNjMzc3ZGMzNjRjMTBkODc3ZmMzYWMxYmYwNjk1MmQxOThmMGEyNTQ5NzRlODgzY2Q3OGUwIn19fQ"
+  malawi:
+    name: "Malawi"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzYyYzYzMTgxMmEzMjEwMDhjYzI1OGY3OTBmMjkzMzI3MDZiOGZiZmI1MTg0ZTQwYzdlOTY3ZWQ0NzhlODJhZSJ9fX0"
+  malaysia:
+    name: "Malaysia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0YjkwNDFkZWE2ZGI2ZGI0NDc1MGYxMzg1YTc0M2FkZjY1Mzc2N2I0Yjg4MDJjYWQ0YzU4NWRkM2Y1YmU0NiJ9fX0"
+  maldives:
+    name: "Maldives"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjE0N2RhYzRlNzk4MDQzMTViZGNlMzAzMTlmYzYwNWZhYTg2NGVkN2ZkNmZlZjgwOWVhZDY3YTY5M2U3NTdmMiJ9fX0"
+  mali:
+    name: "Mali"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzFlOWQwNzE2MTk0MzIwZGU2YTE3ZGQ4YzVjYzY2NzY4M2VhZjM2YWZjZjliMzQwYzAxNTc2NTgwMTIyOTQ3YyJ9fX0"
+  malta:
+    name: "Malta"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2NlYzVlMjJmZDkwMTNkNmNiNGZiMDlmYjdmMzRiNWU2NGE1MzEwYWQzOWJjNDAwYzRiZjIzZDJhYjE2YzllZiJ9fX0"
+  marshall_islands:
+    name: "Marshall Islands"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTAyMzI4MDE5MTdhYWQyYzY3YTA2NmI4N2M2NmE0Y2U1MjJmMDM2ODUyY2IzNjEyOGU5Nzc4ZWY3YmE3NDhkOCJ9fX0"
+  mexico:
+    name: "Mexico"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2E5NzFiZmNmMzNiNDM5ODIxYjRlNWYwYzg2Y2Q2MTQzNWNkM2UwYzgxOWUzNWRkOTc3NGVmMDM5OWYxMzJiIn19fQ"
+  micronesia:
+    name: "Micronesia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDg5ZGU1ZTA2M2M4ZjEzZDViMjE3ZTlmNmRhYmYzMjU3OTYyZjUzN2I2MjM1MDhhNWI1NWFjYTY3YTJiZDNkMSJ9fX0"
+  moldova:
+    name: "Moldova"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzUzZjViYjJmYmNmZTJhZTA5N2VmMGRiNTdjM2RhNzRlNmNjOTAwOGVkNDFiZWIyODVlYmM3YmZlM2EwM2FjMSJ9fX0"
+  monaco:
+    name: "Monaco"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWRiMjY3OGNjYWJhNzkzNDQxMmNiOTdlZTE2ZDQxNjQ2M2EzOTI1NzRjNTkwNjM1MmYxOGRlYTQyODk1ZWUifX19"
+  mongolia:
+    name: "Mongolia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjM3MjJiMzVjZThkNzkzYmUzYmE2YjhjOGI0MmU4MjU2MDJkNTNkY2VkNzQwNDVmNDc4Mzk5ZWIwNDNhNTQ5ZSJ9fX0"
+  montenegro:
+    name: "Montenegro"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2U2MTE5MDBkMzdlYTU4NDU3ZTU3NTJkZjUxY2RhZjMxZDE4MWRjZDkyOGQ2N2I0ZTg2ZGExZWQ3NTRkMWFmNSJ9fX0"
+  morocco:
+    name: "Morocco"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzUzZWM2YTc0Mjk4MjhjN2E4ZjgxZTFmOWZlNmUxNmZiMTZiNDMzYjRmOGU5NDUzNWI5OGE5NmQ2MjFmNCJ9fX0"
+  mozambique:
+    name: "Mozambique"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTc4ZjE1NDkyYjk3YzczZDNiODFlZTNjODdlNGU3YTRhM2JlYjUzMTkzYzExNzYyNGExZDM2MTNkZWJlYThlMSJ9fX0"
+  myanmar:
+    name: "Myanmar"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGIxM2UyYTQ1ZDhiOTYyOWZhOTU5MGFhNWEwYjhmYTI3ODI4YjI1MDY5YmM0ZTQ5NTYyZWJlZGE2MjhiYTVlNyJ9fX0"
+  namibia:
+    name: "Namibia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzk3NGE0NjAyNDhjYjQwOGFiZGZjYTU2MWVmN2U5MWJhZjY0YmE2NWRkZTUwYmE4NmY2ZGQwYzM4MWY2NTY2NyJ9fX0"
+  nauru:
+    name: "Nauru"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFkODQzOWEyNjYyMTAwMjcyNmY3YjQxZDc1MDY2OTBkY2Y2N2EyNjQ3YWUzYzFlM2ViNTVhNmI3NzNhZTViOSJ9fX0"
+  nepal:
+    name: "Nepal"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2YyNjhlZTQ3MDY4ODBmYjYwNDNjZWMyM2JkOTE3NWM1NjE3MDUzYmZjMTgwNjk2ZmFmN2Q3NDNiMTc0MDAyYSJ9fX0"
+  netherlands:
+    name: "Netherlands"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzIzY2YyMTBlZGVhMzk2ZjJmNWRmYmNlZDY5ODQ4NDM0ZjkzNDA0ZWVmZWFiZjU0YjIzYzA3M2IwOTBhZGYifX19"
+  new_zealand:
+    name: "New Zealand"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y2MDQ1NzllYjhlM2RjYzNiMmI5NDE2YjdlZGM2OGM5N2NkMTEyYTdkODVhNDk0YjhlYzllZmMzNWFiYzU3MyJ9fX0"
+  nicaragua:
+    name: "Nicaragua"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGZmOWI5MGJmM2RmOTFhNDdjNzgyMTVhYWUxZDA3ZDU4OTk5YWEyMjlhMjU2M2VjM2UyODc1M2M0N2RmMTMwOSJ9fX0"
+  niger:
+    name: "Niger"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDE0M2Q3OTZhZTU2MjlmNGRlNzE2ZjhiZmIzZTMyYWIyODc2MmJmY2JmOGM2NzA2ZDFiYWU3MGE1YTNjNGZhIn19fQ"
+  nigeria:
+    name: "Nigeria"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjVlMGNlYjA0NjFmYzk1MTM1NGY2ZDQ3Nzc4MDJkNWU0MjY4YzFmODE3MTllNDY2Njc4MzJiMTgzZGY5NTEwIn19fQ"
+  north_Korea:
+    name: "North Korea"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTk2OWQxMjY2MmZhZWJmYWNhNmY0YjA0NDJmY2IyNTFmZDYwYjYxYTlmY2RjZWVhMmJkYzIxZTAyNWViMjEifX19"
+  north_macedonia:
+    name: "North Macedonia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTBlMGIwYjVkODdhODU1NDY2OTgwYTEwMWE3NTdiY2RiNWY3N2Q5ZjcyODc4ODlmM2VmYTk5OGVlMDQ3MmZjMCJ9fX0"
+  norway:
+    name: "Norway"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmRhMDQ4YmMxNTNiMzg0NjdlNzZhMzM0N2YzODM5Njg2MGE4YmM2ODYwMzkzMWU5MWY3YWY1OGJlYzU3MzgzZCJ9fX0"
+  oman:
+    name: "Oman"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWRkOGJiMWYwOTcyNmU0MDkxZTUxNjAzZDRjNGQ5MzBlN2FiZWI5MjE2NjgwNWMxMjQ0YjBkNGI5Mzc4MDlmZiJ9fX0"
+  pakistan:
+    name: "Pakistan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzBjZmJmOTY2MDYyMzdmYTY3ZTJhYjg3ZWU0NDQyN2MyYTYzODM2ZDZmM2FkYmUzNGI1NDZiOGY3ZjQzZTI0MCJ9fX0"
+  palau:
+    name: "Palau"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmU0MTU1OWNhNjA1YjYzNGJmOGNmZmQ5MTQzMDJmZDk4YWZmOWRkZTgwMzc2NjUzYzlmMWUzYTdjZWY1MzM0ZCJ9fX0"
+  panama:
+    name: "Panama"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjRiOGRhODNhODVmMTFlYjc0ZTc2MDg0YTZkNjQwODRhM2RkNWRhY2FhM2E5NzIxZTNhZjJjYWQ4OGVlZjcifX19"
+  p_n_g:
+    name: "Papua New Guinea"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU3ZjBiZGNjOWI3ZWY1NzBlODI0MjYxODE5ZjFkZDA4M2MzNGExYmY0OGI5NGU1NWUyYTFkYjY5M2Y0N2M5ZSJ9fX0"
+  paraguay:
+    name: "Paraguay"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODE3OGRlNjkxYjUwOGQ2MjQ5MTA5ZmM1NGFmNmZiYTQ5YmFhODM3N2FkMzcwNjEyZWQ2MTdkNzdkZDZhZDU4OCJ9fX0"
+  peru:
+    name: "Peru"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjRkMDNiZDQ0MTBiYWJkYzY4MjQ5M2IzYzJiYmEyNmU3MzBlNmJjNjU4ZDM4ODhlNzliZjcxMmY4NTMifX19"
+  philippines:
+    name: "Philippines"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGFiY2RiMzU1NGZmMzE3NTk4MjNhMTJiOWM4YjkxODZjZDI5NTQ0ZDE4NDE5ZGNlNTUxY2Y3ODNhZDAwNmNkZiJ9fX0"
+  poland:
+    name: "Poland"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTIxYjJhZjhkMjMyMjI4MmZjZTRhMWFhNGYyNTdhNTJiNjhlMjdlYjMzNGY0YTE4MWZkOTc2YmFlNmQ4ZWIifX19"
+  portugal:
+    name: "Portugal"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWJkNTFmNDY5M2FmMTc0ZTZmZTE5NzkyMzNkMjNhNDBiYjk4NzM5OGUzODkxNjY1ZmFmZDJiYTU2N2I1YTUzYSJ9fX0"
+  qatar:
+    name: "Qatar"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmExY2VlYTBmY2FjOTIwMTQ1ZTY5YmQ5MTAwMTIyODJkNGJlZDQ0ZWMzMGE0NjQxYTFjNjU5NmVlNTU2ZDI0ZCJ9fX0"
+  romania:
+    name: "Romania"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGNlYjE3MDhkNTQwNGVmMzI2MTAzZTdiNjA1NTljOTE3OGYzZGNlNzI5MDA3YWM5YTBiNDk4YmRlYmU0NjEwNyJ9fX0"
+  russia:
+    name: "Russia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTZlYWZlZjk4MGQ2MTE3ZGFiZTg5ODJhYzRiNDUwOTg4N2UyYzQ2MjFmNmE4ZmU1YzliNzM1YTgzZDc3NWFkIn19fQ"
+  samoa:
+    name: "Samoa"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q1ZDg1Y2NmOTNiNWRhMzc5Njg2Y2Q0MzBiMjQ2MGJkMTdmMzMwMTY3NGY3NjE3NTdhODI2NmJmM2YyNTdkMSJ9fX0"
+  san_marino:
+    name: "San Marino"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDk5YzM4YjI4NjgyYmI0YzA0ZWUzMWE2ZjdkOGMzYzY3NTY5NTQxZWRjYTU4NDBjZWY5YzU1MTgzZDVhMyJ9fX0"
+  saudi_arabia:
+    name: "Saudi Arabia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGJkNDAzYjk1M2JhNmU2YzhlNTM4ZDhkNjhjMzRlZDVlMzI5YzZmOWVlZDRhNmJjMzQzNGI2NmQzMTk4ZDA0NCJ9fX0"
+  senegal:
+    name: "Senegal"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWZmNWUyOTdiOTcyOTY1ZTMyZDgyMzQxYTM2ZGQ5OTk1YTI1YzljYzc5YjA1NTMxYzRiZDdhNjEzNGQyZDc1In19fQ"
+  serbia:
+    name: "Serbia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWIwNDgzYTRmMGRkZjRmYmJjOTc3YjEyN2IzZDI5NGQ3YTg2OWY5OTUzNjZlM2Y1MGY2YjA1YTcwZjUyMjUxMCJ9fX0"
+  seychelles:
+    name: "Seychelles"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzVkZjI3Y2E5NzMzNzMzOTJjZjA1ZWE0MWE2NzEwM2NjZTc5OWQ0ZjFlNzQ4YWYwYTI3YjFkZTY2Mzk1NjRkYSJ9fX0"
+  sierra_leone:
+    name: "Sierra Leone"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTNhZjVkOTQyZjkyNTUyYmVhODA0YTIzYmZkYzhhNmNkYThiNGU0ZTg3ZDk1NWU4YjIyNmRlMzFhYWE1YjQifX19"
+  singapore:
+    name: "Singapore"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGI1ZWQxMWY3OTdmM2ZjNjFlYWY4ZGFmYjZiZjMyMzRkMzFiOTZhYjc1OTZiZDJkZjcyMmQyZWYzNDczYzI3In19fQ"
+  slovakia:
+    name: "Slovakia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmM3MmE4YzExNWExZmI2NjlhMjU3MTVjNGQxNWYyMjEzNmFjNGMyNDUyNzg0ZTQ4OTRiM2Q1NmJjNWIwYjkifX19"
+  slovenia:
+    name: "Slovenia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWEyODg4NTUxZjk1MTVjNGViMmY4ZjI5ZWFmZjhlN2QwOGU5Yzk3MjFkNDc4ZmRjYmE1MDZiMWMxM2EwMGM1NSJ9fX0"
+  solomon_islands:
+    name: "Solomon Islands"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDNjYzZjNDRjNzQwZWExOWI3ZjZjNDdiNmU4OWY5OWVmMTMwMjViNGMwZGExZWJiZDVhMThhNDU5MWY4ZGExMyJ9fX0"
+  somalia:
+    name: "Somalia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzIwMjVhODJlZDNlMzA1YzZkMjFlMjE0MDZhOWE0ODVjNmJjNmI1ZjJjYjE1YmY4ZDVmMGNmOGY4YzYwNzVhYSJ9fX0"
+  south_africa:
+    name: "South Africa"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYxYTFlYWNjMTA1MjRkMWY0NWYyM2IwZTQ4N2JiMmZjMzM5NDhkOTY3NmI0MThiMTlhM2RhMGIxMDlkMGUzYyJ9fX0"
+  south_korea:
+    name: "South Korea"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzk1YjhjMDUxY2Q5MjQ2YTZiMjcwOWE1YTIwZTNkMWY5NzMwYzk2YjIxNjdkNmY5MjgwNWYxNDkxY2I4ZjYyMSJ9fX0"
+  south_sudan:
+    name: "South Sudan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTE5OGMwMTcxMjc3NTE2Zjc5ZTA0YmVkN2U5MzQxYzI4NGM1YTY5MmQ1MmUwNWQ3YzU5MGNhMzUwOWU1YWFlOSJ9fX0"
+  spain:
+    name: "Spain"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJiZDQ1MjE5ODMzMDllMGFkNzZjMWVlMjk4NzQyODc5NTdlYzNkOTZmOGQ4ODkzMjRkYThjODg3ZTQ4NWVhOCJ9fX0"
+  sri_lanka:
+    name: "Sri Lanka"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGIyNjU3MmM0ODM0NGVlMWZjNGIyZDg5ZmQwODY2OTg5YTNlMjU2Y2UxOWVlMDUzODRiYzNjYTc2ZjI0MDljNSJ9fX0"
+  sudan:
+    name: "Sudan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzVjMTE1YWNkMjA2ODA4NDc3OWIyODU1MzM4ZWZmYTk5N2JmZWNhZjAyMTRkZGVhMTI2MWM5YTZiOTIzMTI0YiJ9fX0"
+  suriname:
+    name: "Suriname"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjE0ZDZkMzEyMjJiZWRkZDBhN2UxMjQxZjQ2YjNmNmRhOGE5NTgwMmE3OTkyMWUzNThjYTRkMTMwYTkyMmY1MSJ9fX0"
+  sweden:
+    name: "Sweden"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWI4NWY4MTE0ZGVhOTNjZGVlMDFhYjhmZTVjZmNhMDljOTg0YzI0NTk3NzZiZjYyNmUzNDk1MDM3MDJmMjFlYiJ9fX0"
+  switzerland:
+    name: "Switzerland"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTcyZmZhYmM0MGEzYTgyYTlkYmIwODEwMzhmOTgzNDcwN2I4YTdhNTk1ZTQ3ZDYzZTRjN2E3ZTI0YTZjODgyOSJ9fX0"
+  syria:
+    name: "Syria"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJhYzY3OWMzNDBjZGIyZDFiZTRlN2FkODNhYTE1MjE2ZjQ4YjQ0OGI4NGQzMDcyYjFkZDhlMWYwYzBhMTUxZSJ9fX0"
+  tajikistan:
+    name: "Tajikistan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDg5ZWY3Yzc2NmM4MmQ0MWEwZjcxN2UzZDc4M2UwMTI0OGFjMDU1MDBhMzU3OWVhOTZiOWVlOWE4ZjVlZWE4MSJ9fX0"
+  tanzania:
+    name: "Tanzania"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjQ1MTU2YjI5ZmExYTc2ZGUwOTU4NDdhZTlhMTE1NzFjMDM4Nzc0ZWMwMzAxMDIzOWJiYjI0NDE4NWJmYjc0In19fQ"
+  thailand:
+    name: "Thailand"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmE3OTE2ZTRhODUyZjdlNmYzZjNkZTE5YzdmYjU3Njg2YTM3YmNlODM0YmQ1NDY4NGE3ZGJlZjhkNTNmYiJ9fX0"
+  togo:
+    name: "Togo"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWRiZjJjMmM1ZjRkNjU2N2E0NTI3YzU1ZjFmYWE4NmE4NDZjZGJjNTVkMzNjNWQxM2I2ZjkwNzM4ZDRkYzc0ZSJ9fX0"
+  tonga:
+    name: "Tonga"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmNiMTc4YWQxNjJiZjkxZjRkNzBkM2RjMzJiNmRmMGY5ZGMxMDQyOTQ1N2I1ZDY1ZjA3MDRmMGNlMzI3MDIxMSJ9fX0"
+  trinidad:
+    name: "Trinidad and Tobago"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTk1NzZlNWJiNTY2ZWI5YzdlMWYxOWM3OTBiMGYyMjgzYzY0Mjg1MWM4YjE0Nzc4NzUwODY1NjA5NDJkNjkzMyJ9fX0"
+  tunisia:
+    name: "Tunisia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzQ1OTU5Y2UzZGIxNzcyMWY3ODJmNzZlMzNmOGQ5NmZlNDRlNDllYTk3M2JmNmQxZTcxM2E3YjljMGQ3NTNmNSJ9fX0"
+  turkey:
+    name: "Turkey"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmJiZWFmNTJlMWM0YmZjZDhhMWY0YzY5MTMyMzRiODQwMjQxYWE0ODgyOWMxNWFiYzZmZjhmZGY5MmNkODllIn19fQ"
+  turkmenistan:
+    name: "Turkmenistan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZkMTU0ZjlhNzZmYzgwNDIzYWRlN2VhZTg0MDAyNGU4YmFiOWJiZDFlMDliNjE4YTZiOTFiYzYxNWUyYzYzYiJ9fX0"
+  tuvalu:
+    name: "Tuvalu"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjYWY0NzEyMGJiNDNhYzdmNTgyNDNlY2Q4NGVjNzVkZGQ5ZmRiNzZlZGFmZWRkYmVkZTJjMWVjOGZlNDcyMiJ9fX0"
+  uganda:
+    name: "Uganda"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzdiOTU5MzE0MDUwMjE0OWMyOTQ2N2VlNTBjZDU1M2U3OTA5Y2QxOWYxOTEwM2JkZjQ1OTI1NjdiNDk4MCJ9fX0"
+  ukraine:
+    name: "Ukraine"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjhiOWY1MmUzNmFhNWM3Y2FhYTFlN2YyNmVhOTdlMjhmNjM1ZThlYWM5YWVmNzRjZWM5N2Y0NjVmNWE2YjUxIn19fQ"
+  uae:
+    name: "United Arab Emirates"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGQ5ZjI5NDRkNDhmYjk2N2RlN2FhNWQ0YjhjODQ4MzA3ZjQ2NzMyM2FlYTkzMzY1YjdlZDJjMTZhOGYxYTkzOSJ9fX0"
+  united_kingdom:
+    name: "United Kingdom"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODgzMWM3M2Y1NDY4ZTg4OGMzMDE5ZTI4NDdlNDQyZGZhYTg4ODk4ZDUwY2NmMDFmZDJmOTE0YWY1NDRkNTM2OCJ9fX0"
+  united_states:
+    name: "United States of America"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNhYzk3NzRkYTEyMTcyNDg1MzJjZTE0N2Y3ODMxZjY3YTEyZmRjY2ExY2YwY2I0YjM4NDhkZTZiYzk0YjQifX19"
+  uruguay:
+    name: "Uruguay"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjg0NDA1OTdjNGJjMmFhZDYwMGE1NDYwNGRjN2IxZmI3NzEzNDNlMDIyZTZhMmUwMjJmOTBlNDBjYzI1ZjlmOCJ9fX0"
+  uzbekistan:
+    name: "Uzbekistan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2M2Y2QzM2QxZjdiZDhkMTg2ZGMwODZmMTQ2YzkzMDI1MDNhNTE5YTk1NWMwZmE4ZGI1OGE3ZjVjZmQ3ODUwOSJ9fX0"
+  venezuela:
+    name: "Venezuela"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTMwMzMwNDliYWFlMTE4Nzc0MDZkYTQwYmQwNTE3Y2JmYjJiMzdhMjM5OGJlM2JkYTQ5OTViNjFmZmVhYTI0MyJ9fX0"
+  vietnam:
+    name: "Vietnam"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGE1N2I5ZDdkZDA0MTY5NDc4Y2ZkYjhkMGI2ZmQwYjhjODJiNjU2NmJiMjgzNzFlZTlhN2M3YzE2NzFhZDBiYiJ9fX0"
+  yemen:
+    name: "Yemen"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY4ZDYzYzVlNTkzYzAyNjg2OWViYTMyMGIzYjJiODM3YmRhMzRmZTM1N2U2ZWRlYjQ5MTQ4ZmYxYzE3NzVhIn19fQ"
+  zambia:
+    name: "Zambia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzU5MWU0Y2MwYzkwOWMyYWQ2ZGNjZjAxZjI4Mjk1NTBjNTliZmZkNmRhNmNhZGI2YmJmNTU2OWZlNzU4ZTdlOSJ9fX0"
+  zimbabwe:
+    name: "Zimbabwe"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTcyNWE0ODc3YzA3MmE4MmY1YzA4Y2Y0OGEwZDI2MTUyMzIyZTE4ZmM0ZWRkY2VkMmY1ODRjM2QwZTUyMWU3OCJ9fX0"
+
+  # US Flags
+  alabama:
+    name: "Alabama"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjc1NTM2MTYwOGUxYjQxMzQyZGYyYzE1NjY3NzdkNmQxNTFmMDZjNTJmNDYwNDM5NDBiZGFiMDM3NjkzZjFjMCJ9fX0"
+  alaska:
+    name: "Alaska"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODYzZmIwOWFmOGNhYjNjZmIxNDAwZDY5NmFlODc4MDQ5ZDExNjU5NTkwNWFhNjcwNmIxMzQ1OWVkYmRhNWExZiJ9fX0"
+  arizona:
+    name: "Arizona"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmFkYWZmZDhlNzM2M2Q1NDI4ZTczYzQxMTU0NWZhMDMzNTZmNmJkZmExNzYyZmNiNzA5NTQwOWI0YWJlYjVhMyJ9fX0"
+  arkansas:
+    name: "Arkansas"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTRjNTc2OTEyZDJhOWMzYzhmZThlZTMwYzBiZDg5ZmUyYjY1ZjhjMzFjYjI2YjBjZjhjZDVmODVjM2Y1YjA1YSJ9fX0"
+  california:
+    name: "California"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjNmMjBiNDg2OTJmY2NiYmQxYTViMmE3ODY1ODgwODAxMmJjMzE5N2U4NzIzNTA1M2FhYzA2NzI3YzUwZmVhMCJ9fX0"
+  colorado:
+    name: "Colorado"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjA2NTRjMDFmYjMyZjQzZjIxYWZkNmM3OWMyZDc4NWFmZmI5N2M3OWJiNTIwMzI0NDU5NjM1N2E4NTc4NWY0ZiJ9fX0"
+  connecticut:
+    name: "Connecticut"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjgxODdmMTQ4M2Q5ODZiNTM1NjU5YzllZDhmNDdjY2ExMmJmOTE4MWY3ZGMzZmNhZmJjMmQyOGM4NmI3OGJjMyJ9fX0"
+  delaware:
+    name: "Delaware"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWQyNjdkYTIyNjlkMTg1NTY1ZjdhMjQyNWE5NjMxN2YzNzlhMWY2MjZkMjIwYjFlMzRlMGViOWYwNGFlZTFhNSJ9fX0"
+  florida:
+    name: "Florida"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJiMDAwNjE2YTlkZjgyMTdkZTBlMjNiOGEyODRkN2YwOGRmYzhiYzVjNTE0YzEwMzJiYmY0MzI2Zjk1MmYyYyJ9fX0"
+  georgia_us:
+    name: "Georgia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWRiMWM1MTJmYjE1Y2VkYWFiYmQ0Nzk2ZGEyODZiN2VkMTU1MzE0NjZhNDViNDc1MWJjNGMxNzY5NWY0N2JmOSJ9fX0"
+  hawaii:
+    name: "Hawaii"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2VlNTg0NmJiYTVhNWU0NmMxODc3MzczMjZmMjQxNTJiNGVmMjJjOTM4MGUyZjk4YzdiYTJiMzhjMDdjMzI1MiJ9fX0"
+  idaho:
+    name: "Idaho"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y0YzI5ZmFiOTAxMmU3MDM3YmU2YmI2NDFjMjZjZjJmNWE5ZmFiOGYxOWFhNmY0YTdlMGFmMGU5NjZhMzRkNCJ9fX0"
+  illinois:
+    name: "Illinois"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDQ1ZWIzNjM1ODdiYzljYzMyODRiNjNjM2RhYjFkN2Y3ZjE2YTk2YWQ2MDZhNGY0MjcxNDEzMGRhMDc1NDdjZCJ9fX0"
+  indiana:
+    name: "Indiana"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTMyZTBiNDk3OTM1ZWU0MTYyZTA1NzNkZTkxNmYzMDMxMTc2YmU1ZGNiNjQ5NWJmOTc1ZGVmNjA1MGZkYTQ4NSJ9fX0"
+  iowa:
+    name: "Iowa"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2FiYTM0ZGFlMDdmOWZmOWM0NmExZTlhODcxZmMwYjU4MmM5Yzg1ZDI3YzlmMWUzNjNlYjY1YTZkOGM2MjExOCJ9fX0"
+  kansas:
+    name: "Kansas"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjAzNGM2MjgzZWFmYzRiYWQ1NTMyYTk0MmZiZTQ2ODgzZGVkZjQzOWVhNzViNzllYzYzZWQxZTg4NTUxNzYxZSJ9fX0"
+  kentucky:
+    name: "Kentucky"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWQyMzI0ZWI3YjEyZDJkZGE0ZTA4OGEzOWFjMjliMzUzMjgxMzEwZmY2NjRiMDc0NmY1MmE4OGM2N2JhNDA0ZSJ9fX0"
+  louisiana:
+    name: "Louisiana"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmQyODdjZDA0YjNhNTdlZmMwYTBkN2IyOWZiYmZiZDVmNmRlNDI4NTE0ZjdkMmQwMzgzOTAzZmJkYzVlOGY0NyJ9fX0"
+  maine:
+    name: "Maine"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZmZGE4NzQyNmI1MmI0ZWIyNWU0OTcwYzE3YTIzYTRlYzFkMWVlODNhMDBmODgzNmQ3MjllMDlmNDY1MDI2In19fQ"
+  maryland:
+    name: "Maryland"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjMxYjAyOTY4OGZjMjRmMGIwZTM5YjQzNmJmM2JmN2EwNGZmZDBjNjk4Mzg5ZDIzYTA4N2I3YzA0NzZkYjc1YyJ9fX0"
+  massachusetts:
+    name: "Massachusetts"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODg5ZWZjZmYxN2JkNmIzYTQyMjRlODc4ZDkwZWIxNDViN2JkZTJjODE2YmIwMzBiYzI5NTZmNzY2ZTY0NGI2NCJ9fX0"
+  michigan:
+    name: "Michigan"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTllODIyOGEwNmJhMTUyNGIxODRjZjVmZDZjMGQ4OTRkYjc1MjZkYzUyZTljYmY1NmEwZGM0MWE5OGFkZTRjMiJ9fX0"
+  minnesota:
+    name: "Minnesota"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTQzNmM3YjExMDI0MzU4NGY0ZGRlMmUyMGQ3YzEwMDEwMDAwMjQ2NjU1YjM0M2QyNTVjN2M4NTRmOGJjZjA5MiJ9fX0"
+  mississippi:
+    name: "Mississippi"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGNkNzM2ODUzZDIyZjRlMzE4NzA1N2VkNzEwOTlkYzdmZmQ4ZTIxNTkxZjYzNmZkMDA3NTI2YWY5YTEwOTI1OCJ9fX0"
+  missouri:
+    name: "Missouri"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZkY2Q1YmE5ZjM4MjU4NTQzYTI3OTZlOGI5MGEyNTZiN2ZjNWU0Y2RiNGZkNmY3YjkzOTJmYzFhMTBjYTAxNyJ9fX0"
+  montana:
+    name: "Montana"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDFjZGM4OWEyYTBjNDNmNzM0ODNiMjVmMWU3NjQzY2QzNGZkY2JmMjY4MjE2ZGNlYmI5YmQwOTdlODMyZDVhNSJ9fX0"
+  nebraska:
+    name: "Nebraska"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTIzZWY1OWExY2E3YmRkNGNjMGI4M2E5MWRmMzY2Mjk3ODAyN2JiMTViZDkxMzAwMmUxMjU5ZDhjYjMyMTQ3MSJ9fX0"
+  nevada:
+    name: "Nevada"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmY1ZTUzZTZjYzM0OGE1MWJjMjRhOWZhZWU4NWNjNjJmYmI4YTViOWRjODdlOTg4YzM1ZmVhYjZmM2UzYTJmIn19fQ"
+  new_hampshire:
+    name: "New Hampshire"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWE3MDNkNjI5MTNlODZlYjk3NjRjYWJmMDgyZDhkOWUyYWE2MWUwYmZjNTgxMzY3MjZkYzY4ZWM4OTE3NGI2OSJ9fX0"
+  new_jersey:
+    name: "New Jersey"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTA1YzA2MGFiMWVjMWY4NmY4N2FiYTJiOWJmZjZhMzI4ZDE5M2ZjZjI0YjRlOTNiNDc0NGZmZjgyOWIwNDQ2NyJ9fX0"
+  new_mexico:
+    name: "New Mexico"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTg4ODk2MDI2MTVmMWE5ODliYjVjNDYyNzgwYWJmMTg3YzhiMzIxMWFhOWMxZmFiNmZlZTgxNDJlN2Y5ZTU5ZSJ9fX0"
+  new_york:
+    name: "New York"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzk0OWE2NmY3YThlYzJjOGYyZWIyMDRkNDhmMDgzOTk5ZjQ1ZjJkYzFjZTdkZTQzOTZjZDU5NTM3YWEyNzM4MyJ9fX0"
+  north_carolina:
+    name: "North Carolina"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODNjYmNlMGYxMGJmN2Y3M2JhZDFiNTM0YTc0YjVlOWFlYzRlNzE3ZWVhZmRkYzNiOWI5YmVkMTFlOWU2Yjg2OCJ9fX0"
+  north_dakota:
+    name: "North Dakota"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTg3ODIyZTEwN2YxMzMxOWNiZTU5NTkwYjdlYjc3ZmI2ZjQ3NTUyMTBlNzZmZDhhMWJmYzYxMWM0Njc5YmRmMCJ9fX0"
+  ohio:
+    name: "Ohio"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2EzNTYyMjZmNjMzYjRmZTVkYTg5ZGJmN2M5OWI3OGUxN2ZkNzZlZTc5NWJmM2YwMzU5ZDNmYzU5ZWNjZGI1In19fQ"
+  oklahoma:
+    name: "Oklahoma"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjA2NmE1NTcwZTVkN2JjYjYwNGU5ZTM0NDkwYTI3ZGZiMmU1MGYyY2YzZDNjZjg0ODAyOGY3YzFjMjkwNDQ1NCJ9fX0"
+  oregon:
+    name: "Oregon"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjQ4ZWIwNzAyYzRhNjVjODdiNDVhODhjZjIyODg4MTRjOTg3M2VhNjYyNWJhYzc1ZDVjNTdmMmVhNjNjOTAwNCJ9fX0"
+  pennsylvania:
+    name: "Pennsylvania"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDIzNWJkYWM2ZDdlOTY4ODFkM2Q1M2U3ODQyMmQ2YzUxZDIwZjI4ZWRiYWJjZGMzNmIzODM4ZTFjZjliZWM4OCJ9fX0"
+  puerto_rico:
+    name: "Puerto Rico"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTIzYzZmYmZkNTZmMGM4N2M2ZjJjYWZlYWY1OWU2ZWJiMjdiNGNkMjZkNmY3YzE1NzVkNzcwOWJmNDUyM2YxOSJ9fX0"
+  rhode_island:
+    name: "Rhode Island"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWJlYWY5MTgwZDUyODM2ZmIyOTJlYjljOTE5YWVmMTc3OGYxZGE1OWQ1NDIzNWVmODc5OWY2ZWI5ZjNjMDkwMiJ9fX0"
+  south_carolina:
+    name: "South Carolina"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWQzYWNhZTE4OGZhNDVlNTQ4NjgxN2M4OTVhZWFlYjVmMzIxNDVhMGU2MTZhYmQwNTAwMTJhNGIzMzgwMDViYiJ9fX0"
+  south_dakota:
+    name: "South Dakota"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTI0YTYzOTZkZmEyNzdlZThmODQzNmNiOGEwMTU3MmQxYzBmOGQ4ZGYzNjNiNmIwZmI1YmVjMzA2MGEzNGRmNyJ9fX0"
+  tennessee:
+    name: "Tennessee"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODgwODk3ZTU2M2U1YTBmNjFkZWRhZTBhYzI2YjljYmJiYzk4ZjZkZmMwNDNhZWZlNDUyMDNiZTYwZjZlNWRhNSJ9fX0"
+  texas:
+    name: "Texas"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODgwODk3ZTU2M2U1YTBmNjFkZWRhZTBhYzI2YjljYmJiYzk4ZjZkZmMwNDNhZWZlNDUyMDNiZTYwZjZlNWRhNSJ9fX0"
+  utah:
+    name: "Utah"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjVkZGM1MTU2ZjJjODJmNzFhNWZkMjJlYTkwNDY2YmMzNDJhZGVjODFlYzUxNTM5NWVkZjZkM2E2Y2Y4MjFiMCJ9fX0"
+  vermont:
+    name: "Vermont"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzg3YjJhMjUyNjk4ODk4MzA1MWI3ODI3MTQwNTI1ZjU5YTNkZTY1M2E4MjgxYThjODQ5YmExNmU5M2UzMmQ4MiJ9fX0"
+  virginia:
+    name: "Virginia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2NjZjkxYWI4NTI1ZGU3MTVjYjZmZmNjODhiNWYyMzY1NWYwMDViYmNiNzQ2ZmMyMWNjNTg4MzA0YWI4OTMyMyJ9fX0"
+  washington:
+    name: "Washington"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGViNWE2M2IxNThjOWM5YjlkZDQwNTFlZDkxOGIxNjQ5MWQyYjMxNTgzOTk0MzVhNTUxZjQ1YjA5ZDcxZDc4MSJ9fX0"
+  washington_dc:
+    name: "Washington DC"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTdmOWZiYjkyMzllMTEwNGY1N2U3ZGMxZjRhNTgzODIxNzFlMDgwYjkwMTJiZDA5OGE2MjYzYTM1OGQ4OTQ5MyJ9fX0"
+  west_virginia:
+    name: "West Virginia"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDEyYmUwMjdmYmE0MjQ5ZmU1YWM3NGNlYzE4ZTg4YzZjMmY0OGE3NmRlMGVlMzVjZDkwMWI1NmI5ZTU5NDFiZiJ9fX0"
+  wisconsin:
+    name: "Wisconsin"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzYxYWM0Njk2ODljYTc5NGYxY2MxZjA3MThjMTdkZmU5NGZlYmQ5NmVmMmFjY2VhMDlhMGJlOGY5NWE5YTQxZCJ9fX0"
+  wyoming:
+    name: "Wyoming"
+    category: FLAGS
+    price: 0
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWNiMWFlNGQ1YjZjYTg5Y2EwNjAwYWI0MGQxMGJkOWQ2MDE3MzQ2NzcwYWNlMjNmMmZjY2I2MTViZTkzYmY1YSJ9fX0"

@@ -1,14 +1,22 @@
 package net.jadedmc.elytrapvp.inventories;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.utils.gui.CustomGUI;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import net.jadedmc.elytrapvp.utils.item.SkullBuilder;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * Displays the main cosmetics GUI, which lets you navagate to each type of cosmetic.
+ */
 public class CosmeticsGUI extends CustomGUI {
 
-    public CosmeticsGUI() {
+    /**
+     * Creates the GUI
+     * @param plugin Instance of the plugin.
+     */
+    public CosmeticsGUI(ElytraPvP plugin) {
         super(54, "Cosmetics");
 
         ItemStack filler = new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE).setDisplayName(" ").build();
@@ -18,7 +26,7 @@ public class CosmeticsGUI extends CustomGUI {
         }
 
         ItemBuilder hats = new ItemBuilder(Material.PLAYER_HEAD).setDisplayName("&a&lHats");
-        setItem(19, hats.build());
+        setItem(19, hats.build(), (p,a) -> new HatsGUI(plugin).open(p));
 
         ItemBuilder killMessages = new ItemBuilder(Material.OAK_SIGN).setDisplayName("&a&lKill Messages");
         setItem(21, killMessages.build());

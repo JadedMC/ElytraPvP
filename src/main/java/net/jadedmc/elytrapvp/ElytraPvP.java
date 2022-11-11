@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp;
 import net.jadedmc.elytrapvp.commands.AbstractCommand;
 import net.jadedmc.elytrapvp.game.LeaderboardManager;
 import net.jadedmc.elytrapvp.game.arena.ArenaManager;
+import net.jadedmc.elytrapvp.game.cosmetics.CosmeticManager;
 import net.jadedmc.elytrapvp.game.kits.KitManager;
 import net.jadedmc.elytrapvp.game.parkour.ParkourManager;
 import net.jadedmc.elytrapvp.listeners.*;
@@ -16,6 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ElytraPvP extends JavaPlugin {
     private ArenaManager arenaManager;
+    private CosmeticManager cosmeticManager;
     private CustomPlayerManager customPlayerManager;
     private KitManager kitManager;
     private LeaderboardManager leaderboardManager;
@@ -36,6 +38,7 @@ public final class ElytraPvP extends JavaPlugin {
         customPlayerManager = new CustomPlayerManager(this);
         parkourManager = new ParkourManager(this);
         leaderboardManager = new LeaderboardManager(this);
+        cosmeticManager = new CosmeticManager(this);
 
         // Commands
         AbstractCommand.registerCommands(this);
@@ -69,6 +72,14 @@ public final class ElytraPvP extends JavaPlugin {
      */
     public ArenaManager arenaManager() {
         return arenaManager;
+    }
+
+    /**
+     * Retrieves the object managing cosmetics.
+     * @return Cosmetic manager.
+     */
+    public CosmeticManager cosmeticManager() {
+        return cosmeticManager;
     }
 
     /**

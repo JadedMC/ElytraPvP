@@ -54,6 +54,11 @@ public class MySQL {
                         "kit VARCHAR(24) DEFAULT 'none'," +
                         "coins INT DEFAULT 0," +
                         "bounty INT DEFAULT 0," +
+                        "hat VARCHAR(24) DEFAULT 'none'," +
+                        "killMessage VARCHAR(24) DEFAULT 'none'," +
+                        "tag VARCHAR(24) DEFAULT 'none'," +
+                        "arrowTrail VARCHAR(24) DEFAULT 'none'," +
+                        "trail VARCHAR(24) DEFAULT 'none'," +
                         "PRIMARY KEY (uuid)" +
                         ");");
                 elytrapvp_players.execute();
@@ -104,6 +109,14 @@ public class MySQL {
                         "PRIMARY KEY (uuid, course)" +
                         ");");
                 elytrapvp_parkour.execute();
+
+                PreparedStatement elytrapvp_cosmetics = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_cosmetics (" +
+                        "uuid VARCHAR(36)," +
+                        "type VARCHAR(16)," +
+                        "cosmeticID VARCHAR(24)," +
+                        "PRIMARY KEY (uuid, type, cosmeticID)" +
+                        ");");
+                elytrapvp_cosmetics.execute();
             }
             catch (SQLException exception) {
                 exception.printStackTrace();

@@ -85,7 +85,7 @@ public class ArenaCMD extends AbstractCommand {
                 for(CustomPlayer customPlayer : plugin.customPlayerManager().getCustomPlayers()) {
                     customPlayer.setStatus(Status.LOBBY);
                     customPlayer.getPlayer().teleport(arena.getSpawn());
-                    ItemUtils.giveLobbyItems(customPlayer.getPlayer());
+                    ItemUtils.giveLobbyItems(plugin, customPlayer.getPlayer());
 
                     ChatUtils.chat(customPlayer.getPlayer(), "&a&lArena &8» &aThe arena has been changed to &f" + arena.getName() + "&a.");
                 }

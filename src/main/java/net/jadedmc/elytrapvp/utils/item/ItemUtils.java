@@ -1,10 +1,21 @@
 package net.jadedmc.elytrapvp.utils.item;
 
+import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.player.CustomPlayer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
+/**
+ * A collection of helpful methods relating to Items.
+ */
 public class ItemUtils {
-    public static void giveLobbyItems(Player player) {
+
+    /**
+     * Gives a player the lobby items.
+     * @param plugin Instance of the plugin.
+     * @param player Player to give lobby items to.
+     */
+    public static void giveLobbyItems(ElytraPvP plugin, Player player) {
         player.getInventory().clear();
 
         ItemBuilder cosmetics = new ItemBuilder(Material.EMERALD).setDisplayName("&a&lCosmetics");
@@ -21,8 +32,18 @@ public class ItemUtils {
         player.setHealth(20);
         player.setFoodLevel(20);
         player.getActivePotionEffects().forEach(potionEffect -> player.removePotionEffect(potionEffect.getType()));
+
+        // Gives the player their hat if they have one.
+        CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+        if(customPlayer.getHat() != null) {
+            player.getInventory().setHelmet(customPlayer.getHat().toItemStack());
+        }
     }
 
+    /**
+     * Gives a player the parkour items.
+     * @param player Player to give parkour items to.
+     */
     public static void giveParkourItems(Player player) {
         for(int i = 0; i < 8; i++) {
             player.getInventory().setItem(i, null);

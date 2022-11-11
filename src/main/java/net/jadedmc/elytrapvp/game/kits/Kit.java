@@ -81,6 +81,11 @@ public abstract class Kit {
         for(int i : updatedKit.keySet()) {
             player.getInventory().setItem(i, updatedKit.get(i));
         }
+
+        // Give the player their hat if they are using one.
+        if(customPlayer.getHat() != null) {
+            player.getInventory().setHelmet(customPlayer.getHat().toItemStack());
+        }
     }
 
     /**

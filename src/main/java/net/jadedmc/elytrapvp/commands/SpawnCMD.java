@@ -61,7 +61,7 @@ public class SpawnCMD extends AbstractCommand {
 
             player.closeInventory();
             player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
-            ItemUtils.giveLobbyItems(player);
+            ItemUtils.giveLobbyItems(plugin, player);
             customPlayer.setStatus(Status.LOBBY);
         }, 100);
     }

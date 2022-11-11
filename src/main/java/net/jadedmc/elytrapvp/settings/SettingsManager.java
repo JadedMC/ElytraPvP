@@ -7,11 +7,16 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Manages various configuration files.
+ */
 public class SettingsManager {
     private FileConfiguration config;
     private File configFile;
     private FileConfiguration arenas;
     private File arenasFile;
+    private FileConfiguration hats;
+    private File hatsFile;
 
     public SettingsManager(ElytraPvP plugin) {
         config = plugin.getConfig();
@@ -24,6 +29,13 @@ public class SettingsManager {
 
         if(!arenasFile.exists()) {
             plugin.saveResource("arenas.yml", false);
+        }
+
+        hatsFile = new File(plugin.getDataFolder(), "hats.yml");
+        hats = YamlConfiguration.loadConfiguration(hatsFile);
+
+        if(!hatsFile.exists()) {
+            plugin.saveResource("hats.yml", false);
         }
     }
 
@@ -41,6 +53,14 @@ public class SettingsManager {
      */
     public FileConfiguration getArenas() {
         return arenas;
+    }
+
+    /**
+     * Get the hats configuration file.
+     * @return Hats configuration file.
+     */
+    public FileConfiguration getHats() {
+        return hats;
     }
 
     /**

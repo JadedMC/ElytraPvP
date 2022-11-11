@@ -19,18 +19,31 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+/**
+ * This class runs a listener that is called whenever a player interacts with their surroundings.
+ * This is used to power the lobby/parkour items and detect when a player reaches a parkour checkpoint.
+ */
 public class PlayerInteractListener implements Listener {
     private final ElytraPvP plugin;
 
+    /**
+     * Creates the Listener.
+     * @param plugin Instance of the plugin.
+     */
     public PlayerInteractListener(ElytraPvP plugin) {
         this.plugin = plugin;
     }
 
+    /**
+     * Runs when the event is called.
+     * @param event PlayerInteractEvent.
+     */
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
+        // Powers the parkour checkpoints.
         if(event.getAction() == Action.PHYSICAL && plugin.parkourManager().getData(player) != null) {
             if(event.getClickedBlock().getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
                 plugin.parkourManager().getData(player).setCheckpoint(player.getLocation());
@@ -38,6 +51,7 @@ public class PlayerInteractListener implements Listener {
             }
         }
 
+        // Prevent players from moving items around in their inventory.
         if(player.getOpenInventory().getType() != InventoryType.CRAFTING && player.getOpenInventory().getType() != InventoryType.CREATIVE) {
             if(player.getName().contains("*")) {
                 if(player.getOpenInventory().getType() != InventoryType.PLAYER) {
@@ -82,7 +96,7 @@ public class PlayerInteractListener implements Listener {
                 event.setCancelled(true);
             }
             case "Cosmetics" -> {
-                new CosmeticsGUI().open(player);
+                new CosmeticsGUI(plugin).open(player);
                 event.setCancelled(true);
             }
             case "Back to Checkpoint" -> {
@@ -98,7 +112,7 @@ public class PlayerInteractListener implements Listener {
                 new GameScoreboard(plugin, player);
                 plugin.parkourManager().removePlayer(player);
                 player.teleport(plugin.arenaManager().getSelectedArena().getSpawn());
-                ItemUtils.giveLobbyItems(player);
+                ItemUtils.giveLobbyItems(plugin, player);
             }
         }
     }
