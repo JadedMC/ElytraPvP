@@ -1,6 +1,7 @@
 package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
@@ -34,9 +35,11 @@ public class CustomPlayer {
     private String hat = "none";
     private String killMessage = "none";
     private String tag = "none";
+    private String arrowTrail = "none";
     private final List<String> unlockedHats = new ArrayList<>();
     private final List<String> unlockedKillMessages = new ArrayList<>();
     private final List<String> unlockedTags = new ArrayList<>();
+    private final List<String> unlockedArrowTrails = new ArrayList<>();
 
     // Statistics
     private int coins = 0;
@@ -95,6 +98,7 @@ public class CustomPlayer {
                         hat = resultSet.getString("hat");
                         killMessage = resultSet.getString("killMessage");
                         tag = resultSet.getString("tag");
+                        arrowTrail = resultSet.getString("arrowTrail");
 
                         // Give the player their selected hat once loaded.
                         plugin.getServer().getScheduler().runTask(plugin, () -> {
@@ -199,6 +203,7 @@ public class CustomPlayer {
                             case "HAT" -> unlockedHats.add(resultSet.getString("cosmeticID"));
                             case "KILL_MESSAGE" -> unlockedKillMessages.add(resultSet.getString("cosmeticID"));
                             case "TAG" -> unlockedTags.add(resultSet.getString("cosmeticID"));
+                            case "ARROW_TRAIL" -> unlockedArrowTrails.add(resultSet.getString("cosmeticID"));
                         }
                     }
                 }
@@ -392,6 +397,18 @@ public class CustomPlayer {
         }
 
         return 0;
+    }
+
+    /**
+     * Get the player's current arrow trail.
+     * @return Currently selected arrow trail.
+     */
+    public ArrowTrail getArrowTrail() {
+        if(arrowTrail == null || arrowTrail.equalsIgnoreCase("none")) {
+            return null;
+        }
+
+        return plugin.cosmeticManager().getArrowTrail(arrowTrail);
     }
 
     /**
@@ -670,6 +687,14 @@ public class CustomPlayer {
     }
 
     /**
+     * Gets a list of the arrow trails the player has unlocked.
+     * @return List of the ids of the arrow trails.
+     */
+    public List<String> getUnlockedArrowTrails() {
+        return unlockedArrowTrails;
+    }
+
+    /**
      * Gets a list of the hats the player has unlocked.
      * @return List of the ids of hats unlocked.
      */
@@ -740,6 +765,33 @@ public class CustomPlayer {
      */
     private void setArrowsShot(String kit, int arrowsShot) {
         this.arrowsShot.put(kit, arrowsShot);
+    }
+
+    /**
+     * Set the arrow trail the player is currently using.
+     * @param arrowTrail New arrow trail the player is using.
+     */
+    public void setArrowTrail(ArrowTrail arrowTrail) {
+        String arrowTrailID = "none";
+
+        if(arrowTrail != null) {
+            arrowTrailID = arrowTrail.getId();
+        }
+
+        this.arrowTrail = arrowTrailID;
+
+        String finalArrowTrailID = arrowTrailID;
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET arrowTrail = ? WHERE uuid = ?");
+                statement.setString(1, finalArrowTrailID);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     /**
@@ -1146,6 +1198,27 @@ public class CustomPlayer {
      */
     public boolean showScoreboard() {
         return showScoreboard;
+    }
+
+    /**
+     * Allows a player to use an arrow trail.
+     * @param arrowTrail Arrow trail to unlock.
+     */
+    public void unlockArrowTrail(ArrowTrail arrowTrail) {
+        unlockedArrowTrails.add(arrowTrail.getId());
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, "ARROW_TRAIL");
+                statement.setString(3, arrowTrail.getId());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     /**

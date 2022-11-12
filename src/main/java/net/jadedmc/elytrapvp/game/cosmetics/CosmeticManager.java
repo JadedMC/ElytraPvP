@@ -1,11 +1,14 @@
 package net.jadedmc.elytrapvp.game.cosmetics;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
+import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrailCategory;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.HatCategory;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Arrow;
 
 import java.util.*;
 
@@ -14,9 +17,11 @@ import java.util.*;
  */
 public class CosmeticManager {
     private final ElytraPvP plugin;
-    private final Map<String, Hat> hats = new LinkedHashMap();
+    private final Map<String, Hat> hats = new LinkedHashMap<>();
     private final Map<String, KillMessage> killMessages = new LinkedHashMap<>();
     private final Map<String, Tag> tags = new LinkedHashMap<>();
+    private final Map<String, ArrowTrail> arrowTrails = new LinkedHashMap<>();
+    private final Map<Arrow, ArrowTrail> arrows = new HashMap<>();
 
     /**
      * Creates the manager.
@@ -29,6 +34,50 @@ public class CosmeticManager {
         loadHats();
         loadKillMessages();
         loadTags();
+        loadArrowTrails();
+    }
+
+    /**
+     * Load all arrow trails from the config.
+     */
+    private void loadArrowTrails() {
+        ConfigurationSection section = plugin.settingsManager().getArrowTrails().getConfigurationSection("ArrowTrails");
+
+        // Makes sure the config file isn't null.
+        if(section == null) {
+            return;
+        }
+
+        // Loops through each trail in the config file.
+        for(String id : section.getKeys(false)) {
+            ConfigurationSection arrowTrail = section.getConfigurationSection(id);
+
+            // Makes sure the trail isn't null.
+            if(arrowTrail == null) {
+                continue;
+            }
+
+            // Loads the arrow trail.
+            arrowTrails.put(id, new ArrowTrail(plugin, id, arrowTrail));
+        }
+
+        plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+
+            // Loop through all arrows that have an arrow trail.
+            for(Arrow arrow : new ArrayList<>(getArrows().keySet())) {
+                // If the arrow doesn't exist anymore, remove it.
+                if(arrow == null || arrow.isDead()) {
+                    getArrows().remove(arrow);
+                    continue;
+                }
+
+                // Otherwise, spawn the error.
+                getArrows().get(arrow).getCurrentStep().spawnParticles(arrow.getLocation());
+            }
+
+            // Incremenent the step of each arrow trail.
+            getArrowTrails().forEach(ArrowTrail::nextStep);
+        }, 1, 1);
     }
 
     /**
@@ -119,6 +168,48 @@ public class CosmeticManager {
                 tags.put(id, tag);
             }
         }
+    }
+
+    /**
+     * Get a map of arrows and their arrow trails.
+     * @return Arrows and their arrow trails.
+     */
+    public Map<Arrow, ArrowTrail> getArrows() {
+        return arrows;
+    }
+
+    /**
+     * Get an arrow trail based off its id.
+     * @param id Id of the arrow trail.
+     * @return Correcsponding arrow trail.
+     */
+    public ArrowTrail getArrowTrail(String id) {
+        return arrowTrails.get(id);
+    }
+
+    /**
+     * Get a collection of all arrow trails.
+     * @return All arrow trails.
+     */
+    public Collection<ArrowTrail> getArrowTrails() {
+        return arrowTrails.values();
+    }
+
+    /**
+     * Get all hats from a specific category.
+     * @param category Category to get hats of.
+     * @return All hats in that category.
+     */
+    public Collection<ArrowTrail> getArrowTrails(ArrowTrailCategory category) {
+        List<ArrowTrail> arrowTrailList = new ArrayList<>();
+
+        for(ArrowTrail arrowTrail : getArrowTrails()) {
+            if(arrowTrail.getCategory() == category) {
+                arrowTrailList.add(arrowTrail);
+            }
+        }
+
+        return arrowTrailList;
     }
 
     /**

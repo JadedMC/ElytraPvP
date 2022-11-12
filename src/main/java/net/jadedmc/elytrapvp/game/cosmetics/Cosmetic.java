@@ -8,11 +8,17 @@ import org.bukkit.inventory.ItemStack;
  */
 public abstract class Cosmetic {
     private final String id;
-    private final String name;
-    private final CosmeticType unlockType;
+    private  String name;
+    private  CosmeticType unlockType;
 
     // Unlock Values
     private int price = 0;
+
+    public Cosmetic(String id) {
+        this.id = id;
+        this.name = "";
+        this.unlockType = CosmeticType.NORMAL;
+    }
 
     /**
      * Creates a Cosmetic.
@@ -66,10 +72,26 @@ public abstract class Cosmetic {
     }
 
     /**
+     * Set the name of the cosmetic.
+     * @param name Name of the cosmetic.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * Set the price of the cosmetic.
      * @param price New price of the cosmetic.
      */
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    /**
+     * Set the unlock type of the cosmetic.
+     * @param unlockType Unlock type of the cosmetic.
+     */
+    public void setUnlockType(CosmeticType unlockType) {
+        this.unlockType = unlockType;
     }
 }

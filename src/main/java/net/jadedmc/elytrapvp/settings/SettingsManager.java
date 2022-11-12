@@ -21,6 +21,8 @@ public class SettingsManager {
     private File killMessagesFile;
     private FileConfiguration tags;
     private File tagsFile;
+    private FileConfiguration arrowTrails;
+    private File arrowTrailsFile;
 
     /**
      * Loads the configuration files.
@@ -59,6 +61,13 @@ public class SettingsManager {
         if(!tagsFile.exists()) {
             plugin.saveResource("tags.yml", false);
         }
+
+        arrowTrailsFile = new File(plugin.getDataFolder(), "arrowtrails.yml");
+        arrowTrails = YamlConfiguration.loadConfiguration(arrowTrailsFile);
+
+        if(!arrowTrailsFile.exists()) {
+            plugin.saveResource("arrowtrails.yml", false);
+        }
     }
 
     /**
@@ -75,6 +84,14 @@ public class SettingsManager {
      */
     public FileConfiguration getArenas() {
         return arenas;
+    }
+
+    /**
+     * Get the arrow trail configuration file.
+     * @return Arrow trail configuration file.
+     */
+    public FileConfiguration getArrowTrails() {
+        return arrowTrails;
     }
 
     /**

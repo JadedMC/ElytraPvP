@@ -35,7 +35,7 @@ public class CosmeticsGUI extends CustomGUI {
         setItem(23, tags.build(), (p,a) -> new TagsGUI(plugin, p, 1).open(p));
 
         ItemBuilder arrowTrails = new ItemBuilder(Material.ARROW).setDisplayName("&a&lArrow Trails");
-        setItem(25, arrowTrails.build());
+        setItem(25, arrowTrails.build(), (p,a) -> new ArrowTrailsGUI(plugin).open(p));
 
         ItemBuilder trails = new ItemBuilder(Material.NETHER_STAR).setDisplayName("&a&lTrails");
         setItem(29, trails.build());

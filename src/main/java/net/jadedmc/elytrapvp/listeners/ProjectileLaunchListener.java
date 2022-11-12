@@ -43,6 +43,15 @@ public class ProjectileLaunchListener implements Listener {
 
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
+        // Applies arrow trail
+        if(customPlayer.getArrowTrail() != null) {
+            plugin.cosmeticManager().getArrows().put(arrow, customPlayer.getArrowTrail());
+
+            double damage = arrow.getDamage();
+            arrow.setCritical(false);
+            arrow.setDamage(damage);
+        }
+
         // Makes sure the player is in the arena.
         if(customPlayer.getStatus() != Status.ARENA) {
             return;
