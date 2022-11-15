@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp.game.cosmetics.arrowtrails;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.Cosmetic;
 import net.jadedmc.elytrapvp.game.cosmetics.CosmeticType;
+import net.jadedmc.elytrapvp.game.seasons.Season;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import net.jadedmc.elytrapvp.utils.item.SkullBuilder;
@@ -13,6 +14,7 @@ import org.bukkit.Particle;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.ChatPaginator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +51,11 @@ public class ArrowTrail extends Cosmetic {
         // Load the unlock type of the trail.
         if(config.isSet("unlockType")) {
             setUnlockType(CosmeticType.valueOf(config.getString("unlockType")));
+        }
+
+        // Load the required season of the cosmetic if set.
+        if(config.isSet("season")) {
+            setSeason(Season.valueOf(config.getString("season")));
         }
 
         // Load the icon material.
@@ -156,6 +163,15 @@ public class ArrowTrail extends Cosmetic {
                     .setDisplayName("&a" + getName())
                     .addLore("&7Click to equip")
                     .build();
+        }
+
+        // Check if the item is seasonal.
+        if(getUnlockType() == CosmeticType.SEASONAL && plugin.seasonManager().getCurrentSeason() != getSeason()) {
+            // If not, shows the purchase icon.
+            ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
+                    .setDisplayName("&c" + getName())
+                    .addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
+            return builder.build();
         }
 
         // If not, shows the purchase icon.

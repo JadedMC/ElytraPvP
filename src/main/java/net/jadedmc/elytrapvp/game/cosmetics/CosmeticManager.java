@@ -7,6 +7,7 @@ import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.HatCategory;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
+import net.jadedmc.elytrapvp.game.seasons.Season;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Arrow;
 
@@ -104,9 +105,16 @@ public class CosmeticManager {
                     price = hatConfig.getInt("price");
                 }
 
+                Season season = Season.NONE;
+                // Load the required season of the cosmetic if set.
+                if(hatConfig.isSet("season")) {
+                    season = Season.valueOf(hatConfig.getString("season"));
+                }
+
                 // Loads the hat.
                 Hat hat = new Hat(plugin, hatID, name, unlockType, texture, category);
                 hat.setPrice(price);
+                hat.setSeason(season);
 
                 // Caches the hat.
                 hats.put(hatID, hat);
@@ -137,6 +145,11 @@ public class CosmeticManager {
                     killMessage.setPrice(config.getInt("Price"));
                 }
 
+                // Load the required season of the cosmetic if set.
+                if(config.isSet("season")) {
+                    killMessage.setSeason(Season.valueOf(config.getString("season")));
+                }
+
                 killMessages.put(id, killMessage);
             }
         }
@@ -163,6 +176,11 @@ public class CosmeticManager {
 
                 if(config.isSet("Tag")) {
                     tag.setPrice(config.getInt("Price"));
+                }
+
+                // Load the required season of the cosmetic if set.
+                if(config.isSet("season")) {
+                    tag.setSeason(Season.valueOf(config.getString("season")));
                 }
 
                 tags.put(id, tag);
@@ -210,6 +228,45 @@ public class CosmeticManager {
         }
 
         return arrowTrailList;
+    }
+
+    /**
+     * Get all cosmetics for a specific season.
+     * @param season Season to get cosmetics of.
+     * @return List of cosmetics.
+     */
+    public List<Cosmetic> getCosmetics(Season season) {
+        List<Cosmetic> cosmetics = new ArrayList<>();
+
+        // Hats
+        for(Hat hat : getHats()) {
+            if(hat.getSeason() == season) {
+                cosmetics.add(hat);
+            }
+        }
+
+        // Kill Messages
+        for(KillMessage killMessage : getKillMessages()) {
+            if(killMessage.getSeason() == season) {
+                cosmetics.add(killMessage);
+            }
+        }
+
+        // Tags
+        for(Tag tag : getTags()) {
+            if(tag.getSeason() == season) {
+                cosmetics.add(tag);
+            }
+        }
+
+        // Arrow Trails
+        for(ArrowTrail arrowTrail : getArrowTrails()) {
+            if(arrowTrail.getSeason() == season) {
+                cosmetics.add(arrowTrail);
+            }
+        }
+
+        return cosmetics;
     }
 
     /**

@@ -1,5 +1,6 @@
 package net.jadedmc.elytrapvp.game.cosmetics;
 
+import net.jadedmc.elytrapvp.game.seasons.Season;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -8,11 +9,12 @@ import org.bukkit.inventory.ItemStack;
  */
 public abstract class Cosmetic {
     private final String id;
-    private  String name;
-    private  CosmeticType unlockType;
+    private String name;
+    private CosmeticType unlockType;
 
     // Unlock Values
     private int price = 0;
+    private Season season = Season.NONE;
 
     public Cosmetic(String id) {
         this.id = id;
@@ -64,6 +66,14 @@ public abstract class Cosmetic {
     }
 
     /**
+     * Get the season required to purchase the cosmetic.
+     * @return Required season.
+     */
+    public Season getSeason() {
+        return season;
+    }
+
+    /**
      * Get the way the cosmetic should be unlocked.
      * @return Unlock type.
      */
@@ -85,6 +95,14 @@ public abstract class Cosmetic {
      */
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    /**
+     * Sets the season needed to be able to purchase a cosmetic.
+     * @param season Season needed to unlock cosmetic.
+     */
+    public void setSeason(Season season) {
+        this.season = season;
     }
 
     /**

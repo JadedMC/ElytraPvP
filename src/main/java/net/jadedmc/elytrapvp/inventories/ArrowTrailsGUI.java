@@ -114,6 +114,32 @@ public class ArrowTrailsGUI extends CustomGUI {
                         player.closeInventory();
                         ChatUtils.chat(player, "&a&lCosmetics &8» &aArrow Trail has been purchased and equipped.");
                     }
+                    case SEASONAL -> {
+                        if(plugin.seasonManager().getCurrentSeason() != arrowTrail.getSeason()) {
+                            return;
+                        }
+
+                        // If the hat has a price of 0, treat it like an unlocked hat.
+                        if(arrowTrail.getPrice() == 0) {
+                            customPlayer.setArrowTrail(arrowTrail);
+                            player.closeInventory();
+                            ChatUtils.chat(player, "&a&lCosmetics &8» &aArrow Trail has been equipped.");
+                            return;
+                        }
+
+                        // Make sure the player has enough coins.
+                        if(customPlayer.getCoins() < arrowTrail.getPrice()) {
+                            ChatUtils.chat(p, "&c&lError &8» &cYou do not have enough coins for that.");
+                            return;
+                        }
+
+                        // Unlocks and equips the hat.
+                        customPlayer.removeCoins(arrowTrail.getPrice());
+                        customPlayer.unlockArrowTrail(arrowTrail);
+                        customPlayer.setArrowTrail(arrowTrail);
+                        player.closeInventory();
+                        ChatUtils.chat(player, "&a&lCosmetics &8» &aArrow Trail has been purchased and equipped.");
+                    }
                 }
             });
             s++;

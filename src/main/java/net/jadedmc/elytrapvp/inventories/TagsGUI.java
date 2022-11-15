@@ -81,6 +81,32 @@ public class TagsGUI extends CustomGUI {
                         player.closeInventory();
                         ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been purchased and equipped.");
                     }
+                    case SEASONAL -> {
+                        if(plugin.seasonManager().getCurrentSeason() != tag.getSeason()) {
+                            return;
+                        }
+
+                        // If the hat has a price of 0, treat it like an unlocked hat.
+                        if(tag.getPrice() == 0) {
+                            customPlayer.setTag(tag);
+                            player.closeInventory();
+                            ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been equipped.");
+                            return;
+                        }
+
+                        // Make sure the player has enough coins.
+                        if(customPlayer.getCoins() < tag.getPrice()) {
+                            ChatUtils.chat(p, "&c&lError &8» &cYou do not have enough coins for that.");
+                            return;
+                        }
+
+                        // Unlocks and equips the hat.
+                        customPlayer.removeCoins(tag.getPrice());
+                        customPlayer.unlockTag(tag);
+                        customPlayer.setTag(tag);
+                        player.closeInventory();
+                        ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been purchased and equipped.");
+                    }
                 }
             });
             s++;

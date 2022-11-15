@@ -8,6 +8,7 @@ import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.ChatPaginator;
 
 /**
  * Represents the message shown when a player kills another player.
@@ -45,6 +46,15 @@ public class KillMessage extends Cosmetic {
                     .addLore("&7Click to equip")
                     .build();
             return killMessage;
+        }
+
+        // Check if the item is seasonal.
+        if(getUnlockType() == CosmeticType.SEASONAL && plugin.seasonManager().getCurrentSeason() != getSeason()) {
+            // If not, shows the purchase icon.
+            ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
+                    .setDisplayName("&c" + getName())
+                    .addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
+            return builder.build();
         }
 
         // If not, shows the purchase icon.

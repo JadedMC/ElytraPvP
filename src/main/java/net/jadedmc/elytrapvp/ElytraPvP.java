@@ -6,6 +6,7 @@ import net.jadedmc.elytrapvp.game.arena.ArenaManager;
 import net.jadedmc.elytrapvp.game.cosmetics.CosmeticManager;
 import net.jadedmc.elytrapvp.game.kits.KitManager;
 import net.jadedmc.elytrapvp.game.parkour.ParkourManager;
+import net.jadedmc.elytrapvp.game.seasons.SeasonManager;
 import net.jadedmc.elytrapvp.listeners.*;
 import net.jadedmc.elytrapvp.player.CustomPlayerManager;
 import net.jadedmc.elytrapvp.settings.SettingsManager;
@@ -22,6 +23,7 @@ public final class ElytraPvP extends JavaPlugin {
     private KitManager kitManager;
     private LeaderboardManager leaderboardManager;
     private ParkourManager parkourManager;
+    private SeasonManager seasonManager;
     private SettingsManager settingsManager;
     private MySQL mySQL;
 
@@ -39,6 +41,7 @@ public final class ElytraPvP extends JavaPlugin {
         parkourManager = new ParkourManager(this);
         leaderboardManager = new LeaderboardManager(this);
         cosmeticManager = new CosmeticManager(this);
+        seasonManager = new SeasonManager(this);
 
         // Commands
         AbstractCommand.registerCommands(this);
@@ -123,6 +126,14 @@ public final class ElytraPvP extends JavaPlugin {
      */
     public ParkourManager parkourManager() {
         return parkourManager;
+    }
+
+    /**
+     * Retrieves the object managing seasons.
+     * @return Season manager.
+     */
+    public SeasonManager seasonManager() {
+        return seasonManager;
     }
 
     /**

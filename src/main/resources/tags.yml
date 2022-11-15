@@ -65,12 +65,18 @@ Tags:
   22:
     Tag: "&a&k#&cSanta&a&k#"
     Price: 300
+    unlockType: SEASONAL
+    season: CHRISTMAS
   23:
     Tag: "&4&k#&2Grinch&4&k#"
     Price: 300
+    unlockType: SEASONAL
+    season: CHRISTMAS
   24:
     Tag: "&#59c2f0&k#&#d7ecf5Frosty&#59c2f0&k#"
     Price: 300
+    unlockType: SEASONAL
+    season: CHRISTMAS
   25:
     Tag: "&4&k#&cR&6a&ei&an&3b&9o&dw&5&k#"
     Price: 300

@@ -81,6 +81,32 @@ public class KillMessagesGUI extends CustomGUI {
                         player.closeInventory();
                         ChatUtils.chat(player, "&a&lCosmetics &8» &aKill Message has been purchased and equipped.");
                     }
+                    case SEASONAL -> {
+                        if(plugin.seasonManager().getCurrentSeason() != killMessage.getSeason()) {
+                            return;
+                        }
+
+                        // If the hat has a price of 0, treat it like an unlocked hat.
+                        if(killMessage.getPrice() == 0) {
+                            customPlayer.setKillMessage(killMessage);
+                            player.closeInventory();
+                            ChatUtils.chat(player, "&a&lCosmetics &8» &aKill Message has been equipped.");
+                            return;
+                        }
+
+                        // Make sure the player has enough coins.
+                        if(customPlayer.getCoins() < killMessage.getPrice()) {
+                            ChatUtils.chat(p, "&c&lError &8» &cYou do not have enough coins for that.");
+                            return;
+                        }
+
+                        // Unlocks and equips the hat.
+                        customPlayer.removeCoins(killMessage.getPrice());
+                        customPlayer.unlockKillMessage(killMessage);
+                        customPlayer.setKillMessage(killMessage);
+                        player.closeInventory();
+                        ChatUtils.chat(player, "&a&lCosmetics &8» &aKill Message has been purchased and equipped.");
+                    }
                 }
             });
             s++;

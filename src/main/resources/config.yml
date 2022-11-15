@@ -1,4 +1,5 @@
-SelectedArena: TBD
+SelectedArena: Bay
+Season: NONE
 MySQL:
   host: 10.0.4.53
   port: 3306
