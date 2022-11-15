@@ -1,9 +1,9 @@
 Arenas:
   1:
-    Name: "TBD"
+    Name: "Bay"
     Spawn:
       World: world
-      X: -12.5
+      X: -22.5
       Y: 104.5
       Z: 0.5
       Yaw: 90
@@ -30,3 +30,7 @@ Arenas:
       - BIRCH_LEAVES
       - DARK_OAK_WOOD
       - MANGROVE_WOOD
+      - MANGROVE_LEAVES
+      - SMOOTH_STONE
+      - GREEN_TERRACOTTA
+      - LIME_TERRACOTTA
