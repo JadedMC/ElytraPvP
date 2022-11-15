@@ -342,6 +342,13 @@ public class CustomPlayer {
     }
 
     /**
+     * Adds a broken window to the broken window counter.
+     */
+    public void addWindowBroken() {
+        setWindowsBroken(getWindowsBroken() + 1);
+    }
+
+    /**
      * Get if the player's elytra should automatically deploy.
      * @return Whether the elytra should open on it's own.
      */
