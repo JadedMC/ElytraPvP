@@ -34,3 +34,41 @@ Arenas:
       - SMOOTH_STONE
       - GREEN_TERRACOTTA
       - LIME_TERRACOTTA
+  2:
+    Name: "Christmas Bay"
+    Spawn:
+      World: world
+      X: 478.5
+      Y: 104.5
+      Z: 0.5
+      Yaw: -90
+      Pitch: 0
+    Bounds:
+      Pos1:
+        World: world
+        X: 600
+        Y: 100
+        Z: -100
+      Pos2:
+        World: world
+        X: 400
+        Y: 0
+        Z: 100
+    DeathBlocks:
+      - SAND
+      - MOSS_BLOCK
+      - STONE
+      - COBBLESTONE
+      - ANDESITE
+      - JUNGLE_LEAVES
+      - SMOOTH_BASALT
+      - BIRCH_LEAVES
+      - DARK_OAK_WOOD
+      - MANGROVE_WOOD
+      - MANGROVE_LEAVES
+      - SMOOTH_STONE
+      - GREEN_TERRACOTTA
+      - LIME_TERRACOTTA
+      - ICE
+      - PACKED_ICE
+      - SNOW_BLOCK
