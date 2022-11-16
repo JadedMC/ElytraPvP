@@ -43,6 +43,8 @@ public class KillMessage extends Cosmetic {
         if(customPlayer.getUnlockedKillMessages().contains(getId()) || (getUnlockType() == CosmeticType.NORMAL && getPrice() == 0)) {
             ItemStack killMessage = new ItemBuilder(Material.OAK_SIGN)
                     .setDisplayName(getName())
+                    .addLore("&8Kill Message")
+                    .addLore("")
                     .addLore("&7Click to equip")
                     .build();
             return killMessage;
@@ -53,6 +55,8 @@ public class KillMessage extends Cosmetic {
             // If not, shows the purchase icon.
             ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                     .setDisplayName("&c" + getName())
+                    .addLore("&8Kill Message")
+                    .addLore("")
                     .addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
             return builder.build();
         }
@@ -60,6 +64,8 @@ public class KillMessage extends Cosmetic {
         // If not, shows the purchase icon.
         ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                 .setDisplayName("&c" + getName())
+                .addLore("&8Kill Message")
+                .addLore("")
                 .addLore("&6Price: " + getPrice())
                 .addLore("&7Click to purchase");
         return builder.build();

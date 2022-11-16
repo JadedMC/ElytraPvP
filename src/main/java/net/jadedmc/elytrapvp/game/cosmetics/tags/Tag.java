@@ -33,6 +33,8 @@ public class Tag extends Cosmetic {
         if(customPlayer.getUnlockedTags().contains(getId()) || (getUnlockType() == CosmeticType.NORMAL && getPrice() == 0)) {
             ItemStack tag = new ItemBuilder(Material.NAME_TAG)
                     .setDisplayName(getName())
+                    .addLore("&8Tag")
+                    .addLore("")
                     .addLore("&7Click to equip")
                     .build();
             return tag;
@@ -43,6 +45,8 @@ public class Tag extends Cosmetic {
             // If not, shows the purchase icon.
             ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                     .setDisplayName("&c" + getName())
+                    .addLore("&8Tag")
+                    .addLore("")
                     .addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
             return builder.build();
         }
@@ -50,6 +54,8 @@ public class Tag extends Cosmetic {
         // If not, shows the purchase icon.
         ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                 .setDisplayName("&c" + getName())
+                .addLore("&8Tag")
+                .addLore("")
                 .addLore("&6Price: " + getPrice())
                 .addLore("&7Click to purchase");
         return builder.build();

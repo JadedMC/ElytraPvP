@@ -154,12 +154,16 @@ public class ArrowTrail extends Cosmetic {
             if(iconMaterial == Material.PLAYER_HEAD) {
                 return new SkullBuilder(texture)
                         .setDisplayName("&a" + getName())
+                        .addLore("&8Arrow Trail")
+                        .addLore("")
                         .addLore("&7Click to equip")
                         .build();
             }
 
             // If not, return normal item.
             return new ItemBuilder(iconMaterial)
+                    .addLore("&8Arrow Trail")
+                    .addLore("")
                     .setDisplayName("&a" + getName())
                     .addLore("&7Click to equip")
                     .build();
@@ -170,6 +174,8 @@ public class ArrowTrail extends Cosmetic {
             // If not, shows the purchase icon.
             ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                     .setDisplayName("&c" + getName())
+                    .addLore("&8Arrow Trail")
+                    .addLore("")
                     .addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
             return builder.build();
         }
@@ -177,6 +183,8 @@ public class ArrowTrail extends Cosmetic {
         // If not, shows the purchase icon.
         ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                 .setDisplayName("&c" + getName())
+                .addLore("&8Arrow Trail")
+                .addLore("")
                 .addLore("&6Price: " + getPrice())
                 .addLore("&7Click to purchase");
         return builder.build();

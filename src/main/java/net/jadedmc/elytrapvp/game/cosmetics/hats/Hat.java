@@ -55,6 +55,8 @@ public class Hat extends Cosmetic {
         if(customPlayer.getUnlockedHats().contains(getId()) || (getUnlockType() == CosmeticType.NORMAL && getPrice() == 0)) {
             ItemStack hat = new SkullBuilder(texture)
                     .setDisplayName("&a" + getName())
+                    .addLore("&8Hat")
+                    .addLore("")
                     .addLore("&7Click to equip")
                     .build();
             return hat;
@@ -65,6 +67,8 @@ public class Hat extends Cosmetic {
             // If not, shows the purchase icon.
             ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                     .setDisplayName("&c" + getName())
+                    .addLore("&8Hat")
+                    .addLore("")
                     .addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
             return builder.build();
         }
@@ -72,6 +76,8 @@ public class Hat extends Cosmetic {
         // If not, shows the purchase icon.
         ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                 .setDisplayName("&c" + getName())
+                .addLore("&8Hat")
+                .addLore("")
                 .addLore("&6Price: " + getPrice())
                 .addLore("&7Click to purchase");
         return builder.build();
