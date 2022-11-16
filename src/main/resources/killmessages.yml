@@ -89,3 +89,29 @@ KillMessages:
   30:
     Message: "&f%player% &acould not keep up with &f%killer%&a."
     Price: 250
+  31:
+    Message: "&f%player% &awas hit with a snowball by &f%killer%&a."
+    Price: 250
+    unlockType: SEASONAL
+    season: CHRISTMAS
+  32:
+    Message: "&f%player% &awas made into a snowman by &f%killer%&a."
+    Price: 250
+    unlockType: SEASONAL
+    season: CHRISTMAS
+  33:
+    Message: "&f%player% &awas wraped into a gift by &f%killer%&a."
+    Price: 250
+    unlockType: SEASONAL
+    season: CHRISTMAS
+  34:
+    Message: "&f%player% &atook the L to &f%killer%&a."
+    Price: 250
+  35:
+    Message: "&f%player% &awas bamboozled by &f%killer%&a."
+    Price: 250
+  36:
+    Message: "&f%player% &awas turned into a gingerbread man by &f%killer%&a."
+    Price: 250
+    unlockType: SEASONAL
+    season: CHRISTMAS
