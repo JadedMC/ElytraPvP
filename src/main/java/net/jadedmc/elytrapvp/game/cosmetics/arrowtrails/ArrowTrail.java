@@ -2,19 +2,11 @@ package net.jadedmc.elytrapvp.game.cosmetics.arrowtrails;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.Cosmetic;
-import net.jadedmc.elytrapvp.game.cosmetics.CosmeticType;
-import net.jadedmc.elytrapvp.game.seasons.Season;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
-import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
-import net.jadedmc.elytrapvp.utils.item.SkullBuilder;
 import org.bukkit.Color;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.ChatPaginator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +18,6 @@ public class ArrowTrail extends Cosmetic {
     private final ElytraPvP plugin;
     private int step = 1;
     private final List<ArrowTrailStep> steps = new ArrayList<>();
-    private final Material iconMaterial;
-    private final String texture;
     private final ArrowTrailCategory category;
 
     /**
@@ -37,45 +27,14 @@ public class ArrowTrail extends Cosmetic {
      * @param config configuration of the arrow trail.
      */
     public ArrowTrail(ElytraPvP plugin, String id, ConfigurationSection config) {
-        super(id);
+        super(plugin, id, config);
         this.plugin = plugin;
 
-        // Load the price of the trail.
-        if(config.isSet("price")) {
-            setPrice(config.getInt("price"));
-        }
-        else {
-           setPrice(400);
-        }
-
-        // Load the unlock type of the trail.
-        if(config.isSet("unlockType")) {
-            setUnlockType(CosmeticType.valueOf(config.getString("unlockType")));
-        }
-
-        // Load the required season of the cosmetic if set.
-        if(config.isSet("season")) {
-            setSeason(Season.valueOf(config.getString("season")));
-        }
-
-        // Load the icon material.
-        this.iconMaterial = Material.valueOf(config.getString("icon.material"));
-
-        // Loads the player head texture if applicable.
-        if(iconMaterial == Material.PLAYER_HEAD) {
-            this.texture = config.getString("icon.texture");
-        }
-        else {
-            this.texture = "";
-        }
-
-        // Loads the category
-        this.category = ArrowTrailCategory.valueOf(config.getString("category"));
-
-        // Loads the arrow trail name
-        setName(config.getString("name"));
+        setType("Arrow Trail");
 
         // --- Load the trail steps ---
+        // Loads the category
+        this.category = ArrowTrailCategory.valueOf(config.getString("category"));
 
         // Makes sure there are steps in the arrow trail.
         ConfigurationSection stepsConfig = config.getConfigurationSection("steps");
@@ -136,58 +95,6 @@ public class ArrowTrail extends Cosmetic {
      */
     public ArrowTrailStep getCurrentStep() {
         return steps.get(step - 1);
-    }
-
-    /**
-     * Get the cosmetic gui icon of the arrow trail.
-     * @param player Player to get icon for.
-     * @return Icon for the arrow trail.
-     */
-    @Override
-    public ItemStack getIcon(Player player) {
-        CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
-
-        // Checks if the player has unlocked the hat.
-        if(customPlayer.getUnlockedArrowTrails().contains(getId()) || (getUnlockType() == CosmeticType.NORMAL && getPrice() == 0)) {
-
-            // Checks if the icon is a player head. If so, add texture.
-            if(iconMaterial == Material.PLAYER_HEAD) {
-                return new SkullBuilder(texture)
-                        .setDisplayName("&a" + getName())
-                        .addLore("&8Arrow Trail")
-                        .addLore("")
-                        .addLore("&7Click to equip")
-                        .build();
-            }
-
-            // If not, return normal item.
-            return new ItemBuilder(iconMaterial)
-                    .addLore("&8Arrow Trail")
-                    .addLore("")
-                    .setDisplayName("&a" + getName())
-                    .addLore("&7Click to equip")
-                    .build();
-        }
-
-        // Check if the item is seasonal.
-        if(getUnlockType() == CosmeticType.SEASONAL && plugin.seasonManager().getCurrentSeason() != getSeason()) {
-            // If not, shows the purchase icon.
-            ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
-                    .setDisplayName("&c" + getName())
-                    .addLore("&8Arrow Trail")
-                    .addLore("")
-                    .addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
-            return builder.build();
-        }
-
-        // If not, shows the purchase icon.
-        ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
-                .setDisplayName("&c" + getName())
-                .addLore("&8Arrow Trail")
-                .addLore("")
-                .addLore("&6Price: " + getPrice())
-                .addLore("&7Click to purchase");
-        return builder.build();
     }
 
     /**

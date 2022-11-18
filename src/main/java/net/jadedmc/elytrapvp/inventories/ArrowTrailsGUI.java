@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp.inventories;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
 import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrailCategory;
+import net.jadedmc.elytrapvp.game.seasons.Season;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import net.jadedmc.elytrapvp.utils.gui.CustomGUI;
@@ -101,29 +102,8 @@ public class ArrowTrailsGUI extends CustomGUI {
                             return;
                         }
 
-                        // Make sure the player has enough coins.
-                        if(customPlayer.getCoins() < arrowTrail.getPrice()) {
-                            ChatUtils.chat(p, "&c&lError &8» &cYou do not have enough coins for that.");
-                            return;
-                        }
-
-                        // Unlocks and equips the hat.
-                        customPlayer.removeCoins(arrowTrail.getPrice());
-                        customPlayer.unlockArrowTrail(arrowTrail);
-                        customPlayer.setArrowTrail(arrowTrail);
-                        player.closeInventory();
-                        ChatUtils.chat(player, "&a&lCosmetics &8» &aArrow Trail has been purchased and equipped.");
-                    }
-                    case SEASONAL -> {
-                        if(plugin.seasonManager().getCurrentSeason() != arrowTrail.getSeason()) {
-                            return;
-                        }
-
-                        // If the hat has a price of 0, treat it like an unlocked hat.
-                        if(arrowTrail.getPrice() == 0) {
-                            customPlayer.setArrowTrail(arrowTrail);
-                            player.closeInventory();
-                            ChatUtils.chat(player, "&a&lCosmetics &8» &aArrow Trail has been equipped.");
+                        // Checks if the cosmetic is seasonal.
+                        if(plugin.seasonManager().getCurrentSeason() != arrowTrail.getSeason() && arrowTrail.getSeason() != Season.NONE) {
                             return;
                         }
 

@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.inventories;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
+import net.jadedmc.elytrapvp.game.seasons.Season;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import net.jadedmc.elytrapvp.utils.gui.CustomGUI;
@@ -68,29 +69,8 @@ public class KillMessagesGUI extends CustomGUI {
                             return;
                         }
 
-                        // Make sure the player has enough coins.
-                        if(customPlayer.getCoins() < killMessage.getPrice()) {
-                            ChatUtils.chat(p, "&c&lError &8» &cYou do not have enough coins for that.");
-                            return;
-                        }
-
-                        // Unlocks and equips the hat.
-                        customPlayer.removeCoins(killMessage.getPrice());
-                        customPlayer.unlockKillMessage(killMessage);
-                        customPlayer.setKillMessage(killMessage);
-                        player.closeInventory();
-                        ChatUtils.chat(player, "&a&lCosmetics &8» &aKill Message has been purchased and equipped.");
-                    }
-                    case SEASONAL -> {
-                        if(plugin.seasonManager().getCurrentSeason() != killMessage.getSeason()) {
-                            return;
-                        }
-
-                        // If the hat has a price of 0, treat it like an unlocked hat.
-                        if(killMessage.getPrice() == 0) {
-                            customPlayer.setKillMessage(killMessage);
-                            player.closeInventory();
-                            ChatUtils.chat(player, "&a&lCosmetics &8» &aKill Message has been equipped.");
+                        // Checks if the cosmetic is seasonal.
+                        if(plugin.seasonManager().getCurrentSeason() != killMessage.getSeason() && killMessage.getSeason() != Season.NONE) {
                             return;
                         }
 

@@ -1,7 +1,7 @@
 package net.jadedmc.elytrapvp.game.cosmetics;
 
-public enum CosmeticType {
+public enum CosmeticUnlockType {
     NORMAL,
-    SEASONAL,
-    ACHIEVEMENT
+    ACHIEVEMENT,
+    OTHER
 }

@@ -91,33 +91,7 @@ public class CosmeticManager {
             // Loop through each hat.
             for(String hatID : section.getKeys(false)) {
                 ConfigurationSection hatConfig = section.getConfigurationSection(hatID);
-                String name = hatConfig.getString("name");
-                String texture = hatConfig.getString("texture");
-                HatCategory category = HatCategory.valueOf(hatConfig.getString("category"));
-
-                CosmeticType unlockType = CosmeticType.NORMAL;
-                if(hatConfig.isSet("unlockType")) {
-                    unlockType = CosmeticType.valueOf(hatConfig.getString("unlockType"));
-                }
-
-                int price = 50;
-                if(hatConfig.isSet("price")) {
-                    price = hatConfig.getInt("price");
-                }
-
-                Season season = Season.NONE;
-                // Load the required season of the cosmetic if set.
-                if(hatConfig.isSet("season")) {
-                    season = Season.valueOf(hatConfig.getString("season"));
-                }
-
-                // Loads the hat.
-                Hat hat = new Hat(plugin, hatID, name, unlockType, texture, category);
-                hat.setPrice(price);
-                hat.setSeason(season);
-
-                // Caches the hat.
-                hats.put(hatID, hat);
+                hats.put(hatID, new Hat(plugin, hatID, hatConfig));
             }
         }
     }
@@ -129,28 +103,10 @@ public class CosmeticManager {
         ConfigurationSection section = plugin.settingsManager().getKillMessages().getConfigurationSection("KillMessages");
 
         if(section != null) {
-            // Loop through each kill message.
+            // Loop through each hat.
             for(String id : section.getKeys(false)) {
                 ConfigurationSection config = section.getConfigurationSection(id);
-                String message = config.getString("Message");
-
-                CosmeticType unlockType = CosmeticType.NORMAL;
-                if(config.isSet("unlockType")) {
-                    unlockType = CosmeticType.valueOf(config.getString("unlockType"));
-                }
-
-                KillMessage killMessage = new KillMessage(plugin, id, message, unlockType);
-
-                if(config.isSet("Price")) {
-                    killMessage.setPrice(config.getInt("Price"));
-                }
-
-                // Load the required season of the cosmetic if set.
-                if(config.isSet("season")) {
-                    killMessage.setSeason(Season.valueOf(config.getString("season")));
-                }
-
-                killMessages.put(id, killMessage);
+                killMessages.put(id, new KillMessage(plugin, id, config));
             }
         }
     }
@@ -162,28 +118,10 @@ public class CosmeticManager {
         ConfigurationSection section = plugin.settingsManager().getTags().getConfigurationSection("Tags");
 
         if(section != null) {
-            // Loop through each kill message.
+            // Loop through each hat.
             for(String id : section.getKeys(false)) {
                 ConfigurationSection config = section.getConfigurationSection(id);
-                String tagText = config.getString("Tag");
-
-                CosmeticType unlockType = CosmeticType.NORMAL;
-                if(config.isSet("unlockType")) {
-                    unlockType = CosmeticType.valueOf(config.getString("unlockType"));
-                }
-
-                Tag tag = new Tag(plugin, id, tagText, unlockType);
-
-                if(config.isSet("Tag")) {
-                    tag.setPrice(config.getInt("Price"));
-                }
-
-                // Load the required season of the cosmetic if set.
-                if(config.isSet("season")) {
-                    tag.setSeason(Season.valueOf(config.getString("season")));
-                }
-
-                tags.put(id, tag);
+                tags.put(id, new Tag(plugin, id, config));
             }
         }
     }

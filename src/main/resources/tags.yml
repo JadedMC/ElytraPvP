@@ -1,91 +1,88 @@
 Tags:
   1:
-    Tag: "&6&k#&r&eCheese&6&k#&r"
-    Price: 300
+    name: "&6&k#&r&eCheese&6&k#&r"
+    price: 300
   2:
-    Tag: "&e&k#&r&4Dangerous&e&k#&r"
-    Price: 300
+    name: "&e&k#&r&4Dangerous&e&k#&r"
+    price: 300
   3:
-    Tag: "&4&k#&r&eAwesome&4&k#&r"
-    Price: 300
+    name: "&4&k#&r&eAwesome&4&k#&r"
+    price: 300
   4:
-    Tag: "&5&k#&r&dSkilled&5&k#&r"
-    Price: 300
+    name: "&5&k#&r&dSkilled&5&k#&r"
+    price: 300
   5:
-    Tag: "&4&k#&r&cYEET&4&k#&r"
-    Price: 300
+    name: "&4&k#&r&cYEET&4&k#&r"
+    price: 300
   6:
-    Tag: "&5&k#&r&bZoomer&5&k#&r"
-    Price: 300
+    name: "&5&k#&r&bZoomer&5&k#&r"
+    price: 300
   7:
-    Tag: "&2&k#&r&aOn-Point&2&k#&r"
-    Price: 300
+    name: "&2&k#&r&aOn-Point&2&k#&r"
+    price: 300
   8:
-    Tag: "&9&k#&r&fGet Sniped&9&k#&r"
-    Price: 300
+    name: "&9&k#&r&fGet Sniped&9&k#&r"
+    price: 300
   9:
-    Tag: "&8&k#&r&7Caveman&8&k#&r"
-    Price: 300
+    name: "&8&k#&r&7Caveman&8&k#&r"
+    price: 300
   10:
-    Tag: "&e&k#&r&3Sea King&e&k#&r"
-    Price: 300
+    name: "&e&k#&r&3Sea King&e&k#&r"
+    price: 300
   11:
-    Tag: "&6&k#&r&e&oToxic&6&k#&r"
-    Price: 300
+    name: "&6&k#&r&e&oToxic&6&k#&r"
+    price: 300
   12:
-    Tag: "&4&k#&r&fB&4o&fm&4b&fe&4r&4&k#&r"
-    Price: 300
+    name: "&4&k#&r&fB&4o&fm&4b&fe&4r&4&k#&r"
+    price: 300
   13:
-    Tag: "&2&k#&r&fRekt&2&k#&r"
-    Price: 300
+    name: "&2&k#&r&fRekt&2&k#&r"
+    price: 300
   14:
-    Tag: "&5&k#&r&dGirl&bPowered&5&k#&r"
-    Price: 300
+    name: "&5&k#&r&dGirl&bPowered&5&k#&r"
+    price: 300
   15:
-    Tag: "&e&k#&r&6Tryhard&e&k#&r"
-    Price: 300
+    name: "&e&k#&r&6Tryhard&e&k#&r"
+    price: 300
   16:
-    Tag: "&c&k#&r&4&oRage&c&k#&r"
-    Price: 300
+    name: "&c&k#&r&4&oRage&c&k#&r"
+    price: 300
   17:
-    Tag: "&2&k#&r&bGamer&2&k#&r"
-    Price: 300
+    name: "&2&k#&r&bGamer&2&k#&r"
+    price: 300
   18:
-    Tag: "&5&k#&r&7&oBroke&5&k#&r"
-    Price: 300
+    name: "&5&k#&r&7&oBroke&5&k#&r"
+    price: 300
   19:
-    Tag: "&c&k#&r&e&oWeak&c&k#&r"
-    Price: 300
+    name: "&c&k#&r&e&oWeak&c&k#&r"
+    price: 300
   20:
-    Tag: "&e&k#&r&c&oStrong&e&k#&r"
-    Price: 300
+    name: "&e&k#&r&c&oStrong&e&k#&r"
+    price: 300
   21:
-    Tag: "&3&k#&r&b&oPilot&3&k#&r"
-    Price: 300
+    name: "&3&k#&r&b&oPilot&3&k#&r"
+    price: 300
   22:
-    Tag: "&a&k#&cSanta&a&k#"
-    Price: 300
-    unlockType: SEASONAL
+    name: "&a&k#&cSanta&a&k#"
+    price: 300
     season: CHRISTMAS
   23:
-    Tag: "&4&k#&2Grinch&4&k#"
-    Price: 300
-    unlockType: SEASONAL
+    name: "&4&k#&2Grinch&4&k#"
+    price: 300
     season: CHRISTMAS
   24:
-    Tag: "&#59c2f0&k#&#d7ecf5Frosty&#59c2f0&k#"
-    Price: 300
-    unlockType: SEASONAL
+    name: "&#59c2f0&k#&#d7ecf5Frosty&#59c2f0&k#"
+    price: 300
     season: CHRISTMAS
   25:
-    Tag: "&4&k#&cR&6a&ei&an&3b&9o&dw&5&k#"
-    Price: 300
+    name: "&4&k#&cR&6a&ei&an&3b&9o&dw&5&k#"
+    price: 300
   26:
-    Tag: "&#424242&k#&#a034dbA&#a4a4a4c&#faf1ffe&#424242&k#"
-    Price: 300
+    name: "&#424242&k#&#a034dbA&#a4a4a4c&#faf1ffe&#424242&k#"
+    price: 300
   27:
-    Tag: "&#ededed&k#&#27fff4S&#5efff7p&#8ffff9e&#bafffbe&#eafffedy&#ededed&k#"
-    Price: 300
+    name: "&#ededed&k#&#27fff4S&#5efff7p&#8ffff9e&#bafffbe&#eafffedy&#ededed&k#"
+    price: 300
   28:
-    Tag: "&#edebe2&k#&#e8b225E&#fbc94fl&#ecc314d&#f6dc4er&#eccb3fi&#e2ce44t&#ffd354c&#ffe400h&#edebe2&k#"
-    Price: 300
+    name: "&#edebe2&k#&#e8b225E&#fbc94fl&#ecc314d&#f6dc4er&#eccb3fi&#e2ce44t&#ffd354c&#ffe400h&#edebe2&k#"
+    price: 300

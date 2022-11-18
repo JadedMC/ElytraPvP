@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.inventories;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
+import net.jadedmc.elytrapvp.game.seasons.Season;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import net.jadedmc.elytrapvp.utils.gui.CustomGUI;
@@ -68,29 +69,8 @@ public class TagsGUI extends CustomGUI {
                             return;
                         }
 
-                        // Make sure the player has enough coins.
-                        if(customPlayer.getCoins() < tag.getPrice()) {
-                            ChatUtils.chat(p, "&c&lError &8» &cYou do not have enough coins for that.");
-                            return;
-                        }
-
-                        // Unlocks and equips the hat.
-                        customPlayer.removeCoins(tag.getPrice());
-                        customPlayer.unlockTag(tag);
-                        customPlayer.setTag(tag);
-                        player.closeInventory();
-                        ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been purchased and equipped.");
-                    }
-                    case SEASONAL -> {
-                        if(plugin.seasonManager().getCurrentSeason() != tag.getSeason()) {
-                            return;
-                        }
-
-                        // If the hat has a price of 0, treat it like an unlocked hat.
-                        if(tag.getPrice() == 0) {
-                            customPlayer.setTag(tag);
-                            player.closeInventory();
-                            ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been equipped.");
+                        // Checks if the cosmetic is seasonal.
+                        if(plugin.seasonManager().getCurrentSeason() != tag.getSeason() && tag.getSeason() != Season.NONE) {
                             return;
                         }
 
