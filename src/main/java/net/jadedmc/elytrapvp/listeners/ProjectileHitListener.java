@@ -59,8 +59,7 @@ public class ProjectileHitListener implements Listener {
         projectile.getWorld().playSound(block.getLocation(), Sound.BLOCK_GLASS_BREAK, 3.0F, 0.5F);
 
         entity.getNearbyEntities(1,1,1).forEach(nearbyEntity -> {
-            if(nearbyEntity instanceof Player) {
-                Player wittness = (Player) entity;
+            if(nearbyEntity instanceof Player wittness) {
                 if(wittness.getHealth() >= 1) {
                     wittness.setHealth(wittness.getHealth() - 1);
                 }
