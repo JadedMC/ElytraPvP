@@ -86,6 +86,11 @@ public class KillMessagesGUI extends CustomGUI {
                         customPlayer.setKillMessage(killMessage);
                         player.closeInventory();
                         ChatUtils.chat(player, "&a&lCosmetics &8» &aKill Message has been purchased and equipped.");
+
+                        // Checks for the "'Tis the Season" achievement.
+                        if(killMessage.getSeason() != Season.NONE) {
+                            plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
+                        }
                     }
                 }
             });

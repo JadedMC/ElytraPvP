@@ -86,6 +86,11 @@ public class TagsGUI extends CustomGUI {
                         customPlayer.setTag(tag);
                         player.closeInventory();
                         ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been purchased and equipped.");
+
+                        // Checks for the "'Tis the Season" achievement.
+                        if(tag.getSeason() != Season.NONE) {
+                            plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
+                        }
                     }
                 }
             });

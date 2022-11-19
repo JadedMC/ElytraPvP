@@ -119,6 +119,11 @@ public class ArrowTrailsGUI extends CustomGUI {
                         customPlayer.setArrowTrail(arrowTrail);
                         player.closeInventory();
                         ChatUtils.chat(player, "&a&lCosmetics &8» &aArrow Trail has been purchased and equipped.");
+
+                        // Checks for the "'Tis the Season" achievement.
+                        if(arrowTrail.getSeason() != Season.NONE) {
+                            plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
+                        }
                     }
                 }
             });

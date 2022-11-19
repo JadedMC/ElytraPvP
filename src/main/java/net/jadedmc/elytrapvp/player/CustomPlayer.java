@@ -1,12 +1,14 @@
 package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.game.achievements.Achievement;
 import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
+import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
@@ -25,8 +27,7 @@ public class CustomPlayer {
     private DeathType deathType = DeathType.NONE;
 
     // Achievements
-    private final List<String> challengeAchievements = new ArrayList<>();
-    private final Map<String, Integer> tieredAchievements = new HashMap<>();
+    private final List<String> achievements = new ArrayList<>();
 
     // Kits
     private final List<String> unlockedKits = new ArrayList<>();
@@ -227,6 +228,17 @@ public class CustomPlayer {
                     }
                 }
 
+                // elytrapvp_achievements
+                {
+                    PreparedStatement retrieve = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_achievements WHERE uuid = ?");
+                    retrieve.setString(1, uuid.toString());
+                    ResultSet resultSet = retrieve.executeQuery();
+
+                    while(resultSet.next()) {
+                        achievements.add(resultSet.getString("achievement"));
+                    }
+                }
+
                 // Updates leaderboard ranks.
                 updateLeaderboardRanks();
             }
@@ -243,6 +255,11 @@ public class CustomPlayer {
     public void addArrowHit(Kit kit) {
         setArrowsHit("global", getArrowsHit("global") + 1);
         setArrowsHit(kit.getId(), getArrowsHit(kit.getId()) + 1);
+
+        // Checks for the "Sharp Shooter" achievement.
+        if(getArrowsHit("global") >= 2500) {
+            plugin.achievementManager().getAchievement("arrows_hit)1").unlock(getPlayer());
+        }
     }
 
     /**
@@ -270,6 +287,26 @@ public class CustomPlayer {
     public void addCoins(int coins) {
         setCoins(getCoins() + coins);
         setLifetimeCoins(getLifetimeCoins() + coins);
+
+        // Checks for the "Cha-Ching" achievement.
+        if(lifetimeCoins >= 2500) {
+            plugin.achievementManager().getAchievement("coins_1").unlock(getPlayer());
+        }
+
+        // Checks for the "Ooh, Money" achievement.
+        if(lifetimeCoins >= 5000) {
+            plugin.achievementManager().getAchievement("coins_2").unlock(getPlayer());
+        }
+
+        // Checks for the "Money Maker" achievement.
+        if(lifetimeCoins >= 10000) {
+            plugin.achievementManager().getAchievement("coins_3").unlock(getPlayer());
+        }
+
+        // Checks for the "Banker" achievement.
+        if(this.coins >= 2000) {
+            plugin.achievementManager().getAchievement("coins_4").unlock(getPlayer());
+        }
     }
 
     /**
@@ -324,6 +361,28 @@ public class CustomPlayer {
         if(getKillStreak(kit.getId()) > getBestKillStreak(kit.getId())) {
             setBestKillStreak(kit.getId(), getKillStreak(kit.getId()));
         }
+
+        int kills = getKills("global");
+
+        // Checks for the "Novice" achievement.
+        if(kills >= 100) {
+            plugin.achievementManager().getAchievement("kills_1").unlock(getPlayer());
+        }
+
+        // Checks for the "Student" achievement.
+        if(kills >= 500) {
+            plugin.achievementManager().getAchievement("kills_2").unlock(getPlayer());
+        }
+
+        // Checks for the "Master" achievement.
+        if(kills >= 1000) {
+            plugin.achievementManager().getAchievement("kills_3").unlock(getPlayer());
+        }
+
+        // Checks for the "Obsessed" achievement.
+        if(kills >= 2500) {
+            plugin.achievementManager().getAchievement("kills_4").unlock(getPlayer());
+        }
     }
 
     /**
@@ -346,6 +405,11 @@ public class CustomPlayer {
      */
     public void addWindowBroken() {
         setWindowsBroken(getWindowsBroken() + 1);
+
+        // Checks if the player qualifies for the Anger Issues achievement.
+        if(windowsBroken >= 1000) {
+            plugin.achievementManager().getAchievement("windows_1").unlock(getPlayer());
+        }
     }
 
     /**
@@ -739,6 +803,15 @@ public class CustomPlayer {
      */
     public int getWindowsBroken() {
         return windowsBroken;
+    }
+
+    /**
+     * Check if the player has unlocked a specific achievement.
+     * @param achievement Id of the achievement.
+     * @return Whether it has been unlocked.
+     */
+    public boolean hasAchievement(String achievement) {
+        return achievements.contains(achievement);
     }
 
     /**
@@ -1205,6 +1278,26 @@ public class CustomPlayer {
      */
     public boolean showScoreboard() {
         return showScoreboard;
+    }
+
+    /**
+     * Unlock an achievement for the player.
+     * @param achievementID ID of the achievement to unlock.
+     */
+    public void unlockAchievement(String achievementID) {
+        achievements.add(achievementID);
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_achievements (uuid,achievement) VALUES (?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, achievementID);
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
     /**

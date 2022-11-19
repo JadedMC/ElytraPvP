@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp;
 
 import net.jadedmc.elytrapvp.commands.AbstractCommand;
 import net.jadedmc.elytrapvp.game.LeaderboardManager;
+import net.jadedmc.elytrapvp.game.achievements.AchievementManager;
 import net.jadedmc.elytrapvp.game.arena.ArenaManager;
 import net.jadedmc.elytrapvp.game.cosmetics.CosmeticManager;
 import net.jadedmc.elytrapvp.game.kits.KitManager;
@@ -17,6 +18,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ElytraPvP extends JavaPlugin {
+    private AchievementManager achievementManager;
     private ArenaManager arenaManager;
     private CosmeticManager cosmeticManager;
     private CustomPlayerManager customPlayerManager;
@@ -42,6 +44,7 @@ public final class ElytraPvP extends JavaPlugin {
         leaderboardManager = new LeaderboardManager(this);
         cosmeticManager = new CosmeticManager(this);
         seasonManager = new SeasonManager(this);
+        achievementManager = new AchievementManager(this);
 
         // Commands
         AbstractCommand.registerCommands(this);
@@ -70,6 +73,14 @@ public final class ElytraPvP extends JavaPlugin {
 
         // Registers placeholders.
         new Placeholders(this).register();
+    }
+
+    /**
+     * Retrieves the object managing Achievements.
+     * @return Achievement manager.
+     */
+    public AchievementManager achievementManager() {
+        return achievementManager;
     }
 
     /**

@@ -129,6 +129,13 @@ public class MySQL {
                         "PRIMARY KEY (uuid)" +
                         ");");
                 elytrapvp_statistics.execute();
+
+                PreparedStatement elytrapvp_achievements = connection.prepareStatement("CREATE TABLE IF NOT EXISTS elytrapvp_achievements (" +
+                        "uuid VARCHAR(36), " +
+                        "achievement VARCHAR(24)," +
+                        "PRIMARY KEY (uuid, achievement)" +
+                        ");");
+                elytrapvp_achievements.execute();
             }
             catch (SQLException exception) {
                 exception.printStackTrace();

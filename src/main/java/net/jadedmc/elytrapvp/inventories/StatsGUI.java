@@ -56,6 +56,9 @@ public class StatsGUI extends CustomGUI {
                 .addLore("")
                 .addLore("&aClick to View!");
         setItem(32, parkour.build(), (p,a) -> new ParkourStatsGUI(plugin, p).open(p));
+
+        ItemBuilder achievements = new ItemBuilder(Material.DIAMOND).setDisplayName("&a&lAchievements");
+        setItem(40, achievements.build(), (p,a) -> new AchievementsGUI(plugin, p).open(p));
     }
 
     /**

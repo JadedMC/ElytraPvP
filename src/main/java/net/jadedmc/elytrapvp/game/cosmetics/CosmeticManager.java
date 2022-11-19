@@ -169,6 +169,31 @@ public class CosmeticManager {
     }
 
     /**
+     * Get a cosmetic from its id.
+     * @param id Id of the cosmetic.
+     * @return Cosmetic from id.
+     */
+    public Cosmetic getCosmetic(String id) {
+        if(hats.containsKey(id)) {
+            return getHat(id);
+        }
+
+        if(killMessages.containsKey(id)) {
+            return getKillMessage(id);
+        }
+
+        if(tags.containsKey(id)) {
+            return getTag(id);
+        }
+
+        if(arrowTrails.containsKey(id)) {
+            return getArrowTrail(id);
+        }
+
+        return null;
+    }
+
+    /**
      * Get all cosmetics for a specific season.
      * @param season Season to get cosmetics of.
      * @return List of cosmetics.

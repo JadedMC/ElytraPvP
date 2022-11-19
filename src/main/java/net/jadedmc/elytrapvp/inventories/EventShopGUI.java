@@ -85,6 +85,7 @@ public class EventShopGUI extends CustomGUI {
                     player.getInventory().setHelmet(hat.toItemStack());
                     player.closeInventory();
                     ChatUtils.chat(player, "&a&lCosmetics &8» &aHat has been purchased and equipped.");
+                    plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
                 }
 
                 // If not, checks if it's a kill message.
@@ -118,6 +119,7 @@ public class EventShopGUI extends CustomGUI {
                     customPlayer.setKillMessage(killMessage);
                     player.closeInventory();
                     ChatUtils.chat(player, "&a&lCosmetics &8» &aKill Message has been purchased and equipped.");
+                    plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
                 }
 
                 // If not, checks if it's a tag.
@@ -151,6 +153,7 @@ public class EventShopGUI extends CustomGUI {
                     customPlayer.setTag(tag);
                     player.closeInventory();
                     ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been purchased and equipped.");
+                    plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
                 }
 
                 // If not, check if it's an arrow trail.
@@ -185,6 +188,7 @@ public class EventShopGUI extends CustomGUI {
                     customPlayer.setArrowTrail(arrowTrail);
                     player.closeInventory();
                     ChatUtils.chat(player, "&a&lCosmetics &8» &aArrow Trail has been purchased and equipped.");
+                    plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
                 }
             });
             s++;
