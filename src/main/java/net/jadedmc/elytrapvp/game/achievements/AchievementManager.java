@@ -25,6 +25,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("parkour_11", new AchievementBuilder(plugin, "parkour_110")
+                .setName("Advanced")
+                .setDescription("Complete the second Elytra Course.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
         achievements.put("windows_1", new AchievementBuilder(plugin, "windows_1")
                 .setName("Anger Issues")
                 .setDescription("Destroy 1,000 Windows.")
@@ -43,6 +49,24 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("parkour_9", new AchievementBuilder(plugin, "parkour_9")
+                .setName("Elementary")
+                .setDescription("Complete the first Elytra Course.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_10", new AchievementBuilder(plugin, "parkour_10")
+                .setName("Eyas")
+                .setDescription("Complete the first Elytra Course in under a minute.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_14", new AchievementBuilder(plugin, "parkour_14")
+                .setName("Haggard")
+                .setDescription("Complete the third Elytra Course in under 20 minutes.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
         achievements.put("kills_3", new AchievementBuilder(plugin, "kills_3")
                 .setName("Master")
                 .setDescription("Reach 1,000 kills.")
@@ -58,6 +82,18 @@ public class AchievementManager {
         achievements.put("kills_1", new AchievementBuilder(plugin, "kills_1")
                 .setName("Novice")
                 .setDescription("Reach 100 kills.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_12", new AchievementBuilder(plugin, "parkour_12")
+                .setName("Passager")
+                .setDescription("Complete the second Elytra Course in under 5 minutes.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_13", new AchievementBuilder(plugin, "parkour_13")
+                .setName("Peerless")
+                .setDescription("Complete the third Elytra Course.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 

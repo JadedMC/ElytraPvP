@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp.commands;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.GameScoreboard;
 import net.jadedmc.elytrapvp.game.parkour.ParkourScoreboard;
+import net.jadedmc.elytrapvp.game.parkour.events.ParkourCompleteEvent;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.LocationUtils;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
@@ -104,7 +105,7 @@ public class ParkourCMD extends AbstractCommand {
                     else {
                         customPlayer.setBestParkourTime(course, plugin.parkourManager().getTimer(player).toMilliseconds());
                     }
-
+                    plugin.getServer().getPluginManager().callEvent(new ParkourCompleteEvent(plugin, player, course, plugin.parkourManager().getTimer(player)));
                     plugin.parkourManager().removePlayer(player);
                 }
 
