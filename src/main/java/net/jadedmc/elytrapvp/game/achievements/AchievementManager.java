@@ -25,7 +25,19 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
-        achievements.put("parkour_11", new AchievementBuilder(plugin, "parkour_110")
+        achievements.put("parkour_6", new AchievementBuilder(plugin, "parkour_6")
+                .setName("A Faultless Run")
+                .setDescription("Complete the red parkour course in under a minute.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_3", new AchievementBuilder(plugin, "parkour_3")
+                .setName("A Hop, a Skip")
+                .setDescription("Complete the yellow parkour course.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_11", new AchievementBuilder(plugin, "parkour_11")
                 .setName("Advanced")
                 .setDescription("Complete the second Elytra Course.")
                 .addReward(Achievement.RewardType.COINS, 100)
@@ -121,15 +133,39 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("parkour_4", new AchievementBuilder(plugin, "parkour_4")
+                .setName("Seeking Flawlessness")
+                .setDescription("Complete the yellow parkour course in under 45 seconds.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_8", new AchievementBuilder(plugin, "parkour_8")
+                .setName("Something Like Perfection")
+                .setDescription("Complete the blue parkour course in under 3 minutes.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
         achievements.put("kills_2", new AchievementBuilder(plugin, "kills_2")
                 .setName("Student")
                 .setDescription("Reach 500 kills.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
-        achievements.put("parkour_2", new AchievementBuilder(plugin, "parkour)1")
+        achievements.put("parkour_2", new AchievementBuilder(plugin, "parkour_1")
                 .setName("The Beginning")
                 .setDescription("Complete the green parkour course in under 30 seconds.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_7", new AchievementBuilder(plugin, "parkour_7")
+                .setName("The Indoor Mountain")
+                .setDescription("Complete the blue parkour course.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_5", new AchievementBuilder(plugin, "parkour_5")
+                .setName("Tumble and Slide")
+                .setDescription("Complete the red parkour course.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
     }

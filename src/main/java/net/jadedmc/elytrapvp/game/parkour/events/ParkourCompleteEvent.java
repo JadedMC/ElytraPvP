@@ -41,15 +41,33 @@ public class ParkourCompleteEvent extends Event {
             }
 
             case "YELLOW" -> {
+                // Checks for the "A Hop, a Skip" achievement.
+                plugin.achievementManager().getAchievement("parkour_3").unlock(player);
 
+                // Checks for the "Seeking Flawlessness" achievement.
+                if(timer.toMilliseconds() < (45000)) {
+                    plugin.achievementManager().getAchievement("parkour_4").unlock(player);
+                }
             }
 
             case "RED" -> {
+                // Checks for the "Tumble and Slide" achievement.
+                plugin.achievementManager().getAchievement("parkour_5").unlock(player);
 
+                // Checks for the "A Faultless Run" achievement.
+                if(timer.toMilliseconds() < (60000)) {
+                    plugin.achievementManager().getAchievement("parkour_6").unlock(player);
+                }
             }
 
             case "BLUE" -> {
+                // Checks for the "The Indoor Mountain" achievement.
+                plugin.achievementManager().getAchievement("parkour_7").unlock(player);
 
+                // Checks for the "Something Like Perfection" achievement.
+                if(timer.toMilliseconds() < (180000)) {
+                    plugin.achievementManager().getAchievement("parkour_8").unlock(player);
+                }
             }
 
             case "BEGINNER" -> {
