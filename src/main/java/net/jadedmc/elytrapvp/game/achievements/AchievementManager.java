@@ -61,6 +61,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("parkour_1", new AchievementBuilder(plugin, "parkour)1")
+                .setName("First Steps")
+                .setDescription("Complete the green parkour course.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
         achievements.put("parkour_14", new AchievementBuilder(plugin, "parkour_14")
                 .setName("Haggard")
                 .setDescription("Complete the third Elytra Course in under 20 minutes.")
@@ -118,6 +124,12 @@ public class AchievementManager {
         achievements.put("kills_2", new AchievementBuilder(plugin, "kills_2")
                 .setName("Student")
                 .setDescription("Reach 500 kills.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_2", new AchievementBuilder(plugin, "parkour)1")
+                .setName("The Beginning")
+                .setDescription("Complete the green parkour course in under 30 seconds.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
     }

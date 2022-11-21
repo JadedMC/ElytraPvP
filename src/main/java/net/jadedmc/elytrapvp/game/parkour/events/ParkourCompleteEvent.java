@@ -29,11 +29,15 @@ public class ParkourCompleteEvent extends Event {
         this.course = course;
         this.timer = timer;
 
-        CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
-
         switch (course.toUpperCase()) {
             case "GREEN" -> {
+                // Checks for the "First Steps" achievement.
+                plugin.achievementManager().getAchievement("parkour_1").unlock(player);
 
+                // Checks for the "The Beginning" achievement.
+                if(timer.toMilliseconds() < (30000)) {
+                    plugin.achievementManager().getAchievement("parkour_2").unlock(player);
+                }
             }
 
             case "YELLOW" -> {
