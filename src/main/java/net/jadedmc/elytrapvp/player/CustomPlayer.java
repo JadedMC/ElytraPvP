@@ -5,6 +5,7 @@ import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
+import net.jadedmc.elytrapvp.game.cosmetics.trails.Trail;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
 import org.bukkit.entity.Player;
@@ -37,11 +38,12 @@ public class CustomPlayer {
     private String killMessage = "none";
     private String tag = "none";
     private String arrowTrail = "none";
+    private String trail = "none";
     private final List<String> unlockedHats = new ArrayList<>();
     private final List<String> unlockedKillMessages = new ArrayList<>();
     private final List<String> unlockedTags = new ArrayList<>();
     private final List<String> unlockedArrowTrails = new ArrayList<>();
-
+    private final List<String> unlockedTrails = new ArrayList<>();
     // Statistics
     private int coins = 0;
     private int bounty = 0;
@@ -100,6 +102,7 @@ public class CustomPlayer {
                         killMessage = resultSet.getString("killMessage");
                         tag = resultSet.getString("tag");
                         arrowTrail = resultSet.getString("arrowTrail");
+                        trail = resultSet.getString("trail");
 
                         // Give the player their selected hat once loaded.
                         plugin.getServer().getScheduler().runTask(plugin, () -> {
@@ -205,6 +208,7 @@ public class CustomPlayer {
                             case "KILL_MESSAGE" -> unlockedKillMessages.add(resultSet.getString("cosmeticID"));
                             case "TAG" -> unlockedTags.add(resultSet.getString("cosmeticID"));
                             case "ARROW_TRAIL" -> unlockedArrowTrails.add(resultSet.getString("cosmeticID"));
+                            case "TRAIL" -> unlockedTrails.add(resultSet.getString("cosmeticID"));
                         }
                     }
                 }
@@ -771,6 +775,18 @@ public class CustomPlayer {
     }
 
     /**
+     * Get the player's current trail.
+     * @return Currently selected trail.
+     */
+    public Trail getTrail() {
+        if(trail == null || trail.equalsIgnoreCase("none")) {
+            return null;
+        }
+
+        return plugin.cosmeticManager().getTrail(trail);
+    }
+
+    /**
      * Gets a list of the arrow trails the player has unlocked.
      * @return List of the ids of the arrow trails.
      */
@@ -808,6 +824,14 @@ public class CustomPlayer {
      */
     public List<String> getUnlockedTags() {
         return unlockedTags;
+    }
+
+    /**
+     * Gets a list of the trails the player has unlocked.
+     * @return List of the ids of the trails.
+     */
+    public List<String> getUnlockedTrails() {
+        return unlockedTrails;
     }
 
     /**
@@ -1250,6 +1274,33 @@ public class CustomPlayer {
     }
 
     /**
+     * Set the trail the player is currently using.
+     * @param trail New trail the player is using.
+     */
+    public void setTrail(Trail trail) {
+        String trailID = "none";
+
+        if(trail != null) {
+            trailID = trail.getId();
+        }
+
+        this.trail = trailID;
+
+        String finalTrailID = trailID;
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET trail = ? WHERE uuid = ?");
+                statement.setString(1, finalTrailID);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
      * Set the number of windows the player has broken.
      * @param windowsBroken New amount of windows broken.
      */
@@ -1389,6 +1440,27 @@ public class CustomPlayer {
                 statement.setString(1, uuid.toString());
                 statement.setString(2, "TAG");
                 statement.setString(3, tag.getId());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Allows a player to use an trail.
+     * @param trail Trail to unlock.
+     */
+    public void unlockTrail(Trail trail) {
+        unlockedTrails.add(trail.getId());
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
+                statement.setString(1, uuid.toString());
+                statement.setString(2, "TRAIL");
+                statement.setString(3, trail.getId());
                 statement.executeUpdate();
             }
             catch (SQLException exception) {

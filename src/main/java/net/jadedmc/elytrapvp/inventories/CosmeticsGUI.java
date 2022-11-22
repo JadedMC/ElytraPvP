@@ -39,7 +39,7 @@ public class CosmeticsGUI extends CustomGUI {
         setItem(30, arrowTrails.build(), (p,a) -> new ArrowTrailsGUI(plugin).open(p));
 
         ItemBuilder trails = new ItemBuilder(Material.NETHER_STAR).setDisplayName("&a&lTrails");
-        setItem(32, trails.build());
+        setItem(32, trails.build(), (p, a) -> new TrailsGUI(plugin, p, 1).open(p));
 
         //SkullBuilder comingSoon = new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiYTYzMzQ0ZjQ5ZGQxYzRmNTQ4OGU5MjZiZjNkOWUyYjI5OTE2YTZjNTBkNjEwYmI0MGE1MjczZGM4YzgyIn19fQ==").setDisplayName("&c&lComing Soon");
         //setItem(31, comingSoon.build());

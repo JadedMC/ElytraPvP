@@ -162,6 +162,10 @@ public abstract class Cosmetic {
             case "Tag" -> {
                 return customPlayer.getUnlockedTags().contains(id);
             }
+
+            case "Trail" -> {
+                return customPlayer.getUnlockedTrails().contains(id);
+            }
         }
 
         return false;

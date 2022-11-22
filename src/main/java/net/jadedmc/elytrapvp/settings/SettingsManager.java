@@ -23,6 +23,8 @@ public class SettingsManager {
     private File tagsFile;
     private FileConfiguration arrowTrails;
     private File arrowTrailsFile;
+    private FileConfiguration trails;
+    private File trailsFile;
 
     /**
      * Loads the configuration files.
@@ -67,6 +69,13 @@ public class SettingsManager {
 
         if(!arrowTrailsFile.exists()) {
             plugin.saveResource("arrowtrails.yml", false);
+        }
+
+        trailsFile = new File(plugin.getDataFolder(), "trails.yml");
+        trails = YamlConfiguration.loadConfiguration(trailsFile);
+
+        if(!trailsFile.exists()) {
+            plugin.saveResource("trails.yml", false);
         }
     }
 
@@ -116,6 +125,14 @@ public class SettingsManager {
      */
     public FileConfiguration getTags() {
         return tags;
+    }
+
+    /**
+     * Get the trails configuration file.
+     * @return Trails configuration.
+     */
+    public FileConfiguration getTrails() {
+        return trails;
     }
 
     /**

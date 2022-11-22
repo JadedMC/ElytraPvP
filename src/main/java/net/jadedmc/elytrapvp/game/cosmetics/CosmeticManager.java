@@ -7,7 +7,9 @@ import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.HatCategory;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
+import net.jadedmc.elytrapvp.game.cosmetics.trails.Trail;
 import net.jadedmc.elytrapvp.game.seasons.Season;
+import net.jadedmc.elytrapvp.player.CustomPlayer;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Arrow;
 
@@ -23,6 +25,7 @@ public class CosmeticManager {
     private final Map<String, Tag> tags = new LinkedHashMap<>();
     private final Map<String, ArrowTrail> arrowTrails = new LinkedHashMap<>();
     private final Map<Arrow, ArrowTrail> arrows = new HashMap<>();
+    private final Map<String, Trail> trails = new HashMap<>();
 
     /**
      * Creates the manager.
@@ -36,6 +39,7 @@ public class CosmeticManager {
         loadKillMessages();
         loadTags();
         loadArrowTrails();
+        loadTrails();
     }
 
     /**
@@ -76,7 +80,7 @@ public class CosmeticManager {
                 getArrows().get(arrow).getCurrentStep().spawnParticles(arrow.getLocation());
             }
 
-            // Incremenent the step of each arrow trail.
+            // Increment the step of each arrow trail.
             getArrowTrails().forEach(ArrowTrail::nextStep);
         }, 1, 1);
     }
@@ -124,6 +128,45 @@ public class CosmeticManager {
                 tags.put(id, new Tag(plugin, id, config));
             }
         }
+    }
+
+    /**
+     * Load all trails from the config.
+     */
+    private void loadTrails() {
+        ConfigurationSection section = plugin.settingsManager().getTrails().getConfigurationSection("Trails");
+
+        // Makes sure the config file isn't null.
+        if(section == null) {
+            return;
+        }
+
+        // Loops through each trail in the config file.
+        for(String id : section.getKeys(false)) {
+            ConfigurationSection trail = section.getConfigurationSection(id);
+
+            // Makes sure the trail isn't null.
+            if(trail == null) {
+                continue;
+            }
+
+            // Loads the arrow trail.
+            trails.put(id, new Trail(plugin, id, trail));
+        }
+
+        plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+
+            // Loop through all players.
+            for(CustomPlayer customPlayer : new ArrayList<>(plugin.customPlayerManager().getCustomPlayers())) {
+                if(customPlayer.getTrail() != null) {
+                    Trail trail = customPlayer.getTrail();
+                    trail.getCurrentStep().spawnParticles(customPlayer.getPlayer().getLocation());
+                }
+            }
+
+            // Increment the step of each trail.
+            getTrails().forEach(Trail::nextStep);
+        }, 1, 1);
     }
 
     /**
@@ -190,6 +233,10 @@ public class CosmeticManager {
             return getArrowTrail(id);
         }
 
+        if(trails.containsKey(id)) {
+            return getTrail(id);
+        }
+
         return null;
     }
 
@@ -226,6 +273,13 @@ public class CosmeticManager {
         for(ArrowTrail arrowTrail : getArrowTrails()) {
             if(arrowTrail.getSeason() == season) {
                 cosmetics.add(arrowTrail);
+            }
+        }
+
+        // Trails
+        for(Trail trail : getTrails()) {
+            if(trail.getSeason() == season) {
+                cosmetics.add(trail);
             }
         }
 
@@ -298,5 +352,22 @@ public class CosmeticManager {
      */
     public Collection<Tag> getTags() {
         return tags.values();
+    }
+
+    /**
+     * Get a trail based off it's id.
+     * @param id Id of the trail.
+     * @return Corresponding trail.
+     */
+    public Trail getTrail(String id) {
+        return trails.get(id);
+    }
+
+    /**
+     * Get a collection of all trails.
+     * @return All trails.
+     */
+    public Collection<Trail> getTrails() {
+        return trails.values();
     }
 }

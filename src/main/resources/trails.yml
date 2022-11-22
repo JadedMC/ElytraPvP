@@ -1,0 +1,22 @@
+Trails:
+  shamrock_trail:
+    name: "Shamrock Folly"
+    price: 200
+    icon:
+      material: PLAYER_HEAD
+      texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY3ZmU1ZTNlMmY3YmY5MmVhYTZmMjAyNzYxYzEwZWMzMmRhZjNhMmEyYWRlYzFkYmJhY2E4M2M1ZjcxNmRhNSJ9fX0=
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 0
+              g: 122
+              b: 26
+          2:
+            particle: REDSTONE
+            color:
+              r: 0
+              g: 191
+              b: 51
