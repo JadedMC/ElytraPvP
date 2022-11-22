@@ -1,4 +1,136 @@
 Hats:
+  # Blocks
+  grass_hat:
+    name: "Grass Block"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODA4YWM1ZTI4ZGJkZmEyMjUwYzYwMjg3Njg2ZGIxNGNjYmViNzc2YzNmMDg2N2M5NTU1YjdlNDk1NmVmYmE3NyJ9fX0="
+  cobblestone_hat:
+    name: "Cobblestone"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWU1NGFiYmM2NWIxM2E0MmMyOTU5MGEwY2Y5ZDNlMDA3MDJkMWU2MGQ5NzRmOTI4NmE3YzE3MjY3ZjIyODJjOSJ9fX0="
+  granite_hat:
+    name: "Granite"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWViM2IxMmI4MzkwYjg0YmU0YWI5MDhiNTE0YmVhYjdlMGU3ZTQ2MWE3M2EyY2U0ZDRhNjU1YzYyNWJkOTRjIn19fQ=="
+  diorite_hat:
+    name: "Diorite"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTE0YzZlNDFhNzYyZDM3ODYzYTlmZmY2ODg4YzczODkwNWI5MmNjNmMzODk4ODkyYTM4ZGZkZmUyYWM0YmYifX19"
+  andesite_hat:
+    name: "Andesite"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWRiN2JmMDU5YTYyZDI3YjFlMWUyZjM0Mzk0ZjNmMzhlZDhjZGE0NTQ3MWY2ZjRkNWI0N2MzOTEyZDE4MTEzNSJ9fX0="
+  basalt_hat:
+    name: "Basalt"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzc3ZDY1ZmNkNmNlZDgwNjVjNmMxMjkzZGE0YTUwNDI1MDI2ZjBhNzdhN2YyYTY2Yzk1OGQ1YWVmMWJiMDk3OSJ9fX0="
+  dripstone_hat:
+    name: "Dripstone Block"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDg0OWY2NjBkNGY3MzJjYjMyZDkzZmExMTQ5ODMwYzM5NWIzM2RmYjJkMGIwNjcwZDMzMjJkMDkxZTk4NzAxNSJ9fX0="
+  deepslate_hat:
+    name: "Deepslate"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOThlNjg0ODA3N2I1YmVmNzliZGFlMjBlMWJhNzdjMzVjZDVjN2QyOWRiNTkxZTg0N2JmMzBiODBhYzMwNGE0NyJ9fX0="
+  prismarine_hat:
+    name: "Prismarine"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTdmNmEwOTJkM2JhZTM0Y2YyOTBjOTM5MGJkMGIyMWRjMWZmYTQyMTYwNGY3MTAwYWFmMDgwOWI3N2E4NTdmNSJ9fX0="
+  dark_prismarine_hat:
+    name: "Dark Prismarine"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY1MDNiZGQxNWVjNGJlYWQzNWY5ZTkxMDhhMmNiOGQwZGMzODFkYzUxMjc5NGNlZDZiYjRmMjFkYzlkOGE4YSJ9fX0="
+  bedrock_hat:
+    name: "Bedrock"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzZkMWZhYmRmM2UzNDI2NzFiZDlmOTVmNjg3ZmUyNjNmNDM5ZGRjMmYxYzllYThmZjE1YjEzZjFlN2U0OGI5In19fQ=="
+  bricks_hat:
+    name: "Bricks"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGU2NDQwYThkNTk5MmMyNjdkMmEzMzYzODgyOTY0YWMyYmE1MjJmMmY5MTE0YTZmN2QxN2IzNTcyMmQyZjVmOCJ9fX0="
+  obsidian_hat:
+    name: "Obsidian"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg0MGI4N2Q1MjI3MWQyYTc1NWRlZGM4Mjg3N2UwZWQzZGY2N2RjYzQyZWE0NzllYzE0NjE3NmIwMjc3OWE1In19fQ=="
+  cyring_obsidian_hat:
+    name: "Crying Obsidian"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjQyNmFiODg4Mjk4YWRmMWVmZmQ4MTFjODA3NGRlZjA5NzgwZTdkOWQxMmJhNGM3N2I3M2ZkYTk5ODJkZDBmZSJ9fX0="
+  glowing_obsidian_hat:
+    name: "Glowing Obsidian"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2FkZTc2ZjVkNTkxNjMyZDkzMjRhYjk5ZDc0NzI1MWNhMzc0N2UwNGNhZjQxZDAzNzBmODUwZjllYzg3YTEzZCJ9fX0="
+  purpur_hat:
+    name: "Purpur"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzA4ZjM4MzJiYzE1ZmFjNDE1MjJjZTZlZDFkODhmOTU0M2RkNTcxZjkzNDA3Mzg3NGVmMGNiOWJmY2NlYSJ9fX0="
+  shroomlight_hat:
+    name: "Shroomlight"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNThhYzgxNjhhZmMxMjM1YzNkOTliMzg1YzkwOTE2YjczZTEyOTAwNzQyZDU3M2Y2YWQ0ZDcxYWNkZGJmNDM2MyJ9fX0="
+  oak_log_hat:
+    name: "Oak Log"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjE5ZTg1NmVhYjRlZmU5Mzc4OTI3MDFkNjk2NGRlNmFiYmVhNGU1ZDVmMjA3MmMzZmQ2YjM4OWNmODgzYjViOSJ9fX0="
+  birch_log_hat:
+    name: "Birch Log"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNiMDkyMjA4NGJkYTZkNzIxYmE5NGIwZWU5NjM2MTM3YjZlNzIyNjQwOTQ0NjUxZmQzYTVkNzk5YWU3NTY1MCJ9fX0="
+  jungle_log_hat:
+    name: "Jungle Log"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmY1YzQ1N2RmMzg4ZTZhYzZhNmI5Nzk4MTI1MmI4MTQyZDA3ZTAzNzJjOTRjNmYyZTZjZWUzMzU1MzBmNmE1MiJ9fX0="
+  spruce_log_hat:
+    name: "Spruce Log"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjgxNzEzNWQ2NzJlMzEzNzg1MzhjZDAxNjAzZjNiZTI4NjBkMWUzYmRmNjcyNDg4MTRiMDRjMzU0ZjhkNjIxMCJ9fX0="
+  acacia_log_hat:
+    name: "Acacia Log"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjhlYzMwYjBiOWJlODVlMDI3ZDhmYTljOGU1YTJjNDUzMzkxNmQ5YWNlYWU3ZDVkYWY4ODFiMDA1M2FkMjY2NCJ9fX0="
+  dark_oak_log_hat:
+    name: "Dark Oak Log"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzY2MTI3YmYyYTkzOTY1ZTZlMmI1NDQ4M2ViMzg5MmQxNjE5OTZmODllNDRlYmQ1ZmYyYjhmNGJlM2Y5ODNhMiJ9fX0="
+  mangrove_log_hat:
+    name: "Mangrove Log"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2Q5YTEwNzUxY2JlMmMzZTBkNjhjODg1YjcyNmMwODIzMjlmMWYyZTE3YTVjNTEyMWE3Y2ZjMTZiNTk1NjM4NCJ9fX0="
+  crimson_stem_hat:
+    name: "Crimson Stem"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWMxZjY2MzgwMTc5NjAwOThlNDg5OGE0Y2ZkNTlkMTMyMDdjNjcyMmJkZTAxMDcwZTc0MWU5ZTIwNmU1NWI5OSJ9fX0="
+  warped_stem_hat:
+    name: "Warped Stem"
+    category: BLOCKS
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDkyYjZiZTFhOTAyZGRlMDg3NjE4ODg4NDNmM2ExM2ZjMzZkMjZlZTQxOGM3NjhjZjkyOWUwYzY5OTA2YzFlNCJ9fX0="
+
   # Food
   bread_hat:
     name: "Bread"
