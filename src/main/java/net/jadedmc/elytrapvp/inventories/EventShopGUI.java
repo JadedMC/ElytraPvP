@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.inventories;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.Cosmetic;
+import net.jadedmc.elytrapvp.game.cosmetics.CosmeticUnlockType;
 import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
@@ -63,6 +64,11 @@ public class EventShopGUI extends CustomGUI {
                         return;
                     }
 
+                    // Exit if the cosmetic isn't purchasable.
+                    if(hat.getUnlockType() != CosmeticUnlockType.NORMAL) {
+                        return;
+                    }
+
                     // If the hat has a price of 0, treat it like an unlocked hat.
                     if(hat.getPrice() == 0) {
                         customPlayer.setHat(hat);
@@ -99,6 +105,11 @@ public class EventShopGUI extends CustomGUI {
                         return;
                     }
 
+                    // Exit if the cosmetic isn't purchasable.
+                    if(killMessage.getUnlockType() != CosmeticUnlockType.NORMAL) {
+                        return;
+                    }
+
                     // If the hat has a price of 0, treat it like an unlocked kill message.
                     if(killMessage.getPrice() == 0) {
                         customPlayer.setKillMessage(killMessage);
@@ -130,6 +141,11 @@ public class EventShopGUI extends CustomGUI {
                         customPlayer.setTag(tag);
                         player.closeInventory();
                         ChatUtils.chat(player, "&a&lCosmetics &8» &aTag has been equipped.");
+                        return;
+                    }
+
+                    // Exit if the cosmetic isn't purchasable.
+                    if(tag.getUnlockType() != CosmeticUnlockType.NORMAL) {
                         return;
                     }
 
@@ -168,6 +184,11 @@ public class EventShopGUI extends CustomGUI {
                         return;
                     }
 
+                    // Exit if the cosmetic isn't purchasable.
+                    if(arrowTrail.getUnlockType() != CosmeticUnlockType.NORMAL) {
+                        return;
+                    }
+
                     // If the hat has a price of 0, treat it like an unlocked hat.
                     if(arrowTrail.getPrice() == 0) {
                         customPlayer.setArrowTrail(arrowTrail);
@@ -198,11 +219,11 @@ public class EventShopGUI extends CustomGUI {
             setItem(38, new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg0ZjU5NzEzMWJiZTI1ZGMwNThhZjg4OGNiMjk4MzFmNzk1OTliYzY3Yzk1YzgwMjkyNWNlNGFmYmEzMzJmYyJ9fX0=").setDisplayName("&cNo more pages!").build());
         }
         else {
-            setItem(38, new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODU1MGI3Zjc0ZTllZDc2MzNhYTI3NGVhMzBjYzNkMmU4N2FiYjM2ZDRkMWY0Y2E2MDhjZDQ0NTkwY2NlMGIifX19").setDisplayName("&aPage " + (page - 1)).build(), (p,a) -> new KillMessagesGUI(plugin, player, page - 1).open(p));
+            setItem(38, new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODU1MGI3Zjc0ZTllZDc2MzNhYTI3NGVhMzBjYzNkMmU4N2FiYjM2ZDRkMWY0Y2E2MDhjZDQ0NTkwY2NlMGIifX19").setDisplayName("&aPage " + (page - 1)).build(), (p,a) -> new EventShopGUI(plugin, player, page - 1).open(p));
         }
 
         if(cosmetics.size() > (page * 21)) {
-            setItem(42, new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYzMzlmZjJlNTM0MmJhMThiZGM0OGE5OWNjYTY1ZDEyM2NlNzgxZDg3ODI3MmY5ZDk2NGVhZDNiOGFkMzcwIn19fQ==").setDisplayName("&aPage " + (page + 1)).build(), (p,a) -> new KillMessagesGUI(plugin, player, page + 1).open(p));
+            setItem(42, new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYzMzlmZjJlNTM0MmJhMThiZGM0OGE5OWNjYTY1ZDEyM2NlNzgxZDg3ODI3MmY5ZDk2NGVhZDNiOGFkMzcwIn19fQ==").setDisplayName("&aPage " + (page + 1)).build(), (p,a) -> new EventShopGUI(plugin, player, page + 1).open(p));
         }
         else {
             setItem(42, new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmNmZTg4NDVhOGQ1ZTYzNWZiODc3MjhjY2M5Mzg5NWQ0MmI0ZmMyZTZhNTNmMWJhNzhjODQ1MjI1ODIyIn19fQ==").setDisplayName("&cNo more pages!").build());

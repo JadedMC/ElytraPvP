@@ -117,6 +117,15 @@ public abstract class Cosmetic {
                     .build();
         }
 
+        if(getUnlockType() != CosmeticUnlockType.NORMAL) {
+            return new ItemBuilder(Material.GRAY_DYE)
+                    .addLore("&8" + type)
+                    .addLore("")
+                    .setDisplayName("&c" + getName())
+                    .addLore("&cLocked")
+                    .build();
+        }
+
         // If not, shows the purchase icon.
         ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                 .setDisplayName("&c" + getName())
@@ -124,7 +133,7 @@ public abstract class Cosmetic {
                 .addLore("")
                 .addLore("&6Price: " + getPrice());
 
-        if( getSeason() != Season.NONE && plugin.seasonManager().getCurrentSeason() != getSeason()) {
+        if(getSeason() != Season.NONE && plugin.seasonManager().getCurrentSeason() != getSeason()) {
             builder.addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
         }
         else {
