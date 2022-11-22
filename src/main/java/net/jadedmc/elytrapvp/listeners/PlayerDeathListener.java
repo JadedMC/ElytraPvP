@@ -52,7 +52,14 @@ public class PlayerDeathListener implements Listener {
 
                 customKiller.addKill(plugin.kitManager().getKit(customKiller.getKit()));
 
-                int coins = 5 + (customKiller.getKillStreak("global") / 3) + customPlayer.getBounty();
+                int bonus = (customKiller.getKillStreak("global") / 3);
+
+                // Limits the kill streak bonus to 5 coins.
+                if(bonus < 5) {
+                    bonus = 5;
+                }
+                
+                int coins = 5 + bonus + customPlayer.getBounty();
                 killer.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatUtils.translate("&6+ " + coins + " Coins")));
                 customKiller.addCoins(coins);
                 customKiller.claimBounty(customPlayer.getBounty());
