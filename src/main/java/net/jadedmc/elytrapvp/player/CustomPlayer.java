@@ -44,6 +44,7 @@ public class CustomPlayer {
     private final List<String> unlockedTags = new ArrayList<>();
     private final List<String> unlockedArrowTrails = new ArrayList<>();
     private final List<String> unlockedTrails = new ArrayList<>();
+
     // Statistics
     private int coins = 0;
     private int bounty = 0;
@@ -51,6 +52,8 @@ public class CustomPlayer {
     private int lifetimeBountyHad = 0;
     private int lifetimeBountyClaimed = 0;
     private int windowsBroken = 0;
+    private int targetsHit = 0;
+    private int bullseyes = 0;
     private final Map<String, Integer> kills = new HashMap<>();
     private final Map<String, Integer> deaths = new HashMap<>();
     private final Map<String, Integer> killStreak = new HashMap<>();
@@ -224,6 +227,8 @@ public class CustomPlayer {
                         lifetimeBountyHad = resultSet.getInt("lifetimeBountyHad");
                         lifetimeBountyClaimed = resultSet.getInt("lifetimeBountyClaimed");
                         windowsBroken = resultSet.getInt("windowsBroken");
+                        targetsHit = resultSet.getInt("targetsHit");
+                        bullseyes = resultSet.getInt("bullseyes");
                     }
                     else {
                         PreparedStatement insert = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_statistics (uuid) VALUES (?)");
@@ -290,6 +295,18 @@ public class CustomPlayer {
 
         // Adds a temporary glowing effect.
         getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 40, 0));
+    }
+
+    /**
+     * Add a bullseye to the bullseyes counter.
+     */
+    public void addBullseye() {
+        setBullseyes(getBullseyes() + 1);
+
+        // Check for the "Bullseye" achievement.
+        if(getBullseyes() >= 10) {
+            plugin.achievementManager().getAchievement("target_2").unlock(getPlayer());
+        }
     }
 
     /**
@@ -413,6 +430,18 @@ public class CustomPlayer {
     }
 
     /**
+     * Adds a target hit to the targest hit counter.
+     */
+    public void addTargetHit() {
+        setTargetsHit(getTargetsHit() + 1);
+
+        // Check for the "Well Practiced" achievement.
+        if(getTargetsHit() >= 500) {
+            plugin.achievementManager().getAchievement("target_1").unlock(getPlayer());
+        }
+    }
+
+    /**
      * Adds a broken window to the broken window counter.
      */
     public void addWindowBroken() {
@@ -426,7 +455,7 @@ public class CustomPlayer {
 
     /**
      * Get if the player's elytra should automatically deploy.
-     * @return Whether the elytra should open on it's own.
+     * @return Whether the elytra should open on its own.
      */
     public boolean autoDeploy() {
         return autoDeploy;
@@ -533,6 +562,14 @@ public class CustomPlayer {
      */
     public int getBounty() {
         return bounty;
+    }
+
+    /**
+     * Get the number of times the player got a bullseye.
+     * @return Bullseye count.
+     */
+    public int getBullseyes() {
+        return bullseyes;
     }
 
     /**
@@ -775,6 +812,14 @@ public class CustomPlayer {
     }
 
     /**
+     * Get the number of times the player has hit a target.
+     * @return Number of targets hit.
+     */
+    public int getTargetsHit() {
+        return targetsHit;
+    }
+
+    /**
      * Get the player's current trail.
      * @return Currently selected trail.
      */
@@ -961,6 +1006,26 @@ public class CustomPlayer {
             try {
                 PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET bounty = ? WHERE uuid = ?");
                 statement.setInt(1, bounty);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Set the total number of bullseyes the player has hit.
+     * @param bullseyes new total bullseyes.
+     */
+    private void setBullseyes(int bullseyes) {
+        this.bullseyes = bullseyes;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_statistics SET bullseyes = ? WHERE uuid = ?");
+                statement.setInt(1, bullseyes);
                 statement.setString(2, uuid.toString());
                 statement.executeUpdate();
             }
@@ -1264,6 +1329,26 @@ public class CustomPlayer {
             try {
                 PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_players SET tag = ? WHERE uuid = ?");
                 statement.setString(1, finalTagId);
+                statement.setString(2, uuid.toString());
+                statement.executeUpdate();
+            }
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Set the total number of targets the player has hit.
+     * @param targetsHit new total targets hit.
+     */
+    private void setTargetsHit(int targetsHit) {
+        this.targetsHit = targetsHit;
+
+        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("UPDATE elytrapvp_statistics SET targetsHit = ? WHERE uuid = ?");
+                statement.setInt(1, targetsHit);
                 statement.setString(2, uuid.toString());
                 statement.executeUpdate();
             }

@@ -126,6 +126,8 @@ public class MySQL {
                         "lifetimeBountyHad INT DEFAULT 0," +
                         "lifetimeBountyClaimed INT DEFAULT 0," +
                         "windowsBroken INT DEFAULT 0," +
+                        "targetsHit INT DEFAULT 0," +
+                        "bullseyes INT DEFAULT 0," +
                         "PRIMARY KEY (uuid)" +
                         ");");
                 elytrapvp_statistics.execute();

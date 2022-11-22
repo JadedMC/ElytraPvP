@@ -67,6 +67,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("target_2", new AchievementBuilder(plugin, "target_2")
+                .setName("Bullseye")
+                .setDescription("Get a bullseye in the target practice 10 times.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
         achievements.put("coins_1", new AchievementBuilder(plugin, "coins_1")
                 .setName("Cha-Ching")
                 .setDescription("Earn a total of 2,500 coins.")
@@ -184,6 +190,12 @@ public class AchievementManager {
         achievements.put("bounty_2", new AchievementBuilder(plugin, "bounty_2")
                 .setName("Wanted")
                 .setDescription("Have a bounty of at least 100 coins on you.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("target_1", new AchievementBuilder(plugin, "target_1")
+                .setName("Well Trained")
+                .setDescription("Hit the target practice target 500 times.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
     }
