@@ -21,4 +21,14 @@ public class MathUtils {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+
+    /**
+     * Calculate the percentage obtained compared to a total.
+     * @param obtained Obtained amount.
+     * @param total Total amount.
+     * @return Percentage of total.
+     */
+    public static int calculatePercentage(int obtained, int total) {
+        return obtained * 100 / total;
+    }
 }

@@ -491,6 +491,14 @@ public class CustomPlayer {
     }
 
     /**
+     * Get all unlocked achievements.
+     * @return Unlocked achievements.
+     */
+    public Collection<String> getAchievements() {
+        return achievements;
+    }
+
+    /**
      * Get the number of times the player has shot someone with an arrow.
      * @param kit Kit to get arrows hit count of.
      * @return Number of times they hit someone with an arrow.
