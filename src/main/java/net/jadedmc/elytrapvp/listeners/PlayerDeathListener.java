@@ -58,7 +58,7 @@ public class PlayerDeathListener implements Listener {
                 if(bonus < 5) {
                     bonus = 5;
                 }
-                
+
                 int coins = 5 + bonus + customPlayer.getBounty();
                 killer.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatUtils.translate("&6+ " + coins + " Coins")));
                 customKiller.addCoins(coins);

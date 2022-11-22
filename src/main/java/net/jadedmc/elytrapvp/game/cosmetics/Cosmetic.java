@@ -23,6 +23,7 @@ public abstract class Cosmetic {
     private Material iconMaterial = Material.BARRIER;
     private String texture = "";
     private String description = "";
+    private CosmeticRarity rarity = CosmeticRarity.COMMON;
 
     // Unlock Values
     private int price = 0;
@@ -71,6 +72,11 @@ public abstract class Cosmetic {
         if(config.isSet("description")) {
             this.description = config.getString("description");
         }
+
+        // Load the rarity of the cosmetic.
+        if(config.isSet("rarity")) {
+            this.rarity = CosmeticRarity.valueOf(config.getString("rarity"));
+        }
     }
 
     /**
@@ -103,14 +109,15 @@ public abstract class Cosmetic {
                             builder.addLore(ChatPaginator.wordWrap(description, 35), "&7").addLore("");
                         }
 
-                        builder.addLore("&aClick to equip")
-                        .build();
+                        builder.addLore("&7Rarity: &f" + rarity).addLore("").addLore("&aClick to equip");
                 return builder.build();
             }
 
             // If not, return normal item.
             return new ItemBuilder(iconMaterial)
                     .addLore("&8" + type)
+                    .addLore("")
+                    .addLore("&7Rarity: &f" + rarity)
                     .addLore("")
                     .setDisplayName("&a" + getName())
                     .addLore("&aClick to equip")
@@ -120,6 +127,8 @@ public abstract class Cosmetic {
         if(getUnlockType() != CosmeticUnlockType.NORMAL) {
             return new ItemBuilder(Material.GRAY_DYE)
                     .addLore("&8" + type)
+                    .addLore("")
+                    .addLore("&7Rarity: &f" + rarity)
                     .addLore("")
                     .setDisplayName("&c" + getName())
                     .addLore("&cLocked")
@@ -131,13 +140,15 @@ public abstract class Cosmetic {
                 .setDisplayName("&c" + getName())
                 .addLore("&8" + type)
                 .addLore("")
-                .addLore("&6Price: " + getPrice());
+                .addLore("&7Price: &6" + getPrice() + " Coins")
+                .addLore("&7Rarity: &f" + rarity)
+                .addLore("");
 
         if(getSeason() != Season.NONE && plugin.seasonManager().getCurrentSeason() != getSeason()) {
             builder.addLore(ChatPaginator.wordWrap("&7This item can only be purchased during the " + getSeason().getName() + " &7event.", 35), "&7");
         }
         else {
-            builder.addLore("&7Click to purchase");
+            builder.addLore("&aClick to purchase");
         }
 
         return builder.build();
