@@ -48,6 +48,14 @@ public class HatsGUI extends CustomGUI {
         setItem(25, flags, (p,a) ->new HatsGUI(plugin, p, HatCategory.FLAGS, 1).open(p));
 
         setItem(0, new SkullBuilder("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg0ZjU5NzEzMWJiZTI1ZGMwNThhZjg4OGNiMjk4MzFmNzk1OTliYzY3Yzk1YzgwMjkyNWNlNGFmYmEzMzJmYyJ9fX0=").setDisplayName("&cBack").build(), (p,a) -> new CosmeticsGUI(plugin).open(p));
+
+        setItem(40, new ItemBuilder(Material.BARRIER).setDisplayName("&cReset").build(), (p, a ) -> {
+            CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(p);
+            customPlayer.setHat(null);
+            p.getInventory().clear(39);
+            p.closeInventory();
+            ChatUtils.chat(p, "&a&lCosmetics &8» &aHat has been reset.");
+        });
     }
 
     /**
