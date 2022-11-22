@@ -61,7 +61,7 @@ public class ParkourCompleteEvent extends Event {
             }
 
             case "BLUE" -> {
-                // Checks for the "The Indoor Mountain" achievement.
+                // Checks for the "An Indoor Mountain" achievement.
                 plugin.achievementManager().getAchievement("parkour_7").unlock(player);
 
                 // Checks for the "Something Like Perfection" achievement.

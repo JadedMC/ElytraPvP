@@ -49,6 +49,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("parkour_7", new AchievementBuilder(plugin, "parkour_7")
+                .setName("An Indoor Mountain")
+                .setDescription("Complete the blue parkour course.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
         achievements.put("coins_4", new AchievementBuilder(plugin, "coins_4")
                 .setName("Banker")
                 .setDescription("Have a total of 2.000 coins at one time.")
@@ -166,12 +172,6 @@ public class AchievementManager {
         achievements.put("parkour_2", new AchievementBuilder(plugin, "parkour_1")
                 .setName("The Beginning")
                 .setDescription("Complete the green parkour course in under 30 seconds.")
-                .addReward(Achievement.RewardType.COINS, 100)
-                .build());
-
-        achievements.put("parkour_7", new AchievementBuilder(plugin, "parkour_7")
-                .setName("The Indoor Mountain")
-                .setDescription("Complete the blue parkour course.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
