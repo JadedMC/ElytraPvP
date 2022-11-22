@@ -6,6 +6,7 @@ import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
+import net.jadedmc.elytrapvp.game.cosmetics.trails.Trail;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
@@ -77,6 +78,35 @@ public class Achievement {
     public void unlock(Player player) {
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
+        // Loop through rewards to apply cosmetics.
+        // Useful is cosmetic rewards are added after the achievement is unlocked.
+        for(Reward reward : rewards) {
+
+            // Make sure the reward is a cosmetic.
+            if(reward.getCosmetic() != null) {
+                continue;
+            }
+
+            Cosmetic cosmetic = reward.getCosmetic();
+
+            // Unlock the cosmetic.
+            if(cosmetic instanceof Hat) {
+                customPlayer.unlockHat((Hat) cosmetic);
+            }
+            else if(cosmetic instanceof KillMessage) {
+                customPlayer.unlockKillMessage((KillMessage) cosmetic);
+            }
+            else if(cosmetic instanceof Tag) {
+                customPlayer.unlockTag((Tag) cosmetic);
+            }
+            else if(cosmetic instanceof ArrowTrail) {
+                customPlayer.unlockArrowTrail((ArrowTrail) cosmetic);
+            }
+            else if(cosmetic instanceof Trail) {
+                customPlayer.unlockTrail((Trail) cosmetic);
+            }
+        }
+
         // Makes sure the player does not have the achievement already.
         if(customPlayer.hasAchievement(id)) {
             return;
@@ -86,24 +116,10 @@ public class Achievement {
 
         // Loops through each reward
         for(Reward reward : rewards) {
-            switch(reward.getType()) {
-                case COINS -> customPlayer.addCoins(reward.getCoins());
-                case COSMETIC -> {
-                    Cosmetic cosmetic = reward.getCosmetic();
+            int coins = reward.getCoins();
 
-                    if(cosmetic instanceof Hat) {
-                        customPlayer.unlockHat((Hat) cosmetic);
-                    }
-                    else if(cosmetic instanceof KillMessage) {
-                        customPlayer.unlockKillMessage((KillMessage) cosmetic);
-                    }
-                    else if(cosmetic instanceof Tag) {
-                        customPlayer.unlockTag((Tag) cosmetic);
-                    }
-                    else if(cosmetic instanceof ArrowTrail) {
-                        customPlayer.unlockArrowTrail((ArrowTrail) cosmetic);
-                    }
-                }
+            if(coins > 0) {
+                customPlayer.addCoins(coins);
             }
         }
 

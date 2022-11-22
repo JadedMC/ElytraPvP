@@ -1462,6 +1462,11 @@ public class CustomPlayer {
      * @param arrowTrail Arrow trail to unlock.
      */
     public void unlockArrowTrail(ArrowTrail arrowTrail) {
+        // Make sure the arrow trail is not already unlocked.
+        if(unlockedArrowTrails.contains(arrowTrail.getId())) {
+            return;
+        }
+
         unlockedArrowTrails.add(arrowTrail.getId());
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -1483,6 +1488,10 @@ public class CustomPlayer {
      * @param hat Hat to unlock.
      */
     public void unlockHat(Hat hat) {
+        // Make sure the hat is not already unlocked.
+        if(unlockedHats.contains(hat.getId())) {
+            return;
+        }
         unlockedHats.add(hat.getId());
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -1504,6 +1513,11 @@ public class CustomPlayer {
      * @param killMessage Kill Message to unlock.
      */
     public void unlockKillMessage(KillMessage killMessage) {
+        // Make sure the kill message is not already unlocked.
+        if(unlockedKillMessages.contains(killMessage.getId())) {
+            return;
+        }
+
         unlockedKillMessages.add(killMessage.getId());
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -1525,6 +1539,11 @@ public class CustomPlayer {
      * @param tag Tag to unlock.
      */
     public void unlockTag(Tag tag) {
+        // Make sure the tag is not already unlocked.
+        if(unlockedTags.contains(tag.getId())) {
+            return;
+        }
+
         unlockedTags.add(tag.getId());
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -1546,6 +1565,11 @@ public class CustomPlayer {
      * @param trail Trail to unlock.
      */
     public void unlockTrail(Trail trail) {
+        // Make sure the trail is not already unlocked.
+        if(unlockedTrails.contains(trail.getId())) {
+            return;
+        }
+
         unlockedTrails.add(trail.getId());
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
