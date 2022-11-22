@@ -1,113 +1,113 @@
 KillMessages:
-  1:
+  km_1:
     name: "&f%player% &awas toasted by &f%killer%&a."
     price: 250
-  2:
+  km_2:
     name: "&f%player%&a's life was drastically cut short by &f%killer%&a."
     price: 250
-  3:
+  km_3:
     name: "&f%player% &awas put out of their misery by &f%killer%&a."
     price: 250
-  4:
+  km_4:
     name: "&f%player% &awas obliterated by &f%killer%&a."
     price: 250
-  5:
+  km_5:
     name: "&f%player% &awas chewed up by &f%killer%&a."
     price: 250
-  6:
+  km_6:
     name: "&f%player% &awas munched on by &f%killer%&a."
     price: 250
-  7:
+  km_7:
     name: "&f%player% &awas defeathered by &f%killer%&a."
     price: 250
-  8:
+  km_8:
     name: "&f%player% &awas deleted by &f%killer%&a."
     price: 250
-  9:
+  km_9:
     name: "&f%player% &awas bullied by &f%killer%&a."
     price: 250
-  10:
+  km_10:
     name: "&f%player%&a's plane was shot down by &f%killer%&a."
     price: 250
-  11:
+  km_11:
     name: "&f%player% &awas made quick work of by &f%killer%&a."
     price: 250
-  12:
+  km_12:
     name: "&f%player% &acould not dodge &f%killer%"
     price: 250
-  13:
+  km_13:
     name: "&f%player% &acould not out-manuever &f%killer%&a."
     price: 250
-  14:
+  km_14:
     name: "&f%player% &aforgot to take out &f%killer%&a's trash."
     price: 250
-  15:
+  km_15:
     name: "&f%player% &awas surprise attacked by &f%killer%&a."
     price: 250
-  16:
+  km_16:
     name: "&f%player% &acould not escape &f%killer%&a's wrath."
     price: 250
-  17:
+  km_17:
     name: "&f%player% &awas messed up by &f%killer%&a."
     price: 250
-  18:
+  km_18:
     name: "&f%player% &awas dominated by &f%killer%&a."
     price: 250
-  19:
+  km_19:
     name: "&f%player% &awas trashed on by &f%killer%&a."
     price: 250
-  20:
+  km_20:
     name: "&f%player%&a's luck ran out against &f%killer%&a."
     price: 250
-  21:
+  km_21:
     name: "&f%player% &adid not see &f%killer%&a coming."
     price: 250
-  22:
+  km_22:
     name: "&f%player% &awas stalked by &f%killer%&a."
     price: 250
-  23:
+  km_23:
     name: "&f%player% &acould not stand &f%killer%&a's smell."
     price: 250
-  24:
+  km_24:
     name: "&f%player% &awas blinded by &f%killer%&a's fireworks."
     price: 250
-  25:
+  km_25:
     name: "&f%player% &awas turned to stone by &f%killer%&a's stare."
     price: 250
-  26:
+  km_26:
     name: "&f%player% &alacked knowledge against &f%killer%&a."
     price: 250
-  27:
+  km_27:
     name: "&f%player% &awas finished by &f%killer%&a."
     price: 250
-  28:
+  km_28:
     name: "&f%player% &acould not take &f%killer%&a's heat"
     price: 250
-  29:
+  km_29:
     name: "&f%player% &awas in awe at &f%killer%&a's skills."
     price: 250
-  30:
+  km_30:
     name: "&f%player% &acould not keep up with &f%killer%&a."
     price: 250
-  31:
+  km_31:
+    name: "&f%player% &atook the L to &f%killer%&a."
+    price: 250
+  km_32:
+    name: "&f%player% &awas bamboozled by &f%killer%&a."
+    price: 250
+  christmas_km_1:
     name: "&f%player% &awas hit with a snowball by &f%killer%&a."
     price: 250
     season: CHRISTMAS
-  32:
+  christmas_km_2:
     name: "&f%player% &awas made into a snowman by &f%killer%&a."
     price: 250
     season: CHRISTMAS
-  33:
+  christmas_km_3:
     name: "&f%player% &awas wraped into a gift by &f%killer%&a."
     price: 250
     season: CHRISTMAS
-  34:
-    name: "&f%player% &atook the L to &f%killer%&a."
-    price: 250
-  35:
-    name: "&f%player% &awas bamboozled by &f%killer%&a."
-    price: 250
-  36:
+  christmas_km_4:
     name: "&f%player% &awas turned into a gingerbread man by &f%killer%&a."
     price: 250
     season: CHRISTMAS

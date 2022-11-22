@@ -1,6 +1,6 @@
 ArrowTrails:
   # Mixed
-  rainbow:
+  rainbow_at:
     name: "Rainbow"
     price: 400
     category: MIXED
@@ -106,7 +106,7 @@ ArrowTrails:
               b: 255
 
   # Classic
-  soul_flame:
+  soul_flame_at:
     name: "Soul Flame"
     price: 400
     category: CLASSIC
@@ -117,7 +117,7 @@ ArrowTrails:
         particles:
           1:
             particle: SOUL_FIRE_FLAME
-  wither:
+  wither_at:
     name: "Wither"
     price: 400
     category: CLASSIC
@@ -128,7 +128,7 @@ ArrowTrails:
         particles:
           1:
             particle: DAMAGE_INDICATOR
-  flame:
+  flame_at:
     name: "Flame"
     price: 400
     category: CLASSIC
@@ -141,7 +141,7 @@ ArrowTrails:
             particle: FLAME
 
   # Seasonal
-  winter_holidays:
+  winter_holidays_at:
     name: "Winter Holidays"
     price: 400
     category: SEASONAL
@@ -169,7 +169,7 @@ ArrowTrails:
               r: 255
               g: 255
               b: 255
-  candy_cane_lane:
+  candy_cane_lane_at:
     name: "Candy Cane Lane"
     price: 400
     category: SEASONAL
@@ -258,7 +258,7 @@ ArrowTrails:
               r: 255
               g: 255
               b: 255
-  snow_day:
+  snow_day_at:
     name: "Snow Day"
     price: 300
     category: SEASONAL
