@@ -8,6 +8,8 @@ import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -281,6 +283,9 @@ public class CustomPlayer {
         if(getBounty() >= 100) {
             plugin.achievementManager().getAchievement("bounty_2").unlock(getPlayer());
         }
+
+        // Adds a temporary glowing effect.
+        getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 40, 0));
     }
 
     /**
