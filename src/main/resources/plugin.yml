@@ -16,6 +16,9 @@ commands:
     description: Manages arenas
     usage: /arena
     aliases: [arenas]
+  bounty:
+    description: Manages bounty commands.
+    usage: /bounty
   kits:
     description: Opens the kit selector menu.
     usage: /kits

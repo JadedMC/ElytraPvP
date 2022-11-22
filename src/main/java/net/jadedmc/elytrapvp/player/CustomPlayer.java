@@ -1,14 +1,12 @@
 package net.jadedmc.elytrapvp.player;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
-import net.jadedmc.elytrapvp.game.achievements.Achievement;
 import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
 import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
-import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
@@ -278,6 +276,11 @@ public class CustomPlayer {
     public void addBounty(int bounty) {
         setBounty(getBounty() + bounty);
         setLifetimeBountyHad(getLifetimeBountyHad() + bounty);
+
+        // Checks for the "Wanted" achievement.
+        if(getBounty() >= 100) {
+            plugin.achievementManager().getAchievement("bounty_2").unlock(getPlayer());
+        }
     }
 
     /**
@@ -426,6 +429,11 @@ public class CustomPlayer {
      */
     public void claimBounty(int bounty) {
         setLifetimeBountyClaimed(getLifetimeBountyClaimed() + bounty);
+
+        // Checks for the "Bounty Hunter" achievement.
+        if(getLifetimeBountyClaimed() >= 500) {
+            plugin.achievementManager().getAchievement("bounty_1").unlock(getPlayer());
+        }
     }
 
     /**

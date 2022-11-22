@@ -55,6 +55,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("bounty_1", new AchievementBuilder(plugin, "bounty_1")
+                .setName("Bounty Hunter")
+                .setDescription("Earn a total of 500 coins from bounties.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
         achievements.put("coins_1", new AchievementBuilder(plugin, "coins_1")
                 .setName("Cha-Ching")
                 .setDescription("Earn a total of 2,500 coins.")
@@ -94,6 +100,12 @@ public class AchievementManager {
         achievements.put("coins_3", new AchievementBuilder(plugin, "coins_3")
                 .setName("Money Maker")
                 .setDescription("Earn a total of 10,000 coins.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("bounty_3", new AchievementBuilder(plugin, "bounty_3")
+                .setName("Murder for Hire")
+                .setDescription("Place a bounty of at least 50 coins on someone.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
@@ -166,6 +178,12 @@ public class AchievementManager {
         achievements.put("parkour_5", new AchievementBuilder(plugin, "parkour_5")
                 .setName("Tumble and Slide")
                 .setDescription("Complete the red parkour course.")
+                .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("bounty_2", new AchievementBuilder(plugin, "bounty_2")
+                .setName("Wanted")
+                .setDescription("Have a bounty of at least 100 coins on you.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
     }

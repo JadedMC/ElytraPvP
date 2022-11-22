@@ -32,6 +32,7 @@ public abstract class AbstractCommand implements CommandExecutor {
         plugin = pl;
 
         new ArenaCMD(pl);
+        new BountyCMD(pl);
         new KitsCMD(pl);
         new LeaderboardCMD(pl);
         new ParkourCMD(pl);
