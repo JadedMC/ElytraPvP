@@ -33,6 +33,7 @@ public abstract class AbstractCommand implements CommandExecutor {
 
         new ArenaCMD(pl);
         new BountyCMD(pl);
+        new CosmeticsCMD(pl);
         new KitsCMD(pl);
         new LeaderboardCMD(pl);
         new ParkourCMD(pl);

@@ -19,6 +19,9 @@ commands:
   bounty:
     description: Manages bounty commands.
     usage: /bounty
+  cosmetics:
+    description: Open the cosmetics menu.
+    usage: /cosmetics.
   kits:
     description: Opens the kit selector menu.
     usage: /kits
