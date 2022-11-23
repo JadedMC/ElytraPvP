@@ -113,34 +113,54 @@ public abstract class Cosmetic {
                 return builder.build();
             }
 
-            // If not, return normal item.
-            return new ItemBuilder(iconMaterial)
+            ItemBuilder builder = new ItemBuilder(iconMaterial)
+                    .setDisplayName("&a"+ name)
                     .addLore("&8" + type)
-                    .addLore("")
-                    .addLore("&7Rarity: &f" + rarity)
+                    .addLore("");
+
+            if(!description.equals("")) {
+                builder.addLore(ChatPaginator.wordWrap(description, 35), "&7").addLore("");
+            }
+
+            builder.addLore("&7Rarity: &f" + rarity)
                     .addLore("")
                     .setDisplayName("&a" + getName())
-                    .addLore("&aClick to equip")
-                    .build();
+                    .addLore("&aClick to equip");
+
+            // If not, return normal item.
+            return builder.build();
         }
 
         if(getUnlockType() != CosmeticUnlockType.NORMAL) {
-            return new ItemBuilder(Material.GRAY_DYE)
+            ItemBuilder builder = new ItemBuilder((Material.GRAY_DYE))
+                    .setDisplayName("&c" + name)
                     .addLore("&8" + type)
-                    .addLore("")
-                    .addLore("&7Rarity: &f" + rarity)
+                    .addLore("");
+
+            if(!description.equals("")) {
+                builder.addLore(ChatPaginator.wordWrap(description, 35), "&7").addLore("");
+            }
+
+            builder.addLore("&7Rarity: &f" + rarity)
                     .addLore("")
                     .setDisplayName("&c" + getName())
                     .addLore("&cLocked")
                     .build();
+
+            return builder.build();
         }
 
         // If not, shows the purchase icon.
         ItemBuilder builder = new ItemBuilder(Material.GRAY_DYE)
                 .setDisplayName("&c" + getName())
                 .addLore("&8" + type)
-                .addLore("")
-                .addLore("&7Price: &6" + getPrice() + " Coins")
+                .addLore("");
+
+        if(!description.equals("")) {
+            builder.addLore(ChatPaginator.wordWrap(description, 35), "&7").addLore("");
+        }
+
+        builder.addLore("&7Price: &6" + getPrice() + " Coins")
                 .addLore("&7Rarity: &f" + rarity)
                 .addLore("");
 
@@ -189,6 +209,14 @@ public abstract class Cosmetic {
         }
 
         return false;
+    }
+
+    /**
+     * Change the description of the cosmetic.
+     * @param description New cosmetic description.
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**

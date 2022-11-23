@@ -31,6 +31,7 @@ public class ArrowTrail extends Cosmetic {
         this.plugin = plugin;
 
         setType("Arrow Trail");
+        setDescription("Displays a group of particles behind every arrow you shoot.");
 
         // --- Load the trail steps ---
         // Loads the category

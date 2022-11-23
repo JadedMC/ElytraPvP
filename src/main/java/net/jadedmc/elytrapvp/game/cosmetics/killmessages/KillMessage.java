@@ -19,6 +19,7 @@ public class KillMessage extends Cosmetic {
     public KillMessage(ElytraPvP plugin, String id, ConfigurationSection config) {
         super(plugin, id, config);
         setType("Kill Message");
+        setDescription("Changes the format of your kill messages.");
         setIconMaterial(Material.OAK_SIGN);
     }
 }

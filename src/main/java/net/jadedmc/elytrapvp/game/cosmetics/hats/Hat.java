@@ -24,6 +24,8 @@ public class Hat extends Cosmetic {
         super(plugin, id, config);
         setType("Hat");
 
+        setDescription("Worn on your head.");
+
         // Sets up the hat as an item.
         this.texture = config.getString("texture");
         setIconMaterial(Material.PLAYER_HEAD);

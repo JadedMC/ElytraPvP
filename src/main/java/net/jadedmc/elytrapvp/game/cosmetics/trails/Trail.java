@@ -30,6 +30,7 @@ public class Trail extends Cosmetic {
         this.plugin = plugin;
 
         setType("Trail");
+        setDescription("Displays a line of particles behind you as you move.");
 
         // --- Load the trail steps ---
 
