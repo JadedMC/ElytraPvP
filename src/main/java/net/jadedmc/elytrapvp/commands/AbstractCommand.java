@@ -1,6 +1,7 @@
 package net.jadedmc.elytrapvp.commands;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.inventories.AchievementsGUI;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,6 +32,7 @@ public abstract class AbstractCommand implements CommandExecutor {
     public static void registerCommands(ElytraPvP pl) {
         plugin = pl;
 
+        new AchievementsCMD(pl);
         new ArenaCMD(pl);
         new BountyCMD(pl);
         new CosmeticsCMD(pl);
