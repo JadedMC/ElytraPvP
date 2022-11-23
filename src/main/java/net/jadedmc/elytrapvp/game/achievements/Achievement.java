@@ -83,7 +83,7 @@ public class Achievement {
         for(Reward reward : rewards) {
 
             // Make sure the reward is a cosmetic.
-            if(reward.getCosmetic() != null) {
+            if(reward.getCosmetic() == null) {
                 continue;
             }
 
@@ -200,10 +200,10 @@ public class Achievement {
         public String toString() {
             switch (type) {
                 case COINS -> {
-                    return "  &6+" + coins + " Coins";
+                    return "  &6" + coins + " Coins";
                 }
                 case COSMETIC -> {
-                    return "  &a" + cosmetic.getName() + " " + cosmetic.getType();
+                    return "  " + cosmetic.getRarity().getColor() + cosmetic.getName() + " " + cosmetic.getType();
                 }
             }
 

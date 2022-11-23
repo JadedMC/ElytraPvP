@@ -216,6 +216,14 @@ public abstract class Cosmetic {
     }
 
     /**
+     * Get the rarity of the cosmetic.
+     * @return Cosmetic rarity.
+     */
+    public CosmeticRarity getRarity() {
+        return rarity;
+    }
+
+    /**
      * Get the season required to purchase the cosmetic.
      * @return Required season.
      */

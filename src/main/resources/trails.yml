@@ -1,7 +1,50 @@
 Trails:
+  peerless_trail:
+    name: "Peerless"
+    icon:
+      material: LIGHT_BLUE_DYE
+    unlockType: ACHIEVEMENT
+    rarity: LEGENDARY
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 127
+              g: 252
+              b: 255
+          2:
+            particle: REDSTONE
+            color:
+              r: 0
+              g: 250
+              b: 252
+  ground_pro_trail:
+    name: "Ground Pro"
+    icon:
+      material: DIRT
+    unlockType: ACHIEVEMENT
+    rarity: EPIC
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 127
+              g: 102
+              b: 89
+          2:
+            particle: REDSTONE
+            color:
+              r: 163
+              g: 127
+              b: 115
   shamrock_trail:
     name: "Shamrock Folly"
     price: 200
+    rarity: UNCOMMON
     icon:
       material: PLAYER_HEAD
       texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY3ZmU1ZTNlMmY3YmY5MmVhYTZmMjAyNzYxYzEwZWMzMmRhZjNhMmEyYWRlYzFkYmJhY2E4M2M1ZjcxNmRhNSJ9fX0=
@@ -20,3 +63,171 @@ Trails:
               r: 0
               g: 191
               b: 51
+  royalty_trail:
+    name: "Visions of Royalty"
+    icon:
+      material: PURPLE_DYE
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 138
+              g: 0
+              b: 184
+          2:
+            particle: REDSTONE
+            color:
+              r: 102
+              g: 0
+              b: 102
+  smoke_trail:
+    name: "Smoke and Dust"
+    icon:
+      material: BLACK_DYE
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 127
+              g: 127
+              b: 127
+          2:
+            particle: REDSTONE
+            color:
+              r: 77
+              g: 77
+              b: 77
+  jade_sea_trail:
+    name: "Jade Sea"
+    icon:
+      material: PRISMARINE
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 31
+              g: 178
+              b: 127
+          2:
+            particle: REDSTONE
+            color:
+              r: 23
+              g: 102
+              b: 82
+  ink_trail:
+    name: "Ink Abyss"
+    icon:
+      material: INK_SAC
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 36
+              g: 0
+              b: 184
+          2:
+            particle: REDSTONE
+            color:
+              r: 102
+              g: 51
+              b: 138
+  quartz_trail:
+    name: "Dusty Quartz"
+    icon:
+      material: QUARTZ
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 191
+              g: 191
+              b: 230
+          2:
+            particle: REDSTONE
+            color:
+              r: 240
+              g: 179
+              b: 179
+  sunrise_trail:
+    name: "Lean Sunrise"
+    icon:
+      material: SUNFLOWER
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 204
+              g: 153
+              b: 179
+          2:
+            particle: REDSTONE
+            color:
+              r: 240
+              g: 41
+              b: 204
+  tracer_trail:
+    name: "Tracer Fire"
+    icon:
+      material: ORANGE_STAINED_GLASS
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 255
+              g: 77
+              b: 0
+          2:
+            particle: REDSTONE
+            color:
+              r: 255
+              g: 143
+              b: 0
+  sun_trail:
+    name: "Molten Sun"
+    icon:
+      material: LAVA_BUCKET
+    rarity: UNCOMMON
+    price: 300
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            color:
+              r: 230
+              g: 230
+              b: 0
+          2:
+            particle: REDSTONE
+            color:
+              r: 255
+              g: 255
+              b: 64

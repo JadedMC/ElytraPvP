@@ -91,7 +91,7 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
-        achievements.put("parkour_1", new AchievementBuilder(plugin, "parkour)1")
+        achievements.put("parkour_1", new AchievementBuilder(plugin, "parkour_1")
                 .setName("First Steps")
                 .setDescription("Complete the green parkour course.")
                 .addReward(Achievement.RewardType.COINS, 100)
@@ -101,6 +101,7 @@ public class AchievementManager {
                 .setName("Haggard")
                 .setDescription("Complete the third Elytra Course in under 20 minutes.")
                 .addReward(Achievement.RewardType.COINS, 100)
+                .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("peerless_trail"))
                 .build());
 
         achievements.put("kills_3", new AchievementBuilder(plugin, "kills_3")
@@ -167,6 +168,7 @@ public class AchievementManager {
                 .setName("Something Like Perfection")
                 .setDescription("Complete the blue parkour course in under 3 minutes.")
                 .addReward(Achievement.RewardType.COINS, 100)
+                .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("ground_pro_trail"))
                 .build());
 
         achievements.put("kills_2", new AchievementBuilder(plugin, "kills_2")
