@@ -36,7 +36,7 @@ public abstract class Kit {
 
         // Set kit defaults.
         health = 20;
-        price = 400;
+        price = 500;
         icon = Material.BARRIER;
         description = "MISSING!";
     }
