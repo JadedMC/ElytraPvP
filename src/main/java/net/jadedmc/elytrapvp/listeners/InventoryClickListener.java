@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp.listeners;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -52,7 +53,7 @@ public class InventoryClickListener implements Listener {
                 }
 
                 // Checks if the clicked inventory is their own. If so, cancels the event.
-                if(event.getClickedInventory().getType() == InventoryType.PLAYER) {
+                if(event.getClickedInventory().getType() == InventoryType.PLAYER && event.getCurrentItem() != null && event.getCurrentItem().getType() != Material.DIAMOND) {
                     event.setCancelled(true);
                 }
             }
