@@ -152,15 +152,15 @@ Trails:
             size: 1.5
             color:
               r: 36
-              g: 0
-              b: 184
+              g: 51
+              b: 138
           2:
             particle: REDSTONE
             size: 1.5
             color:
-              r: 102
-              g: 51
-              b: 138
+              r: 3
+              g: 28
+              b: 97
   quartz_trail:
     name: "Dusty Quartz"
     icon:
