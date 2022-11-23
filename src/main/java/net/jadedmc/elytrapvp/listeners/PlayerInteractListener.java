@@ -107,7 +107,7 @@ public class PlayerInteractListener implements Listener {
                 event.setCancelled(true);
             }
             case "Cosmetics" -> {
-                new CosmeticsGUI(plugin).open(player);
+                new CosmeticsGUI(plugin, player).open(player);
                 event.setCancelled(true);
             }
             case "Back to Checkpoint" -> {

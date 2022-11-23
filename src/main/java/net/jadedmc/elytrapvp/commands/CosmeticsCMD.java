@@ -15,6 +15,6 @@ public class CosmeticsCMD extends AbstractCommand {
 
     public void execute(CommandSender sender, String[] args) {
         Player player = (Player) sender;
-        new CosmeticsGUI(plugin).open(player);
+        new CosmeticsGUI(plugin, player).open(player);
     }
 }
