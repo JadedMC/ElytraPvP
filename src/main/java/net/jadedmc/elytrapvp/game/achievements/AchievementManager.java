@@ -199,6 +199,7 @@ public class AchievementManager {
                 .setName("Well Trained")
                 .setDescription("Hit the target practice target 500 times.")
                 .addReward(Achievement.RewardType.COINS, 100)
+                .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("target_block_hat"))
                 .build());
     }
 
