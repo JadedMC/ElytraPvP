@@ -68,6 +68,29 @@ Trails:
               r: 163
               g: 127
               b: 115
+  lilies_trail:
+    name: "Path of Lilies"
+    icon:
+      material: LILY_OF_THE_VALLEY
+    unlockType: ACHIEVEMENT
+    rarity: EPIC
+    steps:
+      1:
+        particles:
+          1:
+            particle: REDSTONE
+            size: 1.5
+            color:
+              r: 217
+              g: 255
+              b: 230
+          2:
+            particle: REDSTONE
+            size: 1.5
+            color:
+              r: 127
+              g: 255
+              b: 135
   shamrock_trail:
     name: "Shamrock Folly"
     price: 200

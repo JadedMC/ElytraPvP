@@ -12,6 +12,9 @@ softdepend:
   - DiscordSRV
 
 commands:
+  achievement:
+    description: Admin achievements command.
+    usage: /achievement
   achievements:
     description: Opens the achievements viewer.
     usage: /achievements

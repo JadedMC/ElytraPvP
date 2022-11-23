@@ -86,6 +86,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 30)
                 .build());
 
+        achievements.put("tree_1", new AchievementBuilder(plugin, "tree_1")
+                .setName("Branches")
+                .setDescription("Reach the top of the tree.")
+                .addReward(Achievement.RewardType.COINS, 30)
+                .build());
+
         achievements.put("target_2", new AchievementBuilder(plugin, "target_2")
                 .setName("Bullseye")
                 .setDescription("Get a bullseye in the target practice 10 times.")
@@ -170,6 +176,13 @@ public class AchievementManager {
                 .setName("Obsessed")
                 .setDescription("Reach 2,500 kills.")
                 .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("parkour_15", new AchievementBuilder(plugin, "parkour_15")
+                .setName("Of Carbon and Lilies")
+                .setDescription("Obtain a Diamond in the Path of Lilies")
+                .addReward(Achievement.RewardType.COINS, 30)
+                .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("lilies_trail"))
                 .build());
 
         achievements.put("coins_2", new AchievementBuilder(plugin, "coins_2")
