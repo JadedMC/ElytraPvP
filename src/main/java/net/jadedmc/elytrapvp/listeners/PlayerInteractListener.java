@@ -11,6 +11,7 @@ import net.jadedmc.elytrapvp.player.Status;
 import net.jadedmc.elytrapvp.utils.LocationUtils;
 import net.jadedmc.elytrapvp.utils.item.ItemUtils;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -49,6 +50,11 @@ public class PlayerInteractListener implements Listener {
                 plugin.parkourManager().getData(player).setCheckpoint(player.getLocation());
                 return;
             }
+        }
+
+        // Check for the "Eternal Storage" command.
+        if(event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.ENDER_CHEST && player.getGameMode() == GameMode.ADVENTURE && customPlayer.getStatus() == Status.LOBBY) {
+            plugin.achievementManager().getAchievement("target_3").unlock(player);
         }
 
         // Prevent players from moving items around in their inventory.

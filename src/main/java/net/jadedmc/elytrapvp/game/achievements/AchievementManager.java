@@ -85,6 +85,13 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("target_3", new AchievementBuilder(plugin, "target_3")
+                .setName("Eternal Storage")
+                .setDescription("Find the hidden ender chest.")
+                .addReward(Achievement.RewardType.COINS, 25)
+                .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("ender_chest_hat"))
+                .build());
+
         achievements.put("parkour_10", new AchievementBuilder(plugin, "parkour_10")
                 .setName("Eyas")
                 .setDescription("Complete the first Elytra Course in under a minute.")
