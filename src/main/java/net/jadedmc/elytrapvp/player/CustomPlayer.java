@@ -392,6 +392,7 @@ public class CustomPlayer {
         }
 
         int kills = getKills("global");
+        int killStreak = getKillStreak("global");
 
         // Checks for the "Novice" achievement.
         if(kills >= 100) {
@@ -411,6 +412,21 @@ public class CustomPlayer {
         // Checks for the "Obsessed" achievement.
         if(kills >= 2500) {
             plugin.achievementManager().getAchievement("kills_4").unlock(getPlayer());
+        }
+
+        // Checks for the "Bloodlust" achievement.
+        if(killStreak >= 5) {
+            plugin.achievementManager().getAchievement("kill_streak_1").unlock(getPlayer());
+        }
+
+        // Checks for the "Bloodthirst" achievement.
+        if(killStreak >= 10) {
+            plugin.achievementManager().getAchievement("kill_streak_2").unlock(getPlayer());
+        }
+
+        // Checks for the "Bloodbath" achievement.
+        if(killStreak >= 15) {
+            plugin.achievementManager().getAchievement("kill_streak_3").unlock(getPlayer());
         }
     }
 

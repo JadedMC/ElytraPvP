@@ -67,6 +67,25 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("kill_streak_3", new AchievementBuilder(plugin, "kill_streak_3")
+                .setName("Bloodbath")
+                .setDescription("Get a kill streak of 15.")
+                .addReward(Achievement.RewardType.COINS, 45)
+                .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("blood_ash_trail"))
+                .build());
+
+        achievements.put("kill_streak_1", new AchievementBuilder(plugin, "kill_streak_1")
+                .setName("Bloodlust")
+                .setDescription("Get a kill streak of 5.")
+                .addReward(Achievement.RewardType.COINS, 15)
+                .build());
+
+        achievements.put("kill_streak_2", new AchievementBuilder(plugin, "kill_streak_2")
+                .setName("Bloodthirst")
+                .setDescription("Get a kill streak of 10.")
+                .addReward(Achievement.RewardType.COINS, 30)
+                .build());
+
         achievements.put("target_2", new AchievementBuilder(plugin, "target_2")
                 .setName("Bullseye")
                 .setDescription("Get a bullseye in the target practice 10 times.")
