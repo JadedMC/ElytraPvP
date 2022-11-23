@@ -25,7 +25,7 @@ public class CosmeticManager {
     private final Map<String, Tag> tags = new LinkedHashMap<>();
     private final Map<String, ArrowTrail> arrowTrails = new LinkedHashMap<>();
     private final Map<Arrow, ArrowTrail> arrows = new HashMap<>();
-    private final Map<String, Trail> trails = new HashMap<>();
+    private final Map<String, Trail> trails = new LinkedHashMap<>();
 
     /**
      * Creates the manager.
