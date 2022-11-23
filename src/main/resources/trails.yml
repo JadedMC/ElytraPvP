@@ -10,12 +10,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 127
               g: 252
               b: 255
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 0
               g: 250
@@ -31,12 +33,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 127
               g: 102
               b: 89
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 163
               g: 127
@@ -53,12 +57,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 0
               g: 122
               b: 26
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 0
               g: 191
@@ -74,12 +80,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 138
               g: 0
               b: 184
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 102
               g: 0
@@ -95,12 +103,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 127
               g: 127
               b: 127
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 77
               g: 77
@@ -116,12 +126,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 31
               g: 178
               b: 127
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 23
               g: 102
@@ -137,12 +149,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 36
               g: 0
               b: 184
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 102
               g: 51
@@ -158,12 +172,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 191
               g: 191
               b: 230
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 240
               g: 179
@@ -179,12 +195,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 204
               g: 153
               b: 179
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 240
               g: 41
@@ -200,12 +218,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 255
               g: 77
               b: 0
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 255
               g: 143
@@ -221,12 +241,14 @@ Trails:
         particles:
           1:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 230
               g: 230
               b: 0
           2:
             particle: REDSTONE
+            size: 1.5
             color:
               r: 255
               g: 255

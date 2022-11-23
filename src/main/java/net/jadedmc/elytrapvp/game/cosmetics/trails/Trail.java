@@ -69,7 +69,12 @@ public class Trail extends Cosmetic {
                     int g = particleConfig.getInt("color.g");
                     int b = particleConfig.getInt("color.b");
 
-                    trailStep.addParticle(new TrailParticle(particle, r, g, b));
+                    if(particleConfig.isSet("size")) {
+                        trailStep.addParticle(new TrailParticle(particle, r, g, b, (float) particleConfig.getDouble("size")));
+                    }
+                    else {
+                        trailStep.addParticle(new TrailParticle(particle, r, g, b));
+                    }
                 }
                 else {
                     trailStep.addParticle(new TrailParticle(particle));
@@ -131,6 +136,7 @@ public class Trail extends Cosmetic {
         private final int g;
         private final int b;
         private final boolean colored;
+        private final float size;
 
         /**
          * Creates a non-colored particle.
@@ -142,6 +148,7 @@ public class Trail extends Cosmetic {
             this.g = 0;
             this.b = 0;
             colored = false;
+            size = 1;
         }
 
         /**
@@ -157,6 +164,24 @@ public class Trail extends Cosmetic {
             this.g = g;
             this.b = b;
             colored = true;
+            size = 1;
+        }
+
+        /**
+         * Creates a colored particle with a different size.
+         * @param particle Particle
+         * @param r Red Color
+         * @param g Green Color
+         * @param b Blue Color
+         * @param size Size
+         */
+        public TrailParticle(Particle particle, int r, int g, int b, float size) {
+            this.particle = particle;
+            this.r = r;
+            this.g = g;
+            this.b = b;
+            colored = true;
+            this.size = size;
         }
 
         /**
@@ -170,7 +195,7 @@ public class Trail extends Cosmetic {
                         continue;
                     }
 
-                    location.getWorld().spawnParticle(particle, location, 0, 0, 0, 0, new Particle.DustOptions(Color.fromRGB(r, g, b), 1));
+                    location.getWorld().spawnParticle(particle, location, 0, 0, 0, 0, new Particle.DustOptions(Color.fromRGB(r, g, b), size));
                 }
             }
             else {
