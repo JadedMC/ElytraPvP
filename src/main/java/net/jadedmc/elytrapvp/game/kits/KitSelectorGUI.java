@@ -21,7 +21,7 @@ public class KitSelectorGUI extends CustomGUI {
         super(54, "Kits");
 
         fillers();
-        int[] slots = new int[]{20,21,22,23,24,28,29,30,31,32,33,34};
+        int[] slots = new int[]{20,21,22,23,24,30,31,32,40};
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
 
         int i = 0;
