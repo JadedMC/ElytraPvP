@@ -60,8 +60,8 @@ public class ProjectileHitListener implements Listener {
 
         entity.getNearbyEntities(1,1,1).forEach(nearbyEntity -> {
             if(nearbyEntity instanceof Player wittness) {
-                if(wittness.getHealth() >= 1) {
-                    wittness.setHealth(wittness.getHealth() - 1);
+                if(wittness.getHealth() >= 4) {
+                    wittness.setHealth(wittness.getHealth() - 4);
                 }
                 else {
                     wittness.setHealth(0);
