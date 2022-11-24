@@ -104,6 +104,11 @@ public class PlayerInteractListener implements Listener {
 
         String item = ChatColor.stripColor(event.getItem().getItemMeta().getDisplayName());
         switch (item) {
+            case "Poseidon's Trident" -> {
+                if(customPlayer.getStatus() != Status.ARENA) {
+                    event.setCancelled(true);
+                }
+            }
             case "Kits" -> {
                 new KitSelectorGUI(plugin, player).open(player);
                 event.setCancelled(true);
