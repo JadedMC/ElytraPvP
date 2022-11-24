@@ -222,6 +222,13 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("christmas_1", new AchievementBuilder(plugin, "christmas_builder")
+                .setName("Three Sizes That Day")
+                .setDescription("Talk to the Grinch.")
+                .addReward(Achievement.RewardType.COINS, 15)
+                .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("grinch_hat"))
+                .build());
+
         achievements.put("parkour_5", new AchievementBuilder(plugin, "parkour_5")
                 .setName("Tumble and Slide")
                 .setDescription("Complete the red parkour course.")
