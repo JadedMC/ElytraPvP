@@ -46,6 +46,7 @@ public class SpawnCMD extends AbstractCommand {
                 plugin.parkourManager().getTimer(player).stop();
                 new GameScoreboard(plugin, player);
                 plugin.parkourManager().removePlayer(player);
+                ItemUtils.giveLobbyItems(plugin, player);
             }
 
             return;
