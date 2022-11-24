@@ -23,6 +23,10 @@ public class EntityDamageListener implements Listener {
 
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer((Player) event.getEntity());
 
+        if(customPlayer == null) {
+            return;
+        }
+
         if(customPlayer.getStatus() != Status.ARENA) {
             event.setCancelled(true);
         }
