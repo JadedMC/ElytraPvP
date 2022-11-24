@@ -19,7 +19,7 @@ public class PoseidonKit extends Kit {
         setIcon(Material.TRIDENT);
         setDescription("Obliterate your opponents with a trident.");
 
-        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 5, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 3, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
         ItemStack trident = new ItemBuilder(Material.TRIDENT)
                 .setDisplayName("&aPoseidon's Trident")
                 .addEnchantment(Enchantment.LOYALTY, 5)

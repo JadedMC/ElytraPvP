@@ -5,6 +5,7 @@ import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Trident;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -37,6 +38,20 @@ public class EntityDamageByEntityListener implements Listener {
 
         // Makes sure it was an arrow that did the damage.
         if(!(event.getDamager() instanceof Arrow arrow)) {
+
+            if(event.getDamager() instanceof Trident trident) {
+                if((trident.getShooter() instanceof Player shooter)) {
+                    CustomPlayer customShooter = plugin.customPlayerManager().getPlayer(shooter);
+
+                    if(customShooter.getStatus() == Status.ARENA) {
+                        event.setDamage(100);
+                        return;
+                    }
+                    return;
+                }
+
+            }
+
             return;
         }
 
