@@ -74,7 +74,7 @@ public class PlayerDeathListener implements Listener {
 
                 Bukkit.getScheduler().runTaskLater(plugin,  () -> {
                     if(customPlayer.getBounty() > 0) {
-                        ChatUtils.chat(killer, "&a&lBounty &8» &aYou have killed a wanted player and collected &f" + customPlayer.getBounty() + "&acoins.");
+                        ChatUtils.chat(killer, "&a&lBounty &8» &aYou have killed a wanted player and collected &f" + customPlayer.getBounty() + " &acoins.");
                         customPlayer.resetBounty();
                     }
 
