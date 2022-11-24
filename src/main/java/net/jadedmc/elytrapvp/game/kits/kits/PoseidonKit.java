@@ -16,6 +16,7 @@ public class PoseidonKit extends Kit {
     public PoseidonKit(ElytraPvP plugin) {
         super(plugin, "Poseidon", "poseidon");
 
+        setIcon(Material.TRIDENT);
         setDescription("Obliterate your opponents with a trident.");
 
         AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 5, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
