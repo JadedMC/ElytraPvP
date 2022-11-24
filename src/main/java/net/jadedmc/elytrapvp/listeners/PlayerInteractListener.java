@@ -81,6 +81,8 @@ public class PlayerInteractListener implements Listener {
         // Replace fireworks when used.
         if(event.getItem().getType() == Material.FIREWORK_ROCKET) {
 
+            event.getItem().setAmount(64);
+
             if(event.getItem().getItemMeta() != null) {
                 String item = ChatColor.stripColor(event.getItem().getItemMeta().getDisplayName());
 
@@ -89,8 +91,6 @@ public class PlayerInteractListener implements Listener {
                     return;
                 }
             }
-
-            event.getItem().setAmount(64);
 
             // Add to fireworks used counter if the player is in the arena.
             if(customPlayer.getStatus() == Status.ARENA) {
