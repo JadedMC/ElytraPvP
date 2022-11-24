@@ -61,7 +61,7 @@ public class PlayerDeathListener implements Listener {
                 int bonus = (customKiller.getKillStreak("global") / 3);
 
                 // Limits the kill streak bonus to 5 coins.
-                if(bonus < 5) {
+                if(bonus > 5) {
                     bonus = 5;
                 }
 
