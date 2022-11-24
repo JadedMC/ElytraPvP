@@ -50,7 +50,7 @@ public class BomberKit extends Kit {
         addItem(40, fireworks);
         addItem(1, new ItemBuilder(Material.FIREWORK_ROCKET, 64).setDisplayName("&aFirework").build());
 
-        PotionEffect slowFalling = new PotionEffect(PotionEffectType.SLOW_FALLING, 9999, 0);
+        PotionEffect slowFalling = new PotionEffect(PotionEffectType.SLOW_FALLING, Integer.MAX_VALUE, 0);
         addEffect(slowFalling);
 
         addItem(17, new ItemBuilder(Material.ARROW, 64).setDisplayName("&aArrow").build());
