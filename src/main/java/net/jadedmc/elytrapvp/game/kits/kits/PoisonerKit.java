@@ -6,24 +6,30 @@ import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionData;
+import org.bukkit.potion.PotionType;
 
-public class SpectralKit extends Kit {
+public class PoisonerKit extends Kit {
 
-    public SpectralKit(ElytraPvP plugin) {
-        super(plugin, "Spectral", "spectral");
-
-        setIcon(Material.SPECTRAL_ARROW);
-        setDescription("Keep track of your enemies with spectral arrows.");
+    public PoisonerKit(ElytraPvP plugin) {
+        super(plugin, "Poisoner", "poisoner");
+        setDescription("Poison your opponents with tipped arrows.");
+        setIcon(Material.SPIDER_EYE);
 
         ItemStack bow = new ItemBuilder(Material.BOW)
-                .setDisplayName("&aSpectral Bow")
+                .setDisplayName("&aPoisoner Bow")
                 .setUnbreakable(true)
                 .addEnchantment(Enchantment.ARROW_DAMAGE, 3)
                 .addEnchantment(Enchantment.ARROW_INFINITE, 1)
                 .build();
         addItem(0, bow);
 
-        addItem(17, new ItemBuilder(Material.SPECTRAL_ARROW, 64).setDisplayName("&aSpectral Arrow").build());
+        ItemStack arrow = new ItemStack(Material.TIPPED_ARROW, 64);
+        PotionMeta arrowMeta = (PotionMeta) arrow.getItemMeta();
+        arrowMeta.setBasePotionData(new PotionData(PotionType.POISON));
+        arrow.setItemMeta(arrowMeta);
+        addItem(17, arrow);
         addItem(38, new ItemBuilder(Material.ELYTRA).setDisplayName("&aElytra").setUnbreakable(true).build());
         addItem(40, new ItemBuilder(Material.FIREWORK_ROCKET, 64).setDisplayName("&aFirework").build());
     }

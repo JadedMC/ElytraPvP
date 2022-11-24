@@ -13,13 +13,12 @@ public class KitManager {
         kits.put(1, new SniperKit(plugin));
         kits.put(2, new KnightKit(plugin));
         kits.put(3, new PyroKit(plugin));
-        kits.put(4, new TankKit(plugin));
         kits.put(5, new ChemistKit(plugin));
         kits.put(6, new LauncherKit(plugin));
         kits.put(7, new BomberKit(plugin));
         kits.put(8, new HealerKit(plugin));
-        kits.put(9, new TeleporterKit(plugin));
-        kits.put(10, new SpectralKit(plugin));
+        kits.put(9, new PoseidonKit(plugin));
+        kits.put(10, new PoisonerKit(plugin));
     }
 
     /**

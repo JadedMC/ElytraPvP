@@ -4,6 +4,7 @@ import github.scarsz.discordsrv.DiscordSRV;
 import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.DeathType;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
@@ -50,7 +51,12 @@ public class PlayerDeathListener implements Listener {
                     deathMessage = "&a&lDeath &8» " + customKiller.getKillMessage().getName().replace("%player%", player.getName()).replace("%killer%", killer.getName());
                 }
 
-                customKiller.addKill(plugin.kitManager().getKit(customKiller.getKit()));
+                Kit killerKit = plugin.kitManager().getKit(customKiller.getKit());
+                customKiller.addKill(killerKit);
+
+                if(!killerKit.canRegenerateHealth()) {
+                    killer.setHealth(killerKit.getHealth());
+                }
 
                 int bonus = (customKiller.getKillStreak("global") / 3);
 

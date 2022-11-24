@@ -31,10 +31,9 @@ public class BomberKit extends Kit {
         ItemStack crossbow = new ItemBuilder(Material.CROSSBOW)
                 .setDisplayName("&aBomber Crossbow")
                 .setUnbreakable(true)
+                .addEnchantment(Enchantment.QUICK_CHARGE, 2)
                 .build();
-        addItem(1, crossbow);
         addItem(2, crossbow);
-        addItem(3, crossbow);
 
         FireworkEffect effect = FireworkEffect.builder()
                 .withColor(Color.RED)
@@ -45,10 +44,11 @@ public class BomberKit extends Kit {
                 .addEffect(effect)
                 .setPower(3)
                 .setDisplayName("&aExplosive Fireworks")
+                .addLore("&cCan't use to fly!")
                 .setAmount(64)
                 .build();
         addItem(40, fireworks);
-        addItem(4, new ItemBuilder(Material.FIREWORK_ROCKET, 64).build());
+        addItem(1, new ItemBuilder(Material.FIREWORK_ROCKET, 64).setDisplayName("&aFirework").build());
 
         PotionEffect slowFalling = new PotionEffect(PotionEffectType.SLOW_FALLING, 9999, 0);
         addEffect(slowFalling);

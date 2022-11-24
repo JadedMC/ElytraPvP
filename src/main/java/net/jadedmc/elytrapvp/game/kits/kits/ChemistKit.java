@@ -21,7 +21,7 @@ public class ChemistKit extends Kit {
         ItemStack bow = new ItemBuilder(Material.BOW)
                 .setDisplayName("&aChemist Bow")
                 .setUnbreakable(true)
-                .addEnchantment(Enchantment.ARROW_DAMAGE, 3)
+                .addEnchantment(Enchantment.ARROW_DAMAGE, 2)
                 .addEnchantment(Enchantment.ARROW_INFINITE, 1)
                 .build();
         addItem(0, bow);
@@ -32,7 +32,7 @@ public class ChemistKit extends Kit {
                 .build();
         addItem(1, harmPotions);
 
-        addItem(17, new ItemBuilder(Material.ARROW, 64).setDisplayName("&aArrow").build());
+        addItem(17, new ItemBuilder(Material.SPECTRAL_ARROW, 64).setDisplayName("&aArrow").build());
         addItem(38, new ItemBuilder(Material.ELYTRA).setDisplayName("&aElytra").setUnbreakable(true).build());
         addItem(40, new ItemBuilder(Material.FIREWORK_ROCKET, 64).setDisplayName("&aFirework").build());
     }

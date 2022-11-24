@@ -24,6 +24,9 @@ public abstract class Kit {
     private final Collection<PotionEffect> effects = new HashSet<>();
     private Material icon;
 
+    // Settings
+    private boolean regenerateHealth = true;
+
     /**
      * Registers the kit.
      * @param name Name of the kit.
@@ -103,6 +106,14 @@ public abstract class Kit {
      */
     public void addItem(int slot, ItemStack item) {
         items.put(slot, item);
+    }
+
+    /**
+     * Get if the kit should regenerate health.
+     * @return Whether the kit should regenerate health.
+     */
+    public boolean canRegenerateHealth() {
+        return regenerateHealth;
     }
 
     /**
@@ -199,5 +210,13 @@ public abstract class Kit {
      */
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    /**
+     * Set if the kit should be able to regernate health.
+     * @param regenerateHealth Whether the kit should be able to regenerate health.
+     */
+    public void setRegenerateHealth(boolean regenerateHealth) {
+        this.regenerateHealth = regenerateHealth;
     }
 }

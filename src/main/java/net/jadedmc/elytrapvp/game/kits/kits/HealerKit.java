@@ -17,6 +17,7 @@ public class HealerKit extends Kit {
         setIcon(Material.GOLDEN_APPLE);
         setDescription("Regenerate health faster to outlive your opponents.");
         setHealth(18);
+        setRegenerateHealth(false);
 
         ItemStack bow = new ItemBuilder(Material.BOW)
                 .setDisplayName("&aHealer Bow")
@@ -29,7 +30,5 @@ public class HealerKit extends Kit {
         addItem(17, new ItemBuilder(Material.ARROW, 64).setDisplayName("&aArrow").build());
         addItem(38, new ItemBuilder(Material.ELYTRA).setDisplayName("&aElytra").setUnbreakable(true).build());
         addItem(40, new ItemBuilder(Material.FIREWORK_ROCKET, 64).setDisplayName("&aFirework").build());
-
-        addEffect(new PotionEffect(PotionEffectType.REGENERATION, Integer.MAX_VALUE, 0));
     }
 }
