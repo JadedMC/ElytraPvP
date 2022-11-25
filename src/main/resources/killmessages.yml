@@ -2,112 +2,148 @@ KillMessages:
   km_1:
     name: "&f%player% &awas toasted by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_2:
     name: "&f%player%&a's life was drastically cut short by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_3:
     name: "&f%player% &awas put out of their misery by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_4:
     name: "&f%player% &awas obliterated by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_5:
     name: "&f%player% &awas chewed up by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_6:
     name: "&f%player% &awas munched on by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_7:
     name: "&f%player% &awas defeathered by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_8:
     name: "&f%player% &awas deleted by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_9:
     name: "&f%player% &awas bullied by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_10:
     name: "&f%player%&a's plane was shot down by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_11:
     name: "&f%player% &awas made quick work of by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_12:
     name: "&f%player% &acould not dodge &f%killer%"
     price: 250
+    rarity: UNCOMMON
   km_13:
     name: "&f%player% &acould not out-manuever &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_14:
     name: "&f%player% &aforgot to take out &f%killer%&a's trash."
     price: 250
+    rarity: UNCOMMON
   km_15:
     name: "&f%player% &awas surprise attacked by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_16:
     name: "&f%player% &acould not escape &f%killer%&a's wrath."
     price: 250
+    rarity: UNCOMMON
   km_17:
     name: "&f%player% &awas messed up by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_18:
     name: "&f%player% &awas dominated by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_19:
     name: "&f%player% &awas trashed on by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_20:
     name: "&f%player%&a's luck ran out against &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_21:
     name: "&f%player% &adid not see &f%killer%&a coming."
     price: 250
+    rarity: UNCOMMON
   km_22:
     name: "&f%player% &awas stalked by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_23:
     name: "&f%player% &acould not stand &f%killer%&a's smell."
     price: 250
+    rarity: UNCOMMON
   km_24:
     name: "&f%player% &awas blinded by &f%killer%&a's fireworks."
     price: 250
+    rarity: UNCOMMON
   km_25:
     name: "&f%player% &awas turned to stone by &f%killer%&a's stare."
     price: 250
+    rarity: UNCOMMON
   km_26:
     name: "&f%player% &alacked knowledge against &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_27:
     name: "&f%player% &awas finished by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_28:
     name: "&f%player% &acould not take &f%killer%&a's heat"
     price: 250
+    rarity: UNCOMMON
   km_29:
     name: "&f%player% &awas in awe at &f%killer%&a's skills."
     price: 250
+    rarity: UNCOMMON
   km_30:
     name: "&f%player% &acould not keep up with &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_31:
     name: "&f%player% &atook the L to &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   km_32:
     name: "&f%player% &awas bamboozled by &f%killer%&a."
     price: 250
+    rarity: UNCOMMON
   christmas_km_1:
     name: "&f%player% &awas hit with a snowball by &f%killer%&a."
     price: 250
     season: CHRISTMAS
+    rarity: UNCOMMON
   christmas_km_2:
     name: "&f%player% &awas made into a snowman by &f%killer%&a."
     price: 250
     season: CHRISTMAS
+    rarity: UNCOMMON
   christmas_km_3:
     name: "&f%player% &awas wraped into a gift by &f%killer%&a."
     price: 250
     season: CHRISTMAS
+    rarity: UNCOMMON
   christmas_km_4:
     name: "&f%player% &awas turned into a gingerbread man by &f%killer%&a."
     price: 250
     season: CHRISTMAS
+    rarity: UNCOMMON
