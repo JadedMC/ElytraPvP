@@ -428,6 +428,14 @@ public class CustomPlayer {
         if(killStreak >= 15) {
             plugin.achievementManager().getAchievement("kill_streak_3").unlock(getPlayer());
         }
+
+        // Checks for the "Diversified" achievement.
+        for(Kit kitObject : plugin.kitManager().getKits().values()) {
+            if(getKills(kitObject.getId())  < 100) {
+                return;
+            }
+        }
+        plugin.achievementManager().getAchievement("kits_3").unlock(getPlayer());
     }
 
     /**
@@ -1608,6 +1616,14 @@ public class CustomPlayer {
      */
     public void unlockKit(Kit kit) {
         unlockedKits.add(kit.getId());
+
+        // Checks for the "Getting an Upgrade" achievement.
+        plugin.achievementManager().getAchievement("kits_1").unlock(getPlayer());
+
+        // Checks for the "Kit Collector" achievement.
+        if(unlockedKits.size() >= plugin.kitManager().getKits().size() - 3) {
+            plugin.achievementManager().getAchievement("kits_2").unlock(getPlayer());
+        }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {

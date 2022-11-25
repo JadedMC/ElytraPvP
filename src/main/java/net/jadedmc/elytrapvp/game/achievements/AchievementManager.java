@@ -104,6 +104,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("kits_3", new AchievementBuilder(plugin, "kits_3")
+                .setName("Diversified")
+                .setDescription("Get 100 kills with every kit.")
+                .addReward(Achievement.RewardType.COINS, 75)
+                .build());
+
         achievements.put("parkour_9", new AchievementBuilder(plugin, "parkour_9")
                 .setName("Elementary")
                 .setDescription("Complete the first Elytra Course.")
@@ -129,11 +135,23 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("kits_1", new AchievementBuilder(plugin, "kits_1")
+                .setName("Getting an Upgrade")
+                .setDescription("Unlock your first kit.")
+                .addReward(Achievement.RewardType.COINS, 25)
+                .build());
+
         achievements.put("parkour_14", new AchievementBuilder(plugin, "parkour_14")
                 .setName("Haggard")
                 .setDescription("Complete the third Elytra Course in under 20 minutes.")
                 .addReward(Achievement.RewardType.COINS, 100)
                 .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("peerless_trail"))
+                .build());
+
+        achievements.put("kits_2", new AchievementBuilder(plugin, "kits_2")
+                .setName("Kit Collector")
+                .setDescription("Unlock every kit.")
+                .addReward(Achievement.RewardType.COINS, 50)
                 .build());
 
         achievements.put("kills_3", new AchievementBuilder(plugin, "kills_3")
