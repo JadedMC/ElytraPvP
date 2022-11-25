@@ -37,9 +37,16 @@ public class StatsGUI extends CustomGUI {
 
         ItemBuilder pvp = new ItemBuilder(Material.IRON_SWORD)
                 .setDisplayName("&aKills: &f" + kills + " &a(" + customPlayer.getKillsRank("global") + "&a)")
-                .addLore("&aDeaths: &f" + deaths)
-                .addLore("&aWLR: &f" + MathUtils.round(((double) kills)/((double) deaths), 3))
-                .addFlag(ItemFlag.HIDE_ATTRIBUTES);
+                .addLore("&aDeaths: &f" + deaths);
+
+        if(deaths == 0) {
+            pvp.addLore("&aWLR: &f" + kills);
+        }
+        else {
+            pvp.addLore("&aWLR: &f" + MathUtils.round(((double) kills)/((double) deaths), 3));
+        }
+
+        pvp.addFlag(ItemFlag.HIDE_ATTRIBUTES);
         setItem(20, pvp.build());
 
         ItemBuilder coins = new ItemBuilder(Material.GOLD_INGOT)
