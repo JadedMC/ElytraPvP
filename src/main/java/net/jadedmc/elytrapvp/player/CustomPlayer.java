@@ -1493,6 +1493,11 @@ public class CustomPlayer {
 
         unlockedArrowTrails.add(arrowTrail.getId());
 
+        // Checks for the "Trails Mix" achievement.
+        if(unlockedArrowTrails.size() >= 5) {
+            plugin.achievementManager().getAchievement("arrow_trails_2").unlock(getPlayer());
+        }
+
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
                 PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
@@ -1517,6 +1522,14 @@ public class CustomPlayer {
             return;
         }
         unlockedHats.add(hat.getId());
+
+        // Checks for the "Looking Sharp" achievement.
+        plugin.achievementManager().getAchievement("hats_1").unlock(getPlayer());
+
+        // Checks for the "Fashionista" achievement.
+        if(unlockedHats.size() >= 20) {
+            plugin.achievementManager().getAchievement("hats_2").unlock(getPlayer());
+        }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
@@ -1544,6 +1557,9 @@ public class CustomPlayer {
 
         unlockedKillMessages.add(killMessage.getId());
 
+        // Checks for the "Creative Killing" achievement.
+        plugin.achievementManager().getAchievement("kill_messages_1").unlock(getPlayer());
+
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
                 PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
@@ -1570,6 +1586,14 @@ public class CustomPlayer {
 
         unlockedTags.add(tag.getId());
 
+        // Checks for the "Who Am I?" achievement.
+        plugin.achievementManager().getAchievement("tags_1").unlock(getPlayer());
+
+        // Checks for the" I go by Lots of Names" achievement.
+        if(unlockedTags.size() >= 10) {
+            plugin.achievementManager().getAchievement("tags_2").unlock(getPlayer());
+        }
+
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
                 PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("INSERT INTO elytrapvp_cosmetics (uuid,type,cosmeticID) VALUES (?,?,?)");
@@ -1595,6 +1619,9 @@ public class CustomPlayer {
         }
 
         unlockedTrails.add(trail.getId());
+
+        // Checks for the "Who's Following Me?" achievement.
+        plugin.achievementManager().getAchievement("trails_1").unlock(getPlayer());
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {

@@ -104,6 +104,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("kill_messages_1", new AchievementBuilder(plugin, "kill_messages_1")
+                .setName("Creative Killing")
+                .setDescription("Unlock your first kill message.")
+                .addReward(Achievement.RewardType.COINS, 15)
+                .build());
+
         achievements.put("kits_3", new AchievementBuilder(plugin, "kits_3")
                 .setName("Diversified")
                 .setDescription("Get 100 kills with every kit.")
@@ -129,10 +135,22 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .build());
 
+        achievements.put("hats_2", new AchievementBuilder(plugin, "hats_2")
+                .setName("Fashionista")
+                .setDescription("Unlock 20 different hats.")
+                .addReward(Achievement.RewardType.COINS, 50)
+                .build());
+
         achievements.put("parkour_1", new AchievementBuilder(plugin, "parkour_1")
                 .setName("First Steps")
                 .setDescription("Complete the green parkour course.")
                 .addReward(Achievement.RewardType.COINS, 100)
+                .build());
+
+        achievements.put("tags_2", new AchievementBuilder(plugin, "tags_2")
+                .setName("I go by Lots of Names")
+                .setDescription("Unlock 10 different tags.")
+                .addReward(Achievement.RewardType.COINS, 10)
                 .build());
 
         achievements.put("kits_1", new AchievementBuilder(plugin, "kits_1")
@@ -152,6 +170,12 @@ public class AchievementManager {
                 .setName("Kit Collector")
                 .setDescription("Unlock every kit.")
                 .addReward(Achievement.RewardType.COINS, 50)
+                .build());
+
+        achievements.put("hats_1", new AchievementBuilder(plugin, "hats_1")
+                .setName("Looking Sharp")
+                .setDescription("Unlock your first hat.")
+                .addReward(Achievement.RewardType.COINS, 10)
                 .build());
 
         achievements.put("kills_3", new AchievementBuilder(plugin, "kills_3")
@@ -247,6 +271,12 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("grinch_hat"))
                 .build());
 
+        achievements.put("arrow_trails_2", new AchievementBuilder(plugin, "arrow_trails_2")
+                .setName("Trails Mix")
+                .setDescription("Unlock 5 different arrow trails.")
+                .addReward(Achievement.RewardType.COINS, 50)
+                .build());
+
         achievements.put("parkour_5", new AchievementBuilder(plugin, "parkour_5")
                 .setName("Tumble and Slide")
                 .setDescription("Complete the red parkour course.")
@@ -265,10 +295,22 @@ public class AchievementManager {
                 .addReward(Achievement.RewardType.COINS, 100)
                 .addReward(Achievement.RewardType.COSMETIC, plugin.cosmeticManager().getCosmetic("target_block_hat"))
                 .build());
+
+        achievements.put("tags_1", new AchievementBuilder(plugin, "tags_1")
+                .setName("Who am I?")
+                .setDescription("Unlock your first tag.")
+                .addReward(Achievement.RewardType.COINS, 25)
+                .build());
+
+        achievements.put("trails_1", new AchievementBuilder(plugin, "trails_1")
+                .setName("Who's Following Me?")
+                .setDescription("Unlock your first trail.")
+                .addReward(Achievement.RewardType.COINS, 20)
+                .build());
     }
 
     /**
-     * Get an achievement based off it's id.
+     * Get an achievement based off its id.
      * @param id ID of the achievement.
      * @return The achievement with that id.
      */
