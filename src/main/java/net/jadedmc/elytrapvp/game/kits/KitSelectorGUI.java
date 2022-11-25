@@ -37,7 +37,8 @@ public class KitSelectorGUI extends CustomGUI {
             }
             else {
                 builder.setMaterial(Material.GRAY_DYE)
-                        .addLore("&6Price: " + kit.getPrice() + " Coins")
+                        .addLore("&7Price: &6" + kit.getPrice() + " Coins")
+                        .addLore("")
                         .addLore("&7Left Click to Purchase")
                         .addLore("&7Right Click to Preview");
             }
