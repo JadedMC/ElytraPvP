@@ -2,7 +2,6 @@ package net.jadedmc.elytrapvp.game.cosmetics;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrail;
-import net.jadedmc.elytrapvp.game.cosmetics.arrowtrails.ArrowTrailCategory;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.Hat;
 import net.jadedmc.elytrapvp.game.cosmetics.hats.HatCategory;
 import net.jadedmc.elytrapvp.game.cosmetics.killmessages.KillMessage;
@@ -192,23 +191,6 @@ public class CosmeticManager {
      */
     public Collection<ArrowTrail> getArrowTrails() {
         return arrowTrails.values();
-    }
-
-    /**
-     * Get all hats from a specific category.
-     * @param category Category to get hats of.
-     * @return All hats in that category.
-     */
-    public Collection<ArrowTrail> getArrowTrails(ArrowTrailCategory category) {
-        List<ArrowTrail> arrowTrailList = new ArrayList<>();
-
-        for(ArrowTrail arrowTrail : getArrowTrails()) {
-            if(arrowTrail.getCategory() == category) {
-                arrowTrailList.add(arrowTrail);
-            }
-        }
-
-        return arrowTrailList;
     }
 
     /**

@@ -84,7 +84,7 @@ public class CosmeticsGUI extends CustomGUI {
             ItemBuilder arrowTrails = new ItemBuilder(Material.ARROW)
                     .setDisplayName("&a&lArrow Trails")
                     .addLore("&7Unlocked: &a" + unlocked + "&7/&a" + total + " &8(" + MathUtils.calculatePercentage(unlocked, total) + "%)");
-            setItem(30, arrowTrails.build(), (p,a) -> new ArrowTrailsGUI(plugin).open(p));
+            setItem(30, arrowTrails.build(), (p,a) -> new ArrowTrailsGUI(plugin, p, 1).open(p));
         }
 
         // Trails

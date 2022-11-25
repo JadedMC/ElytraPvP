@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.game.cosmetics.arrowtrails;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.game.cosmetics.Cosmetic;
+import net.jadedmc.elytrapvp.game.cosmetics.trails.Trail;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import org.bukkit.Color;
 import org.bukkit.Location;
@@ -18,7 +19,6 @@ public class ArrowTrail extends Cosmetic {
     private final ElytraPvP plugin;
     private int step = 1;
     private final List<ArrowTrailStep> steps = new ArrayList<>();
-    private final ArrowTrailCategory category;
 
     /**
      * Creates the arrow trail.
@@ -34,8 +34,6 @@ public class ArrowTrail extends Cosmetic {
         setDescription("Displays a group of particles behind every arrow you shoot.");
 
         // --- Load the trail steps ---
-        // Loads the category
-        this.category = ArrowTrailCategory.valueOf(config.getString("category"));
 
         // Makes sure there are steps in the arrow trail.
         ConfigurationSection stepsConfig = config.getConfigurationSection("steps");
@@ -73,21 +71,18 @@ public class ArrowTrail extends Cosmetic {
                     int g = particleConfig.getInt("color.g");
                     int b = particleConfig.getInt("color.b");
 
-                    arrowTrailStep.addParticle(new ArrowTrailParticle(particle, r, g, b));
+                    if(particleConfig.isSet("size")) {
+                        arrowTrailStep.addParticle(new ArrowTrailParticle(particle, r, g, b, (float) particleConfig.getDouble("size")));
+                    }
+                    else {
+                        arrowTrailStep.addParticle(new ArrowTrailParticle(particle, r, g, b));
+                    }
                 }
                 else {
                     arrowTrailStep.addParticle(new ArrowTrailParticle(particle));
                 }
             }
         }
-    }
-
-    /**
-     * Get the arrow trail's category.
-     * @return Category of the arrow trail.
-     */
-    public ArrowTrailCategory getCategory() {
-        return category;
     }
 
     /**
@@ -143,6 +138,7 @@ public class ArrowTrail extends Cosmetic {
         private final int g;
         private final int b;
         private final boolean colored;
+        private final float size;
 
         /**
          * Creates a non-colored particle.
@@ -154,6 +150,7 @@ public class ArrowTrail extends Cosmetic {
             this.g = 0;
             this.b = 0;
             colored = false;
+            this.size = 1;
         }
 
         /**
@@ -169,6 +166,24 @@ public class ArrowTrail extends Cosmetic {
             this.g = g;
             this.b = b;
             colored = true;
+            this.size = 1;
+        }
+
+        /**
+         * Creates a colored particle with a different size.
+         * @param particle Particle
+         * @param r Red Color
+         * @param g Green Color
+         * @param b Blue Color
+         * @param size Size
+         */
+        public ArrowTrailParticle(Particle particle, int r, int g, int b, float size) {
+            this.particle = particle;
+            this.r = r;
+            this.g = g;
+            this.b = b;
+            colored = true;
+            this.size = size;
         }
 
         /**
@@ -182,7 +197,7 @@ public class ArrowTrail extends Cosmetic {
                         continue;
                     }
 
-                    location.getWorld().spawnParticle(particle, location, 0, 0, 0, 0, new Particle.DustOptions(Color.fromRGB(r, g, b), 1));
+                    location.getWorld().spawnParticle(particle, location, 0, 0, 0, 0, new Particle.DustOptions(Color.fromRGB(r, g, b), size));
                 }
             }
             else {

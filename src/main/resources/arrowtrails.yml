@@ -1,9 +1,7 @@
 ArrowTrails:
-  # Mixed
   rainbow_at:
     name: "Rainbow"
     price: 400
-    category: MIXED
     icon:
       material: PLAYER_HEAD
       texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjg3ZmQyM2E3ODM2OWJkMzg3NWRhODg5NmYxNTBjNGFmOWYyMzM3NGUwNDhlMzA5MTM5MDBlM2ZkZDc3ODU5YSJ9fX0="
@@ -105,11 +103,79 @@ ArrowTrails:
               g: 0
               b: 255
 
-  # Classic
+  magma_cut_at:
+    name: "Magma Cut"
+    price: 400
+    icon:
+      material: LAVA_BUCKET
+    steps:
+      1:
+        particles:
+          1:
+            particle: FALLING_LAVA
+          2:
+            particle: WAX_ON
+
+  firespray_at:
+    name: "Firespray"
+    price: 400
+    icon:
+      material: CAMPFIRE
+    steps:
+      1:
+        particles:
+          1:
+            particle: CRIMSON_SPORE
+          2:
+            particle: FLAME
+          3:
+            particle: REDSTONE
+            size: 1.5
+            color:
+              r: 255
+              g: 168
+              b: 0
+
+  immortality_at:
+    name: "Immortality"
+    price: 400
+    icon:
+      material: TOTEM_OF_UNDYING
+    steps:
+      1:
+        particles:
+          1:
+            particle: TOTEM
+
+  witch_hex_at:
+    name: "Witch Hex"
+    price: 400
+    icon:
+      material: PURPLE_CANDLE
+    steps:
+      1:
+        particles:
+          1:
+            particle: SPELL_WITCH
+
+  cloud_at:
+    name: "Cloud"
+    price: 400
+    icon:
+      material: FEATHER
+    steps:
+      1:
+        particles:
+          1:
+            particle: CLOUD
+          2:
+            particle: FALLING_WATER
+          3:
+            particle: SNOWFLAKE
+
   soul_flame_at:
     name: "Soul Flame"
     price: 400
-    category: CLASSIC
     icon:
       material: SOUL_CAMPFIRE
     steps:
@@ -117,34 +183,13 @@ ArrowTrails:
         particles:
           1:
             particle: SOUL_FIRE_FLAME
-  wither_at:
-    name: "Wither"
-    price: 400
-    category: CLASSIC
-    icon:
-      material: WITHER_SKELETON_SKULL
-    steps:
-      1:
-        particles:
-          1:
-            particle: DAMAGE_INDICATOR
-  flame_at:
-    name: "Flame"
-    price: 400
-    category: CLASSIC
-    icon:
-      material: CAMPFIRE
-    steps:
-      1:
-        particles:
-          1:
-            particle: FLAME
+          2:
+            particle: SMOKE_NORMAL
 
   # Seasonal
   winter_holidays_at:
     name: "Winter Holidays"
     price: 400
-    category: SEASONAL
     season: CHRISTMAS
     icon:
       material: ICE
@@ -172,7 +217,6 @@ ArrowTrails:
   candy_cane_lane_at:
     name: "Candy Cane Lane"
     price: 400
-    category: SEASONAL
     season: CHRISTMAS
     icon:
       material: PLAYER_HEAD
@@ -261,7 +305,6 @@ ArrowTrails:
   snow_day_at:
     name: "Snow Day"
     price: 300
-    category: SEASONAL
     season: CHRISTMAS
     icon:
       material: SNOWBALL
@@ -270,4 +313,3 @@ ArrowTrails:
         particles:
           1:
             particle: SNOWFLAKE
-            color:
