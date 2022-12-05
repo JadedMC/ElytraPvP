@@ -277,7 +277,7 @@ public class CustomPlayer {
      */
     public void addArrowShot(Kit kit) {
         setArrowsShot("global", getArrowsShot("global") + 1);
-        setArrowsHit(kit.getId(), getArrowsShot(kit.getId()) + 1);
+        setArrowsShot(kit.getId(), getArrowsShot(kit.getId()) + 1);
     }
 
     /**
