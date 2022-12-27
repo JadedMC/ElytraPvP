@@ -46,6 +46,7 @@ public class PlayerJoinListener implements Listener {
         // If the player is on an older version, warn them that the mode wont work.
         if(Via.getAPI().getPlayerVersion(player.getUniqueId()) < 316) {
             ChatUtils.chat(player, "&c&lThis mode requires 1.11.2 or newer!");
+            ChatUtils.chat(player, "&cYou can return to the lobby with /lobby.");
         }
     }
 }
