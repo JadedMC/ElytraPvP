@@ -22,7 +22,7 @@ public class PyroKit extends Kit {
         ItemStack bow = new ItemBuilder(Material.BOW)
                 .setDisplayName("&aPyro Bow")
                 .setUnbreakable(true)
-                .addEnchantment(Enchantment.ARROW_DAMAGE, 2)
+                .addEnchantment(Enchantment.ARROW_DAMAGE, 1)
                 .addEnchantment(Enchantment.ARROW_FIRE, 1)
                 .addEnchantment(Enchantment.ARROW_INFINITE, 1)
                 .build();

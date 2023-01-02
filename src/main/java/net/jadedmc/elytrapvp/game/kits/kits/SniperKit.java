@@ -22,7 +22,7 @@ public class SniperKit extends Kit {
         ItemStack bow = new ItemBuilder(Material.BOW)
                 .setDisplayName("&aSniper Bow")
                 .setUnbreakable(true)
-                .addEnchantment(Enchantment.ARROW_DAMAGE, 5)
+                .addEnchantment(Enchantment.ARROW_DAMAGE, 6)
                 .addEnchantment(Enchantment.ARROW_INFINITE, 1)
                 .build();
         addItem(0, bow);
