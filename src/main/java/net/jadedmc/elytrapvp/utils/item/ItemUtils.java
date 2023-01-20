@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.utils.item;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
+import net.jadedmc.jadedcore.features.items.CustomItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -23,6 +24,7 @@ public class ItemUtils {
         ItemBuilder stats = new ItemBuilder(Material.PAPER).setDisplayName("&a&lStats");
         ItemBuilder settings = new ItemBuilder(Material.COMPARATOR).setDisplayName("&a&lSettings");
 
+        player.getInventory().setItem(0, CustomItem.GAME_SELECTOR.toItemStack());
         player.getInventory().setItem(1, cosmetics.build());
         player.getInventory().setItem(4, kits.build());
         player.getInventory().setItem(7, stats.build());
