@@ -529,6 +529,50 @@ Hats:
     price: 50
     texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWI0NjI3MWZmNDFhZWMzZmQ4NGU2NGU0NWVkNjlhOGM1MzViMTRhZDRjMTMzYWZiMWE1YjM2ZTQzNjcxYjkifX19"
 
+  # Valentine's Day
+  red_rose_hat:
+    name: "Red Rose"
+    category: SEASONAL
+    season: VALENTINES_DAY
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTg4MmQ2YTg4Yjk2OWUzZDk1ZDE0YjJhYzY4OThlNmY1OTdlNWNjZWIzODg4NWY2NjNjNjg5NGFiOTYyNDEifX19"
+  white_rose_hat:
+    name: "White Rose"
+    category: SEASONAL
+    season: VALENTINES_DAY
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWJlZWEwNzQ5YjY5MmMyNTFkY2NiOGM0NjE3ZDdmOGE5M2RkODliNTQxMjVjMWRhNWE1MWM2NTc4NGM2YzE0In19fQ=="
+  red_bouquet_hat:
+    name: "Red Bouquet"
+    category: SEASONAL
+    season: VALENTINES_DAY
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmNiMmYxMmNmNGYzNGE4YWRmZTNkNzViN2ZmNDg5YjkxYWJhM2M4YjE5OTUyMTNmYTQ2MWQ2ODQ5MGE1MSJ9fX0="
+  box_of_chocolate_hat:
+    name: "Box of Chocolate"
+    category: SEASONAL
+    season: VALENTINES_DAY
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjRjYzE5M2Y2ZWRkODhhNzcyYjkzZWVhM2FiZDc1MjBjZTk0NWQ3Mzg2NGE2MmZlYzFmZjVjMmY5NGUyNSJ9fX0="
+  brown_bear_hat:
+    name: "Brown Bear"
+    category: SEASONAL
+    season: VALENTINES_DAY
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTA1YjFmYjE5NTNhYzVjZWI3OTllNWYwM2ZmNDUwMzI4NWQ3ZjIzZjZmODZjN2MxNDU1YWY5Njg2OGVlNWE4In19fQ=="
+  white_bear_hat:
+    name: "White Bear"
+    category: SEASONAL
+    season: VALENTINES_DAY
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmZiY2FlNmRmNjlkNTU1MWNhZWEzZjkzNTRiNDEyOWY2ZWNiZmRiNWM1NzYxNjZiYzE5YzRjMzY3MTUxNmQyIn19fQ=="
+
   # Saint Patrick's Day
   leprechaun_hat:
     name: "Leprechaun"

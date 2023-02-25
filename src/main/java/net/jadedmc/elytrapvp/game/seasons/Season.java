@@ -2,6 +2,7 @@ package net.jadedmc.elytrapvp.game.seasons;
 
 public enum Season {
     CHRISTMAS("&cChristmas"),
+    VALENTINES_DAY("&dValentine's Day"),
     SAINT_PATRICKS_DAY("&aSt. Patrick's Day"),
     EASTER("&bEaster"),
     SUMMER("&eSummer"),
