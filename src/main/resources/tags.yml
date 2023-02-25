@@ -86,3 +86,7 @@ Tags:
   eldritch_tag:
     name: "&#edebe2&k#&#e8b225E&#fbc94fl&#ecc314d&#f6dc4er&#eccb3fi&#e2ce44t&#ffd354c&#ffe400h&#edebe2&k#"
     price: 300
+  lucky_tag:
+    name: "&6&k#&2Lucky&6&k#"
+    price: 300
+    season: SAINT_PATRICKS_DAY
