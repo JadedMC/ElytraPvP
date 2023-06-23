@@ -198,6 +198,18 @@ Hats:
     rarity: UNCOMMON
     price: 50
     texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2U5NDE5ODdlODI1YTI0ZWE3YmFhZmFiOTgxOTM0NGI2YzI0N2M3NWM1NGE2OTE5ODdjZDI5NmJjMTYzYzI2MyJ9fX0="
+  sniffer_hat:
+    name: "Sniffer"
+    category: ANIMALS
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODdhZDkyMGE2NmUzOGNjMzQyNmE1YmZmMDg0NjY3ZTg3NzIxMTY5MTVlMjk4MDk4NTY3YzEzOWYyMjJlMmM0MiJ9fX0="
+  sniffer_egg_hat:
+    name: "Sniffer Egg"
+    category: ANIMALS
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFlNDQ1ZDEzOTJjYjU1OWE2OGI0ZjQ0MDFlMWFhM2VjNWU3ZjllODljMGI2MjYzMmJjY2YwYWMzYjQxYjRiIn19fQ=="
 
   # Blocks
   grass_hat:
@@ -344,6 +356,12 @@ Hats:
     rarity: UNCOMMON
     price: 50
     texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2Q5YTEwNzUxY2JlMmMzZTBkNjhjODg1YjcyNmMwODIzMjlmMWYyZTE3YTVjNTEyMWE3Y2ZjMTZiNTk1NjM4NCJ9fX0="
+  cherry_log_hat:
+    name: "Cherry Log"
+    category: BLOCKS
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZhODI4NTU1MWQxNmExOGQ2NzI2MGE4OWRiNjBkNTU0NGNjZDFkYzljOGVjZGQyOTdjMzFiNGY5NTQ2YmM0MyJ9fX0="
   crimson_stem_hat:
     name: "Crimson Stem"
     category: BLOCKS
@@ -356,6 +374,18 @@ Hats:
     rarity: UNCOMMON
     price: 50
     texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDkyYjZiZTFhOTAyZGRlMDg3NjE4ODg4NDNmM2ExM2ZjMzZkMjZlZTQxOGM3NjhjZjkyOWUwYzY5OTA2YzFlNCJ9fX0="
+  bamboo_block_hat:
+    name: "Bamboo Block"
+    category: BLOCKS
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2FjMTZiMDdkMzAxN2QxNTliZTdhYjMxMTg1ZDg0OTBmODE2YWVkMDBmYWM0ODJmMTJlMzNhNGQ3Y2ZlOGY1MSJ9fX0="
+  cherry_leaves_hat:
+    name: "Cherry Leaves"
+    category: BLOCKS
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTg0NGU1ZjczY2M0NDY5MDgzMDY1OThhN2NlYWJjOGFjYTU2ZmM0OWMzMzFiZTI3OTcyMzBiY2QwNzA3OGM2In19fQ=="
   target_block_hat:
     name: "Target Block"
     category: BLOCKS
@@ -368,6 +398,12 @@ Hats:
     unlockType: ACHIEVEMENT
     rarity: UNCOMMON
     texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZjYzQ4NmMyYmUxY2I5ZGZjYjJlNTNkZDlhM2U5YTg4M2JmYWRiMjdjYjk1NmYxODk2ZDYwMmI0MDY3In19fQ=="
+  chiseled_bookshelf_hat:
+    name: "Chiseled Bookself"
+    category: BLOCKS
+    unlockType: ACHIEVEMENT
+    rarity: UNCOMMON
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGEyNWUzZWE0Mzc0ODI4MzVjNzU4ZWZmMTc4ZjBhYjFmN2QyZDZkNjBhNTEzNDJhN2QzMzNjZjg2MDM1MzJkYSJ9fX0="
 
   # Food
   bread_hat:
