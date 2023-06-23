@@ -90,3 +90,6 @@ Tags:
     name: "<!italic><gold><obfuscated>#</obfuscated></gold><dark_green>Lucky</dark_green><gold><obfuscated>#</obfuscated></gold>"
     price: 300
     season: SAINT_PATRICKS_DAY
+  technoplane_tag:
+    name: "<!italic><gold><obfuscated>#</obfuscated></gold><color:#E9608F>Technoplane</color><gold><obfuscated>#</obfuscated></gold>"
+    price: 300
