@@ -3,6 +3,9 @@ package net.jadedmc.elytrapvp;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
+import net.jadedmc.elytrapvp.utils.MathUtils;
+import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -161,6 +164,39 @@ class Placeholders extends PlaceholderExpansion {
             }
 
             return customPlayer.getTag().getName() + " ";
+        }
+
+        if(identifier.contains("coins")) {
+            CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+            return customPlayer.getCoins() + " ";
+        }
+
+        if(identifier.contains("kills")) {
+            CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+            return customPlayer.getKills("global") + " ";
+        }
+
+        if(identifier.contains("deaths")) {
+            CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+            return customPlayer.getDeaths("global") + " ";
+        }
+
+        if(identifier.contains("wlr")) {
+            CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+            int kills = customPlayer.getKills("global");
+            int deaths = customPlayer.getDeaths("global");
+
+            if(deaths == 0) {
+                return kills + "";
+            }
+            else {
+                return MathUtils.round(((double) kills)/((double) deaths), 3) + "";
+            }
+        }
+
+        if(identifier.contains("bounty")) {
+            CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+            return customPlayer.getBounty() + " ";
         }
 
         return null;
