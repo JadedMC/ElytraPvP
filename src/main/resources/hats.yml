@@ -625,6 +625,85 @@ Hats:
     price: 50
     texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDhkYzc4ZGQ0Y2YzMjFhZGI2NGI1MTJlYjcwMjU2NTVmNDkzNTZkNGE1ZDM4Y2Q5MWI4ZGNjOTY1ZTlhMWYifX19"
 
+  # Summer
+  seagull_hat:
+    name: "Seagull"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzNiZGU0MzExMWY2OWE3ZmRhNmVjNmZhZjIyNjNjODI3OTYxZjM5MGQ3YzYxNjNlZDEyMzEwMzVkMWIwYjkifX19"
+  shell_hat:
+    name: "Shell"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjM4ZDQ5MGI2YmYwODMxNjgzMDhhMTQ2NmM5YTEzYWFlZWIwZWRjZGFkM2RkM2ZhZmRmMmJmZDk0Njc3ODAxYyJ9fX0="
+  beach_ball_hat:
+    name: "Beach Ball"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWE1YWIwNWVhMjU0YzMyZTNjNDhmM2ZkY2Y5ZmQ5ZDc3ZDNjYmEwNGU2YjVlYzJlNjhiM2NiZGNmYWMzZmQifX19"
+  volleyball_hat:
+    name: "Volleyball"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWU2ZGYxYzJiZjViOTE4ZjZjODg3OWFmNGM0ZWNjMWRhYmJlMzcyMjkyODRlMWY4ZjZiY2NkYjFlYTNkMGFjIn19fQ=="
+  lemon_hat:
+    name: "Lemon"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDM3OGI1ODJkMTljY2M1NWIwMjNlYjgyZWRhMjcxYmFjNDc0NGZhMjAwNmNmNWUxOTAyNDZlMmI0ZDVkIn19fQ=="
+  lime_hat:
+    name: "Lime"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2YyNGI3MTM1Nzg5ZmU3OTlkZjM0NTk0ZDY4MDVmNTExMmJlZTYyMzI2MDViYTZkZTIxNTE4NmFkOTQifX19"
+  grapes_hat:
+    name: "Grapes"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWU1OTM1ODYzYzUzYTk5NmY1MzM0ZTkwZjU1ZGU1MzhlODNmZmM1ZjZiMGI4ZTgzYTRkYzRmNmU2YjEyMDgifX19"
+  melon_hat:
+    name: "Melon"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODlmYzljNWI4NzM2ZjM2ZjM0MDVjYmUxMzYzZDQzNGMxNDFjZDIzYWFjMDQxODY0NzZhZjBhMGY3ODc3YWVmNCJ9fX0="
+  grapefruit_hat:
+    name: "Grapefruit"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjQwNDFlNzA5MmVlZGQ5OTE2ZDgxNWM1M2NmZGRhMDgwNzNiMGI1MjNmYWZiZjZjMDZiZTZhYjU1NzNjZTFlNSJ9fX0="
+  sand_castle_hat:
+    name: "Sand Castle"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjhlMTZiZjlkNTYxNTlkZjI1ODlmZjc2NTZmODdjYWYwZjc2MjQwZDE0ZGZhNTU2ZjJiN2FjZGUzNzYzMWY4ZCJ9fX0="
+  picnic_basket_hat:
+    name: "Picnic Basket"
+    category: SEASONAL
+    season: SUMMER
+    rarity: UNCOMMON
+    price: 50
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTEwMDMzMTg5MzQyMDUwNTZjNWRhYWEzOGI3YjY2ZDgxZmI0NTAwYWZlMGJkYzQ0NzNhNGY4NmQ1MDI1Y2UzIn19fQ=="
+
   # Flags
   #Counties
   afghanistan_hat:
