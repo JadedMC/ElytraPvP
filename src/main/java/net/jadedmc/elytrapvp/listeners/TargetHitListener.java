@@ -35,6 +35,11 @@ public class TargetHitListener implements Listener {
         CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
         customPlayer.addTargetHit();
 
+        if(event.getEntity().getLocation().distance(player.getLocation()) < 18) {
+            System.out.println(player.getName() + " hit a bullseye from too close!");
+            return;
+        }
+
         if(event.getSignalStrength() >= 14) {
             customPlayer.addBullseye();
         }
