@@ -51,7 +51,11 @@ public class StatsGUI extends CustomGUI {
 
         ItemBuilder coins = new ItemBuilder(Material.GOLD_INGOT)
                 .setDisplayName("&aCoins: &f" + customPlayer.getCoins())
-                .addLore("&aBounty: &f" + customPlayer.getBounty());
+                .addLore("&aLifetime Coins: &f" + customPlayer.getLifetimeCoins())
+                .addLore("")
+                .addLore("&aBounty: &f" + customPlayer.getBounty())
+                .addLore("&aTotal Bounty Claimed: &f" + customPlayer.getLifetimeBountyClaimed())
+                .addLore("&aTotal Bounty Had: &f" + customPlayer.getLifetimeBountyHad());
         setItem(24, coins.build());
 
         ItemBuilder kits = new ItemBuilder(Material.BOW).setDisplayName("&a&lKit Stats")
