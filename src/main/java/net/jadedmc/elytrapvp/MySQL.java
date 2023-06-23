@@ -30,22 +30,22 @@ public class MySQL {
                     Class.forName("com.mysql.jdbc.Driver");
                     connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?autoReconnect=true&useSSL=false&characterEncoding=utf8", username, password);
                 }
-
-                // Prevents losing connection to MySQL.
-                plugin.getServer().getScheduler().scheduleAsyncRepeatingTask(plugin, ()-> {
-                    try {
-                        connection.isValid(0);
-                    }
-                    catch (SQLException exception) {
-                        exception.printStackTrace();
-                    }
-                }, 504000, 504000);
             }
             catch(SQLException | ClassNotFoundException exception) {
                 // If the connection fails, logs the error.
                 exception.printStackTrace();
                 return;
             }
+
+            // Prevents losing connection to MySQL.
+            plugin.getServer().getScheduler().scheduleAsyncRepeatingTask(plugin, ()-> {
+                try {
+                    connection.isValid(0);
+                }
+                catch (SQLException exception) {
+                    exception.printStackTrace();
+                }
+            }, 504000, 504000);
 
             // Create tables if they do not exist.
             try {
