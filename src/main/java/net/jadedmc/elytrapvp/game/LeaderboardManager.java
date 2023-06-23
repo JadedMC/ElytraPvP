@@ -20,6 +20,7 @@ public class LeaderboardManager {
     private final Map<ParkourCourse, Map<String, String>> parkourCourses = new HashMap<>();
     private final Map<String, Integer> kills = new LinkedHashMap<>();
     private final Map<String, Integer> killStreak = new LinkedHashMap<>();
+    private final Map<String, Integer> bullseyes = new LinkedHashMap<>();
 
     /**
      * Creates the manager.
@@ -39,6 +40,32 @@ public class LeaderboardManager {
         updateParkour();
         updateKills();
         updateKillStreak();
+        updateBullseyes();
+    }
+
+    /**
+     * Updates the bullseyes leaderboard.
+     */
+    public void updateBullseyes() {
+        try {
+            bullseyes.clear();
+
+            PreparedStatement statement = plugin.mySQL().getConnection().prepareStatement("SELECT * FROM elytrapvp_statistics ORDER BY bullseyes DESC LIMIT 10");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PreparedStatement statement2 = plugin.mySQL().getConnection().prepareStatement("SELECT * from player_info WHERE uuid = ? LIMIT 1");
+                statement2.setString(1, resultSet.getString(1));
+                ResultSet results2 = statement2.executeQuery();
+
+                if(results2.next()) {
+                    bullseyes.put(results2.getString(2), resultSet.getInt("bullseyes"));
+                }
+            }
+        }
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     /**
@@ -126,6 +153,10 @@ public class LeaderboardManager {
         catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    public Map<String, Integer> getBullseyesLeaderboard() {
+        return bullseyes;
     }
 
     /**

@@ -91,6 +91,30 @@ class Placeholders extends PlaceholderExpansion {
     @Override
     public String onPlaceholderRequest(Player player, String identifier) {
 
+        if(identifier.contains("bullseyes_top_name_")) {
+            int place = Integer.parseInt(identifier.replaceAll("\\D+","")) - 1;
+
+            ArrayList<String> temp = new ArrayList<>(plugin.leaderboardManager().getBullseyesLeaderboard().keySet());
+
+            if(temp.size() < place + 1) {
+                return "---";
+            }
+
+            return temp.get(place);
+        }
+
+        if(identifier.contains("bullseyes_top_amount_")) {
+            int place = Integer.parseInt(identifier.replaceAll("\\D+","")) - 1;
+
+            ArrayList<Integer> temp = new ArrayList<>(plugin.leaderboardManager().getBullseyesLeaderboard().values());
+
+            if(temp.size() < place + 1) {
+                return "---";
+            }
+
+            return temp.get(place) + "";
+        }
+
         if(identifier.contains("parkour_rank_")) {
             String[] args = identifier.split("_");
 
