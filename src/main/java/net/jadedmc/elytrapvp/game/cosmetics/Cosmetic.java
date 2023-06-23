@@ -5,6 +5,7 @@ import net.jadedmc.elytrapvp.game.seasons.Season;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import net.jadedmc.elytrapvp.utils.item.SkullBuilder;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -127,6 +128,10 @@ public abstract class Cosmetic {
                     .setDisplayName("&a" + getName())
                     .addLore("&aClick to equip");
 
+            if(type.equalsIgnoreCase("Tag")) {
+                builder.setDisplayName(MiniMessage.miniMessage().deserialize(name));
+            }
+
             // If not, return normal item.
             return builder.build();
         }
@@ -146,6 +151,10 @@ public abstract class Cosmetic {
                     .setDisplayName("&c" + getName())
                     .addLore("&cLocked")
                     .build();
+
+            if(type.equalsIgnoreCase("Tag")) {
+                builder.setDisplayName(MiniMessage.miniMessage().deserialize(name));
+            }
 
             return builder.build();
         }
@@ -169,6 +178,10 @@ public abstract class Cosmetic {
         }
         else {
             builder.addLore("&aClick to purchase");
+        }
+
+        if(type.equalsIgnoreCase("Tag")) {
+            builder.setDisplayName(MiniMessage.miniMessage().deserialize(name));
         }
 
         return builder.build();

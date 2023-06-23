@@ -1,92 +1,92 @@
 Tags:
   cheese_tag:
-    name: "&6&k#&r&eCheese&6&k#&r"
+    name: "<!italic><gold><obfuscated>#</obfuscated></gold><yellow>Cheese</yellow><gold><obfuscated>#</obfuscated></gold>"
     price: 300
   dangerous_tag:
-    name: "&e&k#&r&4Dangerous&e&k#&r"
+    name: "<!italic><yellow><obfuscated>#</obfuscated></yellow><dark_red>Dangerous</dark_red><yellow><obfuscated>#</obfuscated></yellow>"
     price: 300
   awesome_tag:
-    name: "&4&k#&r&eAwesome&4&k#&r"
+    name: "<!italic><dark_red><obfuscated>#</obfuscated></dark_red><yellow>Awesome</yellow><dark_red><obfuscated>#</obfuscated></dark_red>"
     price: 300
   skilled_tag:
-    name: "&5&k#&r&dSkilled&5&k#&r"
+    name: "<!italic><dark_purple><obfuscated>#</obfuscated></dark_purple><light_purple>Skilled</light_purple><dark_purple><obfuscated>#</obfuscated></dark_purple>"
     price: 300
   yeet_tag:
-    name: "&4&k#&r&cYEET&4&k#&r"
+    name: "<!italic><dark_red><obfuscated>#</obfuscated></dark_red><red>YEET</red><dark_red><obfuscated>#</obfuscated></dark_red>"
     price: 300
   zoomer_tag:
-    name: "&5&k#&r&bZoomer&5&k#&r"
+    name: "<!italic><dark_purple><obfuscated>#</obfuscated></dark_purple><aqua>Zoomer</aqua><dark_purple><obfuscated>#</obfuscated></dark_purple>"
     price: 300
   on_point_tag:
-    name: "&2&k#&r&aOn-Point&2&k#&r"
+    name: "<!italic><dark_green><obfuscated>#</obfuscated></dark_green><green>On-Point</green><dark_green><obfuscated>#</obfuscated></dark_green>"
     price: 300
   get_sniped_tag:
-    name: "&9&k#&r&fGet Sniped&9&k#&r"
+    name: "<!italic><blue><obfuscated>#</obfuscated></blue><white>Get Sniped</white><blue><obfuscated>#</obfuscated></blue>"
     price: 300
   caveman_tag:
-    name: "&8&k#&r&7Caveman&8&k#&r"
+    name: "<!italic><dark_gray><obfuscated>#</obfuscated></dark_gray><gray>Caveman</gray><dark_gray><obfuscated>#</obfuscated></dark_gray>"
     price: 300
   sea_king_tag:
-    name: "&e&k#&r&3Sea King&e&k#&r"
+    name: "<!italic><yellow><obfuscated>#</obfuscated></yellow><dark_aqua>Sea King</dark_aqua><yellow><obfuscated>#</obfuscated></yellow>"
     price: 300
   toxic_tag:
-    name: "&6&k#&r&e&oToxic&6&k#&r"
+    name: "<!italic><gold><obfuscated>#</obfuscated><yellow><italic>Toxic</italic></yellow><gold><obfuscated>#</obfuscated></gold>"
     price: 300
   bomber_tag:
-    name: "&4&k#&r&fB&4o&fm&4b&fe&4r&4&k#&r"
+    name: "<!italic><dark_red><obfuscated>#</obfuscated></dark_red><white>B</white><dark_red>o</dark_red><white>m</white><dark_red>b</dark_red><white>e</white><dark_red>r<obfuscated>#</obfuscated></dark_red>"
     price: 300
   rekt_tag:
-    name: "&2&k#&r&fRekt&2&k#&r"
+    name: "<!italic><dark_green><obfuscated>#</obfuscated></dark_green><white>Rekt</white><dark_green><obfuscated>#</obfuscated></dark_green>"
     price: 300
   girl_powered_tag:
-    name: "&5&k#&r&dGirl&bPowered&5&k#&r"
+    name: "<!italic><dark_purple><obfuscated>#</obfuscated></dark_purple><light_purple>Girl</light_purple><aqua>Powered</aqua><dark_purple><obfuscated>#</obfuscated></dark_purple>"
     price: 300
   tryhard_tag:
-    name: "&e&k#&r&6Tryhard&e&k#&r"
+    name: "<!italic><yellow><obfuscated>#</obfuscated></yellow><gold>Tryhard</gold><yellow><obfuscated>#</obfuscated></yellow>"
     price: 300
   rage_tag:
-    name: "&c&k#&r&4&oRage&c&k#&r"
+    name: "<!italic><red><obfuscated>#</obfuscated></red><dark_red><italic>Rage</italic></dark_red><red><obfuscated>#</obfuscated></red>"
     price: 300
   gamer_tag:
-    name: "&2&k#&r&bGamer&2&k#&r"
+    name: "<!italic><dark_green><obfuscated>#</obfuscated></dark_green><aqua>Gamer</aqua><dark_green><obfuscated>#</obfuscated></dark_green>"
     price: 300
   broke_tag:
-    name: "&5&k#&r&7&oBroke&5&k#&r"
+    name: "<!italic><dark_purple><obfuscated>#</obfuscated></dark_purple><gray><italic>Broke</italic></gray><dark_purple><obfuscated>#</obfuscated></dark_purple>"
     price: 300
   weak_tag:
-    name: "&c&k#&r&e&oWeak&c&k#&r"
+    name: "<!italic><red><obfuscated>#</obfuscated></red><yellow><italic>Weak</italic></yellow><red><obfuscated>#</obfuscated></red>"
     price: 300
   strong_tag:
-    name: "&e&k#&r&c&oStrong&e&k#&r"
+    name: "<!italic><yellow><obfuscated>#</obfuscated></yellow><red><italic>Strong</italic></red><yellow><obfuscated>#</obfuscated></yellow>"
     price: 300
   pilot_tag:
-    name: "&3&k#&r&b&oPilot&3&k#&r"
+    name: "<!italic><dark_aqua><obfuscated>#</obfuscated></dark_aqua><aqua><italic>Pilot</italic></aqua><dark_aqua><obfuscated>#</obfuscated></dark_aqua>"
     price: 300
   santa_tag:
-    name: "&a&k#&cSanta&a&k#"
+    name: "<!italic><green><obfuscated>#</obfuscated><red>Santa</red><green><obfuscated>#</obfuscated>"
     price: 300
     season: CHRISTMAS
   grinch_tag:
-    name: "&4&k#&2Grinch&4&k#"
+    name: "<!italic><dark_red><obfuscated>#</obfuscated><dark_green>Grinch</dark_green><dark_red><obfuscated>#</obfuscated></dark_red>"
     price: 300
     season: CHRISTMAS
   frosty_tag:
-    name: "&#59c2f0&k#&#d7ecf5Frosty&#59c2f0&k#"
+    name: "<!italic><color:#59c2f0><obfuscated>#</obfuscated></color><color:#d7ecf5>Frosty</color><color:#59c2f0><obfuscated>#</obfuscated></color>"
     price: 300
     season: CHRISTMAS
   rainbow_tag:
-    name: "&4&k#&cR&6a&ei&an&3b&9o&dw&5&k#"
+    name: "<!italic><dark_red><obfuscated>#</obfuscated></dark_red><red>R</red><gold>a</gold><yellow>i</yellow><green>n</green><dark_aqua>b</dark_aqua><blue>o</blue><light_purple>w</light_purple><dark_purple><obfuscated>#</obfuscated></dark_purple>"
     price: 300
   ace_tag:
-    name: "&#424242&k#&#a034dbA&#a4a4a4c&#faf1ffe&#424242&k#"
+    name: "<!italic><color:#424242><obfuscated>#</obfuscated></color><color:#a034db>A</color><color:#a4a4a4>c</color><color:#faf1ff>e</color><color:#424242><obfuscated>#</obfuscated></color>"
     price: 300
   speedy_tag:
-    name: "&#ededed&k#&#27fff4S&#5efff7p&#8ffff9e&#bafffbe&#eafffedy&#ededed&k#"
+    name: "<!italic><color:#ededed><obfuscated>#</obfuscated></color><color:#27fff4>S</color><color:#5efff7>p</color><color:#8ffff9>e</color><color:#bafffb>e</color><color:#eafffe>dy</color><color:#ededed><obfuscated>#</obfuscated></color>"
     price: 300
   eldritch_tag:
-    name: "&#edebe2&k#&#e8b225E&#fbc94fl&#ecc314d&#f6dc4er&#eccb3fi&#e2ce44t&#ffd354c&#ffe400h&#edebe2&k#"
+    name: "<!italic><color:#edebe2><obfuscated>#</obfuscated></color><color:#e8b225>E</color><color:#fbc94f>l</color><color:#ecc314>d</color><color:#f6dc4e>r</color><color:#eccb3f>i</color><color:#e2ce44>t</color><color:#ffd354>c</color><color:#ffe400>h</color><color:#edebe2><obfuscated>#</obfuscated></color>"
     price: 300
   lucky_tag:
-    name: "&6&k#&2Lucky&6&k#"
+    name: "<!italic><gold><obfuscated>#</obfuscated></gold><dark_green>Lucky</dark_green><gold><obfuscated>#</obfuscated></gold>"
     price: 300
     season: SAINT_PATRICKS_DAY

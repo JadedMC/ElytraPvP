@@ -1,6 +1,8 @@
 package net.jadedmc.elytrapvp.utils.item;
 
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -197,6 +199,16 @@ public class ItemBuilder {
      */
     public ItemBuilder setDisplayName(String str) {
         meta.setDisplayName(ChatUtils.translate(str));
+        return this;
+    }
+
+    /**
+     * Set the display name of the item.
+     * @param displayName Component of the display name.
+     * @return ItemBuilder
+     */
+    public ItemBuilder setDisplayName(Component displayName) {
+        meta.displayName(displayName);
         return this;
     }
 
