@@ -8,6 +8,7 @@ import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
 import net.jadedmc.elytrapvp.utils.gui.CustomGUI;
 import net.jadedmc.elytrapvp.utils.item.ItemBuilder;
 import net.jadedmc.elytrapvp.utils.item.SkullBuilder;
+import net.jadedmc.jadedcore.JadedAPI;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -91,7 +92,9 @@ public class ArrowTrailsGUI extends CustomGUI {
 
                         // Checks for the "'Tis the Season" achievement.
                         if(arrowTrail.getSeason() != Season.NONE) {
-                            plugin.achievementManager().getAchievement("seasonal_1").unlock(player);
+                            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_1").unlock(player)) {
+                                customPlayer.addCoins(15);
+                            }
                         }
                     }
                 }

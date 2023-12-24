@@ -3,6 +3,7 @@ package net.jadedmc.elytrapvp.commands;
 import net.jadedmc.elytrapvp.ElytraPvP;
 import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
+import net.jadedmc.jadedcore.JadedAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -82,7 +83,9 @@ public class BountyCMD extends AbstractCommand {
 
         // Checks for the "Murder for Hire" achievement.
         if(coins >= 50) {
-            plugin.achievementManager().getAchievement("bounty_3").unlock(player);
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_29").unlock(player)) {
+                customPlayer.addCoins(15);
+            }
         }
     }
 }

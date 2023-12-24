@@ -8,6 +8,7 @@ import net.jadedmc.elytrapvp.game.cosmetics.tags.Tag;
 import net.jadedmc.elytrapvp.game.cosmetics.trails.Trail;
 import net.jadedmc.elytrapvp.game.kits.Kit;
 import net.jadedmc.elytrapvp.game.parkour.ParkourCourse;
+import net.jadedmc.jadedcore.JadedAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -267,7 +268,9 @@ public class CustomPlayer {
 
         // Checks for the "Sharp Shooter" achievement.
         if(getArrowsHit("global") >= 2500) {
-            plugin.achievementManager().getAchievement("arrows_hit)1").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_35").unlock(getPlayer())) {
+                addCoins(50);
+            }
         }
     }
 
@@ -290,7 +293,9 @@ public class CustomPlayer {
 
         // Checks for the "Wanted" achievement.
         if(getBounty() >= 100) {
-            plugin.achievementManager().getAchievement("bounty_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_44").unlock(getPlayer())) {
+                addCoins(10);
+            }
         }
 
         // Adds a temporary glowing effect.
@@ -305,7 +310,9 @@ public class CustomPlayer {
 
         // Check for the "Bullseye" achievement.
         if(getBullseyes() >= 10) {
-            plugin.achievementManager().getAchievement("target_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_13").unlock(getPlayer())) {
+                addCoins(20);
+            }
         }
     }
 
@@ -319,22 +326,30 @@ public class CustomPlayer {
 
         // Checks for the "Cha-Ching" achievement.
         if(lifetimeCoins >= 2500) {
-            plugin.achievementManager().getAchievement("coins_1").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_14").unlock(getPlayer())) {
+                addCoins(25);
+            }
         }
 
         // Checks for the "Ooh, Money" achievement.
         if(lifetimeCoins >= 5000) {
-            plugin.achievementManager().getAchievement("coins_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_35").unlock(getPlayer())) {
+                addCoins(50);
+            }
         }
 
         // Checks for the "Money Maker" achievement.
         if(lifetimeCoins >= 10000) {
-            plugin.achievementManager().getAchievement("coins_3").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_28").unlock(getPlayer())) {
+                addCoins(100);
+            }
         }
 
         // Checks for the "Banker" achievement.
         if(this.coins >= 2000) {
-            plugin.achievementManager().getAchievement("coins_4").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_7").unlock(getPlayer())) {
+                addCoins(25);
+            }
         }
     }
 
@@ -396,37 +411,52 @@ public class CustomPlayer {
 
         // Checks for the "Novice" achievement.
         if(kills >= 100) {
-            plugin.achievementManager().getAchievement("kills_1").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_30").unlock(getPlayer())) {
+                addCoins(25);
+            }
         }
 
         // Checks for the "Student" achievement.
         if(kills >= 500) {
-            plugin.achievementManager().getAchievement("kills_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_39").unlock(getPlayer())) {
+                addCoins(60);
+            }
         }
 
         // Checks for the "Master" achievement.
         if(kills >= 1000) {
-            plugin.achievementManager().getAchievement("kills_3").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_27").unlock(getPlayer())) {
+                addCoins(100);
+            }
         }
 
         // Checks for the "Obsessed" achievement.
         if(kills >= 2500) {
-            plugin.achievementManager().getAchievement("kills_4").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_33").unlock(getPlayer())) {
+                addCoins(200);
+            }
         }
 
         // Checks for the "Bloodlust" achievement.
         if(killStreak >= 5) {
-            plugin.achievementManager().getAchievement("kill_streak_1").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_10").unlock(getPlayer())) {
+                addCoins(15);
+            }
         }
 
         // Checks for the "Bloodthirst" achievement.
         if(killStreak >= 10) {
-            plugin.achievementManager().getAchievement("kill_streak_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_11").unlock(getPlayer())) {
+                addCoins(30);
+            }
         }
 
         // Checks for the "Bloodbath" achievement.
         if(killStreak >= 15) {
-            plugin.achievementManager().getAchievement("kill_streak_3").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_9").unlock(getPlayer())) {
+                addCoins(45);
+                unlockTrail(plugin.cosmeticManager().getTrail("blood_ash_trail"));
+            }
         }
 
         // Checks for the "Diversified" achievement.
@@ -435,7 +465,9 @@ public class CustomPlayer {
                 return;
             }
         }
-        plugin.achievementManager().getAchievement("kits_3").unlock(getPlayer());
+        if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_16").unlock(getPlayer())) {
+            addCoins(75);
+        }
     }
 
     /**
@@ -461,7 +493,10 @@ public class CustomPlayer {
 
         // Check for the "Well Practiced" achievement.
         if(getTargetsHit() >= 500) {
-            plugin.achievementManager().getAchievement("target_1").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_45").unlock(getPlayer())) {
+                addCoins(25);
+                unlockHat(plugin.cosmeticManager().getHat("target_block_hat"));
+            }
         }
     }
 
@@ -473,7 +508,9 @@ public class CustomPlayer {
 
         // Checks if the player qualifies for the Anger Issues achievement.
         if(windowsBroken >= 1000) {
-            plugin.achievementManager().getAchievement("windows_1").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_5").unlock(getPlayer())) {
+                addCoins(15);
+            }
         }
     }
 
@@ -494,7 +531,9 @@ public class CustomPlayer {
 
         // Checks for the "Bounty Hunter" achievement.
         if(getLifetimeBountyClaimed() >= 500) {
-            plugin.achievementManager().getAchievement("bounty_1").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_8").unlock(getPlayer())) {
+                addCoins(30);
+            }
         }
     }
 
@@ -1495,7 +1534,9 @@ public class CustomPlayer {
 
         // Checks for the "Trails Mix" achievement.
         if(unlockedArrowTrails.size() >= 5) {
-            plugin.achievementManager().getAchievement("arrow_trails_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_42").unlock(getPlayer())) {
+                addCoins(50);
+            }
         }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -1524,11 +1565,15 @@ public class CustomPlayer {
         unlockedHats.add(hat.getId());
 
         // Checks for the "Looking Sharp" achievement.
-        plugin.achievementManager().getAchievement("hats_1").unlock(getPlayer());
+        if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_26").unlock(getPlayer())) {
+            addCoins(10);
+        }
 
         // Checks for the "Fashionista" achievement.
         if(unlockedHats.size() >= 20) {
-            plugin.achievementManager().getAchievement("hats_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_20").unlock(getPlayer())) {
+                addCoins(50);
+            }
         }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -1558,7 +1603,9 @@ public class CustomPlayer {
         unlockedKillMessages.add(killMessage.getId());
 
         // Checks for the "Creative Killing" achievement.
-        plugin.achievementManager().getAchievement("kill_messages_1").unlock(getPlayer());
+        if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_15").unlock(getPlayer())) {
+            addCoins(15);
+        }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
@@ -1587,11 +1634,15 @@ public class CustomPlayer {
         unlockedTags.add(tag.getId());
 
         // Checks for the "Who Am I?" achievement.
-        plugin.achievementManager().getAchievement("tags_1").unlock(getPlayer());
+        if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_46").unlock(getPlayer())) {
+            addCoins(25);
+        }
 
         // Checks for the" I go by Lots of Names" achievement.
         if(unlockedTags.size() >= 10) {
-            plugin.achievementManager().getAchievement("tags_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_22").unlock(getPlayer())) {
+                addCoins(50);
+            }
         }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -1621,7 +1672,9 @@ public class CustomPlayer {
         unlockedTrails.add(trail.getId());
 
         // Checks for the "Who's Following Me?" achievement.
-        plugin.achievementManager().getAchievement("trails_1").unlock(getPlayer());
+        if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_47").unlock(getPlayer())) {
+            addCoins(20);
+        }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
@@ -1645,11 +1698,15 @@ public class CustomPlayer {
         unlockedKits.add(kit.getId());
 
         // Checks for the "Getting an Upgrade" achievement.
-        plugin.achievementManager().getAchievement("kits_1").unlock(getPlayer());
+        if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_23").unlock(getPlayer())) {
+            addCoins(25);
+        }
 
         // Checks for the "Kit Collector" achievement.
         if(unlockedKits.size() >= plugin.kitManager().getKits().size() - 3) {
-            plugin.achievementManager().getAchievement("kits_2").unlock(getPlayer());
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_25").unlock(getPlayer())) {
+                addCoins(50);
+            }
         }
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {

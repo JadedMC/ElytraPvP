@@ -10,6 +10,7 @@ import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.player.Status;
 import net.jadedmc.elytrapvp.utils.LocationUtils;
 import net.jadedmc.elytrapvp.utils.item.ItemUtils;
+import net.jadedmc.jadedcore.JadedAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -54,7 +55,10 @@ public class PlayerInteractListener implements Listener {
 
         // Check for the "Eternal Storage" command.
         if(event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.ENDER_CHEST && player.getGameMode() == GameMode.ADVENTURE && customPlayer.getStatus() == Status.LOBBY) {
-            plugin.achievementManager().getAchievement("target_3").unlock(player);
+            if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_18").unlock(player)) {
+                customPlayer.addCoins(25);
+                customPlayer.unlockHat(plugin.cosmeticManager().getHat("ender_chest_hat"));
+            }
         }
 
         // Prevent players from moving items around in their inventory.

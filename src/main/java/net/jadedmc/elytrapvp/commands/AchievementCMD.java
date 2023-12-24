@@ -1,7 +1,9 @@
 package net.jadedmc.elytrapvp.commands;
 
 import net.jadedmc.elytrapvp.ElytraPvP;
+import net.jadedmc.elytrapvp.player.CustomPlayer;
 import net.jadedmc.elytrapvp.utils.chat.ChatUtils;
+import net.jadedmc.jadedcore.JadedAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -35,7 +37,21 @@ public class AchievementCMD extends AbstractCommand {
                     return;
                 }
 
-                plugin.achievementManager().getAchievement(achievement).unlock(player);
+                CustomPlayer customPlayer = plugin.customPlayerManager().getPlayer(player);
+
+                switch (achievement) {
+                    case "christmas_1" -> {
+                        if(JadedAPI.getPlugin().achievementManager().getAchievement("elytrapvp_41").unlock(player)) {
+                            customPlayer.addCoins(15);
+                            customPlayer.unlockHat(plugin.cosmeticManager().getHat("grinch_hat"));
+                        }
+                    }
+                    default -> {
+                        ChatUtils.chat(player, "&c&lInvalid Achievement! Please Report This in our Discord! &f/discord");
+                    }
+                }
+
+                //plugin.achievementManager().getAchievement(achievement).unlock(player);
             }
         }
     }
